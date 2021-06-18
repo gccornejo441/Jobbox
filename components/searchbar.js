@@ -7,7 +7,7 @@ const SearchBar = () => {
         <>
             <div class="border-2 border-gray-900 flex flex-col">
                 <div class="flex border-2 border-blue-900">
-                    <span><SearchIcon class="h-5 w-5" /></span>
+                    <span class="w-full"><SearchIcon class="h-5 w-5" /></span>
                     <span><button type="button" class="border border-gray-900">Search</button></span>
                     <span><input class="border border-gray-900" type="search" /></span>
                     <div class="flex">
