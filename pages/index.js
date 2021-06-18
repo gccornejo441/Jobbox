@@ -10,11 +10,11 @@ export default () => {
   return (
   <>
   <Head/>
-        <div class="flex border-4 border-blue-500">
-          <div class="border-4 border-yellow-500 h-screen ml-4">
+        <div class="flex">
+          <div class="h-screen px-4 pt-3 bg-blue-900 grid place-content-between">
             <SideNav/>
           </div>
-          <div class="border-4 border-teal-500 w-screen">
+          <div class="border-4 border-red-500 w-screen">
           <SearchBar/>
           </div>
         </div>
