@@ -5,7 +5,7 @@ import SideNav from '../components/sidenav';
 import SearchBar from '../components/searchbar';
 import MainBody from '../components/mainbody';
 
-export default () => {
+const Index = () => {
 
   return (
   <>
@@ -14,10 +14,12 @@ export default () => {
           <div class="h-screen px-4 pt-3 bg-blue-900 grid place-content-between">
             <SideNav/>
           </div>
-          <div class="border-4 border-red-500 w-screen">
+          <div class="w-screen">
           <SearchBar/>
           </div>
         </div>
   </>
   )
 };
+
+export default Index;

@@ -4,7 +4,12 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'salmon': "#ffeed6",
+        'white': '#fff'
+      }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -17,7 +22,7 @@ module.exports = {
       lime: colors.lime,
       green: colors.green,
       emerald: colors.emerald,
-      teal: colors.teal
+      teal: colors.teal,
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],

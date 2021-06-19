@@ -22,23 +22,23 @@ const menu = [
     {
         id: 2,
         icon: <CreditCardIcon class="h-5 w-5" />,
-        label: "Statistics",
+        label: "Transactions",
         sublabel: <div class="my-3 mx-2 px-2 bg-yellow-400 rounded-xl"><div class="text-xs text-cyan-900">Pro</div></div>,
     },
     {
         id: 3,
         icon: <CogIcon class="h-5 w-5" />,
-        label: "Transactions",
+        label: "Settings",
     },
     {
         id: 4,
         icon: <CalendarIcon class="h-5 w-5" />,
-        label: "Settings",
+        label: "Calender",
     },
     {
         id: 5,
         icon: <ChartPieIcon class="h-5 w-5" />,
-        label: "Calender",
+        label: "Statistics",
         sublabel: <div class="my-3 mx-2 px-2 bg-yellow-400 rounded-xl "><div class="text-xs text-cyan-900">Pro</div></div>,
     },
     {
@@ -129,7 +129,7 @@ const SideNav = () => {
                                         <VariableIcon class="h-5 w-5" />
                                     </span>
                                     <span class="p-2 text-cyan-50">
-                                        Themesberg
+                                        Conditions
                                     </span>
                                 </div>
                             </li>
