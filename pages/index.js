@@ -4,17 +4,23 @@ import Head from '../components/head';
 import SideNav from '../components/sidenav';
 import SearchBar from '../components/searchbar';
 import MobileNav from '../components/mobilenav';
+import { useState } from 'react';
 
 const Index = () => {
-
+  // let [ isDisplayed, setDisplayed ] = useState( false );
+  // const setHideShow = () => {
+  //   isDisplayed === false ? ( isDisplayed = true ) : ( isDisplayed = false )
+  //   console.log(`You Navbar display is set to ${isDisplayed}.`); 
+  // }
   return (
     <>
       <Head />
-      <div class="md:hidden">
+      <div class="lg:hidden">
         <MobileNav />
       </div>
+      {/* <button onClick={() => setHideShow()}>Toggle</button> */}
       <div class="flex">
-        <div class="h-screen px-4 pt-3 bg-blue-900 grid place-content-between hidden md:block">
+        <div class="h-screen px-4 pt-3 bg-blue-900 grid place-content-between hidden lg:block">
           <SideNav />
         </div>
         <div class="w-screen">

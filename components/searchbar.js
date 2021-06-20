@@ -15,7 +15,7 @@ const SearchBar = () => {
                                     <div class="p-2 rounded-l-lg border-l border-b border-t border-gray-200 shadow-2xl cursor-pointer bg-gray-50 text-gray-500">
                                         <SearchIcon class="h-5 w-5" />
                                     </div>
-                                    <input class="border-r border-t border-b border-gray-200 shadow-2xl rounded-r-lg pl-2" type="search" placeholder="Search" />
+                                    <input class="border-r border-t border-b border-gray-200 shadow-2xl rounded-r-lg pl-2 w-3/4 sm:w-full" type="search" placeholder="Search" />
                                 </span>
                             </div>
                         </form>
@@ -23,7 +23,7 @@ const SearchBar = () => {
                             <button class="bg-blue-900 px-4 py-1 rounded-lg text-blue-50 text-sm"><span class="text-blue-50 text-base">+{' '}</span>New Task</button>
                         </div>
                     </div>
-                    <div class="flex">
+                    <div class="flex relative z-10">
                         <div class="mr-5 mt-4 relative">
                             <BellIcon class="h-6 w-6" />
                             <div class="absolute top-0 right-0 bg-red-500 border-2 border-red-50 rounded-2xl h-3 w-3"></div>

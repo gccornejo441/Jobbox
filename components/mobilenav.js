@@ -2,56 +2,58 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import SideNav from './sidenav';
+import MobileNavView from './mobilenavView';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+    { name: 'Dashboard', href: '#', current: true },
+    { name: 'Team', href: '#', current: false },
+    { name: 'Projects', href: '#', current: false },
+    { name: 'Calendar', href: '#', current: false },
 ]
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ')
 }
 const MobileNav = () => {
-    return(
+    return (
         <>
-        <Disclosure as="nav" className="bg-blue-900">
-      {({ open }) => (
-        <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                {/* <div className="flex-shrink-0 flex items-center">
+            <Disclosure as="nav" class="bg-blue-900">
+                {({ open }) => (
+                    <>
+                        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                            <div class="relative flex items-center justify-between h-16">
+                                <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
+                                    {/* Mobile menu button*/}
+                                    <Disclosure.Button class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                        <span class="sr-only">Open main menu</span>
+                                        {open ? (
+                                            <XIcon class="block h-6 w-6 relative z-30" aria-hidden="true" />
+                                        ) : (
+                                            <MenuIcon class="block h-6 w-6" aria-hidden="true" />
+                                        )}
+                                    </Disclosure.Button>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                                    {/* <div class="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-8 w-auto"
+                    class="block lg:hidden h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                   />
                   <img
-                    className="hidden lg:block h-8 w-auto"
+                    class="hidden lg:block h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                     alt="Workflow"
                   />
                 </div> */}
-                {/* <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
+                                    {/* <div class="hidden sm:block sm:ml-6">
+                  <div class="flex space-x-4">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
-                        className={classNames(
+                        class={classNames(
                           item.current ? 'bg-yellow-900 text-white' : 'text-yellow-300 hover:bg-yellow-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
@@ -62,22 +64,22 @@ const MobileNav = () => {
                     ))}
                   </div>
                 </div> */}
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {/* <button className="bg-yellow-800 p-1 rounded-full text-yellow-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-800 focus:ring-white">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                                </div>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                    {/* <button class="bg-yellow-800 p-1 rounded-full text-yellow-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-800 focus:ring-white">
+                  <span class="sr-only">View notifications</span>
+                  <BellIcon class="h-6 w-6" aria-hidden="true" />
                 </button> */}
 
-                {/* Profile dropdown */}
-                {/* <Menu as="div" className="ml-3 relative">
+                                    {/* Profile dropdown */}
+                                    {/* <Menu as="div" class="ml-3 relative">
                   {({ open }) => (
                     <>
                       <div>
-                        <Menu.Button className="bg-yellow-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-800 focus:ring-white">
-                          <span className="sr-only">Open user menu</span>
+                        <Menu.Button class="bg-yellow-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-800 focus:ring-white">
+                          <span class="sr-only">Open user menu</span>
                           <img
-                            className="h-8 w-8 rounded-full"
+                            class="h-8 w-8 rounded-full"
                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                             alt=""
                           />
@@ -95,13 +97,13 @@ const MobileNav = () => {
                       >
                         <Menu.Items
                           static
-                          className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                         >
                           <Menu.Item>
                             {({ active }) => (
                               <a
                                 href="#"
-                                className={classNames(
+                                class={classNames(
                                   active ? 'bg-yellow-100' : '',
                                   'block px-4 py-2 text-sm text-yellow-700'
                                 )}
@@ -114,7 +116,7 @@ const MobileNav = () => {
                             {({ active }) => (
                               <a
                                 href="#"
-                                className={classNames(
+                                class={classNames(
                                   active ? 'bg-yellow-100' : '',
                                   'block px-4 py-2 text-sm text-yellow-700'
                                 )}
@@ -127,7 +129,7 @@ const MobileNav = () => {
                             {({ active }) => (
                               <a
                                 href="#"
-                                className={classNames(
+                                class={classNames(
                                   active ? 'bg-yellow-100' : '',
                                   'block px-4 py-2 text-sm text-yellow-700'
                                 )}
@@ -141,30 +143,21 @@ const MobileNav = () => {
                     </>
                   )}
                 </Menu> */}
-              </div>
-            </div>
-          </div>
+                                </div>
+                            </div>
+                        </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-blue-700 text-white' : 'text-blue-200 hover:bg-blue-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+                        <Disclosure.Panel class="lg:hidden">
+                            <div class="fixed z-20 top-0">
+                               <MobileNavView/>
+                            </div>
+                            <div class="h-screen px-4 pt-3 bg-blue-900 grid place-content-between lg:hidden hidden sm:block absolute z-10">
+                                <SideNav />
+                            </div>
+                        </Disclosure.Panel>
+                    </>
+                )}
+            </Disclosure>
         </>
     )
 }

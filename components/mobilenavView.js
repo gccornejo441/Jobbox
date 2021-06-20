@@ -1,3 +1,4 @@
+import { LogoutIcon } from '@heroicons/react/outline';
 import { menu } from '../lib/menuset';
 import {
     QuestionMarkCircleIcon,
@@ -5,8 +6,7 @@ import {
     CloudIcon,
 } from '@heroicons/react/solid'
 
-const SideNav = () => {
-
+const MobileNavView = () => {
     let menuItems = menu.map(item => (
         <li class="hover:bg-cyan-700 rounded-lg my-2">
             <div class="flex justify-between" key={item.id}>
@@ -25,31 +25,24 @@ const SideNav = () => {
     ))
     return (
         <>
-            <div class="pl-3">
-                <div>
-                    <div>
-                        <div>
-                            <ul>
-                                <li class=" ">
-                                    <div class="flex">
-                                        <span class="p-2 text-yellow-200">
-                                            <CloudIcon class="h-5 w-5" />
-                                        </span>
-                                        <span class="text-cyan-50 p-2">
-                                            Racket Space
-                                        </span>
-                                    </div>
-                                </li>
-                            </ul>
+            <div class="bg-blue-900 h-screen w-screen">
+                <div class="border-blue-800 mx-4">
+                    <div class="text-blue-200 mr-2 border-b border-t border-blue-800">
+                        <div class="flex relative z-10">
+                            <span class="mr-3 mt-6 flex">
+                                <img src="/images/profile_picture.jpg" class="h-16 w-16 rounded-full mr-2" />
+                            </span>
+                            <div class="mt-1 mb-4 relative">
+                                <p class="text-xl font-thin text-cyan-50 mt-3 text-wrap">Welcome, Gabriel Cornejo</p>
+                                <button class="bg-yellow-300 text-blue-900 p-2 rounded-lg text-sm my-2 flex">
+                                    <span><LogoutIcon class="w-5 h-5" /></span>Sign Out</button>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <ul>
                             {menuItems}
-                            <li class="py-4">
-                                <hr class="w-full bg-gray-900" />
-                            </li>
-                            <li class="hover:bg-cyan-700 rounded-lg my-2">
+                            <li class="hover:bg-cyan-700 rounded-lg my-2 border-t border-blue-800">
                                 <div class="flex">
                                     <span class="p-2 text-cyan-500">
                                         <QuestionMarkCircleIcon class="h-5 w-5" />
@@ -71,13 +64,13 @@ const SideNav = () => {
                             </li>
                         </ul>
                     </div>
+                    <div class="bg-yellow-400 rounded-lg my-4 text-center py-2 text-sm w-1/2 mx-auto">
+                        Upgrade to Pro
+                    </div>
                 </div>
-            </div>
-            <div class="bg-yellow-400 rounded-lg my-4 text-center py-2 text-sm">
-                Upgrade to Pro
             </div>
         </>
     )
 }
 
-export default SideNav;
+export default MobileNavView;
