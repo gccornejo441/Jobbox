@@ -28,7 +28,7 @@ const MobileNav = () => {
                                     <Disclosure.Button class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                         <span class="sr-only">Open main menu</span>
                                         {open ? (
-                                            <XIcon class="block h-6 w-6 relative z-30" aria-hidden="true" />
+                                            <XIcon class="block h-6 w-6 fixed z-30" aria-hidden="true" />
                                         ) : (
                                             <MenuIcon class="block h-6 w-6" aria-hidden="true" />
                                         )}
@@ -148,10 +148,10 @@ const MobileNav = () => {
                         </div>
 
                         <Disclosure.Panel class="lg:hidden">
-                            <div class="fixed z-20 top-0">
+                            <div class="absolute z-20 top-0 bg-blue-900 h-auto pb-96">
                                <MobileNavView/>
                             </div>
-                            <div class="h-screen px-4 pt-3 bg-blue-900 grid place-content-between lg:hidden hidden sm:block absolute z-10">
+                            <div class="px-4 pt-3 bg-blue-900 grid place-content-between lg:hidden hidden sm:block absolute z-10">
                                 <SideNav />
                             </div>
                         </Disclosure.Panel>

@@ -25,7 +25,7 @@ const MobileNavView = () => {
     ))
     return (
         <>
-            <div class="bg-blue-900 h-screen w-screen">
+            <div class="bg-blue-900 h-full w-screen pb-28">
                 <div class="border-blue-800 mx-4">
                     <div class="text-blue-200 mr-2 border-b border-t border-blue-800">
                         <div class="flex relative z-10">
@@ -34,7 +34,7 @@ const MobileNavView = () => {
                             </span>
                             <div class="mt-1 mb-4 relative">
                                 <p class="text-xl font-thin text-cyan-50 mt-3 text-wrap">Welcome, Gabriel Cornejo</p>
-                                <button class="bg-yellow-300 text-blue-900 p-2 rounded-lg text-sm my-2 flex">
+                                <button class="bg-yellow-400 text-blue-900 p-2 rounded-lg text-sm my-2 flex">
                                     <span><LogoutIcon class="w-5 h-5" /></span>Sign Out</button>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ const MobileNavView = () => {
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-yellow-400 rounded-lg my-4 text-center py-2 text-sm w-1/2 mx-auto">
+                    <div id="pro-btn" class="bg-yellow-400 rounded-lg my-4 text-center py-2 text-sm w-1/2 mx-auto">
                         Upgrade to Pro
                     </div>
                 </div>
