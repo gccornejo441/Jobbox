@@ -1,5 +1,4 @@
-import { SearchIcon, TranslateIcon, ChevronDownIcon, BellIcon, } from '@heroicons/react/solid'
-import { ChatIcon, PresentationChartLineIcon } from '@heroicons/react/outline'
+import { SearchIcon, BellIcon, } from '@heroicons/react/solid'
 import MainBody from './mainbody'
 
 const SearchBar = () => {
@@ -20,7 +19,7 @@ const SearchBar = () => {
                             </div>
                         </form>
                         <div class="pt-3 px-4">
-                            <button class="bg-blue-900 px-4 py-1 rounded-lg text-blue-50 text-sm"><span class="text-blue-50 text-base">+{' '}</span>New Task</button>
+                            <button class="bg-orange px-4 py-1 rounded-lg text-blue-50 text-sm"><span class="text-blue-50 text-base">+{' '}</span>New Movie</button>
                         </div>
                     </div>
                     <div class="flex relative z-10">

@@ -18,14 +18,14 @@ function classNames(...classes) {
 const MobileNav = () => {
     return (
         <>
-            <Disclosure as="nav" class="bg-blue-900">
+            <Disclosure as="nav" class="bg-regal-blue">
                 {({ open }) => (
                     <>
                         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                             <div class="relative flex items-center justify-between h-16">
                                 <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
                                     {/* Mobile menu button*/}
-                                    <Disclosure.Button class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                    <Disclosure.Button class="inline-flex items-center justify-center p-2 rounded-md text-gray-50 hover:text-gray-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                         <span class="sr-only">Open main menu</span>
                                         {open ? (
                                             <XIcon class="block h-6 w-6 fixed z-30" aria-hidden="true" />
@@ -148,10 +148,10 @@ const MobileNav = () => {
                         </div>
 
                         <Disclosure.Panel class="lg:hidden">
-                            <div class="absolute z-20 top-0 bg-blue-900 h-auto pb-96">
+                            <div class="absolute z-20 top-0 bg-regal-blue h-auto pb-96">
                                <MobileNavView/>
                             </div>
-                            <div class="px-4 pt-3 bg-blue-900 grid place-content-between lg:hidden hidden sm:block absolute z-10">
+                            <div class="px-4 pt-3 bg-teal-900 grid place-content-between lg:hidden hidden sm:block absolute z-10">
                                 <SideNav />
                             </div>
                         </Disclosure.Panel>

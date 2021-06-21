@@ -1,20 +1,20 @@
 import { menu } from '../lib/menuset';
+import { CloudIcon } from '@heroicons/react/solid'
 import {
     QuestionMarkCircleIcon,
     VariableIcon,
-    CloudIcon,
-} from '@heroicons/react/solid'
+} from '@heroicons/react/outline'
 
 const SideNav = () => {
 
     let menuItems = menu.map(item => (
-        <li class="hover:bg-cyan-700 rounded-lg my-2">
+        <li class="border border-transparent hover:border-gray-50 rounded-lg my-2">
             <div class="flex justify-between" key={item.id}>
                 <span class="flex">
-                    <div class="p-2 text-cyan-500">
+                    <div class="p-2 text-gray-50">
                         {item.icon}
                     </div>
-                    <div class="p-2 w-max text-cyan-50">
+                    <div class="p-2 w-max text-gray-50 ">
                         {item.label}
                     </div>
                 </span>
@@ -32,10 +32,10 @@ const SideNav = () => {
                             <ul>
                                 <li class=" ">
                                     <div class="flex">
-                                        <span class="p-2 text-yellow-200">
-                                            <CloudIcon class="h-5 w-5" />
+                                        <span class="p-2 text-green-300">
+                                            <CloudIcon class="h-6 w-6" />
                                         </span>
-                                        <span class="text-cyan-50 p-2">
+                                        <span class="text-gray-50 text-xl p-2">
                                             Racket Space
                                         </span>
                                     </div>
@@ -47,24 +47,24 @@ const SideNav = () => {
                         <ul>
                             {menuItems}
                             <li class="py-4">
-                                <hr class="w-full bg-gray-900" />
+                                <hr class="w-full bg-gray-50" />
                             </li>
-                            <li class="hover:bg-cyan-700 rounded-lg my-2">
+                            <li class="border border-transparent hover:border-gray-50 rounded-lg my-2">
                                 <div class="flex">
-                                    <span class="p-2 text-cyan-500">
+                                    <span class="p-2 text-gray-50">
                                         <QuestionMarkCircleIcon class="h-5 w-5" />
                                     </span>
-                                    <span class="p-2 text-cyan-50">
+                                    <span class="p-2 text-gray-50">
                                         Documentation
                                     </span>
                                 </div>
                             </li>
-                            <li class="hover:bg-cyan-700 rounded-lg my-2">
+                            <li class="border border-transparent hover:border-gray-50 rounded-lg my-2">
                                 <div class="flex">
-                                    <span class="p-2 text-cyan-500">
+                                    <span class="p-2 text-gray-50">
                                         <VariableIcon class="h-5 w-5" />
                                     </span>
-                                    <span class="p-2 text-cyan-50">
+                                    <span class="p-2 text-gray-50">
                                         Conditions
                                     </span>
                                 </div>
@@ -73,7 +73,7 @@ const SideNav = () => {
                     </div>
                 </div>
             </div>
-            <div class="bg-yellow-400 rounded-lg my-4 text-center py-2 text-sm">
+            <div class="border border-gray-50 rounded-lg my-4 text-center py-2 text-sm text-gray-50">
                 Upgrade to Pro
             </div>
         </>
