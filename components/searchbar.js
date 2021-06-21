@@ -19,7 +19,8 @@ const SearchBar = () => {
                             </div>
                         </form>
                         <div class="pt-3 px-4">
-                            <button class="bg-orange px-4 py-1 rounded-lg text-blue-50 text-sm"><span class="text-blue-50 text-base">+{' '}</span>New Movie</button>
+                            <button class="bg-regal-blue px-4 py-1 rounded-lg text-blue-50 text-sm"><span class="text-blue-50 text-base">+{' '}</span>New Movie</button>
+                            <a href="/" class="bg-regal-blue ml-2 px-4 py-2 rounded-lg text-blue-50 text-sm hidden md:inline">Sign Out</a>
                         </div>
                     </div>
                     <div class="flex relative z-10">
