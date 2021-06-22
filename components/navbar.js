@@ -34,13 +34,23 @@ export default function Navbar() {
                       </span>
                     </div>
                   {/* RACKET SPACE LOG */}
-                  {/* RACKET SPACE LOG */}
-                  <div class="flex hidden md:flex">
+                  <div class="flex">
+                  {/* RACKET SPACE SIGN-UP */}
+                  <div class="flex hidden md:flex mx-3">
                       <a href="./user/sign-in" class="text-gray-50 border rounded-md bg-green-300 text-regal-blue text-xl p-2">
                         Sign In
                       </a>
                     </div>
-                  {/* RACKET SPACE LOG */}
+                  {/* RACKET SPACE SIGN-UP */}
+                  {/* RACKET SPACE LOG IN*/}
+                  <div class="flex hidden md:flex">
+                      <a href="./user/registration" class="text-gray-50 border rounded-md bg-green-300 text-regal-blue text-xl p-2">
+                        Register
+                      </a>
+                    </div>
+                  {/* RACKET SPACE LOG IN*/}
+
+                  </div>
     
                     <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
                       {/* Mobile menu button*/}
