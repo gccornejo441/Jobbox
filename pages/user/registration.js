@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 const SignIn = () => {
     
@@ -6,11 +6,12 @@ const SignIn = () => {
     const showpass_two = useRef();
 
     // This is to show password click of 'show' button.
+
     const showPwd = () => {
         showpass.current.type === 'password' ? showpass.current.type = 'text' : showpass.current.type = 'password';
         showpass_two.current.type === 'password' ? showpass_two.current.type = 'text' : showpass_two.current.type = 'password';
     }
-    useEffect(() => { return showPwd() });
+
 
     return (
         <>
@@ -25,7 +26,7 @@ const SignIn = () => {
                         </div>
                         <div class="mb-1">
                             <label for="email" class="block text-gray-50 text-sm font-bold mb-2">Email address</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border border-green-300 rounded w-full py-2 px-3 text-gray-50 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Email Address"
+                            <input type="email" id="email" name="email" class="shadow appearance-none border border-green-300 rounded w-full py-2 px-3 text-regal-blue mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Email Address"
                                 required autofocus />
                         </div>
                         <div class="mb-1">
