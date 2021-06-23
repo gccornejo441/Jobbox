@@ -1,7 +1,9 @@
 import { useRef } from 'react';
+import { useFetchUser } from '../../lib/auth0/user';
+import Layout from '../../components/layout'
 
 const SignIn = () => {
-    
+
     const showpass = useRef();
     const showpass_two = useRef();
 
@@ -12,11 +14,34 @@ const SignIn = () => {
         showpass_two.current.type === 'password' ? showpass_two.current.type = 'text' : showpass_two.current.type = 'password';
     }
 
+    const { user, loading } = useFetchUser()
 
     return (
-        <>
-            <div class="flex justify-center mt-32 md:mt-72">
-                <div class="w-full max-w-xs">
+        <Layout user={user} loading={loading}>
+            {/* <div class="flex justify-center mt-32 md:mt-72"> */}
+            {loading && <p>Loading login info...</p>}
+
+            {!loading && !user && (
+                <>
+                    <p>
+                        To test the login click in <i>Login</i>
+                    </p>
+                    <p>
+                        Once you have logged in you should be able to click in{' '}
+                        <i>Profile</i> and <i>Logout</i>
+                    </p>
+                </>
+            )}
+
+            {user && (
+                <>
+                    <h4>Rendered user info on the client</h4>
+                    <img src={user.picture} alt="user picture" />
+                    <p>nickname: {user.nickname}</p>
+                    <p>name: {user.name}</p>
+                </>
+            )}
+            {/* <div class="w-full max-w-xs">
                     <form action="/api/userbase" method="POST" class="bg-regal-blue shadow-md rounded-md px-8 pt-6 pb-8 mb-4">
                         <div class="mb-4">
                             <label class="block text-gray-50 text-sm font-bold mb-2" for="username">
@@ -30,9 +55,9 @@ const SignIn = () => {
                                 required autofocus />
                         </div>
                         <div class="mb-1">
-                        <div class="flex flex-row-reverse">
-                            <button class="border border-green-300 bg-gray-50 rounded-md p-2" type="button" onClick={() => showPwd()}>Show</button>
-                        </div>
+                            <div class="flex flex-row-reverse">
+                                <button class="border border-green-300 bg-gray-50 rounded-md p-2" type="button" onClick={() => showPwd()}>Show</button>
+                            </div>
                             <label class="block text-gray-50 text-sm font-bold mb-2" for="password">
                                 Password
                             </label>
@@ -56,9 +81,9 @@ const SignIn = () => {
                         </div>
                     </form>
                 </div>
-            </div>
-        </>
-    )
+            </div> */}
+            </Layout>
+            )
 }
 
 export default SignIn;

@@ -1,7 +1,15 @@
-const uri = process.env.MONGODB_URL;
 import { MongoClient } from 'mongodb';
+const AuthenticationClient = require('auth0').AuthenticationClient;
 
-// Create a new MongoClient
+// Creates a new ClientID
+const auth0 = new AuthenticationClient({
+  domain: '{YOUR_ACCOUNT}.auth0.com',
+  clientId: '{OPTIONAL_CLIENT_ID}'
+});
+
+const uri = process.env.MONGODB_URL;
+
+// Creates a new MongoClient
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -26,6 +34,8 @@ const handler = async (req, res) => {
             }
           }
           run().catch(console.dir);
+    } else if (req.method == "GET") {
+
     }
 }
 
