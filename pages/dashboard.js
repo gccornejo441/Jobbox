@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Head from '../components/head';
 // import Products from '../components/products';
 import SideNav from '../components/sidenav';
 import SearchBar from '../components/searchbar';
@@ -7,14 +6,9 @@ import MobileNav from '../components/mobilenav';
 
 
 const Dashboard = () => {
-  // let [ isDisplayed, setDisplayed ] = useState( false );
-  // const setHideShow = () => {
-  //   isDisplayed === false ? ( isDisplayed = true ) : ( isDisplayed = false )
-  //   console.log(`You Navbar display is set to ${isDisplayed}.`); 
-  // }
+ 
   return (
     <>
-      <Head />
       <div class="lg:hidden">
         <MobileNav />
       </div>

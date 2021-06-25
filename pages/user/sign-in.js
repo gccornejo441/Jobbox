@@ -22,6 +22,7 @@ const SignIn = () => {
                         <button class="bg-green-400 hover:bg-green-300 text-regal-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" >
                             Sign In
                         </button>
+                        <a href="/api/auth/login">Login</a>
                         <a class="inline-block align-baseline font-bold text-sm text-gray-50 hover:text-green-300" href="#">
                             Forgot Password?
                         </a>

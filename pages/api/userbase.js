@@ -35,7 +35,7 @@ const handler = async (req, res) => {
           }
           run().catch(console.dir);
     } else if (req.method == "GET") {
-
+      
     }
 }
 
