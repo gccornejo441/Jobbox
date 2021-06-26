@@ -4,10 +4,14 @@ import {
     BriefcaseIcon,
     ChatIcon
 } from '@heroicons/react/outline'
+import Head from 'next/head'
 
 const MainBody = () => {
     return (
         <>
+            <Head>
+                <title>Jobster</title>
+            </Head>
             <div class="grid grid-cols-2 gap-4 my-24">
                 <div>
                     <Image src="/images/man-drilling.jpg" alt="A picture of a theater room" height={900} width={1400} />
@@ -19,21 +23,24 @@ const MainBody = () => {
                     </div>
                 </div>
             </div>
-            <div class="bg-green-300 h-full">
+            <div class="h-full">
                 <ul class="grid grid-cols-3 gap-10 place-items-center">
-                    <li class="text-center p-10">
-                        <UserGroupIcon class="w-16 h-16 mx-auto text-gray-50" />
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <li class="text-start p-10 bg-red-200 py-40">
+                        <UserGroupIcon class="w-16 h-16 text-regal-blue" />
+                        <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
+                        <p class="text-md text-regal-blue">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </p>
                     </li>
-                    <li class="text-center p-10">
-                        <BriefcaseIcon class="w-16 h-16 mx-auto text-gray-50" />
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <li class="text-start p-10 bg-violet-200 py-40">
+                        <BriefcaseIcon class="w-16 h-16 text-regal-blue" />
+                        <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
+                        <p class="text-md text-regal-blue">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </p>
                     </li>
-                    <li class="text-center p-10">
-                        <ChatIcon class="w-16 h-16 mx-auto text-gray-50" />
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <li class="text-start p-10 bg-green-200 py-40">
+                        <ChatIcon class="w-16 h-16 text-regal-blue" />
+                        <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
+                        <p class="text-md text-regal-blue">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </p>
                     </li>
                 </ul>
