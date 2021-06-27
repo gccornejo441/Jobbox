@@ -24,7 +24,13 @@ const MainBody = () => {
                 </div>
             </div>
             <div class="h-full">
-                <ul class="grid grid-cols-3 gap-10 place-items-center">
+                <ul class="grid md:grid-cols-3 gap-10 place-items-center">
+                    <li class="text-start p-10 bg-green-200 py-40">
+                        <ChatIcon class="w-16 h-16 text-regal-blue" />
+                        <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
+                        <p class="text-md text-regal-blue">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </li>
                     <li class="text-start p-10 bg-red-200 py-40">
                         <UserGroupIcon class="w-16 h-16 text-regal-blue" />
                         <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
@@ -33,12 +39,6 @@ const MainBody = () => {
                     </li>
                     <li class="text-start p-10 bg-violet-200 py-40">
                         <BriefcaseIcon class="w-16 h-16 text-regal-blue" />
-                        <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
-                        <p class="text-md text-regal-blue">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                    </li>
-                    <li class="text-start p-10 bg-green-200 py-40">
-                        <ChatIcon class="w-16 h-16 text-regal-blue" />
                         <h2 class="text-2xl text-regal-blue">Showcase your talents</h2>
                         <p class="text-md text-regal-blue">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         </p>

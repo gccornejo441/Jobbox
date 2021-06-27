@@ -3,9 +3,9 @@ import Link from 'next/link';
 import SideNav from '../components/sidenav';
 import SearchBar from '../components/searchbar';
 import MobileNav from '../components/mobilenav';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/dist/frontend';
 
-
-const Dashboard = () => {
+export default withPageAuthRequired(function Dashboard() {
  
   return (
     <>
@@ -22,6 +22,4 @@ const Dashboard = () => {
       </div>
     </>
   )
-};
-
-export default Dashboard;
+})
