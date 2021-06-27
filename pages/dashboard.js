@@ -12,7 +12,6 @@ const Dashboard = () => {
       <div class="lg:hidden">
         <MobileNav />
       </div>
-      {/* <button onClick={() => setHideShow()}>Toggle</button> */}
       <div class="flex">
         <div class="h-screen px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
           <SideNav />

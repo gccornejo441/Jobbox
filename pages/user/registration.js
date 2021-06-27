@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useFetchUser } from '../../lib/auth0/user';
-import Layout from '../../components/layout'
+// import Layout from '../../components/layout'
 
 const SignIn = () => {
 
