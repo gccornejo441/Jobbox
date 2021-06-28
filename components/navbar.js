@@ -30,9 +30,9 @@ export default function Navbar({ isShowing }) {
                   <span class="p-2 text-green-300">
                     <CloudIcon class="h-6 w-6" />
                   </span>
-                  <span class="text-regal-blue text-xl p-2">
+                  <a href="/" class="text-regal-blue text-xl p-2">
                     Jobster
-                  </span>
+                  </a>
                 </div>
 
                 {/* RACKET SPACE LOGIN & LOGOUT */}
@@ -100,18 +100,14 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul class="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li class="border-t-2 border-green-400 py-4 text-center">
-                        <Link href="/api/auth/logout" data-testid="logout">
-                          <a class="ml-8 text-gray-50 hover:underline">
+                          <a href="/api/auth/logout"  data-testid="logout" class="ml-8 text-gray-50 hover:underline">
                             Logout
                           </a>
-                        </Link>
                       </li>
                       <li class="border-t-2 border-green-400 py-4 text-center">
-                        <Link href="/dashboard">
-                          <a class="ml-8 text-gray-50 hover:underline">
+                          <a href="/dashboard" class="ml-8 text-gray-50 hover:underline">
                             Dashboard
                           </a>
-                        </Link>
                       </li>
                       <li class="border-b-2 border-t-2 border-green-400 py-4 flex flex-row-reverse">
                         <div class="text-normal text-gray-50 mr-8">
@@ -124,11 +120,9 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul class="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li class="border-t-2 border-b-2 border-green-400 py-4 text-center">
-                        <Link href="/api/auth/login" data-testid="login">
-                          <a class="ml-8 text-gray-50 hover:underline">
+                          <a href="/api/auth/login" data-testid="login" class="ml-8 text-gray-50 hover:underline">
                             Login
                           </a>
-                        </Link>
                       </li>
                     </ul>
                   </>
