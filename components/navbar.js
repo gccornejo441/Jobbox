@@ -3,6 +3,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { CloudIcon } from '@heroicons/react/solid'
 import { useUser } from '@auth0/nextjs-auth0'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -27,11 +28,10 @@ export default function Navbar({ isShowing }) {
               <div class="relative flex items-center justify-between h-16">
                 {/* RACKET SPACE LOGO */}
                 <div class="flex">
+                  <a href="/">
                   <span class="p-2 text-green-300">
-                    <CloudIcon class="h-6 w-6" />
+                    <Image src="/images/jobster.png" alt="Jobster Logo" height={30} width={140} />
                   </span>
-                  <a href="/" class="text-regal-blue text-xl p-2">
-                    Jobster
                   </a>
                 </div>
 
