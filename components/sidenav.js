@@ -1,12 +1,13 @@
-import { menu } from '../lib/menuset';
-import { CloudIcon } from '@heroicons/react/solid'
+import { menu } from '../lib/menuset'
+import Head from 'next/head'
+import Image from 'next/image'
 import {
     QuestionMarkCircleIcon,
     VariableIcon,
 } from '@heroicons/react/outline'
 
-const SideNav = () => {
 
+const SideNav = () => {
     let menuItems = menu.map(item => (
         <li class="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
             <div class="flex justify-between" key={item.id}>
@@ -25,19 +26,21 @@ const SideNav = () => {
     ))
     return (
         <>
+        <Head>
+            <title>Jobster - Dashboard</title>
+        </Head>
             <div class="pl-3">
                 <div>
                     <div>
                         <div>
                             <ul>
                                 <li class=" ">
-                                    <div class="flex">
-                                        <span class="p-2 text-green-300">
-                                            <CloudIcon class="h-6 w-6" />
-                                        </span>
-                                        <span class="text-gray-50 text-xl p-2">
-                                            Racket Space
-                                        </span>
+                                    <div class="flex bg-gray-50 w-max rounded-md p-2">
+                                        <a href="/dashboard">
+                                            <span class="p-2 text-green-300">
+                                                <Image src="/images/jobster.png" alt="Jobster Logo" height={30} width={140} />
+                                            </span>
+                                        </a>
                                     </div>
                                 </li>
                             </ul>

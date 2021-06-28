@@ -41,18 +41,14 @@ export default function Navbar({ isShowing }) {
                     <>
                       <ul class="flex">
                         <li class="md:mx-3">
-                          <Link href="/api/auth/logout" data-testid="logout">
-                            <a class="text-gray-50 border rounded-md bg-regal-blue text-xl p-2">
+                            <a href="/api/auth/logout" data-testid="logout" class="text-gray-50 border rounded-md bg-regal-blue text-xl p-2">
                               Logout
                             </a>
-                          </Link>
                         </li>
                         <li class="md:mx-3">
-                          <Link href="/dashboard">
-                            <a class="text-regal-blue border rounded-md bg-green-300 text-xl p-2">
+                            <a href="/dashboard" class="text-regal-blue border rounded-md bg-green-300 text-xl p-2">
                               Dashboard
                             </a>
-                          </Link>
                         </li>
                         <li class="md:mx-3">
                           <div class="text-2xl text-regal-blue">
@@ -100,13 +96,13 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul class="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li class="border-t-2 border-green-400 py-4 text-center">
-                          <a href="/api/auth/logout"  data-testid="logout" class="ml-8 text-gray-50 hover:underline">
-                            Logout
+                          <a href="/dashboard" class="ml-8 text-gray-50 hover:underline">
+                            Dashboard
                           </a>
                       </li>
                       <li class="border-t-2 border-green-400 py-4 text-center">
-                          <a href="/dashboard" class="ml-8 text-gray-50 hover:underline">
-                            Dashboard
+                          <a href="/api/auth/logout"  data-testid="logout" class="ml-8 text-gray-50 hover:underline">
+                            Logout
                           </a>
                       </li>
                       <li class="border-b-2 border-t-2 border-green-400 py-4 flex flex-row-reverse">

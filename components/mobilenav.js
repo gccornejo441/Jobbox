@@ -1,10 +1,8 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { CloudIcon } from '@heroicons/react/solid'
-import SideNav from './sidenav';
-import MobileNavView from './mobilenavView';
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import SideNav from './sidenav'
+import MobileNavView from './mobilenavView'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -26,13 +24,13 @@ const MobileNav = () => {
               <div class="relative flex items-center justify-between h-16">
               
               {/* RACKET SPACE LOG */}
-                <div class="flex">
+                {/* RACKET SPACE LOGO */}
+                <div class="flex bg-gray-50 w-max rounded-md p-2">
+                  <a href="/">
                   <span class="p-2 text-green-300">
-                    <CloudIcon class="h-6 w-6" />
+                    <Image src="/images/jobster.png" alt="Jobster Logo" height={30} width={140} />
                   </span>
-                  <span class="text-gray-50 text-xl p-2">
-                    Racket Space
-                  </span>
+                  </a>
                 </div>
               {/* RACKET SPACE LOG */}
 
