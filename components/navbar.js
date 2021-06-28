@@ -20,7 +20,7 @@ export default function Navbar({ isShowing }) {
 
   return (
     <>
-      <Disclosure as="nav" class="bg-white">
+      <Disclosure as="nav" class="bg-white fixed w-screen top-0 z-20">
         {({ open }) => (
           <>
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -138,8 +138,6 @@ export default function Navbar({ isShowing }) {
           </>
         )}
       </Disclosure>
-      <div class="w-screen bg-regal-blue h-2">
-      </div>
     </>
   )
 }

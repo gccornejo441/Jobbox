@@ -5,6 +5,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: theme => ({
+        'hero-pattern': "url('/images/man-drilling.jpg')",
+       }),
+       height: {
+        'huge': '30rem'
+       },
       colors: {
         'salmon': "#ffeed6",
         'white': '#fff',
