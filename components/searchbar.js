@@ -1,10 +1,13 @@
-import { SearchIcon, BellIcon, } from '@heroicons/react/solid'
+import { SearchIcon, BellIcon, UserAddIcon } from '@heroicons/react/solid'
+import { LogoutIcon } from '@heroicons/react/outline';
 import MainBody from './mainbody'
 import { useUser } from '@auth0/nextjs-auth0'
+import { Menu, Transition } from '@headlessui/react'
+import { Fragment } from 'react';
 
 const SearchBar = () => {
-        // importing user form auth0
-        const { user } = useUser();
+    // importing user form auth0
+    const { user } = useUser();
 
     return (
         <>
@@ -22,24 +25,88 @@ const SearchBar = () => {
                                 </span>
                             </div>
                         </form>
-                        <div class="pt-3 px-4">
-                            <button class="bg-regal-blue px-4 py-1 rounded-lg text-blue-50 text-sm"><span class="text-blue-50 text-base">+{' '}</span>New Movie</button>
-                            <a href="/api/auth/logout" data-testid="logout" class="bg-regal-blue ml-2 px-4 py-2 rounded-lg text-blue-50 text-sm hidden md:inline">Log Out</a>
+                        <div class="pt-3 px-4 flex">
+                            <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
+                                <span><UserAddIcon class="w-5 h-5" /></span>Persona</a>
+                            <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
+                                <span><LogoutIcon class="w-5 h-5" /></span>Log Out</a>                        
                         </div>
                     </div>
-                    <div class="flex relative z-10 ">
-                        <div class="mr-2 mt-4 relative">
-                            <BellIcon class="h-6 w-6" />
-                            <div class="absolute top-0 right-0 bg-red-500 border-2 border-red-50 rounded-2xl h-3 w-3"></div>
-                        </div>
-                        <span class="mr-5 mt-3 flex hidden md:flex">
-                            <img src="/images/no-picture.jpg" class="h-7 w-7 rounded-2xl mr-2" />
-                            <p class="text-sm font-semibold text-cyan-800 mt-1">{user.nickname}</p>
-                        </span>
-                    </div>
+                    <Menu as="div" class="ml-3 relative">
+                        {({ open }) => (
+                            <>
+                                <div class="flex mt-4 mr-5 hidden lg:flex">
+                                    <div class="mr-2 relative top-2">
+                                        <BellIcon class="h-6 w-6" />
+                                        <div class="absolute top-0 right-0 bg-red-500 border-2 border-red-50 rounded-2xl h-3 w-3"></div>
+                                    </div>
+                                    <Menu.Button class="bg-regal-blue flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-regal-blue focus:ring-white">
+                                        <span class="sr-only">Open user menu</span>
+                                        <img src="/images/no-picture.jpg" class="h-8 w-8 rounded-full" />
+                                    </Menu.Button>
+                                    <p class="text-sm font-semibold text-cyan-800 mt-1 mx-3">{user.nickname}</p>
+                                </div>
+                                <Transition
+                                    show={open}
+                                    as={Fragment}
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95"
+                                >
+                                    <Menu.Items
+                                        static
+                                        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    >
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <a
+                                                    href="#"
+                                                    class={
+                                                        active ? 'bg-yellow-100' : '',
+                                                        'block px-4 py-2 text-sm text-yellow-700'
+                                                    }
+                                                >
+                                                    Your Profile
+                                                </a>
+                                            )}
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <a
+                                                    href="#"
+                                                    class={
+                                                        active ? 'bg-yellow-100' : '',
+                                                        'block px-4 py-2 text-sm text-yellow-700'
+                                                    }
+                                                >
+                                                    Settings
+                                                </a>
+                                            )}
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <a
+                                                    href="#"
+                                                    class={
+                                                        active ? 'bg-yellow-100' : '',
+                                                        'block px-4 py-2 text-sm text-yellow-700'
+                                                    }
+                                                >
+                                                    Sign out
+                                                </a>
+                                            )}
+                                        </Menu.Item>
+                                    </Menu.Items>
+                                </Transition>
+                            </>
+                        )}
+                    </Menu>
                 </div>
                 <div class="pt-3 px-4">
-                    <MainBody/>
+                    <MainBody />
                 </div>
             </div>
         </>
