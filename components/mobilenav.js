@@ -5,7 +5,7 @@ import MobileNavView from './mobilenavView'
 import Image from 'next/image'
 
 
-const MobileNav = () => {
+const MobileNav = ({ user }) => {
   return (
     <>
       <Disclosure as="nav" class="bg-regal-blue">

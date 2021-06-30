@@ -6,7 +6,6 @@ import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react';
 
 const SearchBar = () => {
-    // importing user form auth0
     const { user } = useUser();
 
     return (
@@ -26,7 +25,7 @@ const SearchBar = () => {
                             </div>
                         </form>
                         <div class="pt-3 px-4 flex">
-                            <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
+                            <a href="/user/new-persona" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
                                 <span><UserAddIcon class="w-5 h-5" /></span>Persona</a>
                             <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
                                 <span><LogoutIcon class="w-5 h-5" /></span>Log Out</a>                        
