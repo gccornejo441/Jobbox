@@ -33,6 +33,7 @@ const UserCreate = () => {
 
     const removeDiv = async () => {
         divy.length === 1 ? (
+            // Temporary
             alert("STOP PRESSING ME!!!")
         ) : (
             await setCount(count - 1),

@@ -34,7 +34,7 @@ const SideNav = () => {
                     <div>
                         <div>
                             <ul>
-                                <li class=" ">
+                                <li>
                                     <div class="flex bg-gray-50 w-max rounded-md p-2">
                                         <a href="/dashboard">
                                             <span class="p-2 text-green-300">
