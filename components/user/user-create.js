@@ -1,4 +1,4 @@
-import { SearchIcon, BellIcon, UserAddIcon } from '@heroicons/react/solid'
+import { SearchIcon, BellIcon, UserAddIcon, PlusIcon, MinusIcon } from '@heroicons/react/solid'
 import { LogoutIcon } from '@heroicons/react/outline'
 import MainBody from '../mainbody'
 import { useUser } from '@auth0/nextjs-auth0'
@@ -6,26 +6,41 @@ import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Counter from '../../lib/counter/Counter'
+import ExpBox from './ExpBox'
+import { nanoid } from 'nanoid'
 
-const UserCreate = ({ list }) => {
+let BUILD = [
+    {
+        "id": "textarea-" + nanoid(4),
+        "title": 1
+    },
+];
+
+
+const UserCreate = () => {
     // importing user form auth0
     const { user } = useUser();
+    const [divy, setDivy] = useState([...BUILD]);
+    const [count, setCount] = useState(2)
 
-    let [ count, setCount ] = useState(0)
+    const addDiv = async () => {
+        console.log(divy);
+        await setCount(count + 1);
 
-    let emptyBox = [
-        {   "id": 1,
-            "divy": <div class='text-8xl'>Hello World</div>,
-            "quantity": 1,
-        },
-        {   "id": 2,
-            "divy": <div class='text-8xl'>Hello World</div>,
-            "quantity": 1,
-        }
-    ];
+        const newDivy = { "id": nanoid(), "title": count };
+        setDivy([...divy, newDivy]);
+    }
 
+    const removeDiv = async () => {
+        divy.length === 1 ? (
+            alert("STOP PRESSING ME!!!")
+        ) : (
+            await setCount(count - 1),
+            divy.pop(),
+            setDivy([...divy])
+        )
+    }
 
-    
     return (
         <>
             <div class="border-5 border-violet-500 flex flex-col">
@@ -131,10 +146,10 @@ const UserCreate = ({ list }) => {
                                         <span class="inline-block align-middle text-lg text-blue-900">Former</span>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div>
-                                                <span class="inline-block align-middle font-light text-sm text-blue-900 mr-2">United States Marine Corps</span>
+                                                <span class="inline-block align-middle text-sm text-blue-900 mr-2">United States Marine Corps</span>
                                             </div>
                                             <div>
-                                            <span class="inline-block align-middle font-light text-sm text-gray-500 mr-2">Motor Transport Operator</span>
+                                            <span class="inline-block align-middle text-sm text-gray-500 mr-2">Motor Transport Operator</span>
                                             </div>
                                         </div>
                                     </div>
@@ -148,7 +163,7 @@ const UserCreate = ({ list }) => {
                             <div class="m-5 flex">
                                 {/* <Image src="/images/no-picture.jpg" height={200} width={200} class="rounded-full shadow-md" /> */}
                                 <div class="flex flex-col py-3 px-4">
-                                <span class="inline-block align-middle text-2xl text-regal-blue">General Information</span>
+                                    <span class="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                     <span class="grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
                                             <label for="first-name">First Name</label>
@@ -181,57 +196,59 @@ const UserCreate = ({ list }) => {
                                         <div class="grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
                                                 <label for="school-1">School 1</label>
-                                                <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
+                                                <input class="inline-block align-middle text-lg font-bold text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
                                             </div>
                                             <div class="grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school-1-start">Year Started</label>
-                                                    <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-1-start" placeholder="" />
+                                                    <input class="inline-block align-middle text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-1-start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school-1-end">Year Ended</label>
-                                                    <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-1-end" placeholder="" />
+                                                    <input class="inline-block align-middle text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-1-end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
                                                 <label for="school-2">School 2</label>
-                                                <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-2" placeholder="" />
+                                                <input class="inline-block align-middle text-lg font-bold text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-2" placeholder="" />
                                             </div>
                                             <div class="grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school-2-start">Year Started</label>
-                                                    <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-2-start" placeholder="" />
+                                                    <input class="inline-block align-middle text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-2-start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school-2-end">Year Ended</label>
-                                                    <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-2-end" placeholder="" />
+                                                    <input class="inline-block align-middle text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-2-end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
                                                 <label for="school-3">School 3</label>
-                                                <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
+                                                <input class="inline-block align-middle text-lg font-bold text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
                                             </div>
                                             <div class="grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school-3-start">Year Started</label>
-                                                    <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-3-start" placeholder="" />
+                                                    <input class="inline-block align-middle text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-3-start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school-3-end">Year Ended</label>
-                                                    <input class="inline-block align-middle font-light text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-3-end" placeholder="" />
+                                                    <input class="inline-block align-middle text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-3-end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     {/* EXPERIENCE - START */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
-                                    <div>
-                                    <Counter/>
-                                    </div>
+                                    <span class="flex flex-row-reverse">
+                                        <button type="button" onClick={removeDiv} class="border-2 border-violet-500 bg-violet-500 text-gray-50 border border-violet-800 m-2 p-1"><MinusIcon class="h-7 w-7" /></button>
+                                        <button type="button" onClick={addDiv} class="border-2 border-violet-500 bg-teal-500 text-gray-50 border border-teal-800 m-2 p-1"><PlusIcon class="h-7 w-7" /></button>
+                                    </span>
+                                    <ExpBox elements={divy} />
                                     {/* EXPERIENCE - END */}
                                 </div>
                             </div>
@@ -248,10 +265,6 @@ const UserCreate = ({ list }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        list: state.list.element,
-    }
-}
+
 
 export default UserCreate;
