@@ -1,13 +1,9 @@
-import { SearchIcon, BellIcon, UserAddIcon, PlusIcon, MinusIcon } from '@heroicons/react/solid'
-import { LogoutIcon } from '@heroicons/react/outline'
-import MainBody from '../mainbody'
-import { useUser } from '@auth0/nextjs-auth0'
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useState, useEffect } from 'react'
-import Image from 'next/image'
-import Counter from '../../lib/counter/Counter'
-import ExpBox from './ExpBox'
-import { nanoid } from 'nanoid'
+import { SearchIcon, BellIcon, UserAddIcon, PlusIcon, MinusIcon } from '@heroicons/react/solid';
+import { Menu, Transition } from '@headlessui/react';
+import { Fragment, useState, useEffect } from 'react';
+import Image from 'next/image';
+import ExpBox from './ExpBox';
+import { nanoid } from 'nanoid';
 
 let BUILD = [
     {
@@ -17,20 +13,26 @@ let BUILD = [
 ];
 
 
-const UserCreate = () => {
-    // importing user form auth0
-    const { user } = useUser();
+const UserCreate = (props) => {
     const [divy, setDivy] = useState([...BUILD]);
     const [count, setCount] = useState(2)
-
+    
+    // This adds element.
     const addDiv = async () => {
-        console.log(divy);
-        await setCount(count + 1);
+        let newDivy = {};
+        divy.length === 5 ? (
+            // Temporary
+            alert("STOP PRESSING ME!!!")
+        ) : (
+        console.log(divy),
+        await setCount(count + 1),
+        newDivy = { "id": nanoid(), "title": count },
+        setDivy([...divy, newDivy])
+        )
 
-        const newDivy = { "id": nanoid(), "title": count };
-        setDivy([...divy, newDivy]);
     }
-
+    
+    // This removes element.
     const removeDiv = async () => {
         divy.length === 1 ? (
             // Temporary
@@ -71,7 +73,7 @@ const UserCreate = () => {
                                         <span class="sr-only">Open user menu</span>
                                         <img src="/images/no-picture.jpg" class="h-8 w-8 rounded-full" />
                                     </Menu.Button>
-                                    {/* <p class="text-sm font-semibold text-cyan-800 mt-1 mx-3">{user.nickname}</p> */}
+                                    <p class="text-sm font-semibold text-cyan-800 mt-1 mx-3">{props.user.nickname}</p>
                                 </div>
                                 <Transition
                                     show={open}
@@ -261,6 +263,9 @@ const UserCreate = () => {
                         </div>
                     </div>
                 </div>
+                {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
+                            <div class="h-96 w-max bg-transparent"></div>
+                {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
             </div>
         </>
     )

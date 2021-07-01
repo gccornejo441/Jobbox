@@ -3,8 +3,9 @@ import MobileNav from "../../components/mobilenav"
 import SideNav from "../../components/sidenav"
 import { useUser } from '@auth0/nextjs-auth0'
 import UserCreate from '../../components/user/user-create'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/dist/frontend';
 
-const newPersona = () => {
+export default withPageAuthRequired(function newPersona() {
     // importing user form auth0
     const { user } = useUser();
 
@@ -21,11 +22,10 @@ const newPersona = () => {
                     <SideNav />
                 </div>
                 <div class="w-screen">
-                    <UserCreate />
+                    <UserCreate user={user} />
                 </div>
             </div>
         </>
     )
-}
+})
 
-export default newPersona;

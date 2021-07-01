@@ -15,9 +15,9 @@ const SideNav = () => {
                     <div class="p-2">
                         {item.icon}
                     </div>
-                    <div class="p-2 w-max ">
+                    <a href={item.href} class="p-2 w-max ">
                         {item.label}
-                    </div>
+                    </a>
                 </span>
                 {item.sublabel}
                 {item.subIcon}
@@ -77,7 +77,7 @@ const SideNav = () => {
                 </div>
             </div>
             <div class="border border-gray-5 hover:bg-green-300 hover:text-gray-600 rounded-lg my-4 text-center py-2 text-sm text-gray-50">
-                Upgrade to Pro
+                Upgrade to Jobboxer
             </div>
         </>
     )
