@@ -27,7 +27,7 @@ const SideNav = () => {
     return (
         <>
         <Head>
-            <title>Jobster - Dashboard</title>
+            <title>Jobbox - Dashboard</title>
         </Head>
             <div class="pl-3">
                 <div>
@@ -35,10 +35,10 @@ const SideNav = () => {
                         <div>
                             <ul>
                                 <li>
-                                    <div class="flex bg-gray-50 w-max rounded-md p-2">
+                                    <div class="flex bg-gray-50 w-max rounded-md pr-1">
                                         <a href="/dashboard">
-                                            <span class="p-2 text-green-300">
-                                                <Image src="/images/jobster.png" alt="Jobster Logo" height={30} width={140} />
+                                            <span>
+                                                <Image src="/images/jobbox.svg" alt="Jobster Logo" height={60} width={170} />
                                             </span>
                                         </a>
                                     </div>

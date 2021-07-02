@@ -9,14 +9,14 @@ const MainBody = () => {
     return (
         <>
             <Head>
-                <title>Jobster</title>
+                <title>Jobbox</title>
             </Head>
             <div class="flex flex-col my-16 relative w-screen h-huge">
                 <div class="bg-hero-pattern h-screen bg-cover bg-center flex justify-center">
                     <div class="bg-gray-50 bg-opacity-30 w-full flex justify-center">
                         <div class="container z-10 flex flex-row-reverse pr-3 sm:pr-0">
                             <div class="flex flex-col mt-36 md:my-12 sm:mr-12  md:mr-24 xl:mr-24 pr-4 sm:pr-8 text-right">
-                                <h1 class="text-6xl md:text-7xl lg:text-8xl text-regal-blue font-bold my-2">Jobster</h1>
+                                <h1 class="text-6xl md:text-7xl lg:text-8xl text-regal-blue font-bold my-2">Jobbox</h1>
                                 <p class="text-regal-blue text-md md:text-2xl my-2">Display your skills and talents</p>
                             </div>
                         </div>

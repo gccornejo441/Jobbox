@@ -14,10 +14,10 @@ const MobileNav = ({ user }) => {
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
               <div class="relative flex items-center justify-between h-16">
                 {/* RACKET SPACE LOGO */}
-                <div class="flex bg-gray-50 w-max rounded-md p-2">
+                <div class="flex bg-gray-50 w-max rounded-md px-2">
                   <a href="/">
-                  <span class="p-2 text-green-300">
-                    <Image src="/images/jobster.png" alt="Jobster Logo" height={30} width={140} />
+                  <span>
+                    <Image src="/images/jobbox.svg" alt="Jobster Logo" height={40} width={120} />
                   </span>
                   </a>
                 </div>
