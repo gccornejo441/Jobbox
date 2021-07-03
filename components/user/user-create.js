@@ -4,6 +4,8 @@ import { Fragment, useState, useEffect } from 'react';
 import Image from 'next/image';
 import ExpBox from './ExpBox';
 import { nanoid } from 'nanoid';
+import SkillsModal from "./SkillsModal";
+
 
 let BUILD = [
     {
@@ -247,12 +249,16 @@ const UserCreate = (props) => {
                                     </div>
                                     {/* EXPERIENCE - START */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
+                                    <span class="inline-block align-middle text-2xl text-regal-blue">Experience</span>
                                     <span class="flex flex-row-reverse">
                                         <button type="button" onClick={removeDiv} class="border-2 border-violet-500 bg-violet-500 text-gray-50 border border-violet-800 m-2 p-1"><MinusIcon class="h-7 w-7" /></button>
                                         <button type="button" onClick={addDiv} class="border-2 border-violet-500 bg-teal-500 text-gray-50 border border-teal-800 m-2 p-1"><PlusIcon class="h-7 w-7" /></button>
                                     </span>
                                     <ExpBox elements={divy} />
                                     {/* EXPERIENCE - END */}
+                                    <div class="border-b border-gray-200 w-full my-5"></div>
+                                    <SkillsModal/>
+
                                 </div>
                             </div>
                         </div>
