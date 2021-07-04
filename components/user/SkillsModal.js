@@ -1,19 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import { PlusIcon } from '@heroicons/react/solid';
 import Skills from './Skills';
+import config from './config';
+import { nanoid } from 'nanoid';
+import { PlusIcon, CheckCircleIcon } from '@heroicons/react/solid';
 
-const DATA = [
-    {
-        id: "1",
-        title: "Marine Corps",
-        subtitle: "Hard charging devil dogs!"
-    }
-]
 
 export default function MyModal() {
     let [isOpen, setIsOpen] = useState(true)
-    let [skill, setSkill] = useState(DATA)
+    let [skill, setSkill] = useState(config.DATA)
     let [toggleSkill, setToggleSkill] = useState(true)
 
     function closeModal() {
@@ -24,10 +19,20 @@ export default function MyModal() {
         setIsOpen(true)
     }
 
-    const skillSet = () => {
-        const newSkill = { id: nanoid(), title: skill };
-        setSkill([...skill, newSkill])
+    // This handles input value on 'enter'.
+    const handleKeyUp = (evt) => {
+        // This prevents unwanted default value on keyup. 
+        evt.preventDefault();
+
+        // This will evaluate the keycode that is pressed.
+        if (evt.keyCode === 13) {
+            const newSkill = { id: nanoid(), title: evt.target.value, icon_state: <PlusIcon class="h-6 w-6 text-green-500" />, };
+            // A copy of the previous skill state, & the new state object going in.
+            setSkill([...skill, newSkill])
+        }
     }
+
+
 
     return (
         <>
@@ -77,7 +82,7 @@ export default function MyModal() {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <div class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                            <div class="inline-block w-full max-w-3xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                                 <Dialog.Title
                                     as="h3"
                                     class="text-lg font-medium leading-6 text-gray-900"
@@ -101,33 +106,32 @@ export default function MyModal() {
                                                         </fieldset>
                                                     </div>
                                                 </div>
-                                                {/* Used to toggle "Add another skill" button. */}
-                                                {
-                                                    toggleSkill ? (
-                                                        <>
-                                                            <button type="button" onClick={() => setToggleSkill(false)} class="border-2 border-teal-400">Add Another Skill</button>
-                                                            <button class="border-2 border-yellow-800">Add to profile</button>
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            <label>Add Another Skill</label>
-                                                            <input />
-                                                            <button type="button" onClick={() => setToggleSkill(true)} class="border-2 border-violet-400">Cancel</button>
-                                                        </>
-                                                    )
-                                                }
                                             </form>
                                         </div>    </div>
                                 </div>
 
                                 <div class="mt-4">
-                                    <button
-                                        type="button"
-                                        class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                                        onClick={closeModal}
-                                    >
-                                        Got it, thanks!
-                                    </button>
+                                    {/* Used to toggle "Add another skill" button. */}
+                                    {
+                                        toggleSkill ? (
+                                            <>
+                                                <div class="flex justify-between">
+                                                    <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
+                                                    <button class="inline-flex justify-center px-4 py-2 text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div class="flex">
+                                                    <div class="flex flex-col w-screen pr-2">
+                                                        <label class=""></label>
+                                                        <input onKeyUp={handleKeyUp} class="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
+                                                    </div>
+                                                    <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
+                                                </div>
+                                            </>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </Transition.Child>
