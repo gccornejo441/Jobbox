@@ -3,7 +3,7 @@ import { useState } from 'react';
 import config from './config'
 
 const Skills = (props) => {
-    let [check, setCheck] = useState(props.elements)
+    let [check, setCheck] = useState(props.elements);
 
     // This toggles between plus and check icon.
     const toggleCheck = (e) => {
@@ -25,16 +25,24 @@ const Skills = (props) => {
         }
     }
 
+    
+    // const handleSubmit = (evt) => {
+    //     evt.preventDefault();
+    //     // let skill = props.elements.find(item => item.title === evt.target.name);
+    //     let skill = props.elements.filter(item => item.icon_state.type == config.check.type);
+    //     setDisplay(skill)
+    // }
+
+
     return (
         <>
-            <form>
                 <ul>
                     {props.elements.map((item) => {
                         return (
-                            <li class="w-full ">
-                                <label>
-                                    <input onClick={(e) => toggleCheck(e)} name={item.title} class="invisible" />
-                                    <div class="flex justify-between py-2" key={item.id}>
+                            <li class="w-full " key={item.id}>
+                                <label role="checkbox" >
+                                    <input onClick={toggleCheck}  name={item.title} type="checkbox" class="invisible" />
+                                    <div class="flex justify-between py-2">
                                         <div class="flex flex-col">
                                             <div class="text-regal-blue">
                                                 {item.title}
@@ -43,7 +51,7 @@ const Skills = (props) => {
                                                 {item.subtitle}
                                             </div>
                                         </div>
-                                        <div class="flex justify-end ge-skills-checkbox-list__checkbox-icon ge-skills-checkbox-list__checkbox-unchecked artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--secondary">
+                                        <div>
                                             {item.icon_state}
                                         </div>
                                     </div>
@@ -52,7 +60,6 @@ const Skills = (props) => {
                         )
                     })}
                 </ul>
-            </form>
         </>
     )
 }

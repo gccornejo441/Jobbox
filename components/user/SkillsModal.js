@@ -7,16 +7,17 @@ import { PlusIcon, CheckCircleIcon } from '@heroicons/react/solid';
 
 
 export default function MyModal() {
-    let [isOpen, setIsOpen] = useState(true)
-    let [skill, setSkill] = useState(config.DATA)
-    let [toggleSkill, setToggleSkill] = useState(true)
+    let [isOpen, setIsOpen] = useState(false);
+    let [skill, setSkill] = useState(config.DATA);
+    let [displayItem, setDisplay] = useState();
+    let [toggleSkill, setToggleSkill] = useState(true);
 
     function closeModal() {
-        setIsOpen(false)
+        setIsOpen(false);
     }
 
     function openModal() {
-        setIsOpen(true)
+        setIsOpen(true);
     }
 
     // This handles input value on 'enter'.
@@ -28,11 +29,19 @@ export default function MyModal() {
         if (evt.keyCode === 13) {
             const newSkill = { id: nanoid(), title: evt.target.value, icon_state: <PlusIcon class="h-6 w-6 text-green-500" />, };
             // A copy of the previous skill state, & the new state object going in.
-            setSkill([...skill, newSkill])
+            setSkill([...skill, newSkill]);
         }
     }
 
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        // let skill = props.elements.find(item => item.title === evt.target.name);
+        let filteredSkill = skill.filter(item => item.icon_state.type == config.check.type);
+        setDisplay(filteredSkill);
+        console.log(displayItem)
+    }
 
+   
 
     return (
         <>
@@ -41,10 +50,24 @@ export default function MyModal() {
                 <button
                     type="button"
                     onClick={openModal}
-                    class="flex pr-4 pl-2 py-2 text-sm tracking-widest font-medium text-white rounded-md bg-regal-blue border border-blue-700 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                    class="flex pr-4 pl-2 py-2 text-sm tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                     <PlusIcon class="h-5 w-5" />Skills
                 </button>
+                <div>
+                    {displayItem === undefined ? (
+                        <div>
+                            No Data
+                        </div>
+                    ) : (displayItem.map((item) => {
+                        return (
+                            <div class="text-regal-blue text-2xl" key={item.id}>
+                                {item.title}
+                            </div>
+                        )
+                    })
+                    )}
+                </div>
             </div>
 
             <Transition appear show={isOpen} as={Fragment}>
@@ -83,56 +106,49 @@ export default function MyModal() {
                             leaveTo="opacity-0 scale-95"
                         >
                             <div class="inline-block w-full max-w-3xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                                <Dialog.Title
-                                    as="h3"
-                                    class="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 rounded-lg"
-                                >
-                                    Let’s add your skills
-                                    <p class="text-sm text-gray-50 font-thin">
-                                        Here are a few suggestions based on your profile to get you started
-                                    </p>
-                                </Dialog.Title>
-                                <div class="mt-2">
-                                    <div class="pe-s-form__body ge-form-body ge-suggested-skills-flow__body">
-                                        <div id="ember1010" class="ge-base-flow__task-card ge-suggested-skills-flow__task-card ember-view">
-                                            <form class="ge-base-flow__form ge-suggested-skills-flow__task-form ">
-                                                <div id="ember1011" class="ember-view">
-                                                    <div class="ge-suggested-skills-flow__skills-body">
-                                                        <fieldset class="scroll-container ge-suggested-skills-flow__container">
-                                                            <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
-                                                            <ul class="ge-skills-checkbox-list overflow-auto h-96">
-                                                                <Skills elements={skill} />
-                                                            </ul>
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>    </div>
-                                </div>
+                                <form onSubmit={evt => handleSubmit(evt)}>
 
-                                <div class="mt-4">
-                                    {/* Used to toggle "Add another skill" button. */}
-                                    {
-                                        toggleSkill ? (
-                                            <>
-                                                <div class="flex justify-between">
-                                                    <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
-                                                    <button class="inline-flex justify-center px-4 py-2 text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
+                                    <Dialog.Title
+                                        as="h3"
+                                        class="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 rounded-lg"
+                                    >
+                                        Let’s add your skills
+                                        <p class="text-sm text-gray-50 font-thin">
+                                            Here are a few suggestions based on your profile to get you started
+                                        </p>
+                                    </Dialog.Title>
+                                    <div class="mt-2">
+                                        <div class="pe-s-form__body ge-form-body ge-suggested-skills-flow__body">
+                                            <div id="ember1010" class="ge-base-flow__task-card ge-suggested-skills-flow__task-card ember-view">
+                                                <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
+                                                <Skills elements={skill} />
+                                                <div class="mt-4">
+                                                    {/* Used to toggle "Add another skill" button. */}
+                                                    {
+                                                        toggleSkill ? (
+                                                            <>
+                                                                <div class="flex justify-between">
+                                                                    <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
+                                                                    <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
+                                                                </div>
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <div class="flex">
+                                                                    <div class="flex flex-col w-screen pr-2">
+                                                                        <label class=""></label>
+                                                                        <input onKeyUp={handleKeyUp} class="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
+                                                                    </div>
+                                                                    <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
+                                                                </div>
+                                                            </>
+                                                        )
+                                                    }
                                                 </div>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <div class="flex">
-                                                    <div class="flex flex-col w-screen pr-2">
-                                                        <label class=""></label>
-                                                        <input onKeyUp={handleKeyUp} class="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
-                                                    </div>
-                                                    <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
-                                                </div>
-                                            </>
-                                        )
-                                    }
-                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </Transition.Child>
                     </div>
