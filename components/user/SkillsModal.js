@@ -41,7 +41,7 @@ export default function MyModal() {
                 <button
                     type="button"
                     onClick={openModal}
-                    class="flex pr-4 pl-2 py-2 text-sm font-medium text-white bg-black rounded-md bg-green-300 border border-green-500 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                    class="flex pr-4 pl-2 py-2 text-sm tracking-widest font-medium text-white rounded-md bg-regal-blue border border-blue-700 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                     <PlusIcon class="h-5 w-5" />Skills
                 </button>
@@ -85,22 +85,22 @@ export default function MyModal() {
                             <div class="inline-block w-full max-w-3xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                                 <Dialog.Title
                                     as="h3"
-                                    class="text-lg font-medium leading-6 text-gray-900"
+                                    class="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 rounded-lg"
                                 >
                                     Let’s add your skills
-                                </Dialog.Title>
-                                <div class="mt-2">
-                                    <p class="text-sm text-gray-500">
+                                    <p class="text-sm text-gray-50 font-thin">
                                         Here are a few suggestions based on your profile to get you started
                                     </p>
+                                </Dialog.Title>
+                                <div class="mt-2">
                                     <div class="pe-s-form__body ge-form-body ge-suggested-skills-flow__body">
                                         <div id="ember1010" class="ge-base-flow__task-card ge-suggested-skills-flow__task-card ember-view">
                                             <form class="ge-base-flow__form ge-suggested-skills-flow__task-form ">
                                                 <div id="ember1011" class="ember-view">
                                                     <div class="ge-suggested-skills-flow__skills-body">
                                                         <fieldset class="scroll-container ge-suggested-skills-flow__container">
-                                                            <legend class="ge-suggested-skills-flow__container-legend">Select your skills</legend>
-                                                            <ul class="ge-skills-checkbox-list">
+                                                            <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
+                                                            <ul class="ge-skills-checkbox-list overflow-auto h-96">
                                                                 <Skills elements={skill} />
                                                             </ul>
                                                         </fieldset>

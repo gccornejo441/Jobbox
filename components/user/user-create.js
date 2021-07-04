@@ -1,4 +1,4 @@
-import { SearchIcon, BellIcon, UserAddIcon, PlusIcon, MinusIcon } from '@heroicons/react/solid';
+import { SearchIcon, BellIcon, PlusIcon, MinusIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -26,9 +26,10 @@ const UserCreate = (props) => {
             // Temporary
             alert("STOP PRESSING ME!!!")
         ) : (
-        console.log(divy),
+        // The count state is incremented by 1 for avoid unnesscessary play.
         await setCount(count + 1),
         newDivy = { "id": nanoid(), "title": count },
+        // State is set with copy and new.
         setDivy([...divy, newDivy])
         )
 
@@ -258,7 +259,6 @@ const UserCreate = (props) => {
                                     {/* EXPERIENCE - END */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <SkillsModal/>
-
                                 </div>
                             </div>
                         </div>
