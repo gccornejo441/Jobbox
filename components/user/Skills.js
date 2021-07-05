@@ -38,7 +38,7 @@ const Skills = (props) => {
                                             <div class="text-regal-blue">
                                                 {item.title}
                                             </div>
-                                            <div class="text-gray-400 text-sm w-max">
+                                            <div class="text-gray-400 text-xs sm:text-sm w-max-md">
                                                 {item.subtitle}
                                             </div>
                                         </div>

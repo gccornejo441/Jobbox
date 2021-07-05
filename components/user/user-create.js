@@ -142,7 +142,7 @@ const UserCreate = (props) => {
                         )}
                     </Menu>
                 </div>
-                <div class="pt-3 xl:px-4 flex justify-center">
+                <div class="pt-3 xl:px-4 flex justify-center ">
                     <div class="md:bg-white md:rounded-lg md:shadow-md w-full md:w-max xl:px-12">
                         {/* <div class="border-b border-gray-300 flex justify-center">
                             <div class="m-5 flex">
@@ -171,9 +171,9 @@ const UserCreate = (props) => {
                             <h1 class="text-2xl">New Persona</h1>
                         </div>
                         <div class="border-b border-gray-300 flex justify-center w-screen md:w-auto">
-                            <div class="m-5 flex">
+                            <div class="m-5 grid grid-cols-1">
                                 {/* <Image src="/images/no-picture.jpg" height={200} width={200} class="rounded-full shadow-md" /> */}
-                                <div class="flex flex-col py-3 xl:px-4 w-screen md:w-auto">
+                                <div class=" py-3 xl:px-4 md:w-auto">
                                     <span class="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                     <span class="xl:grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
@@ -217,14 +217,14 @@ const UserCreate = (props) => {
                                                 <label for="school-1">School 1</label>
                                                 <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
                                             </div>
-                                            <div class="xl:grid grid-cols-2 gap-2">
+                                            <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school-1-start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-1-start" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-1-start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school-1-end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-1-end" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-1-end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -233,14 +233,14 @@ const UserCreate = (props) => {
                                                 <label for="school-2">School 2</label>
                                                 <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-2" placeholder="" />
                                             </div>
-                                            <div class="xl:grid grid-cols-2 gap-2">
+                                            <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school-2-start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-2-start" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-2-start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school-2-end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-2-end" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-2-end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -249,14 +249,14 @@ const UserCreate = (props) => {
                                                 <label for="school-3">School 3</label>
                                                 <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
                                             </div>
-                                            <div class="xl:grid grid-cols-2 gap-2">
+                                            <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school-3-start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-3-start" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-3-start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school-3-end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="date" name="school-3-end" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-3-end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>

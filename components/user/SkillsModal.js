@@ -122,17 +122,17 @@ export default function MyModal() {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <div class="inline-block w-full max-w-3xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                            <div class="inline-block w-full max-w-3xl sm:p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                                 <form onSubmit={evt => handleSubmit(evt)}>
 
                                     <Dialog.Title
                                         as="h3"
-                                        class="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 rounded-lg"
+                                        class="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 sm:rounded-lg"
                                     >
                                         <div class="flex justify-between">
                                             <div>
                                                 <span>Let’s add your skills</span>
-                                                <p class="text-sm text-gray-50 font-thin">
+                                                <p class="text-xs sm:text-sm text-gray-50 font-thin">
                                                     Here are a few suggestions based on your profile to get you started
                                                 </p>
                                             </div>
@@ -142,7 +142,7 @@ export default function MyModal() {
                                             </button>
                                         </div>
                                     </Dialog.Title>
-                                    <div class="mt-2">
+                                    <div class="mt-2 px-2 pb-3 sm:px-0 sm:pb-0">
                                         <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
                                         <Skills elements={skill} />
                                         <div class="mt-4">
@@ -151,8 +151,8 @@ export default function MyModal() {
                                                 toggleSkill ? (
                                                     <>
                                                         <div class="flex justify-between">
-                                                            <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
-                                                            <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
+                                                            <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
+                                                            <button type="submit" class="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
                                                         </div>
                                                     </>
                                                 ) : (
@@ -162,7 +162,7 @@ export default function MyModal() {
                                                                 <label class=""></label>
                                                                 <input onKeyUp={handleKeyUp} class="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
                                                             </div>
-                                                            <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
+                                                            <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
                                                         </div>
                                                     </>
                                                 )
