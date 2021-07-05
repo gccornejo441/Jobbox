@@ -1,9 +1,8 @@
-import { LogoutIcon } from '@heroicons/react/outline';
+import { LogoutIcon, UserAddIcon } from '@heroicons/react/outline';
 import { menu } from '../lib/menuset';
 import {
     QuestionMarkCircleIcon,
     VariableIcon,
-    CloudIcon,
 } from '@heroicons/react/solid'
 import { useUser } from '@auth0/nextjs-auth0'
 
@@ -19,9 +18,9 @@ const MobileNavView = () => {
                     <div class="p-2">
                         {item.icon}
                     </div>
-                    <div class="p-2 w-max ">
+                    <a href={item.href} class="p-2 w-max ">
                         {item.label}
-                    </div>
+                    </a>
                 </span>
                 {item.sublabel}
                 {item.subIcon}
@@ -39,8 +38,12 @@ const MobileNavView = () => {
                             </span>
                             <div class="mt-1 mb-4 relative">
                                 <p class="text-xl font-thin text-gray-50 mt-3 text-wrap">Welcome, {user.nickname}</p>
+                                <div class="flex justify-evenly">
+                                <a href="/user/new-persona" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border ">
+                                <span><UserAddIcon class="w-5 h-5" /></span>Persona</a>
                                 <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border">
                                     <span><LogoutIcon class="w-5 h-5" /></span>Log Out</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ export default withPageAuthRequired(function newPersona() {
                 <div class="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
                     <SideNav />
                 </div>
-                <div class="w-screen">
+                <div class="">
                     <UserCreate user={user} />
                 </div>
             </div>
