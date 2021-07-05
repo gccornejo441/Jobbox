@@ -205,10 +205,10 @@ const UserCreate = (props) => {
                                             <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="zip" placeholder="" />
                                         </div>
                                     </span>
-                                        <div class="flex flex-col">
-                                            <label for="email">Email</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="email" placeholder="" />
-                                        </div>
+                                    <div class="flex flex-col">
+                                        <label for="email">Email</label>
+                                        <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="email" placeholder="" />
+                                    </div>
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <div>
                                         <span class="inline-block align-middle text-2xl text-regal-blue">Education</span>
@@ -276,9 +276,6 @@ const UserCreate = (props) => {
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-evenly p-20 text-blue-900">
-                                No Data
-                            </div>
                         </div>
                     </div>
                 </div>

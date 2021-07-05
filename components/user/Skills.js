@@ -25,21 +25,12 @@ const Skills = (props) => {
         }
     }
 
-    
-    // const handleSubmit = (evt) => {
-    //     evt.preventDefault();
-    //     // let skill = props.elements.find(item => item.title === evt.target.name);
-    //     let skill = props.elements.filter(item => item.icon_state.type == config.check.type);
-    //     setDisplay(skill)
-    // }
-
-
     return (
         <>
-                <ul>
+                <ul class="overflow-y-auto h-96">
                     {props.elements.map((item) => {
                         return (
-                            <li class="w-full " key={item.id}>
+                            <li class="w-full" key={item.id}>
                                 <label role="checkbox" >
                                     <input onClick={toggleCheck}  name={item.title} type="checkbox" class="invisible" />
                                     <div class="flex justify-between py-2">

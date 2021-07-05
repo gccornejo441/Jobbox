@@ -3,7 +3,7 @@ import { Fragment, useState } from 'react'
 import Skills from './Skills';
 import config from './config';
 import { nanoid } from 'nanoid';
-import { PlusIcon, CheckCircleIcon } from '@heroicons/react/solid';
+import { PlusIcon, XIcon } from '@heroicons/react/solid';
 
 
 export default function MyModal() {
@@ -27,6 +27,7 @@ export default function MyModal() {
 
         // This will evaluate the keycode that is pressed.
         if (evt.keyCode === 13) {
+            setToggleSkill(true)
             const newSkill = { id: nanoid(), title: evt.target.value, icon_state: <PlusIcon class="h-6 w-6 text-green-500" />, };
             // A copy of the previous skill state, & the new state object going in.
             setSkill([...skill, newSkill]);
@@ -35,18 +36,20 @@ export default function MyModal() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        // let skill = props.elements.find(item => item.title === evt.target.name);
         let filteredSkill = skill.filter(item => item.icon_state.type == config.check.type);
         setDisplay(filteredSkill);
-        console.log(displayItem)
     }
 
-   
+    const handleCancel = (skill) => {
+        let setskills = displayItem.filter(item => skill !== item.id);
+        console.log("setskills", setskills)
+        setDisplay(setskills);
+    }
 
     return (
         <>
             <span class="inline-block align-middle text-2xl text-regal-blue">Skills</span>
-            <div class="inset-0 flex items-center justify-end">
+            <div>
                 <button
                     type="button"
                     onClick={openModal}
@@ -54,20 +57,32 @@ export default function MyModal() {
                 >
                     <PlusIcon class="h-5 w-5" />Skills
                 </button>
-                <div>
+            </div>
+            <div class="grid grid-cols-3">
+                <>
                     {displayItem === undefined ? (
-                        <div>
-                            No Data
+                        <div class="w-full flex justify-center p-4 text-gray-200">
+                            <div class="flex justify- p-4 text-gray-200">
+                                No Data
+                            </div>
                         </div>
                     ) : (displayItem.map((item) => {
                         return (
-                            <div class="text-regal-blue text-2xl" key={item.id}>
-                                {item.title}
-                            </div>
+                            <form class="max-w-full p-4 text-gray-200">
+                                <div class="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
+                                    {item.title}
+                                    <label role="checkbox">
+                                        <input name={item.title} type="checkbox" class="invisible" />
+                                        <button onClick={() => handleCancel(item.id)} type="button">
+                                            <XIcon class="w-3 h-3 mt-1 ml-2" />
+                                        </button>
+                                    </label>
+                                </div>
+                            </form>
                         )
                     })
                     )}
-                </div>
+                </>
             </div>
 
             <Transition appear show={isOpen} as={Fragment}>
@@ -118,34 +133,30 @@ export default function MyModal() {
                                         </p>
                                     </Dialog.Title>
                                     <div class="mt-2">
-                                        <div class="pe-s-form__body ge-form-body ge-suggested-skills-flow__body">
-                                            <div id="ember1010" class="ge-base-flow__task-card ge-suggested-skills-flow__task-card ember-view">
-                                                <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
-                                                <Skills elements={skill} />
-                                                <div class="mt-4">
-                                                    {/* Used to toggle "Add another skill" button. */}
-                                                    {
-                                                        toggleSkill ? (
-                                                            <>
-                                                                <div class="flex justify-between">
-                                                                    <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
-                                                                    <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
-                                                                </div>
-                                                            </>
-                                                        ) : (
-                                                            <>
-                                                                <div class="flex">
-                                                                    <div class="flex flex-col w-screen pr-2">
-                                                                        <label class=""></label>
-                                                                        <input onKeyUp={handleKeyUp} class="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
-                                                                    </div>
-                                                                    <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
-                                                                </div>
-                                                            </>
-                                                        )
-                                                    }
-                                                </div>
-                                            </div>
+                                        <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
+                                        <Skills elements={skill} />
+                                        <div class="mt-4">
+                                            {/* Used to toggle "Add another skill" button. */}
+                                            {
+                                                toggleSkill ? (
+                                                    <>
+                                                        <div class="flex justify-between">
+                                                            <button type="button" onClick={() => setToggleSkill(false)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
+                                                            <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
+                                                        </div>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <div class="flex">
+                                                            <div class="flex flex-col w-screen pr-2">
+                                                                <label class=""></label>
+                                                                <input onKeyUp={handleKeyUp} class="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
+                                                            </div>
+                                                            <button type="button" onClick={() => setToggleSkill(true)} class="inline-flex justify-center px-4 py-2 text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
+                                                        </div>
+                                                    </>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </form>
