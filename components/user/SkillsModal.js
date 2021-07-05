@@ -28,7 +28,7 @@ export default function MyModal() {
         // This will evaluate the keycode that is pressed.
         if (evt.keyCode === 13) {
             setToggleSkill(true)
-            const newSkill = { id: nanoid(), title: evt.target.value, icon_state: <PlusIcon class="h-6 w-6 text-green-500" />, };
+            const newSkill = { id: nanoid(), title: evt.target.value, icon_state: config.plus, };
             // A copy of the previous skill state, & the new state object going in.
             setSkill([...skill, newSkill]);
         }
@@ -42,7 +42,6 @@ export default function MyModal() {
 
     const handleCancel = (skill) => {
         let setskills = displayItem.filter(item => skill !== item.id);
-        console.log("setskills", setskills)
         setDisplay(setskills);
     }
 
@@ -58,23 +57,26 @@ export default function MyModal() {
                     <PlusIcon class="h-5 w-5" />Skills
                 </button>
             </div>
-            <div class="grid grid-cols-3">
+            <div class="md:grid grid-cols-3">
                 <>
                     {displayItem === undefined ? (
-                        <div class="w-full flex justify-center p-4 text-gray-200">
-                            <div class="flex justify- p-4 text-gray-200">
-                                No Data
+                        <>
+                            <div></div>
+                            <div class="w-auto flex justify-center p-4 text-gray-200">
+                                <div class="p-4 text-gray-200">
+                                    No Data
+                                </div>
                             </div>
-                        </div>
+                        </>
                     ) : (displayItem.map((item) => {
                         return (
                             <form class="max-w-full p-4 text-gray-200">
                                 <div class="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
-                                    {item.title}
+                                    <span>{item.title}</span>
                                     <label role="checkbox">
                                         <input name={item.title} type="checkbox" class="invisible" />
-                                        <button onClick={() => handleCancel(item.id)} type="button">
-                                            <XIcon class="w-3 h-3 mt-1 ml-2" />
+                                        <button class="focus:outline-none" onClick={() => handleCancel(item.id)} type="button">
+                                            <XIcon class="w-3 h-3 mt-1" />
                                         </button>
                                     </label>
                                 </div>
@@ -127,10 +129,18 @@ export default function MyModal() {
                                         as="h3"
                                         class="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 rounded-lg"
                                     >
-                                        Let’s add your skills
-                                        <p class="text-sm text-gray-50 font-thin">
-                                            Here are a few suggestions based on your profile to get you started
-                                        </p>
+                                        <div class="flex justify-between">
+                                            <div>
+                                                <span>Let’s add your skills</span>
+                                                <p class="text-sm text-gray-50 font-thin">
+                                                    Here are a few suggestions based on your profile to get you started
+                                                </p>
+                                            </div>
+                                            <button type="button" onClick={closeModal} class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-0">
+                                                <span class="sr-only">Close panel</span>
+                                                <XIcon class="h-6 w-6" />
+                                            </button>
+                                        </div>
                                     </Dialog.Title>
                                     <div class="mt-2">
                                         <legend class="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
