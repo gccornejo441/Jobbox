@@ -1,4 +1,4 @@
-import { SearchIcon, BellIcon, PlusIcon, MinusIcon } from '@heroicons/react/solid';
+import { SearchIcon, BellIcon, PlusIcon, MinusIcon, CogIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import SkillsModal from "./SkillsModal";
 
 let BUILD = [
     {
-        "id": "textarea-" + nanoid(4),
+        "id": "textarea_" + nanoid(4),
         "title": 1
     },
 ];
@@ -22,7 +22,6 @@ const UserCreate = (props) => {
 
     // Ref to increment btn.
     const disablePlusBtn = useRef();
-    const disableMinusBtn = useRef();
 
 
     // This adds element.
@@ -168,41 +167,41 @@ const UserCreate = (props) => {
                             </div>
                         </div> */}
                         <div class="p-5 xl:p-10">
-                            <h1 class="text-2xl">New Persona</h1>
+                            <h1 class="text-2xl text-regal-blue">Resume Builder</h1>
                         </div>
                         <div class="border-b border-gray-300 flex justify-center w-screen md:w-auto">
-                            <div class="m-5 grid grid-cols-1">
+                            <form action="/api/handler" method="POST" class="m-5 grid grid-cols-1">
                                 {/* <Image src="/images/no-picture.jpg" height={200} width={200} class="rounded-full shadow-md" /> */}
                                 <div class=" py-3 xl:px-4 md:w-auto">
                                     <span class="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                     <span class="xl:grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
-                                            <label for="first-name">First Name</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="first-name" placeholder="" />
+                                            <label for="first_name">First Name</label>
+                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="first_name" placeholder="" />
                                         </div>
                                         <div class="flex flex-col">
-                                            <label for="last-name">Last Name</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="last-name" placeholder="" />
+                                            <label for="last_name">Last Name</label>
+                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="last_name" placeholder="" />
                                         </div>
                                     </span>
                                     <span class="xl:grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
                                             <label for="street">Street Address</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="street" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="street" placeholder="" />
                                         </div>
                                     </span>
                                     <span class="xl:grid grid-cols-3 gap-5">
                                         <div class="flex flex-col">
                                             <label for="city">City</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="city" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="city" placeholder="" />
                                         </div>
                                         <div class="flex flex-col">
                                             <label for="state">State</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="state" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="state" placeholder="" />
                                         </div>
                                         <div class="flex flex-col">
                                             <label for="zip">Zip Code</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="zip" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="zip" placeholder="" />
                                         </div>
                                     </span>
                                     <div class="flex flex-col">
@@ -214,49 +213,49 @@ const UserCreate = (props) => {
                                         <span class="inline-block align-middle text-2xl text-regal-blue">Education</span>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="school-1">School 1</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
+                                                <label for="school_1">School 1</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school_1" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
-                                                    <label for="school-1-start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-1-start" placeholder="" />
+                                                    <label for="school_1_start">Year Started</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
-                                                    <label for="school-1-end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-1-end" placeholder="" />
+                                                    <label for="school_1_end">Year Ended</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="school-2">School 2</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-2" placeholder="" />
+                                                <label for="school_2">School 2</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school_2" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
-                                                    <label for="school-2-start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-2-start" placeholder="" />
+                                                    <label for="school_2_start">Year Started</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
-                                                    <label for="school-2-end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-2-end" placeholder="" />
+                                                    <label for="school_2_end">Year Ended</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="school-3">School 3</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school-1" placeholder="" />
+                                                <label for="school_3">School 3</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
-                                                    <label for="school-3-start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-3-start" placeholder="" />
+                                                    <label for="school_3_start">Year Started</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
-                                                    <label for="school-3-end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school-3-end" placeholder="" />
+                                                    <label for="school_3_end">Year Ended</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -273,7 +272,10 @@ const UserCreate = (props) => {
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <SkillsModal />
                                 </div>
-                            </div>
+                                <div class="flex justify-center border-t border-gray-200 pt-5">
+                                    <button type="submit" class="w-max flex py-2 px-4 text-md tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><CogIcon class="h-6 pr-3 text-gray-50" />Generate</button>
+                                </div>
+                            </form>
                         </div>
                         <div>
                         </div>
