@@ -40,8 +40,8 @@ export default function MyModal() {
         setDisplay(filteredSkill);
     }
 
-    const handleCancel = (skill) => {
-        let setskills = displayItem.filter(item => skill !== item.id);
+    const handleCancel = (skillId) => {
+        let setskills = displayItem.filter(item => skillId !== item.id);
         setDisplay(setskills);
     }
 
@@ -70,17 +70,17 @@ export default function MyModal() {
                         </>
                     ) : (displayItem.map((item) => {
                         return (
-                            <form class="max-w-full p-4 text-gray-200">
+                            <div class="max-w-full p-4 text-gray-200">
                                 <div class="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
                                     <span>{item.title}</span>
                                     <label role="checkbox">
-                                        <input name={item.title} type="checkbox" class="invisible" />
+                                        <input name="skills" value={item.title} type="text" class="invisible hidden" />
                                         <button class="focus:outline-none" onClick={() => handleCancel(item.id)} type="button">
                                             <XIcon class="w-3 h-3 mt-1" />
                                         </button>
                                     </label>
                                 </div>
-                            </form>
+                            </div>
                         )
                     })
                     )}

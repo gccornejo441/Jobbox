@@ -1,8 +1,15 @@
 import { PlusIcon, CheckCircleIcon } from '@heroicons/react/solid';
+import { nanoid } from 'nanoid';
 
 module.exports = {
     plus: <PlusIcon class="h-8 w-8 text-gray-300" />,
     check: <CheckCircleIcon class="h-8 w-8 text-gray-300" />,
+    BUILD: [
+        {   
+            "id": "textarea_" + nanoid(4),
+            "count": 1,
+        },
+    ],
     DATA: [
         {
             id: 1,

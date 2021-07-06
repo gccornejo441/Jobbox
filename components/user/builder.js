@@ -5,18 +5,11 @@ import Image from 'next/image';
 import ExpBox from './ExpBox';
 import { nanoid } from 'nanoid';
 import SkillsModal from "./SkillsModal";
+import config from './config'
 
 
-let BUILD = [
-    {
-        "id": "textarea_" + nanoid(4),
-        "title": 1
-    },
-];
-
-
-const UserCreate = (props) => {
-    const [divy, setDivy] = useState([...BUILD]);
+const Builder = (props) => {
+    const [divy, setDivy] = useState(config.BUILD);
     const [count, setCount] = useState(2);
 
 
@@ -33,7 +26,7 @@ const UserCreate = (props) => {
             disablePlusBtn.current.disabled = false,
             // The count state is incremented by 1 for avoid unnesscessary play.
             await setCount(count + 1),
-            newDivy = { "id": nanoid(), "title": count },
+            newDivy = { "id": "exp_" + nanoid(4), "count": count },
             // State is set with copy and new.
             setDivy([...divy, newDivy])
         )
@@ -291,4 +284,4 @@ const UserCreate = (props) => {
 
 
 
-export default UserCreate;
+export default Builder;

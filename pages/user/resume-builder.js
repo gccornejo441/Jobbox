@@ -2,7 +2,7 @@ import Head from 'next/head'
 import MobileNav from "../../components/mobilenav"
 import SideNav from "../../components/sidenav"
 import { useUser } from '@auth0/nextjs-auth0'
-import UserCreate from '../../components/user/user-create'
+import Builder from '../../components/user/builder'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/dist/frontend';
 
 export default withPageAuthRequired(function newPersona() {
@@ -22,7 +22,7 @@ export default withPageAuthRequired(function newPersona() {
                     <SideNav />
                 </div>
                 <div class="w-screen">
-                    <UserCreate user={user} />
+                    <Builder user={user} />
                 </div>
             </div>
         </>

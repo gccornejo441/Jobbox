@@ -1,4 +1,4 @@
-import { SearchIcon, BellIcon, UserAddIcon } from '@heroicons/react/solid'
+import { SearchIcon, BellIcon, DocumentTextIcon } from '@heroicons/react/solid'
 import { LogoutIcon } from '@heroicons/react/outline';
 import MainBody from './mainbody'
 import { useUser } from '@auth0/nextjs-auth0'
@@ -25,10 +25,10 @@ const SearchBar = () => {
                             </div>
                         </form>
                         <div class="pt-3 px-4 flex">
-                            <a href="/user/new-persona" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
-                                <span><UserAddIcon class="w-5 h-5" /></span>Persona</a>
+                            <a href="/user/resume-builder" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
+                                <span><DocumentTextIcon class="w-5 h-5 mr-1" /></span>Resume Builder</a>
                             <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border hidden lg:flex">
-                                <span><LogoutIcon class="w-5 h-5" /></span>Log Out</a>                        
+                                <span><LogoutIcon class="w-5 h-5 mr-1" /></span>Log Out</a>                        
                         </div>
                     </div>
                     <Menu as="div" class="ml-3 relative">
