@@ -5,19 +5,47 @@ import Image from 'next/image';
 import ExpBox from './ExpBox';
 import { nanoid } from 'nanoid';
 import SkillsModal from "./SkillsModal";
-import config from './config'
+import config from './config';
 
 
 const Builder = (props) => {
     const [divy, setDivy] = useState(config.BUILD);
+    const [det, setDet] = useState(config.BUILD);
     const [count, setCount] = useState(2);
-
+    const [detCount, setDetCount] = useState(2);
 
     // Ref to increment btn.
     const disablePlusBtn = useRef();
 
-
     // This adds element.
+    const addDet = async () => {
+        let newDet = {};
+        det.length === 5 ? (
+            disablePlusBtn.current.disabled = true
+        ) : (
+            disablePlusBtn.current.disabled = false,
+            // The count state is incremented by 1 for avoid unnesscessary play.
+            await setDetCount(detCount + 1),
+            newDet = { "id": "exp_" + nanoid(4), "count": detCount },
+            // State is set with copy and new.
+            setDet([...det, newDet])
+        )
+
+    }
+
+    // This removes element.
+    const removeDet = async () => {
+        det.length === 1 ? (
+            disablePlusBtn.current.disabled = true
+        ) : (
+            await setDetCount(detCount - 1),
+            det.pop(),
+            setDet([...det])
+        )
+    }
+
+
+    // This increments experience.
     const addDiv = async () => {
         let newDivy = {};
         divy.length === 5 ? (
@@ -33,7 +61,7 @@ const Builder = (props) => {
 
     }
 
-    // This removes element.
+    // This decrements experience.
     const removeDiv = async () => {
         divy.length === 1 ? (
             disablePlusBtn.current.disabled = true
@@ -53,7 +81,7 @@ const Builder = (props) => {
                         <form>
                             <div>
                                 <span class="flex pt-3 pl-4">
-                                    <div class="p-2 rounded-l-lg border-l border-b border-t border-gray-200 shadow-2xl cursor-pointer bg-gray-50 text-gray-500">
+                                    <div class="p-2 rounded-l-lg border-l border-b border-t border-gray-200 shadow-2xl cursor-pointer md:bg-gray-100 text-gray-500">
                                         <SearchIcon class="h-5 w-5" />
                                     </div>
                                     <input class="border-r border-t border-b border-gray-200 shadow-2xl rounded-r-lg pl-2" type="search" placeholder="Search" />
@@ -92,7 +120,7 @@ const Builder = (props) => {
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
-                                                    href="#"
+                                                    href="/user/profile"
                                                     class={
                                                         active ? 'bg-yellow-100' : '',
                                                         'block px-4 py-2 text-sm text-yellow-700'
@@ -136,29 +164,6 @@ const Builder = (props) => {
                 </div>
                 <div class="pt-3 xl:px-4 flex justify-center ">
                     <div class="md:bg-white md:rounded-lg md:shadow-md w-full md:w-max xl:px-12">
-                        {/* <div class="border-b border-gray-300 flex justify-center">
-                            <div class="m-5 flex">
-                                <Image src="/images/profile_picture.jpg" height={200} width={200} class="rounded-full" />
-                                <div class="flex flex-col py-3 px-4">
-                                    <span class="flex">
-                                        <h1 class="text-lg font-bold text-blue-900">Admin Assistant</h1>
-                                        <h2 class="text-sm text-gray-500 mt-1 mx-2">USA Homeownership Foundation</h2>
-                                    </span>
-                                    <div class="border-b border-gray-200 w-full my-5"></div>
-                                    <div>
-                                        <span class="inline-block align-middle text-lg text-blue-900">Former</span>
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <div>
-                                                <span class="inline-block align-middle text-sm text-blue-900 mr-2">United States Marine Corps</span>
-                                            </div>
-                                            <div>
-                                            <span class="inline-block align-middle text-sm text-gray-500 mr-2">Motor Transport Operator</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
                         <div class="p-5 xl:p-10">
                             <h1 class="text-2xl text-regal-blue">Resume Builder</h1>
                         </div>
@@ -170,85 +175,86 @@ const Builder = (props) => {
                                     <span class="xl:grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
                                             <label for="first_name">First Name</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="first_name" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="first_name" placeholder="" />
                                         </div>
                                         <div class="flex flex-col">
                                             <label for="last_name">Last Name</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="last_name" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="last_name" placeholder="" />
+                                        </div>
+                                    </span>
+
+                                    <span class="xl:grid grid-cols-3 gap-5">
+                                        <div class="flex flex-col">
+                                            <label for="city">City</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="city" placeholder="" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="state">State</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="state" placeholder="" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="zip">Zip Code</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="zip" placeholder="" />
                                         </div>
                                     </span>
                                     <span class="xl:grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
-                                            <label for="street">Street Address</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="street" placeholder="" />
+                                            <label for="email">Email</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="email" placeholder="" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="phone">Phone</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="phone" placeholder="" />
                                         </div>
                                     </span>
-                                    <span class="xl:grid grid-cols-3 gap-5">
-                                        <div class="flex flex-col">
-                                            <label for="city">City</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="city" placeholder="" />
-                                        </div>
-                                        <div class="flex flex-col">
-                                            <label for="state">State</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="state" placeholder="" />
-                                        </div>
-                                        <div class="flex flex-col">
-                                            <label for="zip">Zip Code</label>
-                                            <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" type="text" name="zip" placeholder="" />
-                                        </div>
-                                    </span>
-                                    <div class="flex flex-col">
-                                        <label for="email">Email</label>
-                                        <input class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2" name="email" placeholder="" />
-                                    </div>
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <div>
                                         <span class="inline-block align-middle text-2xl text-regal-blue">Education</span>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
                                                 <label for="school_1">School 1</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school_1" placeholder="" />
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_1" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school_1_start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_start" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school_1_end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_end" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
                                                 <label for="school_2">School 2</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school_2" placeholder="" />
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_2" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school_2_start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_start" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school_2_end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_end" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
                                                 <label for="school_3">School 3</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 bg-gray-50 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
                                                     <label for="school_3_start">Year Started</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_start" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_start" placeholder="" />
                                                 </div>
                                                 <div class="flex flex-col">
                                                     <label for="school_3_end">Year Ended</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 bg-gray-50 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_end" placeholder="" />
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_end" placeholder="" />
                                                 </div>
                                             </div>
                                         </div>
@@ -260,12 +266,34 @@ const Builder = (props) => {
                                         <button type="button" onClick={removeDiv} class="flex text-sm h-8 tracking-widest font-medium text-white rounded-md bg-fuchsia-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><MinusIcon class="h-full text-fuchsia-600" /></button>
                                         <button ref={disablePlusBtn} type="button" onClick={addDiv} class="flex text-sm h-8 mx-2 tracking-widest font-medium text-white rounded-md bg-green-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><PlusIcon class="h-full text-green-600" /></button>
                                     </span>
-                                    <ExpBox elements={divy} />
+                                    <span class="flex flex-row-reverse">
+                                        <button type="button" onClick={removeDet} class="flex text-sm h-8 tracking-widest font-medium text-white rounded-md bg-blue-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><MinusIcon class="h-full text-blue-600" /></button>
+                                        <button ref={disablePlusBtn} type="button" onClick={addDet} class="flex text-sm h-8 mx-2 tracking-widest font-medium text-white rounded-md bg-red-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><PlusIcon class="h-full text-red-600" /></button>
+                                    </span>
+
+                                    <ExpBox elements={divy} det={det} />
+                                
                                     {/* EXPERIENCE - END */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <SkillsModal />
+                                    <div class="border-b border-gray-200 w-full my-5"></div>
+                                    <span class="inline-block align-middle text-2xl text-regal-blue">Socials</span>
+                                    <span class="xl:grid grid-cols-3 gap-5 pb-12">
+                                        <div class="flex flex-col">
+                                            <label for="linkedin">LinkedIn</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="linkedin" placeholder="" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="twitter">Twitter</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="twitter" placeholder="" />
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="github">Github</label>
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="github" placeholder="" />
+                                        </div>
+                                    </span>
                                 </div>
-                                <div class="flex justify-center border-t border-gray-200 pt-5">
+                                <div class="flex justify-center border-t border-gray-200 pt-16 pb-12">
                                     <button type="submit" class="w-max flex py-2 px-4 text-md tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><CogIcon class="h-6 pr-3 text-gray-50" />Generate</button>
                                 </div>
                             </form>
