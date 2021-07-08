@@ -9,6 +9,22 @@ module.exports = {
             "id": "textarea_" + nanoid(4),
             "count": 1,
         },
+        {   
+            "id": "textarea_" + nanoid(4),
+            "count": 2,
+        },
+        {   
+            "id": "textarea_" + nanoid(4),
+            "count": 3,
+        },
+        {   
+            "id": "textarea_" + nanoid(4),
+            "count": 4,
+        },
+        {   
+            "id": "textarea_" + nanoid(4),
+            "count": 5,
+        },
     ],
     DATA: [
         {

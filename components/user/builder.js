@@ -12,37 +12,9 @@ const Builder = (props) => {
     const [divy, setDivy] = useState(config.BUILD);
     const [det, setDet] = useState(config.BUILD);
     const [count, setCount] = useState(2);
-    const [detCount, setDetCount] = useState(2);
 
     // Ref to increment btn.
     const disablePlusBtn = useRef();
-
-    // This adds element.
-    const addDet = async () => {
-        let newDet = {};
-        det.length === 5 ? (
-            disablePlusBtn.current.disabled = true
-        ) : (
-            disablePlusBtn.current.disabled = false,
-            // The count state is incremented by 1 for avoid unnesscessary play.
-            await setDetCount(detCount + 1),
-            newDet = { "id": "exp_" + nanoid(4), "count": detCount },
-            // State is set with copy and new.
-            setDet([...det, newDet])
-        )
-
-    }
-
-    // This removes element.
-    const removeDet = async () => {
-        det.length === 1 ? (
-            disablePlusBtn.current.disabled = true
-        ) : (
-            await setDetCount(detCount - 1),
-            det.pop(),
-            setDet([...det])
-        )
-    }
 
 
     // This increments experience.
@@ -262,14 +234,15 @@ const Builder = (props) => {
                                     {/* EXPERIENCE - START */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <span class="inline-block align-middle text-2xl text-regal-blue">Experience</span>
-                                    <span class="flex flex-row-reverse">
-                                        <button type="button" onClick={removeDiv} class="flex text-sm h-8 tracking-widest font-medium text-white rounded-md bg-fuchsia-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><MinusIcon class="h-full text-fuchsia-600" /></button>
-                                        <button ref={disablePlusBtn} type="button" onClick={addDiv} class="flex text-sm h-8 mx-2 tracking-widest font-medium text-white rounded-md bg-green-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><PlusIcon class="h-full text-green-600" /></button>
-                                    </span>
-                                    <span class="flex flex-row-reverse">
-                                        <button type="button" onClick={removeDet} class="flex text-sm h-8 tracking-widest font-medium text-white rounded-md bg-blue-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><MinusIcon class="h-full text-blue-600" /></button>
-                                        <button ref={disablePlusBtn} type="button" onClick={addDet} class="flex text-sm h-8 mx-2 tracking-widest font-medium text-white rounded-md bg-red-300 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><PlusIcon class="h-full text-red-600" /></button>
-                                    </span>
+                                    <div class="flex flex-row-reverse">
+                                        <div class="bg-regal-blue w-max p-4 rounded-lg">
+                                        <div class="text-gray-50 text-center flex tracking-widest">Job<span><PlusIcon class="h-6 w-6" /></span></div>
+                                            <span class="flex flex-row-reverse">
+                                                <button type="button" onClick={removeDiv} class="text-sm h-8 tracking-widest font-medium text-white rounded-md bg-gray-50 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><MinusIcon class="h-full text-blue-800" /></button>
+                                                <button ref={disablePlusBtn} type="button" onClick={addDiv} class="mr-2 text-sm h-8  tracking-widest font-medium text-white rounded-md bg-gray-50 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><PlusIcon class="h-full text-blue-800" /></button>
+                                            </span>
+                                        </div>
+                                    </div>
 
                                     <ExpBox elements={divy} det={det} />
                                 
