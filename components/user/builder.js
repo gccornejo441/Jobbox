@@ -1,6 +1,6 @@
 import { SearchIcon, BellIcon, PlusIcon, MinusIcon, CogIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment, useState, useEffect, useRef } from 'react';
+import { Fragment, useState, useRef } from 'react';
 import Image from 'next/image';
 import ExpBox from './ExpBox';
 import { nanoid } from 'nanoid';
@@ -10,12 +10,10 @@ import config from './config';
 
 const Builder = (props) => {
     const [divy, setDivy] = useState(config.BUILD);
-    const [det, setDet] = useState(config.BUILD);
-    const [count, setCount] = useState(2);
+    const [count, setCount] = useState(1);
 
     // Ref to increment btn.
     const disablePlusBtn = useRef();
-
 
     // This increments experience.
     const addDiv = async () => {
@@ -26,11 +24,10 @@ const Builder = (props) => {
             disablePlusBtn.current.disabled = false,
             // The count state is incremented by 1 for avoid unnesscessary play.
             await setCount(count + 1),
-            newDivy = { "id": "exp_" + nanoid(4), "count": count },
+            newDivy = { "id": "exp_" + nanoid(4), "count": count, "title": "Previous Position" },
             // State is set with copy and new.
             setDivy([...divy, newDivy])
-        )
-
+        );
     }
 
     // This decrements experience.
@@ -41,7 +38,7 @@ const Builder = (props) => {
             await setCount(count - 1),
             divy.pop(),
             setDivy([...divy])
-        )
+        );
     }
 
     return (
@@ -135,9 +132,9 @@ const Builder = (props) => {
                     </Menu>
                 </div>
                 <div class="pt-3 xl:px-4 flex justify-center">
-                    <div class="md:bg-white md:rounded-lg md:shadow-md w-full md:w-max xl:px-12">
-                        <div class="p-5 xl:p-10">
-                            <h1 class="text-2xl text-regal-blue">Resume Builder</h1>
+                    <div class="md:bg-white md:rounded-lg md:shadow-md w-full md:w-max xl:px-12 mb-12">
+                        <div class="p-5 mt-8 mx-8 xl:p-10 bg-regal-blue rounded-lg">
+                            <h1 class="text-2xl text-gray-50 tracking-widest">Resume Builder</h1>
                         </div>
                         <div class="border-b border-gray-300  w-screen md:w-auto">
                             <form action="/api/handler" method="POST" class="m-5 grid grid-cols-1">
@@ -172,11 +169,11 @@ const Builder = (props) => {
                                     <span class="xl:grid grid-cols-2 gap-5">
                                         <div class="flex flex-col">
                                             <label for="email">Email</label>
-                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="email" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="email" name="email" placeholder="" />
                                         </div>
                                         <div class="flex flex-col">
                                             <label for="phone">Phone</label>
-                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="phone" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="tel" name="phone" placeholder="" />
                                         </div>
                                     </span>
                                     <div class="border-b border-gray-200 w-full my-5"></div>
@@ -234,9 +231,9 @@ const Builder = (props) => {
                                     {/* EXPERIENCE - START */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <span class="inline-block align-middle text-2xl text-regal-blue">Experience</span>
-                                    <div class="flex flex-row-reverse">
+                                    <div class="flex flex-row-reverse my-5">
                                         <div class="bg-regal-blue w-max p-4 rounded-lg">
-                                        <div class="text-gray-50 text-center flex tracking-widest">Job<span><PlusIcon class="h-6 w-6" /></span></div>
+                                            <div class="text-gray-50 text-center tracking-widest">Job</div>
                                             <span class="flex flex-row-reverse">
                                                 <button type="button" onClick={removeDiv} class="text-sm h-8 tracking-widest font-medium text-white rounded-md bg-gray-50 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><MinusIcon class="h-full text-blue-800" /></button>
                                                 <button ref={disablePlusBtn} type="button" onClick={addDiv} class="mr-2 text-sm h-8  tracking-widest font-medium text-white rounded-md bg-gray-50 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><PlusIcon class="h-full text-blue-800" /></button>
@@ -244,8 +241,8 @@ const Builder = (props) => {
                                         </div>
                                     </div>
 
-                                    <ExpBox elements={divy} det={det} />
-                                
+                                    <ExpBox elements={divy} />
+
                                     {/* EXPERIENCE - END */}
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <SkillsModal />
@@ -275,9 +272,6 @@ const Builder = (props) => {
                         </div>
                     </div>
                 </div>
-                {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
-                <div class="h-96 w-max bg-transparent"></div>
-                {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
             </div>
         </>
     )

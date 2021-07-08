@@ -1,7 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/solid';
-import { useRef, useState } from 'react';
 import config from './config';
-import { nanoid } from 'nanoid';
 import { Disclosure, Transition } from '@headlessui/react'
 
 
@@ -55,7 +53,7 @@ const ExpBox = ({ elements }) => {
                 </div>
                 <div class="md:grid grid-cols-2 gap-5">
                     <div class="flex flex-col">
-                        <label for={item.id}>Job{' '}{item.count}</label>
+                        <label for={item.id}>{item.title}{' '}{item.count}</label>
                         <input id={item.id} name={"job_" + item.count} class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                     <div class="md:grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
