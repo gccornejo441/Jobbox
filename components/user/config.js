@@ -9,6 +9,12 @@ module.exports = {
             "id": "textarea_" + nanoid(4),
             "count": 1,
         },
+    ],
+    DUTY: [
+        {   
+            "id": "textarea_" + nanoid(4),
+            "count": 1,
+        },
         {   
             "id": "textarea_" + nanoid(4),
             "count": 2,

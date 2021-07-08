@@ -8,7 +8,7 @@ import { Disclosure, Transition } from '@headlessui/react'
 
 const ExpBox = ({ elements }) => {
 
-    const incrementDet = config.BUILD.map((item) => {
+    const incrementDet = config.DUTY.map((item) => {
 
         return (
             <>
@@ -35,7 +35,7 @@ const ExpBox = ({ elements }) => {
                                             <span>
                                                 <div class="grid">
                                                     <label for={item.id}></label>
-                                                    <textarea id={item.id} name={"duty_" + item.count} placeholder=" Duty" type="text" class="text-lg font-bold text-blue-900 bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                                                    <textarea id={item.id} name={"duty_" + item.count} placeholder=" Duty" type="text" class="text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
                                                 </div>
                                             </span>
                                         </Disclosure.Panel>
@@ -58,7 +58,7 @@ const ExpBox = ({ elements }) => {
                         <label for={item.id}>Job{' '}{item.count}</label>
                         <input id={item.id} name={"job_" + item.count} class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
-                    <div class="grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
+                    <div class="md:grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
                         <div class="flex flex-col">
                             <label for="school_3_start">Year Started</label>
                             <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name={"exp_" + item.count} placeholder="" />

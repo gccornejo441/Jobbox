@@ -139,7 +139,7 @@ const Builder = (props) => {
                         <div class="p-5 xl:p-10">
                             <h1 class="text-2xl text-regal-blue">Resume Builder</h1>
                         </div>
-                        <div class="border-b border-gray-300 flex justify-center w-screen md:w-auto">
+                        <div class="border-b border-gray-300  w-screen md:w-auto">
                             <form action="/api/handler" method="POST" class="m-5 grid grid-cols-1">
                                 {/* <Image src="/images/no-picture.jpg" height={200} width={200} class="rounded-full shadow-md" /> */}
                                 <div class="py-3 xl:px-4 md:w-auto">
