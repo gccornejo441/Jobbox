@@ -16,10 +16,10 @@ const ExpBox = ({ elements }) => {
                         <Disclosure>
                             {({ open }) => (
                                 <>
-                                    <Disclosure.Button className="flex justify-between  px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">Duty{" "}{item.count}
+                                    <Disclosure.Button class="flex justify-between my-5 px-4 py-2 text-sm font-medium text-left text-regal-blue bg-white rounded-lg hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-regal-blue focus-visible:ring-opacity-75">Duty{" "}{item.count}
                                         <ChevronRightIcon
-                                            className={`${open ? 'transform rotate-90' : ''
-                                                } w-5 h-5 text-purple-500`}
+                                            class={`${open ? 'transform rotate-90' : ''
+                                                } w-5 h-5 text-regal-blue`}
                                         />
                                     </Disclosure.Button>
                                     <Transition
@@ -31,11 +31,11 @@ const ExpBox = ({ elements }) => {
                                         leaveFrom="transform scale-100 opacity-100"
                                         leaveTo="transform scale-95 opacity-0"
                                     >
-                                        <Disclosure.Panel className="text-gray-500 w-max">
+                                        <Disclosure.Panel className="text-gray-500 w-full">
                                             <span>
                                                 <div class="grid">
                                                     <label for={item.id}></label>
-                                                    <input id={item.id} name={"duty_" + item.count} placeholder="Duty" type="text" class="text-lg font-bold text-blue-900 bg-gray-100 border border-gray-200 rounded-md pr-2" rows="4" cols="70" />
+                                                    <textarea id={item.id} name={"duty_" + item.count} placeholder=" Duty" type="text" class="text-lg font-bold text-blue-900 bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
                                                 </div>
                                             </span>
                                         </Disclosure.Panel>
@@ -53,13 +53,12 @@ const ExpBox = ({ elements }) => {
             <>
                 <div class="flex flex-row-reverse">
                 </div>
-                <div class="grid grid-cols-2 gap-5">
-
+                <div class="md:grid grid-cols-2 gap-5">
                     <div class="flex flex-col">
                         <label for={item.id}>Job{' '}{item.count}</label>
                         <input id={item.id} name={"job_" + item.count} class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
-                    <div class="grid grid-cols-2 gap-5">
+                    <div class="grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
                         <div class="flex flex-col">
                             <label for="school_3_start">Year Started</label>
                             <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name={"exp_" + item.count} placeholder="" />
