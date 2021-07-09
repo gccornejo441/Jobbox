@@ -8,6 +8,7 @@ module.exports = {
         {   
             "id": "textarea_" + nanoid(4),
             "title": "Current Position",
+            "count": 1
         },
     ],
     DUTY: [

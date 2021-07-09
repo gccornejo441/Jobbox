@@ -24,7 +24,7 @@ const Builder = (props) => {
             disablePlusBtn.current.disabled = false,
             // The count state is incremented by 1 for avoid unnesscessary play.
             await setCount(count + 1),
-            newDivy = { "id": "exp_" + nanoid(4), "count": count, "title": "Previous Position" },
+            newDivy = { "id": "exp_" + nanoid(4), "count": count + 1, "title": "Previous Position" },
             // State is set with copy and new.
             setDivy([...divy, newDivy])
         );
