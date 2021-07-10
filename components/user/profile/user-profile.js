@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 import config from '../config';
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai';
 import { VscDebugBreakpointLog } from "react-icons/vsc";
+import ContactMe from './ContactMe'; 
 
 const UserProfile = (props) => {
 
@@ -122,29 +123,7 @@ const UserProfile = (props) => {
                         <div class="flex">
                             <div class="py-4 px-6">
                                 <div class="pt-3">
-                                    <ul>
-                                        <li class="text-regal-blue pb-2">
-                                            <MailIcon class="h-4 w-4" /> gcornejo441@gmail.com
-                                        </li>
-                                        <li class="text-regal-blue pb-2">
-                                            <PhoneIcon class="h-4 w-4" /> 951-444-5555
-                                        </li>
-                                        <li class="text-regal-blue pb-2">
-                                            <LocationMarkerIcon class="h-4 w-4" />Corona, California
-                                        </li>
-                                        <li class="text-regal-blue pb-2">
-                                            <AiFillLinkedin />
-                                            linkedin.com/in/gccornejo
-                                        </li>
-                                        <li class="text-regal-blue pb-2">
-                                            <AiFillGithub />
-                                            github.com/gccornejo441
-                                        </li>
-                                        <li class="text-regal-blue pb-2">
-                                            <AiOutlineTwitter />
-                                            Omniwizrad
-                                        </li>
-                                    </ul>
+                                    <ContactMe />
                                 </div>
                                 <div>
                                     <div class="border-b-4 mb-4 border-regal-blue">
@@ -336,7 +315,7 @@ const UserProfile = (props) => {
                     </div>
                 </div>
                 {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
-                <div class="h-96 w-max bg-transparent"></div>
+                <div class="h-28 w-max bg-transparent"></div>
                 {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
             </div>
         </>

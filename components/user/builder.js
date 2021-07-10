@@ -264,6 +264,10 @@ const Builder = (props) => {
                                     </span>
                                 </div>
                                 <div class="flex justify-center border-t border-gray-200 pt-16 pb-12">
+                                <div class="flex flex-col invisible hidden">
+                                            <label for="user"></label>
+                                            <input type="text" name="username" value={props.user.nickname} />
+                                        </div>
                                     <button type="submit" class="w-max flex py-2 px-4 text-md tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><CogIcon class="h-6 pr-3 text-gray-50" />Generate</button>
                                 </div>
                             </form>
