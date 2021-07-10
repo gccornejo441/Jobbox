@@ -11,7 +11,7 @@ const ContactMe = () => {
     const { user } = useUser();
 
 
-    axios.post('/api/handler', {
+    axios.post('/api/resume', {
         user: user.nickname,
     })
         .then((res) => {
