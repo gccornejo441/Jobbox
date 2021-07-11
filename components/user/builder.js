@@ -23,7 +23,7 @@ const Builder = (props) => {
             disablePlusBtn.current.disabled = false,
             // The count state is incremented by 1 for avoid unnesscessary play.
             await setCount(count + 1),
-            newDivy = { "id": "exp_" + nanoid(4), "count": count + 1, "title": "Previous Position", "current": "Previous Employer" },
+            newDivy = { "id": "exp_" + nanoid(4), "count": count + 1, "title": "Previous Employer", "current": "Previous Position" },
             // State is set with copy and new.
             setDivy([...divy, newDivy])
         );
@@ -182,6 +182,8 @@ const Builder = (props) => {
                                             <div class="flex flex-col">
                                                 <label for="school_1">School 1</label>
                                                 <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_1" placeholder="" />
+                                                <label for="school_degree_1">Degree</label>
+                                                <input placeholder="BS in Biological Sciences" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_1" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
@@ -198,6 +200,8 @@ const Builder = (props) => {
                                             <div class="flex flex-col">
                                                 <label for="school_2">School 2</label>
                                                 <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_2" placeholder="" />
+                                                <label for="school_degree_2">Degree</label>
+                                                <input placeholder="BS in Biological Sciences" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_2" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
@@ -212,10 +216,10 @@ const Builder = (props) => {
                                         </div>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="school_3">School Name 3</label>
+                                                <label for="school_3">School 3</label>
                                                 <input placeholder="" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
-                                                <label for="school_3">Degree Name 3</label>
-                                                <input placeholder="BS in Biological Sciences" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
+                                                <label for="school_degree_3">Degree</label>
+                                                <input placeholder="BS in Biological Sciences" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_3" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">
@@ -262,6 +266,70 @@ const Builder = (props) => {
                                             <label for="github">Github</label>
                                             <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="github" placeholder="" />
                                         </div>
+                                    </span>
+                                    <div class="border-b border-gray-200 w-full my-5"></div>
+                                    <span class="inline-block align-middle text-2xl text-regal-blue">Internships & Volunteer Work</span>
+                                    <span class="xl:grid grid-cols-2 gap-5 pb-12">
+                                            <div class="flex flex-col">
+                                                <label for="internship_1">Internship 1</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_1" placeholder="" />
+                                            </div>
+                                            <div class="sm:grid grid-cols-2 gap-2">
+                                                <div class="flex flex-col">
+                                                    <label for="internship_1_year">Year</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_1_year" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="internship_2">Internship 2</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_2" placeholder="" />
+                                            </div>
+                                            <div class="sm:grid grid-cols-2 gap-2">
+                                                <div class="flex flex-col">
+                                                    <label for="internship_2_year">Year</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_2_year" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="internship_3">Internship 3</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_3" placeholder="" />
+                                            </div>
+                                            <div class="sm:grid grid-cols-2 gap-2">
+                                                <div class="flex flex-col">
+                                                    <label for="internship_3_year">Year</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_3_year" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="volunteer_1">Volunteer 1</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_1" placeholder="" />
+                                            </div>
+                                            <div class="sm:grid grid-cols-2 gap-2">
+                                                <div class="flex flex-col">
+                                                    <label for="volunteer_1_year">Year</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_1_year" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="volunteer_2">Volunteer 2</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_2" placeholder="" />
+                                            </div>
+                                            <div class="sm:grid grid-cols-2 gap-2">
+                                                <div class="flex flex-col">
+                                                    <label for="volunteer_2_year">Year</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_2_year" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <label for="volunteer_3">Volunteer 3</label>
+                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_3" placeholder="" />
+                                            </div>
+                                            <div class="sm:grid grid-cols-2 gap-2">
+                                                <div class="flex flex-col">
+                                                    <label for="volunteer_3_year">Year</label>
+                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_3_year" placeholder="" />
+                                                </div>
+                                            </div>
                                     </span>
                                 </div>
                                 <div class="flex justify-center border-t border-gray-200 pt-16 pb-12">

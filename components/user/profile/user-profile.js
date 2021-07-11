@@ -6,6 +6,7 @@ import { VscDebugBreakpointLog } from "react-icons/vsc";
 import ContactMe from './ContactMe'; 
 import Skills from './Skills';
 import WorkExp from './workExp';
+import Intern from './Intern';
 
 const UserProfile = (props) => {
 
@@ -130,118 +131,7 @@ const UserProfile = (props) => {
                             </div>
                             <div class="w-full">
                             <WorkExp user={props.user} resume={props.resume} />
-                                <div class="border-b-4 border-regal-blue">
-                                    <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Work Experience</h1>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
-                                            Administrative Assistant
-                                        </li>
-                                        <li class="text-xl text-regal-blue pl-4 pt-2">
-                                            USA Homeownership Foundation
-                                        </li>
-                                        <li class="text-sm text-regal-blue pl-4 pt-2">
-                                            04/2021 - Current
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Nunc rhoncus porttitor est sit amet laoreet. Nullam ullamcorper nisi suscipit dapibus hendrerit. Phasellus volutpat elementum justo quis ornare.
-                                            </p>
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Sed elementum ultricies magna, nec consectetur nunc vulputate ac. Proin gravida, mi id tempus aliquam, libero diam luctus est, id malesuada lorem mi in odio.
-                                            </p>
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Ut a blandit eros, consequat dapibus leo. Cras lobortis est ipsum, vel imperdiet diam convallis vel. Etiam arcu est, posuere vel mi nec, facilisis cursus quam. Nunc nulla mi, efficitur et vestibulum sed, lobortis eget orci.
-                                            </p>
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Fusce urna quam, tristique ac nisi quis, molestie efficitur orci. In fringilla, purus quis varius sodales, nisi magna placerat dolor, at blandit nulla massa ut elit.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
-                                            Motor Transport Operator
-                                        </li>
-                                        <li class="text-xl text-regal-blue pl-4 pt-2">
-                                            United States Marine Corps
-                                        </li>
-                                        <li class="text-sm text-regal-blue pl-4 pt-2">
-                                            09/2015 - 09/2019
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Maintained a total of 54 pieces of Military trucks and equipment: 32 MTVR(s)/7 Ton trucks, 8 MK593/7 Ton Cargo Trailers, 14 M119/Water Bowl(s).
-                                            </p>
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Briefed top executives on weekly duties.
-                                            </p>
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                In preparation for biannual Executive Officer’s Readiness Inspection; identified and conducted training seminars for untrained team members, updating administrative files on Military trucks and equipment.
-                                            </p>
-                                        </li>
-                                        <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                            <div class="mt-1">
-                                                <VscDebugBreakpointLog class="h-4 w-4" />
-                                            </div>
-                                            <p>
-                                                Wrote up military awards and recommendations using Microsoft Word and government interfaces.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <div class="border-b-4 border-regal-blue">
-                                        <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Internships & Volunteer Work</h1>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                <div class="flex flex-col text-base pl-4 pt-2">
-                                                    <p class="text-regal-blue">University of California, Math CEO</p>
-                                                    <p class="text-blue-700">09/2020</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="flex flex-col text-base pl-4 pt-2">
-                                                    <p class="text-regal-blue">Connected Camps Monitor</p>
-                                                    <p class="text-blue-700">11/2020</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <Intern user={props.user} resume={props.resume} />
                                 <div class="pb-8">
                                     <div class="border-b-4 border-regal-blue">
                                         <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Education</h1>

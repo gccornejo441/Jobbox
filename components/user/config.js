@@ -7,7 +7,7 @@ module.exports = {
     BUILD: [
         {   
             "id": "textarea_" + nanoid(4),
-            "title": "Employer Name",
+            "title": "Employer",
             "current": "Current Position",
             "count": 1
         },

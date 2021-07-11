@@ -58,7 +58,7 @@ const WorkExp = (props) => {
                                         <VscDebugBreakpointLog class="h-4 w-4" />
                                     </div>
                                     <p>
-                                    {data.duty_5[0]}
+                                    {data.duty_5 === null ? false : data.duty_5[0]}
                                     </p>
                                 </li>
                             </ul>

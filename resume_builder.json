@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "60eb21e025507906f886bed0"
+  },
+  "first_name": "Gabriel",
+  "last_name": "Cornejo",
+  "street": "277 Isabella Way",
+  "city": "Corona",
+  "state": "Californai",
+  "zip": "92882",
+  "email": "gcornejo441@gmail.com",
+  "phone": "951-454-5028",
+  "school_1": {
+    "school": "Coastline Community College",
+    "start": "09/2017",
+    "end": "09/2018"
+  },
+  "school_2": {
+    "school": " University of California, Irvine ",
+    "start": "",
+    "end": ""
+  },
+  "school_3": {
+    "school": "",
+    "start": "",
+    "end": ""
+  },
+  "job_1": {
+    "job": {
+      "job_employer": "1",
+      "job_posititon": "1"
+    },
+    "job_start": "",
+    "job_end": "",
+    "duties": {
+      "duty_1": "1",
+      "duty_2": "1",
+      "duty_3": "1",
+      "duty_4": "1",
+      "duty_5": "1"
+    }
+  },
+  "job_2": {
+    "job": {
+      "job_employer": "",
+      "job_posititon": ""
+    },
+    "job_start": "",
+    "job_end": "",
+    "duties": {
+      "duty_1": null,
+      "duty_2": null,
+      "duty_3": null,
+      "duty_4": null,
+      "duty_5": null
+    }
+  },
+  "job_3": {
+    "job": {
+      "job_employer": "",
+      "job_posititon": ""
+    },
+    "job_start": "",
+    "job_end": "",
+    "duties": {
+      "duty_1": null,
+      "duty_2": null,
+      "duty_3": null,
+      "duty_4": null,
+      "duty_5": null
+    }
+  },
+  "job_4": {
+    "job": {
+      "job_employer": "",
+      "job_posititon": ""
+    },
+    "job_start": "",
+    "job_end": "",
+    "duties": {
+      "duty_1": null,
+      "duty_2": null,
+      "duty_3": null,
+      "duty_4": null,
+      "duty_5": null
+    }
+  },
+  "job_5": {
+    "job": {
+      "job_employer": "",
+      "job_posititon": ""
+    },
+    "job_start": "",
+    "job_end": "",
+    "duties": {
+      "duty_1": null,
+      "duty_2": null,
+      "duty_3": null,
+      "duty_4": null,
+      "duty_5": null
+    }
+  },
+  "skills": null,
+  "linkedin": "",
+  "twitter": "",
+  "github": "",
+  "internship_1": "",
+  "internship_1_year": "",
+  "internship_2": "",
+  "internship_2_year": "",
+  "internship_3": "",
+  "internship_3_year": "",
+  "volunteer_1": "",
+  "volunteer_1_year": "",
+  "volunteer_2": "",
+  "volunteer_2_year": "",
+  "volunteer_3": "",
+  "volunteer_3_year": "",
+  "username": "omniwizrad"
+}]

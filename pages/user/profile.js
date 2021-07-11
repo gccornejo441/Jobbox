@@ -10,6 +10,8 @@ export default withPageAuthRequired( function newPersona({ resume }) {
     // importing user form auth0
     const { user } = useUser();
 
+    console.log(resume)
+
     return (
         <>
             <Head>
@@ -23,7 +25,7 @@ export default withPageAuthRequired( function newPersona({ resume }) {
                     <SideNav />
                 </div>
                 <div class="w-screen">
-                    <UserProfile resume={resume} user={user} />
+                    {/* <UserProfile resume={resume} user={user} /> */}
                 </div>
             </div>
         </>
@@ -34,7 +36,6 @@ export default withPageAuthRequired( function newPersona({ resume }) {
 
 export async function getServerSideProps() {
     const { db } = await connectToDatabase();
-
 
     const resume = await db
     .collection(process.env.MONGO_USER_COLLECTION)
