@@ -1,6 +1,3 @@
-import { ChevronRightIcon } from '@heroicons/react/solid';
-import config from './config';
-import { Disclosure, Transition } from '@headlessui/react'
 import DutyBox from './DutyBox';
 
 
@@ -12,9 +9,15 @@ const ExpBox = ({ elements }) => {
                 <div class="flex flex-row-reverse">
                 </div>
                 <div class="md:grid grid-cols-2 gap-5">
-                    <div class="flex flex-col">
-                        <label for={item.id}>{item.title}{' '}{item.count}</label>
-                        <input id={item.id} name={item.count ? "job_" + item.count : "job_current"} class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                    <div class="md:grid grid-cols-2 gap-5">
+                        <div class="flex flex-col">
+                            <label for={item.id}>{item.title}{' '}{item.count}</label>
+                            <input id={item.id} name={item.count ? "job_" + item.count : "job_current"} class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        </div>
+                        <div class="flex flex-col">
+                            <label for={item.id}>{item.current}{' '}{item.count}</label>
+                            <input id={item.id} name={item.count ? "job_" + item.count : "job_current"} class="text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        </div>
                     </div>
                     <div class="md:grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
                         <div class="flex flex-col">
@@ -28,7 +31,7 @@ const ExpBox = ({ elements }) => {
                     </div>
                 </div>
                 <div class="mb-6">
-                  <DutyBox count={item.count} />
+                    <DutyBox count={item.count} />
                 </div>
             </>
         );

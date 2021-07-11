@@ -1,12 +1,11 @@
-import { SearchIcon, BellIcon, MailIcon, PhoneIcon, LocationMarkerIcon } from '@heroicons/react/solid';
+import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment, useState, useEffect, useRef } from 'react';
+import { Fragment } from 'react';
 import Image from 'next/image';
-import { nanoid } from 'nanoid';
-import config from '../config';
-import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from 'react-icons/ai';
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import ContactMe from './ContactMe'; 
+import Skills from './Skills';
+import WorkExp from './workExp';
 
 const UserProfile = (props) => {
 
@@ -123,47 +122,14 @@ const UserProfile = (props) => {
                         <div class="flex">
                             <div class="py-4 px-6">
                                 <div class="pt-3">
-                                    <ContactMe />
+                                    <ContactMe user={props.user} resume={props.resume} />
                                 </div>
                                 <div>
-                                    <div class="border-b-4 mb-4 border-regal-blue">
-                                        <h3 class="text-regal-blue text-3xl font-bold">Skills</h3>
-                                    </div>
-                                    <ul>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            SEO
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Public Speaking
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Negotiation
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Teamwork
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Decision Making
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            SEO
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Public Speaking
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Negotiation
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Teamwork
-                                        </li>
-                                        <li class="bg-regal-blue text-white rounded-lg p-2 my-4 w-max tracking-widest">
-                                            Decision Making
-                                        </li>
-                                    </ul>
+                                   <Skills user={props.user} resume={props.resume} />
                                 </div>
                             </div>
                             <div class="w-full">
+                            <WorkExp user={props.user} resume={props.resume} />
                                 <div class="border-b-4 border-regal-blue">
                                     <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Work Experience</h1>
                                 </div>

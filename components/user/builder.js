@@ -1,7 +1,6 @@
 import { SearchIcon, BellIcon, PlusIcon, MinusIcon, CogIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useState, useRef } from 'react';
-import Image from 'next/image';
 import ExpBox from './ExpBox';
 import { nanoid } from 'nanoid';
 import SkillsModal from "./SkillsModal";
@@ -24,7 +23,7 @@ const Builder = (props) => {
             disablePlusBtn.current.disabled = false,
             // The count state is incremented by 1 for avoid unnesscessary play.
             await setCount(count + 1),
-            newDivy = { "id": "exp_" + nanoid(4), "count": count + 1, "title": "Previous Position" },
+            newDivy = { "id": "exp_" + nanoid(4), "count": count + 1, "title": "Previous Position", "current": "Previous Employer" },
             // State is set with copy and new.
             setDivy([...divy, newDivy])
         );
@@ -173,7 +172,7 @@ const Builder = (props) => {
                                         </div>
                                         <div class="flex flex-col">
                                             <label for="phone">Phone</label>
-                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="tel" name="phone" placeholder="" />
+                                            <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" name="phone" placeholder="" />
                                         </div>
                                     </span>
                                     <div class="border-b border-gray-200 w-full my-5"></div>
@@ -213,8 +212,10 @@ const Builder = (props) => {
                                         </div>
                                         <div class="xl:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="school_3">School 3</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
+                                                <label for="school_3">School Name 3</label>
+                                                <input placeholder="" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
+                                                <label for="school_3">Degree Name 3</label>
+                                                <input placeholder="BS in Biological Sciences" class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" placeholder="" />
                                             </div>
                                             <div class="sm:grid grid-cols-2 gap-2">
                                                 <div class="flex flex-col">

@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URL;
+const uri = process.env.MONGODB_URI;
 
 // Creates a new MongoClient
 const client = new MongoClient(uri, {
@@ -11,7 +11,7 @@ const client = new MongoClient(uri, {
 const handler = async (req, res) => {
   console.log("requested body: ", req.body)
 
-  if (req.method === 'GET') {
+  if (req.method === 'POST') {
     await client.connect();
 
     const database = client.db("moviedb");
@@ -25,6 +25,7 @@ const handler = async (req, res) => {
       state,
       zip,
       email,
+      phone,
       school_1,
       school_1_start,
       school_1_end,
@@ -72,6 +73,7 @@ const handler = async (req, res) => {
       state: state,
       zip: zip,
       email: email,
+      phone: phone,
       school_1: school_1,
       school_1_start: school_1_start,
       school_1_end: school_1_end,

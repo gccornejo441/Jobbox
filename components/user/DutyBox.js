@@ -31,7 +31,7 @@ const DutyBox = ( count ) => {
                                             <span>
                                                 <div class="grid">
                                                     <label for={item.id}></label>
-                                                    <textarea id={item.id} name={"duty_" + item.count} placeholder=" Duty" type="text" class="text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                                                    <textarea id={item.id} name={item.count ? "duty_" + item.count : "job_current"} placeholder=" Duty" type="text" class="text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
                                                 </div>
                                             </span>
                                         </Disclosure.Panel>
