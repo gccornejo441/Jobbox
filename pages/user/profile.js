@@ -25,7 +25,7 @@ export default withPageAuthRequired( function newPersona({ resume }) {
                     <SideNav />
                 </div>
                 <div class="w-screen">
-                    {/* <UserProfile resume={resume} user={user} /> */}
+                    <UserProfile resume={resume} user={user} />
                 </div>
             </div>
         </>

@@ -12,108 +12,95 @@
   "phone": "951-454-5028",
   "school_1": {
     "school": "Coastline Community College",
+    "degree": "A.S in Liberal Arts Science & Math",
     "start": "09/2017",
     "end": "09/2018"
   },
   "school_2": {
-    "school": " University of California, Irvine ",
-    "start": "",
-    "end": ""
+    "school": " University of California, Irvine",
+    "degree": "B.A in Education Sciences",
+    "start": "06/2019",
+    "end": "12/2020"
   },
   "school_3": {
-    "school": "",
-    "start": "",
-    "end": ""
+    "school": "Western Governors University",
+    "degree": "B.S in Computer Science",
+    "start": "04/2021",
+    "end": null
   },
-  "job_1": {
-    "job": {
-      "job_employer": "1",
-      "job_posititon": "1"
+  "jobs": [
+    {
+      "job": {
+        "job_employer": "USA Homeownership Foundation",
+        "job_position": "Administrator Assistant"
+      },
+      "job_start": "03/2021",
+      "job_end": null,
+      "duties": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et libero non dolor tincidunt lacinia sit amet sed quam. Curabitur mollis accumsan est eget dignissim. ",
+        "Pellentesque in vulputate massa. Suspendisse rutrum varius commodo. Duis nec fringilla magna. Aenean viverra tellus dictum risus euismod congue. Maecenas ut orci id massa feugiat porta.",
+        "Curabitur egestas, diam sit amet lobortis fringilla, lectus magna efficitur tellus, at sollicitudin ex massa sed erat. In massa magna, faucibus sollicitudin commodo a, egestas ut augue.",
+        "Nullam vel scelerisque sem. Donec tempus eu orci eu tristique. Duis hendrerit cursus nulla et fermentum. Nulla non nulla luctus, commodo nisi sed, fringilla ex.",
+        null
+      ]
     },
-    "job_start": "",
-    "job_end": "",
-    "duties": {
-      "duty_1": "1",
-      "duty_2": "1",
-      "duty_3": "1",
-      "duty_4": "1",
-      "duty_5": "1"
-    }
-  },
-  "job_2": {
-    "job": {
-      "job_employer": "",
-      "job_posititon": ""
+    {
+      "job": {
+        "job_employer": "United States Marine Corps",
+        "job_position": "Motor Transport Operator"
+      },
+      "job_start": "09/2015",
+      "job_end": "09/2019",
+      "duties": [
+        "Maintained a total of 54 pieces of Military trucks and equipment: 32 MTVR(s)/7 Ton trucks, 8 MK593/7 Ton Cargo Trailers, 14 M119/Water Bowl(s).",
+        "Briefed top executives on weekly duties.",
+        "In preparation for biannual Executive Officer’s Readiness Inspection; identified and conducted training seminars for untrained team members, updating administrative files on Military trucks and equipment.",
+        "Wrote up military awards and recommendations using Microsoft Word and government interfaces.",
+        null
+      ]
     },
-    "job_start": "",
-    "job_end": "",
-    "duties": {
-      "duty_1": null,
-      "duty_2": null,
-      "duty_3": null,
-      "duty_4": null,
-      "duty_5": null
-    }
-  },
-  "job_3": {
-    "job": {
-      "job_employer": "",
-      "job_posititon": ""
+    {
+      "job": {
+        "job_employer": "",
+        "job_position": ""
+      },
+      "job_start": "",
+      "job_end": "",
+      "duties": null
     },
-    "job_start": "",
-    "job_end": "",
-    "duties": {
-      "duty_1": null,
-      "duty_2": null,
-      "duty_3": null,
-      "duty_4": null,
-      "duty_5": null
-    }
-  },
-  "job_4": {
-    "job": {
-      "job_employer": "",
-      "job_posititon": ""
+    {
+      "job": {
+        "job_employer": "",
+        "job_position": ""
+      },
+      "job_start": "",
+      "job_end": "",
+      "duties": null
     },
-    "job_start": "",
-    "job_end": "",
-    "duties": {
-      "duty_1": null,
-      "duty_2": null,
-      "duty_3": null,
-      "duty_4": null,
-      "duty_5": null
+    {
+      "job": {
+        "job_employer": "",
+        "job_position": ""
+      },
+      "job_start": "",
+      "job_end": "",
+      "duties": null
     }
-  },
-  "job_5": {
-    "job": {
-      "job_employer": "",
-      "job_posititon": ""
-    },
-    "job_start": "",
-    "job_end": "",
-    "duties": {
-      "duty_1": null,
-      "duty_2": null,
-      "duty_3": null,
-      "duty_4": null,
-      "duty_5": null
-    }
-  },
-  "skills": null,
-  "linkedin": "",
-  "twitter": "",
-  "github": "",
+  ],
+  "skills": ["nodejs", "Javascript", "marketing", "HTML", "CSS", "Dynamics 365"],
+  "linkedin": "linkedin.com/in/gabriel-cornejo-3a913a184/",
+  "twitter": "twitter.com/gcornejo555",
+  "github": "github.com/gccornejo441",
   "internship_1": "",
   "internship_1_year": "",
   "internship_2": "",
   "internship_2_year": "",
   "internship_3": "",
   "internship_3_year": "",
-  "volunteer_1": "",
-  "volunteer_1_year": "",
-  "volunteer_2": "",
-  "volunteer_2_year": "",
+  "volunteer_1": "University of California, Math CEO",
+  "volunteer_1_year": "2020",
+  "volunteer_2": "Connected Camps Volunteer",
+  "volunteer_2_year": "2020",
   "volunteer_3": "",
   "volunteer_3_year": "",
   "username": "omniwizrad"
