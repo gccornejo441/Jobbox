@@ -7,6 +7,7 @@ import ContactMe from './ContactMe';
 import Skills from './Skills';
 import WorkExp from './workExp';
 import Intern from './Intern';
+import Education from './Education';
 
 const UserProfile = (props) => {
 
@@ -132,36 +133,7 @@ const UserProfile = (props) => {
                             <div class="w-full">
                             <WorkExp user={props.user} resume={props.resume} />
                                 {/* <Intern user={props.user} resume={props.resume} /> */}
-                                <div class="pb-8">
-                                    <div class="border-b-4 border-regal-blue">
-                                        <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Education</h1>
-                                    </div>
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                <div class="flex flex-col text-base pl-4 pt-2">
-                                                    <p class="text-blue-800 text-lg">A.A in Liberal Arts: Science and Math</p>
-                                                    <p class="text-regal-blue font-semibold">Coastline Community College</p>
-                                                    <p class="text-blue-700 text-sm">09/2017 - 04/2018</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="flex flex-col text-base pl-4 pt-2">
-                                                    <p class="text-blue-800 text-lg">B.A in Education Sciences</p>
-                                                    <p class="text-regal-blue font-semibold">University of California, Irvine</p>
-                                                    <p class="text-blue-700 text-sm">06/2019 - 12/2020</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="flex flex-col text-base pl-4 pt-2">
-                                                    <p class="text-blue-800 text-lg">B.S in Computer Science</p>
-                                                    <p class="text-regal-blue font-semibold">Western Governors University</p>
-                                                    <p class="text-blue-700 text-sm">04/2021 - Current</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <Education user={props.user} resume={props.resume} />
                             </div>
                         </div>
                         <div class="border-b border-gray-300 flex justify-center w-screen md:w-auto">

@@ -175,6 +175,12 @@ const Builder = (props) => {
                                             <input class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" name="phone" placeholder="" />
                                         </div>
                                     </span>
+                                    <span class="xl:grid grid-cols-1 gap-5">
+                                    <div class="flex flex-col">
+                                            <label for="about_me">About Me</label>
+                                            <textarea class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="about_me" placeholder="" />
+                                        </div>
+                                    </span>
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <div>
                                         <span class="inline-block align-middle text-2xl text-regal-blue">Education</span>

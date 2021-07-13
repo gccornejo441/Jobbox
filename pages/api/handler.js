@@ -9,7 +9,7 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  // console.log("requested body: ", req.body)
+  console.log("requested body: ", req.body)
 
   if (req.method === 'POST') {
 
@@ -22,6 +22,7 @@ const handler = async (req, res) => {
       zip,
       email,
       phone,
+      about_me,
       school_1,
       school_degree_1,
       school_1_start,
@@ -83,6 +84,7 @@ const handler = async (req, res) => {
       zip: zip,
       email: email,
       phone: phone,
+      about_me: about_me,
       school_1: {
         school: school_1,
         degree: school_degree_1,
@@ -108,13 +110,6 @@ const handler = async (req, res) => {
         },
         job_start: job_date_start_1,
         job_end: job_date_end_1,
-        duties: {
-          duty: duty_1[0],
-          duty: duty_2[0],
-          duty: duty_3[0],
-          duty: duty_4[0],
-          duty: duty_5[0],
-        },
       },
       job_2: {
         job: {
@@ -122,14 +117,7 @@ const handler = async (req, res) => {
           job_position: job_2[1],
         },
         job_start: job_date_start_2,
-        job_end: job_date_end_2,
-        duties: {
-          duty: duty_1[1],
-          duty: duty_2[1],
-          duty: duty_3[1],
-          duty: duty_4[1],
-          duty: duty_5[1],
-        },
+        job_end: job_date_end_2
       },
       job_3: {
         job: {
@@ -137,14 +125,7 @@ const handler = async (req, res) => {
           job_position: job_3[1],
         },
         job_start: job_date_start_3,
-        job_end: job_date_end_3,
-        duties: {
-          duty: duty_1[2],
-          duty: duty_2[2],
-          duty: duty_3[2],
-          duty: duty_4[2],
-          duty: duty_5[2],
-        },
+        job_end: job_date_end_3
       },
       job_4: {
         job: {
@@ -152,14 +133,7 @@ const handler = async (req, res) => {
           job_position: job_4[1],
         },
         job_start: job_date_start_4,
-        job_end: job_date_end_4,
-        duties: {
-          duty: duty_1[3],
-          duty: duty_2[3],
-          duty: duty_3[3],
-          duty: duty_4[3],
-          duty: duty_5[3],
-        },
+        job_end: job_date_end_4
       },
       job_5: {
         job: {
@@ -167,31 +141,47 @@ const handler = async (req, res) => {
           job_position: job_5[1],
         },
         job_start: job_date_start_5,
-        job_end: job_date_end_5,
-        duties: {
-          duty: duty_1[4],
-          duty: duty_2[4],
-          duty: duty_3[4],
-          duty: duty_4[4],
-          duty: duty_5[4],
-        }
+        job_end: job_date_end_5
+      },
+      duties: {
+        duty_1: duty_1,
+        duty_2: duty_2,
+        duty_3: duty_3,
+        duty_4: duty_4,
+        duty_5: duty_5,
       },
       skills: skills,
       linkedin: linkedin,
       twitter: twitter,
       github: github,
-      internship_1: internship_1,
-      internship_1_year: internship_1_year,
-      internship_2: internship_2,
-      internship_2_year: internship_2_year,
-      internship_3: internship_3,
-      internship_3_year: internship_3_year,
-      volunteer_1: volunteer_1,
-      volunteer_1_year: volunteer_1_year,
-      volunteer_2: volunteer_2,
-      volunteer_2_year: volunteer_2_year,
-      volunteer_3: volunteer_3,
-      volunteer_3_year: volunteer_3_year,
+      internship: [
+        {
+          internship: internship_1,
+          internship_year: internship_1_year
+        },
+        {
+          internship: internship_2,
+          internship_year: internship_2_year
+        },
+        {
+          internship: internship_3,
+          internship_year: internship_3_year
+        },
+      ],
+      volunteer: [
+        {
+          volunteer: volunteer_1,
+          volunteer_year: volunteer_1_year
+        },
+        {
+          volunteer: volunteer_2,
+          volunteer_year: volunteer_2_year
+        },
+        {
+          volunteer: volunteer_3,
+          volunteer_year: volunteer_3_year
+        },
+      ],
       username: username,
     };
 
