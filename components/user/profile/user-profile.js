@@ -122,12 +122,12 @@ const UserProfile = (props) => {
                         {/* CHANGE THIS FOR MOBILE */}
                         <div class="flex">
                             <div class="py-4 px-6">
-                                {/* <div class="pt-3">
+                                <div class="pt-3">
                                     <ContactMe user={props.user} resume={props.resume} />
                                 </div>
                                 <div>
                                    <Skills user={props.user} resume={props.resume} />
-                                </div> */}
+                                </div>
                             </div>
                             <div class="w-full">
                             <WorkExp user={props.user} resume={props.resume} />

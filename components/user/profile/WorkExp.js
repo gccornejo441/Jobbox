@@ -11,14 +11,17 @@ const WorkExp = (props) => {
                     {props.resume.map((data) => {
                         if (data.username === props.user.nickname) {
                             return (
-                                <div>
-                                    <div>
+                                <ul>
+                                    <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
                                         {data.jobs[0].job.job_employer}
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li class="text-xl text-regal-blue pl-4 pt-2">
                                         {data.jobs[0].job.job_position}
-                                    </div>
-                                </div>
+                                    </li>
+                                    <li class="text-sm text-regal-blue pl-4 pt-2">
+                                    {data.jobs[0].job_start} - {data.jobs[0].job_end === null ? "Current" : data.jobs[0].job_end}
+                                    </li>
+                                </ul>
                             );
                         }
                     })}
@@ -31,7 +34,7 @@ const WorkExp = (props) => {
                                     return (
                                         <>
                                             <ul key={props.resume._id}>
-                                                <div class="flex">
+                                                <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
                                                     <div class="mt-1">
                                                         <VscDebugBreakpointLog class="h-4 w-4" />
                                                     </div>
@@ -40,7 +43,7 @@ const WorkExp = (props) => {
                                                             {duty}
                                                         </p>
                                                     </div>
-                                                </div>
+                                                </li>
                                             </ul>
                                         </>
                                     );
@@ -53,14 +56,17 @@ const WorkExp = (props) => {
                     {props.resume.map((data) => {
                         if (data.username === props.user.nickname) {
                             return (
-                                <div>
-                                    <div>
+                                <ul>
+                                    <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
                                         {data.jobs[1].job.job_employer}
-                                    </div>
-                                    <div>
+                                    </li>
+                                    <li class="text-xl text-regal-blue pl-4 pt-2">
                                         {data.jobs[1].job.job_position}
-                                    </div>
-                                </div>
+                                    </li>
+                                    <li class="text-sm text-regal-blue pl-4 pt-2">
+                                    {data.jobs[1].job_start} - {data.jobs[1].job_end === null ? "Curren" : data.jobs[1].job_end}
+                                    </li>
+                                </ul>
                             );
                         }
                     })}
@@ -73,7 +79,7 @@ const WorkExp = (props) => {
                                     return (
                                         <>
                                             <ul key={props.resume._id}>
-                                                <div class="flex">
+                                                <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
                                                     <div class="mt-1">
                                                         <VscDebugBreakpointLog class="h-4 w-4" />
                                                     </div>
@@ -82,7 +88,7 @@ const WorkExp = (props) => {
                                                             {duty}
                                                         </p>
                                                     </div>
-                                                </div>
+                                                </li>
                                             </ul>
                                         </>
                                     );
