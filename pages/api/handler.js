@@ -9,7 +9,7 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  console.log("requested body: ", req.body)
+  // console.log("requested body: ", req.body)
 
   if (req.method === 'POST') {
 
@@ -104,44 +104,31 @@ const handler = async (req, res) => {
         end: school_3_end,
       },
       job_1: {
-        job: {
-          job_employer: job_1[0],
-          job_position: job_1[1],
-        },
         job_start: job_date_start_1,
         job_end: job_date_end_1,
       },
       job_2: {
-        job: {
-          job_employer: job_2[0],
-          job_position: job_2[1],
-        },
         job_start: job_date_start_2,
         job_end: job_date_end_2
       },
       job_3: {
-        job: {
-          job_employer: job_3[0],
-          job_position: job_3[1],
-        },
         job_start: job_date_start_3,
         job_end: job_date_end_3
       },
       job_4: {
-        job: {
-          job_employer: job_4[0],
-          job_position: job_4[1],
-        },
         job_start: job_date_start_4,
         job_end: job_date_end_4
       },
       job_5: {
-        job: {
-          job_employer: job_5[0],
-          job_position: job_5[1],
-        },
         job_start: job_date_start_5,
         job_end: job_date_end_5
+      },
+      job_title: {
+        job_1: job_1,
+        job_2: job_2,
+        job_3: job_3,
+        job_4: job_4,
+        job_5: job_5
       },
       duties: {
         duty_1: duty_1,
@@ -156,29 +143,29 @@ const handler = async (req, res) => {
       github: github,
       internship: [
         {
-          internship: internship_1,
+          internship_1: internship_1,
           internship_year: internship_1_year
         },
         {
-          internship: internship_2,
+          internship_2: internship_2,
           internship_year: internship_2_year
         },
         {
-          internship: internship_3,
+          internship_3: internship_3,
           internship_year: internship_3_year
         },
       ],
       volunteer: [
         {
-          volunteer: volunteer_1,
+          volunteer_1: volunteer_1,
           volunteer_year: volunteer_1_year
         },
         {
-          volunteer: volunteer_2,
+          volunteer_2: volunteer_2,
           volunteer_year: volunteer_2_year
         },
         {
-          volunteer: volunteer_3,
+          volunteer_3: volunteer_3,
           volunteer_year: volunteer_3_year
         },
       ],
@@ -189,17 +176,20 @@ const handler = async (req, res) => {
 
     const database = client.db("moviedb");
     const resume = database.collection("resume_builder");
+          await resume.insertOne(entry),
+      res.redirect('/user/resume-builder')  
 
-    const query = { username: req.body.username };
 
-    const resumeUser = await resume.findOne(query);
+    // const query = { username: req.body.username };
 
-    resumeUser === null ? (
-      await resume.insertOne(entry),
-      res.redirect('/user/resume-builder')
-    ) : (
-      res.redirect('/user/profile')
-    )
+    // const resumeUser = await resume.findOne(query);
+
+    // resumeUser === null ? (
+    //   await resume.insertOne(entry),
+    //   res.redirect('/user/resume-builder')  
+    // ) : (
+    //   res.redirect('/user/profile')
+    // )
   }
 }
 

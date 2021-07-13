@@ -1,115 +1,107 @@
 [
   {
     "_id": {
-      "$oid": "60eb21e025507906f886bed0"
+      "$oid": "60ed10e6b6e75120f8d9b975"
     },
     "first_name": "Gabriel",
     "last_name": "Cornejo",
-    "street": "277 Isabella Way",
+    "street": null,
     "city": "Corona",
-    "state": "Californai",
+    "state": "California",
     "zip": "92882",
     "email": "gcornejo441@gmail.com",
     "phone": "951-454-5028",
+    "about_me": " recently completed my first enlistment with the United States\r\nMarine Corps. With the Marine Corps I was able to learn plenty of\r\nskills that developed me into an effective person, Some of the skills\r\nthat I expanded on where the ability to manage a team of people\r\neffectively and cohesively to complete difficult tasks. These skills\r\nwere ancillary to all other skills that would ensure my success in the\r\nworkforce.",
     "school_1": {
       "school": "Coastline Community College",
-      "degree": "A.S in Liberal Arts Science & Math",
-      "start": "09/2017",
-      "end": "09/2018"
+      "degree": "A.A in Liberal Arts: Science and Math",
+      "start": "2017-06-06",
+      "end": "2018-06-11"
     },
     "school_2": {
-      "school": " University of California, Irvine",
+      "school": "University of California, Irvine",
       "degree": "B.A in Education Sciences",
-      "start": "06/2019",
-      "end": "12/2020"
+      "start": "2019-06-12",
+      "end": "2020-12-22"
     },
     "school_3": {
       "school": "Western Governors University",
       "degree": "B.S in Computer Science",
-      "start": "04/2021",
-      "end": null
+      "start": "2021-04-01",
+      "end": ""
+    },
+    "job_1": {
+      "job_start": "2021-03-08",
+      "job_end": ""
+    },
+    "job_2": {
+      "job_start": "2015-08-23",
+      "job_end": "2019-08-23"
+    },
+    "job_3": {
+      "job_start": null,
+      "job_end": null
+    },
+    "job_4": {
+      "job_start": null,
+      "job_end": null
+    },
+    "job_5": {
+      "job_start": null,
+      "job_end": null
+    },
+    "job_title": {
+      "job_1": [
+        "USA Homeownership Foundation",
+        "Admin Assistant"
+      ],
+      "job_2": [
+        "United States Marine Corps",
+        "Motor Transport Operator"
+      ],
+      "job_3": null,
+      "job_4": null,
+      "job_5": null
     },
     "duties": {
       "duty_1": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et libero non dolor tincidunt lacinia sit amet sed quam. Curabitur mollis accumsan est eget dignissim. ",
+        "Nullam vel scelerisque sem. Donec tempus eu orci eu tristique. Duis hendrerit cursus nulla et fermentum. Nulla non nulla luctus, commodo nisi sed, fringilla ex.",
         "Maintained a total of 54 pieces of Military trucks and equipment: 32 MTVR(s)/7 Ton trucks, 8 MK593/7 Ton Cargo Trailers, 14 M119/Water Bowl(s)."
-
       ],
       "duty_2": [
-        "Pellentesque in vulputate massa. Suspendisse rutrum varius commodo. Duis nec fringilla magna. Aenean viverra tellus dictum risus euismod congue. Maecenas ut orci id massa feugiat porta.",
-        "Briefed top executives on weekly duties.",
-        "In preparation for biannual Executive Officer’s Readiness Inspection; identified and conducted training seminars for untrained team members, updating administrative files on Military trucks and equipment.",
-        "Wrote up military awards and recommendations using Microsoft Word and government interfaces."
+        "Duis eget rutrum odio. Mauris pellentesque mauris nisl, nec finibus dui mattis non. Proin porta sit amet risus sed accumsan. Aliquam commodo consectetur eros in ornare.",
+        "Briefed top executives on weekly duties.\r\n"
       ],
       "duty_3": [
-        "Curabitur egestas, diam sit amet lobortis fringilla, lectus magna efficitur tellus, at sollicitudin ex massa sed erat. In massa magna, faucibus sollicitudin commodo a, egestas ut augue.",
-        "In preparation for biannual Executive Officer’s Readiness Inspection; identified and conducted training seminars for untrained team members, updating administrative files on Military trucks and equipment."
+        "Fusce dapibus mauris ac lacus dictum tincidunt. Sed faucibus lorem id eleifend faucibus. Nunc laoreet iaculis nisi sit amet sollicitudin.",
+        "In preparation for biannual Executive Officer’s Readiness Inspection; identified and conducted training seminars for untrained team members, updating administrative files on Military trucks and equipment.\r\n"
       ],
-      "duty_4": [
-        "Nullam vel scelerisque sem. Donec tempus eu orci eu tristique. Duis hendrerit cursus nulla et fermentum. Nulla non nulla luctus, commodo nisi sed, fringilla ex.",
-        "Wrote up military awards and recommendations using Microsoft Word and government interfaces."
-      ]
+      "duty_4": "Wrote up military awards and recommendations using Microsoft Word and government interfaces.\r\n",
+      "duty_5": null
     },
-    "jobs": [
-      {
-        "job": {
-          "job_employer": "USA Homeownership Foundation",
-          "job_position": "Administrator Assistant"
-        },
-        "job_start": "03/2021",
-        "job_end": null
-      },
-      {
-        "job": {
-          "job_employer": "United States Marine Corps",
-          "job_position": "Motor Transport Operator"
-        },
-        "job_start": "09/2015",
-        "job_end": "09/2019"
-      },
-      {
-        "job": {
-          "job_employer": "",
-          "job_position": ""
-        },
-        "job_start": "",
-        "job_end": ""
-      },
-      {
-        "job": {
-          "job_employer": "",
-          "job_position": ""
-        },
-        "job_start": "",
-        "job_end": ""
-      },
-      {
-        "job": {
-          "job_employer": "",
-          "job_position": ""
-        },
-        "job_start": "",
-        "job_end": ""
-      }
-    ],
     "skills": [
-      "nodejs",
-      "Javascript",
-      "marketing",
-      "HTML",
-      "CSS",
-      "Dynamics 365"
+      "Management",
+      "Knowledge Graphs",
+      "Information Technology Planning",
+      "Business Negotiation",
+      "NodeJS"
     ],
     "linkedin": "linkedin.com/in/gabriel-cornejo-3a913a184/",
     "twitter": "twitter.com/gcornejo555",
     "github": "github.com/gccornejo441",
     "internship": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      {
+        "internship_1": "",
+        "internship_year": ""
+      },
+      {
+        "internship_2": "",
+        "internship_year": ""
+      },
+      {
+        "internship_3": "",
+        "internship_year": ""
+      }
     ],
     "volunteer": [
       {
@@ -122,9 +114,10 @@
       },
       {
         "volunteer_3": "",
-        "volunteer_3_year": ""
+        "volunteer_year": ""
       }
     ],
     "username": "omniwizrad"
   }
 ]
+
