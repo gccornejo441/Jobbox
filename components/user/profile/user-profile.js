@@ -132,7 +132,7 @@ const UserProfile = (props) => {
                             </div>
                             <div class="w-full">
                             <WorkExp user={props.user} resume={props.resume} />
-                                {/* <Intern user={props.user} resume={props.resume} /> */}
+                                <Intern user={props.user} resume={props.resume} />
                                 <Education user={props.user} resume={props.resume} />
                             </div>
                         </div>

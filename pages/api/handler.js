@@ -176,20 +176,17 @@ const handler = async (req, res) => {
 
     const database = client.db("moviedb");
     const resume = database.collection("resume_builder");
-          await resume.insertOne(entry),
+
+    const query = { username: req.body.username };
+
+    const resumeUser = await resume.findOne(query);
+
+    resumeUser === null ? (
+      await resume.insertOne(entry),
       res.redirect('/user/resume-builder')  
-
-
-    // const query = { username: req.body.username };
-
-    // const resumeUser = await resume.findOne(query);
-
-    // resumeUser === null ? (
-    //   await resume.insertOne(entry),
-    //   res.redirect('/user/resume-builder')  
-    // ) : (
-    //   res.redirect('/user/profile')
-    // )
+    ) : (
+      res.redirect('/user/profile')
+    )
   }
 }
 

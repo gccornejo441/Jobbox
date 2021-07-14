@@ -9,7 +9,6 @@ const WorkExp = (props) => {
             <div>
                 <div>
                     {props.resume.map((data) => {
-                        console.log(data)
                         if (data.username === props.user.nickname) {
                             return (
                                 <ul>
@@ -17,7 +16,7 @@ const WorkExp = (props) => {
                                         {data.job_title === null ? false : data.job_title.job_1[0]}
                                     </li>
                                     <li class="text-xl text-regal-blue pl-4 pt-2">
-                                    {data.job_title === null ? false : data.job_title.job_1[1]}
+                                        {data.job_title === null ? false : data.job_title.job_1[1]}
                                     </li>
                                     <li class="text-sm text-regal-blue pl-4 pt-2">
                                         {data.job_1.job_start} - {data.job_1.job_end === "" ? "Current" : data.job_1.job_end}
@@ -158,10 +157,10 @@ const WorkExp = (props) => {
                             return (
                                 <ul>
                                     <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
-                                        {data.job_title === null ? false : data.job_title.job_2[0]}
+                                        {data.job_title.job_2 === null ? false : data.job_title.job_2[0]}
                                     </li>
                                     <li class="text-xl text-regal-blue pl-4 pt-2">
-                                    {data.job_title === null ? false : data.job_title.job_2[1]}
+                                        {data.job_title.job_2 === null ? false : data.job_title.job_2[1]}
                                     </li>
                                     <li class="text-sm text-regal-blue pl-4 pt-2">
                                         {data.job_2.job_start} - {data.job_2.job_end === "" ? "Current" : data.job_2.job_end}
