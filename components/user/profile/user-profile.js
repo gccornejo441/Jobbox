@@ -1,13 +1,12 @@
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import Image from 'next/image';
-import { VscDebugBreakpointLog } from "react-icons/vsc";
 import ContactMe from './ContactMe'; 
 import Skills from './Skills';
 import WorkExp from './workExp';
 import Intern from './Intern';
 import Education from './Education';
+import Banner from './Banner';
 
 const UserProfile = (props) => {
 
@@ -104,21 +103,7 @@ const UserProfile = (props) => {
                 <div class="pt-3 xl:px-4 flex justify-center">
                     <div class="md:bg-white md:rounded-lg md:shadow-md w-full md:w-max">
                         <div class="flex justify-center bg-regal-blue xl:px-12 md:rounded-t-lg">
-                            <div class="m-5 flex">
-                                <Image src="/images/profile_picture.jpg" height={200} width={200} class="rounded-full" />
-                                <div class="flex flex-col py-3 px-4 ">
-                                    <span class="flex">
-                                        <h1 class="text-lg font-bold text-white">Admin Assistant</h1>
-                                        <h2 class="text-sm text-gray-400 mt-1 mx-2">USA Homeownership Foundation</h2>
-                                    </span>
-                                    <div class="w-full my-5"></div>
-                                    <div class="text-sm max-w-prose">
-                                        <p class="text-white">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit, mauris quis tempus fringilla, diam metus dictum lorem, non molestie velit velit eu nisl. Sed facilisis mauris vehicula arcu consectetur laoreet. Praesent eu blandit sapien.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <Banner user={props.user} resume={props.resume} />
                         </div>
                         {/* CHANGE THIS FOR MOBILE */}
                         <div class="flex">

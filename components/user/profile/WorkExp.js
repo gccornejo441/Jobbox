@@ -19,7 +19,7 @@ const WorkExp = (props) => {
                                         {data.job_title === null ? false : data.job_title.job_1[1]}
                                     </li>
                                     <li class="text-sm text-regal-blue pl-4 pt-2">
-                                        {data.job_1.job_start} - {data.job_1.job_end === "" ? "Current" : data.job_1.job_end}
+                                        {data.job_1.job_start} - {data.job_1.job_start === "" && data.job_1.job_end === "" ? "" : data.job_1.job_end === "" ? "Current" : data.job_1.job_end}
                                     </li>
                                 </ul>
                             );

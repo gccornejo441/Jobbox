@@ -9,9 +9,6 @@ import { connectToDatabase } from "../../util/mongodb";
 export default withPageAuthRequired( function newPersona({ resume }) {
     // importing user form auth0
     const { user } = useUser();
-
-    console.log(resume)
-
     return (
         <>
             <Head>
