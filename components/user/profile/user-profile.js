@@ -33,7 +33,7 @@ const UserProfile = (props) => {
                                 <div class="flex mt-4 mr-5 hidden lg:flex">
                                     <div class="mr-2 relative top-2">
                                         <BellIcon class="h-6 w-6" />
-                                        <div class="absolute top-0 right-0 bg-red-500  border-red-50 rounded-2xl h-3 w-3"></div>
+                                        <div class="absolute top-0 right-0 bg-red-500 border-2  border-red-50 rounded-2xl h-3 w-3"></div>
                                     </div>
                                     <Menu.Button class="bg-regal-blue flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-regal-blue focus:ring-white">
                                         <span class="sr-only">Open user menu</span>

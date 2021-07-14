@@ -72,6 +72,7 @@ const handler = async (req, res) => {
       volunteer_3,
       volunteer_3_year,
       username,
+      img,
     } = req.body
 
     // document to be inserted
@@ -170,6 +171,7 @@ const handler = async (req, res) => {
         },
       ],
       username: username,
+      image: img,
     };
 
     await client.connect();
@@ -177,16 +179,19 @@ const handler = async (req, res) => {
     const database = client.db("moviedb");
     const resume = database.collection("resume_builder");
 
-    const query = { username: req.body.username };
-
-    const resumeUser = await resume.findOne(query);
-
-    resumeUser === null ? (
-      await resume.insertOne(entry),
+    await resume.insertOne(entry),
       res.redirect('/user/resume-builder')  
-    ) : (
-      res.redirect('/user/profile')
-    )
+
+    // const query = { username: req.body.username };
+
+    // const resumeUser = await resume.findOne(query);
+
+    // resumeUser === null ? (
+    //   await resume.insertOne(entry),
+    //   res.redirect('/user/resume-builder')  
+    // ) : (
+    //   res.redirect('/user/profile')
+    // )
   }
 }
 

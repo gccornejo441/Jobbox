@@ -176,7 +176,7 @@ const Builder = (props) => {
                                         </div>
                                     </span>
                                     <span class="xl:grid grid-cols-1 gap-5">
-                                    <div class="flex flex-col">
+                                        <div class="flex flex-col">
                                             <label for="about_me">About Me</label>
                                             <textarea class="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="about_me" placeholder="" />
                                         </div>
@@ -276,73 +276,81 @@ const Builder = (props) => {
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <span class="inline-block align-middle text-2xl text-regal-blue">Internships & Volunteer Work</span>
                                     <span class="xl:grid grid-cols-2 gap-5 pb-12">
+                                        <div class="flex flex-col">
+                                            <label for="internship_1">Internship 1</label>
+                                            <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_1" placeholder="" />
+                                        </div>
+                                        <div class="sm:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="internship_1">Internship 1</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_1" placeholder="" />
+                                                <label for="internship_1_year">Year</label>
+                                                <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_1_year" placeholder="" />
                                             </div>
-                                            <div class="sm:grid grid-cols-2 gap-2">
-                                                <div class="flex flex-col">
-                                                    <label for="internship_1_year">Year</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_1_year" placeholder="" />
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="internship_2">Internship 2</label>
+                                            <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_2" placeholder="" />
+                                        </div>
+                                        <div class="sm:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="internship_2">Internship 2</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_2" placeholder="" />
+                                                <label for="internship_2_year">Year</label>
+                                                <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_2_year" placeholder="" />
                                             </div>
-                                            <div class="sm:grid grid-cols-2 gap-2">
-                                                <div class="flex flex-col">
-                                                    <label for="internship_2_year">Year</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_2_year" placeholder="" />
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="internship_3">Internship 3</label>
+                                            <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_3" placeholder="" />
+                                        </div>
+                                        <div class="sm:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="internship_3">Internship 3</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_3" placeholder="" />
+                                                <label for="internship_3_year">Year</label>
+                                                <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_3_year" placeholder="" />
                                             </div>
-                                            <div class="sm:grid grid-cols-2 gap-2">
-                                                <div class="flex flex-col">
-                                                    <label for="internship_3_year">Year</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_3_year" placeholder="" />
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="volunteer_1">Volunteer 1</label>
+                                            <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_1" placeholder="" />
+                                        </div>
+                                        <div class="sm:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="volunteer_1">Volunteer 1</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_1" placeholder="" />
+                                                <label for="volunteer_1_year">Year</label>
+                                                <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_1_year" placeholder="" />
                                             </div>
-                                            <div class="sm:grid grid-cols-2 gap-2">
-                                                <div class="flex flex-col">
-                                                    <label for="volunteer_1_year">Year</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_1_year" placeholder="" />
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="volunteer_2">Volunteer 2</label>
+                                            <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_2" placeholder="" />
+                                        </div>
+                                        <div class="sm:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="volunteer_2">Volunteer 2</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_2" placeholder="" />
+                                                <label for="volunteer_2_year">Year</label>
+                                                <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_2_year" placeholder="" />
                                             </div>
-                                            <div class="sm:grid grid-cols-2 gap-2">
-                                                <div class="flex flex-col">
-                                                    <label for="volunteer_2_year">Year</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_2_year" placeholder="" />
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label for="volunteer_3">Volunteer 3</label>
+                                            <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_3" placeholder="" />
+                                        </div>
+                                        <div class="sm:grid grid-cols-2 gap-2">
                                             <div class="flex flex-col">
-                                                <label for="volunteer_3">Volunteer 3</label>
-                                                <input class="inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_3" placeholder="" />
+                                                <label for="volunteer_3_year">Year</label>
+                                                <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_3_year" placeholder="" />
                                             </div>
-                                            <div class="sm:grid grid-cols-2 gap-2">
-                                                <div class="flex flex-col">
-                                                    <label for="volunteer_3_year">Year</label>
-                                                    <input class="inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_3_year" placeholder="" />
-                                                </div>
-                                            </div>
+                                        </div>
                                     </span>
+                                    <div class="border-b border-gray-200 w-full my-5"></div>
+                                    <span class="inline-block align-middle text-2xl text-regal-blue">Features</span>
+                                    <div class="flex justify-center">
+                                        <div class="flex flex-col">
+                                            <label for="img">Resume Image</label>
+                                            <input class="inline-block align-middle text-sm font-medium text-blue-900" type="file" id="img" name="img" accept="image/png, image/jpeg" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="flex justify-center border-t border-gray-200 pt-16 pb-12">
-                                <div class="flex flex-col invisible hidden">
-                                            <label for="user"></label>
-                                            <input type="text" name="username" value={props.user.nickname} />
-                                        </div>
+                                    <div class="flex flex-col invisible hidden">
+                                        <label for="user"></label>
+                                        <input type="text" name="username" value={props.user.nickname} />
+                                    </div>
                                     <button type="submit" class="w-max flex py-2 px-4 text-md tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><CogIcon class="h-6 pr-3 text-gray-50" />Generate</button>
                                 </div>
                             </form>
