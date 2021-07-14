@@ -3,7 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import ContactMe from './ContactMe'; 
 import Skills from './Skills';
-import WorkExp from './workExp';
+import WorkExp from './WorkExp';
 import Intern from './Intern';
 import Education from './Education';
 import Banner from './Banner';
