@@ -1,4 +1,11 @@
 import { MongoClient } from 'mongodb';
+import PDFDocument from 'pdfkit';
+import fs from "fs";
+
+// create a document and pipe to a blob
+
+
+
 
 const uri = process.env.MONGODB_URI;
 
@@ -9,10 +16,9 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  // console.log("requested body: ", req.body)
-
+  console.log("requested body: ", req.body)
+  
   if (req.method === 'POST') {
-
     let {
       first_name,
       last_name,
@@ -74,6 +80,59 @@ const handler = async (req, res) => {
       username,
       img,
     } = req.body
+    var doc = new PDFDocument();
+    doc.pipe(fs.createWriteStream(first_name + '_resume' + '.pdf'))
+
+    doc.lineCap('butt')
+      .moveTo(50, 20)
+      .rect(0, 0, 620, 150)
+      .fill('#283b52')
+
+    // and some justified text wrapped into columns
+    doc
+      .fillColor('white')
+      .font('Helvetica-Bold', 16)
+      .moveUp(1.6)
+      .text(first_name + " " + last_name, {
+        width: 412,
+        align: 'center',
+        indent: 30,
+        columns: 1,
+        height: 500,
+        ellipsis: true
+      });
+
+    // and some justified text wrapped into columns
+    doc
+      .fillColor('white')
+      .font('Helvetica', 12)
+      .moveDown()
+      .moveUp()
+      .text(city + " " + state, {
+        width: 412,
+        align: 'center',
+        indent: 30,
+        columns: 1,
+        ellipsis: true
+      })
+      .text("Phone: " + phone + " " + "Email: " + email, {
+        width: 412,
+        align: 'center',
+        indent: 30,
+        columns: 1,
+        ellipsis: true
+       })
+      .text("Github: " + github, {
+        width: 412,
+        align: 'center',
+        indent: 30,
+        columns: 1,
+        ellipsis: true
+      })
+
+
+    doc.end();
+
 
     // document to be inserted
     const entry = {
@@ -179,19 +238,16 @@ const handler = async (req, res) => {
     const database = client.db("moviedb");
     const resume = database.collection("resume_builder");
 
-    await resume.insertOne(entry),
+    const query = { username: req.body.username };
+
+    const resumeUser = await resume.findOne(query);
+
+    resumeUser === null ? (
+      await resume.insertOne(entry),
       res.redirect('/user/resume-builder')  
-
-    // const query = { username: req.body.username };
-
-    // const resumeUser = await resume.findOne(query);
-
-    // resumeUser === null ? (
-    //   await resume.insertOne(entry),
-    //   res.redirect('/user/resume-builder')  
-    // ) : (
-    //   res.redirect('/user/profile')
-    // )
+    ) : (
+      res.redirect('/user/profile')
+    )
   }
 }
 
