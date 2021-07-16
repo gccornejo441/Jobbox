@@ -1,6 +1,6 @@
 module.exports = {
-  webpack5: true,
+   webpack5: true,
   env: {
     AUTH0_BASE_URL: process.env.VERCEL_URL || process.env.AUTH0_BASE_URL
-  }
+  },
 }
