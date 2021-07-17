@@ -13,7 +13,7 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  // console.log("requested body: ", req.body)
+  console.log("requested body: ", req.body)
 
   if (req.method === 'POST') {
     let {
@@ -38,26 +38,21 @@ const handler = async (req, res) => {
       school_degree_3,
       school_3_start,
       school_3_end,
-      job_1,
+      job_name_1,
+      job_title_1,
       job_date_start_1,
       job_date_end_1,
-      duty_1,
-      duty_2,
-      duty_3,
-      duty_4,
-      duty_5,
-      job_2,
+      job_1_duty,
+      job_name_2,
+      job_title_2,
       job_date_start_2,
       job_date_end_2,
-      job_3,
+      job_2_duty,
+      job_name_3,
+      job_title_3,
       job_date_start_3,
       job_date_end_3,
-      job_4,
-      job_date_start_4,
-      job_date_end_4,
-      job_5,
-      job_date_start_5,
-      job_date_end_5,
+      job_3_duty,
       skills,
       linkedin,
       twitter,
@@ -85,7 +80,6 @@ const handler = async (req, res) => {
       last_name: last_name,
       street: street,
       city: city,
-      state: state,
       zip: zip,
       email: email,
       phone: phone,
@@ -109,38 +103,25 @@ const handler = async (req, res) => {
         end: school_3_end,
       },
       job_1: {
+        job_name_1: job_name_1,
+        job_title_1: job_title_1,
         job_start: job_date_start_1,
         job_end: job_date_end_1,
+        job_1_duty: job_1_duty,
       },
       job_2: {
+        job_name_2: job_name_2,
+        job_title_2: job_title_2,
         job_start: job_date_start_2,
-        job_end: job_date_end_2
+        job_end: job_date_end_2,
+        job_2_duty: job_2_duty,
       },
       job_3: {
+        job_name_3: job_name_3,
+        job_title_3: job_title_3,
         job_start: job_date_start_3,
-        job_end: job_date_end_3
-      },
-      job_4: {
-        job_start: job_date_start_4,
-        job_end: job_date_end_4
-      },
-      job_5: {
-        job_start: job_date_start_5,
-        job_end: job_date_end_5
-      },
-      job_title: {
-        job_1: job_1,
-        job_2: job_2,
-        job_3: job_3,
-        job_4: job_4,
-        job_5: job_5
-      },
-      duties: {
-        duty_1: duty_1,
-        duty_2: duty_2,
-        duty_3: duty_3,
-        duty_4: duty_4,
-        duty_5: duty_5,
+        job_end: job_date_end_3,   
+        job_3_duty: job_3_duty,
       },
       skills: skills,
       linkedin: linkedin,
@@ -188,6 +169,7 @@ const handler = async (req, res) => {
     const resumeUser = await resume.findOne(query);
 
     resumeUser === null ? (
+      console.log(entry),
       await resume.insertOne(entry),
       res.redirect('/user/resume-builder')
     ) : (
@@ -198,9 +180,9 @@ const handler = async (req, res) => {
     // DB Connector
     const { db } = await connectToDatabase();
     const resume = await db
-    .collection(process.env.MONGO_USER_COLLECTION)
-    .find()
-    .toArray();
+      .collection(process.env.MONGO_USER_COLLECTION)
+      .find()
+      .toArray();
 
     var doc = new PDFDocument();
     doc.pipe(fs.createWriteStream('_resume' + '.pdf'))
@@ -239,15 +221,15 @@ const handler = async (req, res) => {
         columns: 1,
         ellipsis: true
       })
-      .text("Portfolio:" + " " +  "www." + resume[0].github, {
+      .text("Portfolio:" + " " + "www." + resume[0].github, {
         width: 412,
         align: 'center',
         indent: 30,
         columns: 1,
         ellipsis: true
       })
-      
-      let box = { about: resume[0].about_me.replace(/\n/g, '') }
+
+    let box = { about: resume[0].about_me.replace(/\n/g, ' ') }
     // and some justified text wrapped into columns
     doc
       .fillColor('black')
@@ -263,34 +245,34 @@ const handler = async (req, res) => {
       })
       .font('Times-Roman', 12)
       .text(box.about, {
-        width: 412,
+        width: 470,
         align: 'left'
       })
 
-      doc
+    doc
       .moveDown()
-      .text("NodeJS/NPM/Git/Express", { align: 'left'})
+      .text(resume[0].skills[0] === undefined ? " " : resume[0].skills[0], { align: 'left' })
       .moveDown()
-      doc.text("React, NextJS, EJS", { align: 'left'})
+    doc.text(resume[0].skills[3] === undefined ? " " : resume[0].skills[3], { align: 'left' })
       .moveDown()
-      doc.text("MongoDB/Mongoose", { align: 'left'})
-      
-      doc
+    doc.text(resume[0].skills[6] === undefined ? " " : resume[0].skills[6], { align: 'left' })
+
+    doc
       .moveUp(5)
-      .text("Marketing", { align: 'center'})
+      .text(resume[0].skills[1] === undefined ? " " : resume[0].skills[1], { align: 'center' })
       .moveDown()
-      doc.text("Microsoft Word & Excel", { align: 'center'})
+    doc.text(resume[0].skills[4] === undefined ? " " : resume[0].skills[4], { align: 'center' })
       .moveDown()
-      doc.text("API Integration", { align: 'center'})
-      
-      doc
+    doc.text(resume[0].skills[7] === undefined ? " " : resume[0].skills[7], { align: 'center' })
+
+    doc
       .moveUp(5)
-      .text("This text is left aligned", { align: 'right'})
+      .text(resume[0].skills[2] === undefined ? " " : resume[0].skills[2], { align: 'right' })
       .moveDown()
-      doc.text("This text is left aligned", { align: 'right'})
+    doc.text(resume[0].skills[5] === undefined ? " " : resume[0].skills[5], { align: 'right' })
       .moveDown()
-      doc.text("This text is left aligned", { align: 'right'})
-      
+    doc.text(resume[0].skills[8] === undefined ? " " : resume[0].skills[8], { align: 'right' })
+
 
     doc
       .fillColor('black')
@@ -305,11 +287,15 @@ const handler = async (req, res) => {
         ellipsis: true
       })
 
+
+    // Checks to if end data is available.
+    let jobEnd = (resume[0].job_1.job_end === "" ? "Current" : resume[0].job_1.job_end.slice(0, 4))
+
     doc
       .fillColor('black')
       .font('Times-Bold', 12)
       .moveDown(1)
-      .text(resume[0].job_title.job_1[0] + " " +  resume[0].job_1.job_start.slice(0,4) + "-" + resume[0].job_1.job_end !== "" ? resume[0].job_1.job_end.slice(0,4) : false , {
+      .text(resume[0].job_title.job_1[0], {
         width: 412,
         align: 'left',
         indent: 0,
@@ -317,10 +303,15 @@ const handler = async (req, res) => {
         height: 500,
         ellipsis: true
       })
+      .moveUp(1)
+      .font('Times-Italic', 12)
+      .text(resume[0].job_1.job_start.slice(0, 4) + " " + "-" + " " + jobEnd, {
+        align: 'right',
+      })
     doc
       .fillColor('black')
       .font('Times-Italic', 12)
-      .text("United States Marine Platoon Sergeant / Senior Manager", {
+      .text(resume[0].job_title.job_1[1], {
         width: 412,
         align: 'left',
         indent: 0,
@@ -329,9 +320,13 @@ const handler = async (req, res) => {
         ellipsis: true
       })
 
-    let myArrayOfItems = ['Maintained a total of 54 pieces of Military trucks and equipment: 32 MTVR(s)/7 Ton trucks, 8 MK593/7 Ton Cargo Trailers, 14 M119/Water Bowl(s).',
-      'Briefed top executives on weekly duties', 'In preparation for biannual Executive Officer’s Readiness Inspection; identified and conducted training seminars for untrained team members, updating administrative files on Military trucks and equipment.',
-      'Wrote up military awards and recommendations using Microsoft Word and government interfaces.'];
+    let myArrayOfItems = [
+      resume[0].duties.duty_1 === null ? "" : resume[0].duties.duty_1[0],
+      resume[0].duties.duty_2 === null ? "" : resume[0].duties.duty_2[0],
+      resume[0].duties.duty_3 === null ? "" : resume[0].duties.duty_3[0],
+      // resume[0].duties.duty_4 === null ? "" : typeof resume[0].duties.duty_4 === "string" ?  
+      resume[0].duties.duty_5 === null ? "" : resume[0].duties.duty_5[0]
+    ];
 
     doc
       .font('Times-Roman', 12)

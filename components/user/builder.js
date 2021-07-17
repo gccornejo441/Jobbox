@@ -1,5 +1,5 @@
-import { SearchIcon, BellIcon, PlusIcon, MinusIcon, CogIcon } from '@heroicons/react/solid';
-import { Menu, Transition } from '@headlessui/react';
+import { SearchIcon, BellIcon, PlusIcon, MinusIcon, CogIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import { Menu, Transition, Disclosure } from '@headlessui/react';
 import { Fragment, useState, useRef } from 'react';
 import ExpBox from './ExpBox';
 import { nanoid } from 'nanoid';
@@ -252,9 +252,12 @@ const Builder = (props) => {
                                         </div>
                                     </div>
 
-                                    <ExpBox elements={divy} />
+                                    {/* EXPERIENCE - START */}
+
+                                    <ExpBox />
 
                                     {/* EXPERIENCE - END */}
+                                    
                                     <div class="border-b border-gray-200 w-full my-5"></div>
                                     <SkillsModal />
                                     <div class="border-b border-gray-200 w-full my-5"></div>

@@ -125,7 +125,7 @@ const UserProfile = (props) => {
                             <div class="w-full">
                             <WorkExp user={props.user} resume={props.resume} />
                                 <Intern user={props.user} resume={props.resume} />
-                                <Education user={props.user} resume={props.resume} />
+                                <Education user={props.user} resume={props.resume} /> 
                             </div>
                         </div>
                         <div class="border-b border-gray-300 flex justify-center w-screen md:w-auto">

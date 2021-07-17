@@ -13,13 +13,13 @@ const WorkExp = (props) => {
                             return (
                                 <ul>
                                     <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
-                                        {data.job_title === null ? false : data.job_title.job_1[0]}
+                                        {data.job_1.job_name_1 === "" ? false : data.job_1.job_name_1}
                                     </li>
                                     <li class="text-xl text-regal-blue pl-4 pt-2">
-                                        {data.job_title === null ? false : data.job_title.job_1[1]}
+                                        {data.job_1.job_title_1 === "" ? false : data.job_1.job_title_1}
                                     </li>
                                     <li class="text-sm text-regal-blue pl-4 pt-2">
-                                        {data.job_1.job_start} - {data.job_1.job_start === "" && data.job_1.job_end === "" ? "" : data.job_1.job_end === "" ? "Current" : data.job_1.job_end}
+                                    {data.job_1.job_start} {data.job_1.job_start === "" && data.job_1.job_end === "" ? false : data.job_1.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_1.job_end}
                                     </li>
                                 </ul>
                             );
@@ -31,120 +31,19 @@ const WorkExp = (props) => {
                         return (
                             <>
                                 <ul key={props.resume._id}>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_1 === null ? false : (
-                                            typeof data.duties.duty_1 === "string" ? (
-                                                <>
+                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex flex-col">
+                                        {data.job_1.job_1_duty.map((duty) => {
+                                            return (
+                                                <div class="flex">
                                                     <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
+                                                        {duty === "" ? false : <VscDebugBreakpointLog class="h-4 w-4" />}
                                                     </div>
                                                     <span>
-                                                        {data.duties.duty_1}
+                                                        {duty}
                                                     </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_1[0]}
-                                                    </span>
-                                                </>
+                                                </div>
                                             )
-                                        )}
-                                    </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_2 === null ? false : (
-                                            typeof data.duties.duty_2 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_2}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_2[0]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
-                                    </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_3 === null ? false : (
-                                            typeof data.duties.duty_3 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_3}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_3[0]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
-                                    </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_4 === null ? false : (
-                                            typeof data.duties.duty_4 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_4}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_4[0]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
-                                    </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_5 === null ? false : (
-                                            typeof data.duties.duty_5 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_5}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_5[0]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
+                                        })}
                                     </li>
                                 </ul>
                             </>
@@ -157,13 +56,13 @@ const WorkExp = (props) => {
                             return (
                                 <ul>
                                     <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
-                                        {data.job_title.job_2 === null ? false : data.job_title.job_2[0]}
+                                        {data.job_2.job_name_2 === "" ? false : data.job_2.job_name_2}
                                     </li>
                                     <li class="text-xl text-regal-blue pl-4 pt-2">
-                                        {data.job_title.job_2 === null ? false : data.job_title.job_2[1]}
+                                        {data.job_2.job_title_2 === "" ? false : data.job_2.job_title_2}
                                     </li>
                                     <li class="text-sm text-regal-blue pl-4 pt-2">
-                                        {data.job_2.job_start} - {data.job_2.job_end === "" ? "Current" : data.job_2.job_end}
+                                    {data.job_2.job_start} {data.job_2.job_start === "" && data.job_2.job_end === "" ? false : data.job_2.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_2.job_end}
                                     </li>
                                 </ul>
                             );
@@ -173,123 +72,64 @@ const WorkExp = (props) => {
                 <div>{props.resume.map((data) => {
                     if (data.username === props.user.nickname) {
                         return (
-
                             <>
                                 <ul key={props.resume._id}>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_1 === null ? false : (
-                                            typeof data.duties.duty_1 === "string" ? (
-                                                <>
+                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex flex-col">
+                                        {data.job_2.job_2_duty.map((duty) => {
+                                            return (
+                                                <div class="flex">
                                                     <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
+                                                        {duty === "" ? false : <VscDebugBreakpointLog class="h-4 w-4" />}
                                                     </div>
                                                     <span>
-                                                        {data.duties.duty_1}
+                                                        {duty}
                                                     </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_1[1]}
-                                                    </span>
-                                                </>
+                                                </div>
                                             )
-                                        )}
+                                        })}
                                     </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_2 === null ? false : (
-                                            typeof data.duties.duty_2 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_2}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_2[1]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
+                                </ul>
+                            </>
+                        );
+                    };
+                })}</div>
+                <div>
+                    {props.resume.map((data) => {
+                        if (data.username === props.user.nickname) {
+                            return (
+                                <ul>
+                                    <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
+                                        {data.job_3.job_name_3 === "" ? false : data.job_3.job_name_3}
                                     </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_3 === null ? false : (
-                                            typeof data.duties.duty_3 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_3}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_3[1]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
+                                    <li class="text-xl text-regal-blue pl-4 pt-2">
+                                        {data.job_3.job_title_3 === "" ? false : data.job_3.job_title_3}
                                     </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_4 === null ? false : (
-                                            typeof data.duties.duty_4 === "string" ? (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_4}
-                                                    </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_4[1]}
-                                                    </span>
-                                                </>
-                                            )
-                                        )}
+                                    <li class="text-sm text-regal-blue pl-4 pt-2">
+                                        {data.job_3.job_start} {data.job_3.job_start === "" && data.job_3.job_end === "" ? false : data.job_3.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_3.job_end}
                                     </li>
-                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex">
-                                        {data.duties.duty_5 === null ? false : (
-                                            typeof data.duties.duty_5 === "string" ? (
-                                                <>
+                                </ul>
+                            );
+                        }
+                    })}
+                </div>
+                <div>{props.resume.map((data) => {
+                    if (data.username === props.user.nickname) {
+                        return (
+                            <>
+                                <ul key={props.resume._id}>
+                                    <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex flex-col">
+                                        {data.job_3.job_3_duty === null ? false : data.job_3.job_3_duty.map((duty) => {
+                                            return (
+                                                <div class="flex">
                                                     <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
+                                                        {duty === "" ? false : <VscDebugBreakpointLog class="h-4 w-4" />}
                                                     </div>
                                                     <span>
-                                                        {data.duties.duty_5}
+                                                        {duty}
                                                     </span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div class="mt-1">
-                                                        <VscDebugBreakpointLog class="h-4 w-4" />
-                                                    </div>
-                                                    <span>
-                                                        {data.duties.duty_5[1]}
-                                                    </span>
-                                                </>
+                                                </div>
                                             )
-                                        )}
+                                        })}
                                     </li>
                                 </ul>
                             </>
