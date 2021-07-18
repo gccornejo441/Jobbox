@@ -19,10 +19,15 @@ const pdfBuilder = async (req, res) => {
 
      } else {
     const doc = new PDFDocument();
-    // doc.pipe(fs.createWriteStream('_resume' + '.pdf'))
 
-    // pipe the document to a blob.
-    const stream = doc.pipe(blobStream());
+
+    // https://stackoverflow.com/questions/44731255/send-pdf-file-made-with-pdfkit-to-the-client-for-display/67017960#67017960
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "inline; filename=_resume.pdf");
+
+    doc.pipe(fs.createWriteStream('_resume' + '.pdf'))
+    doc.pipe(res)
+
 
     // and some justified text wrapped into columns
     doc
@@ -257,12 +262,8 @@ const pdfBuilder = async (req, res) => {
     doc.text(`${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? "" : dbUser.user.school_3.start === "" ? "Current" : dbUser.user.school_3.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? false : dbUser.user.school_3.end === "" ? "Current" : dbUser.user.school_3.end.slice(0, 4)}`, { align: 'right' })
 
     doc.end();
-    stream.on('finish', () => {
-      const blob = stream.toBlob('application/pdf')
-      console.log(blob)
-    })
 
-    res.redirect('/user/profile')
+    // res.redirect('/user/profile')
     }
   }
 }
