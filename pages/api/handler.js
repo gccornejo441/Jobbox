@@ -9,7 +9,7 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  console.log("requested body: ", req.body)
+  // console.log("requested body: ", req.body)
 
   if (req.method === 'POST') {
     let {
@@ -17,7 +17,6 @@ const handler = async (req, res) => {
       last_name,
       street,
       city,
-      state,
       zip,
       email,
       phone,

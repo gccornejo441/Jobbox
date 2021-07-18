@@ -9,20 +9,20 @@ const WorkExp = (props) => {
                         if (data.username === props.user.nickname) {
                             return (
                                 <>
-            <div class="border-b-4 border-regal-blue">
-                <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Work Experience</h1>
-            </div>
-                                <ul>
-                                    <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
-                                        {data.job_1.job_name_1 === "" ? false : data.job_1.job_name_1}
-                                    </li>
-                                    <li class="text-xl text-regal-blue pl-4 pt-2">
-                                        {data.job_1.job_title_1 === "" ? false : data.job_1.job_title_1}
-                                    </li>
-                                    <li class="text-sm text-regal-blue pl-4 pt-2">
-                                    {data.job_1.job_start} {data.job_1.job_start === "" && data.job_1.job_end === "" ? false : data.job_1.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_1.job_end}
-                                    </li>
-                                </ul>
+                                    <div class="border-b-4 border-regal-blue">
+                                        <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Work Experience</h1>
+                                    </div>
+                                    <ul>
+                                        <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
+                                            {data.job_1.job_name_1 === "" ? false : data.job_1.job_name_1}
+                                        </li>
+                                        <li class="text-xl text-regal-blue pl-4 pt-2">
+                                            {data.job_1.job_title_1 === "" ? false : data.job_1.job_title_1}
+                                        </li>
+                                        <li class="text-sm text-regal-blue pl-4 pt-2">
+                                            {data.job_1.job_start} {data.job_1.job_start === "" && data.job_1.job_end === "" ? false : data.job_1.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_1.job_end}
+                                        </li>
+                                    </ul>
                                 </>
                             );
                         }
@@ -34,7 +34,7 @@ const WorkExp = (props) => {
                             <>
                                 <ul key={props.resume._id}>
                                     <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex flex-col">
-                                        {data.job_1.job_1_duty.map((duty) => {
+                                        {data.job_1.job_1_duty === null ? false : data.job_1.job_1_duty.map((duty) => {
                                             return (
                                                 <div class="flex">
                                                     <div class="mt-1">
@@ -64,7 +64,7 @@ const WorkExp = (props) => {
                                         {data.job_2.job_title_2 === "" ? false : data.job_2.job_title_2}
                                     </li>
                                     <li class="text-sm text-regal-blue pl-4 pt-2">
-                                    {data.job_2.job_start} {data.job_2.job_start === "" && data.job_2.job_end === "" ? false : data.job_2.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_2.job_end}
+                                        {data.job_2.job_start} {data.job_2.job_start === "" && data.job_2.job_end === "" ? false : data.job_2.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_2.job_end}
                                     </li>
                                 </ul>
                             );
@@ -77,7 +77,7 @@ const WorkExp = (props) => {
                             <>
                                 <ul key={props.resume._id}>
                                     <li class="text-md text-regal-blue pl-4 pt-2 max-w-xl flex flex-col">
-                                        {data.job_2.job_2_duty.map((duty) => {
+                                        {data.job_2.job_2_duty === null ? false : data.job_2.job_2_duty.map((duty) => {
                                             return (
                                                 <div class="flex">
                                                     <div class="mt-1">

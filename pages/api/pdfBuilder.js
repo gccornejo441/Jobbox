@@ -11,21 +11,21 @@ const apiBulder = async (req, res) => {
         .find()
         .toArray();
         
-        let dbUser = { username:  resume.map((item) => item.username).toString() };
+        let dbUser = { user:  resume.find((item) => item.username === req.body.username) };
 
-    if (dbUser.username !== req.body.username) {
-        console.log('HARD FORK');
-    } else {
-        
+    if (dbUser.user.username !== req.body.username) {
+        res.redirect('/user/resume-builder');
+
+     } else {
     var doc = new PDFDocument();
-    doc.pipe(fs.createWriteStream('_resume' + '.pdf'))
+    doc.pipe(fs.createWriteStream(dbUser.user.first_name + '_resume' + '.pdf'))
 
     // and some justified text wrapped into columns
     doc
       .fillColor('black')
       .font('Times-Bold', 16)
       .moveUp(1.6)
-      .text(resume[0].first_name + " " + resume[0].last_name, {
+      .text(dbUser.user.first_name + " " + dbUser.user.last_name, {
         width: 412,
         align: 'center',
         indent: 30,
@@ -40,21 +40,21 @@ const apiBulder = async (req, res) => {
       .font('Times-Roman', 12)
       .moveDown()
       .moveUp()
-      .text(resume[0].city + " " + resume[0].state + "," + " " + resume[0].zip, {
+      .text(dbUser.user.city + " " + dbUser.user.state + "," + " " + dbUser.user.zip, {
         width: 412,
         align: 'center',
         indent: 30,
         columns: 1,
         ellipsis: true
       })
-      .text("Phone:" + " " + resume[0].phone + " " + "Email:" + " " + resume[0].email, {
+      .text("Phone:" + " " + dbUser.user.phone + " " + "Email:" + " " + dbUser.user.email, {
         width: 412,
         align: 'center',
         indent: 30,
         columns: 1,
         ellipsis: true
       })
-      .text("Portfolio:" + " " + "www." + resume[0].github, {
+      .text("Portfolio:" + " " + "www." + dbUser.user.github, {
         width: 412,
         align: 'center',
         indent: 30,
@@ -62,7 +62,7 @@ const apiBulder = async (req, res) => {
         ellipsis: true
       })
 
-    let box = { about: resume[0].about_me.replace(/\n/g, ' ') }
+    let box = { about: dbUser.user.about_me.replace(/\n/g, ' ') }
     // and some justified text wrapped into columns
     doc
       .fillColor('black')
@@ -82,29 +82,31 @@ const apiBulder = async (req, res) => {
         align: 'left'
       })
 
-    doc
-      .moveDown()
-      .text(resume[0].skills[0] === undefined ? " " : resume[0].skills[0], { align: 'left' })
-      .moveDown()
-    doc.text(resume[0].skills[3] === undefined ? " " : resume[0].skills[3], { align: 'left' })
-      .moveDown()
-    doc.text(resume[0].skills[6] === undefined ? " " : resume[0].skills[6], { align: 'left' })
-
-    doc
-      .moveUp(5)
-      .text(resume[0].skills[1] === undefined ? " " : resume[0].skills[1], { align: 'center' })
-      .moveDown()
-    doc.text(resume[0].skills[4] === undefined ? " " : resume[0].skills[4], { align: 'center' })
-      .moveDown()
-    doc.text(resume[0].skills[7] === undefined ? " " : resume[0].skills[7], { align: 'center' })
-
-    doc
-      .moveUp(5)
-      .text(resume[0].skills[2] === undefined ? " " : resume[0].skills[2], { align: 'right' })
-      .moveDown()
-    doc.text(resume[0].skills[5] === undefined ? " " : resume[0].skills[5], { align: 'right' })
-      .moveDown()
-    doc.text(resume[0].skills[8] === undefined ? " " : resume[0].skills[8], { align: 'right' })
+      if (dbUser.user.skills !== null ) {
+        doc
+          .moveDown()
+          .text(dbUser.user.skills[0] === undefined ? " " : dbUser.user.skills[0], { align: 'left' })
+          .moveDown()
+        doc.text(dbUser.user.skills[3] === undefined ? " " : dbUser.user.skills[3], { align: 'left' })
+          .moveDown()
+        doc.text(dbUser.user.skills[6] === undefined ? " " : dbUser.user.skills[6], { align: 'left' })
+    
+        doc
+          .moveUp(5)
+          .text(dbUser.user.skills[1] === undefined ? " " : dbUser.user.skills[1], { align: 'center' })
+          .moveDown()
+        doc.text(dbUser.user.skills[4] === undefined ? " " : dbUser.user.skills[4], { align: 'center' })
+          .moveDown()
+        doc.text(dbUser.user.skills[7] === undefined ? " " : dbUser.user.skills[7], { align: 'center' })
+    
+        doc
+          .moveUp(5)
+          .text(dbUser.user.skills[2] === undefined ? " " : dbUser.user.skills[2], { align: 'right' })
+          .moveDown()
+        doc.text(dbUser.user.skills[5] === undefined ? " " : dbUser.user.skills[5], { align: 'right' })
+          .moveDown()
+        doc.text(dbUser.user.skills[8] === undefined ? " " : dbUser.user.skills[8], { align: 'right' })
+      }
 
 
     doc
@@ -123,13 +125,13 @@ const apiBulder = async (req, res) => {
     // First job entry.
 
     // Checks to if end data is available.
-    let jobEndOne = (resume[0].job_1.job_end === "" ? "Current" : resume[0].job_1.job_end.slice(0, 4));
+    let jobEndOne = (dbUser.user.job_1.job_end === "" ? "Current" : dbUser.user.job_1.job_end.slice(0, 4));
 
     doc
       .fillColor('black')
       .font('Times-Bold', 12)
       .moveDown(1)
-      .text(resume[0].job_1.job_name_1, {
+      .text(dbUser.user.job_1.job_name_1, {
         width: 412,
         align: 'left',
         indent: 0,
@@ -139,13 +141,13 @@ const apiBulder = async (req, res) => {
       })
       .moveUp(1)
       .font('Times-Italic', 12)
-      .text(resume[0].job_1.job_start.slice(0, 4) + " " + "-" + " " + jobEndOne, {
+      .text(dbUser.user.job_1.job_start.slice(0, 4) + " " + "-" + " " + jobEndOne, {
         align: 'right',
       })
     doc
       .fillColor('black')
       .font('Times-Italic', 12)
-      .text(resume[0].job_1.job_title_1, {
+      .text(dbUser.user.job_1.job_title_1, {
         width: 412,
         align: 'left',
         indent: 0,
@@ -154,7 +156,7 @@ const apiBulder = async (req, res) => {
         ellipsis: true
       })
 
-    let jobDutiesOne = resume[0].job_1.job_1_duty === "" ? false : resume[0].job_1.job_1_duty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ""));
+    let jobDutiesOne = dbUser.user.job_1.job_1_duty === null ? false : dbUser.user.job_1.job_1_duty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ""));
 
     doc
       .font('Times-Roman', 12)
@@ -170,13 +172,13 @@ const apiBulder = async (req, res) => {
 
     // Second job entry
     // Checks to if end data is available.
-    let jobEndTwo = (resume[0].job_2.job_end === "" ? "Current" : resume[0].job_2.job_end.slice(0, 4))
+    let jobEndTwo = (dbUser.user.job_2.job_end === "" ? "Current" : dbUser.user.job_2.job_end.slice(0, 4))
 
     doc
       .fillColor('black')
       .font('Times-Bold', 12)
       .moveDown(1)
-      .text(resume[0].job_2.job_name_2, {
+      .text(dbUser.user.job_2.job_name_2, {
         width: 412,
         align: 'left',
         indent: 0,
@@ -186,14 +188,14 @@ const apiBulder = async (req, res) => {
       })
       .moveUp(1)
       .font('Times-Italic', 12)
-      .text(resume[0].job_2.job_start.slice(0, 4) + " " + "-" + " " + jobEndTwo, {
+      .text(dbUser.user.job_2.job_start.slice(0, 4) + " " + "-" + " " + jobEndTwo, {
         align: 'right',
       })
 
     doc
       .fillColor('black')
       .font('Times-Italic', 12)
-      .text(resume[0].job_2.job_title_2, {
+      .text(dbUser.user.job_2.job_title_2, {
         width: 412,
         align: 'left',
         indent: 0,
@@ -202,7 +204,7 @@ const apiBulder = async (req, res) => {
         ellipsis: true
       })
 
-    let jobDutiesTwo = resume[0].job_2.job_2_duty === "" ? false : resume[0].job_2.job_2_duty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ""));
+    let jobDutiesTwo = dbUser.user.job_2.job_2_duty === null ? false : dbUser.user.job_2.job_2_duty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ""));
     doc
       .font('Times-Roman', 12)
       .moveDown()
@@ -229,9 +231,9 @@ const apiBulder = async (req, res) => {
       })
 
     let education = [
-      `${resume[0].school_1.degree}` + ":" + " " + `${resume[0].school_1.school}`,
-      `${resume[0].school_2.degree}` + ":" + " " + `${resume[0].school_2.school}`,
-      `${resume[0].school_3.degree}` + ":" + " " + `${resume[0].school_3.school}`
+      `${dbUser.user.school_1.degree}` + ":" + " " + `${dbUser.user.school_1.school}`,
+      `${dbUser.user.school_2.degree}` + ":" + " " + `${dbUser.user.school_2.school}`,
+      `${dbUser.user.school_3.degree}` + ":" + " " + `${dbUser.user.school_3.school}`
     ];
 
     doc
@@ -246,15 +248,14 @@ const apiBulder = async (req, res) => {
 
     doc
       .moveUp(3)
-      .text(`${resume[0].school_1.start === "" && resume[0].school_1.end === "" ? false : resume[0].school_1.start === "" ? "Current" : resume[0].school_1.start.slice(0, 4) + " " + "-" + " "}` + `${resume[0].school_1.start === "" && resume[0].school_1.end === "" ? false : resume[0].school_1.end === "" ? "Current" : resume[0].school_1.end.slice(0, 4)}`, { align: 'right' })
-    doc.text(`${resume[0].school_2.start === "" && resume[0].school_2.end === "" ? false : resume[0].school_2.start === "" ? "Current" : resume[0].school_2.start.slice(0, 4) + " " + "-" + " "}` + `${resume[0].school_2.start === "" && resume[0].school_2.end === "" ? false : resume[0].school_2.end === "" ? "Current" : resume[0].school_2.end.slice(0, 4)}`, { align: 'right' })
-    doc.text(`${resume[0].school_3.start === "" && resume[0].school_3.end === "" ? false : resume[0].school_3.start === "" ? "Current" : resume[0].school_3.start.slice(0, 4) + " " + "-" + " "}` + `${resume[0].school_3.start === "" && resume[0].school_3.end === "" ? false : resume[0].school_3.end === "" ? "Current" : resume[0].school_3.end.slice(0, 4)}`, { align: 'right' })
-
+      .text(`${dbUser.user.school_1.start === "" && dbUser.user.school_1.end === "" ? "" : dbUser.user.school_1.start === "" ? "Current" : dbUser.user.school_1.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_1.start === "" && dbUser.user.school_1.end === "" ? false : dbUser.user.school_1.end === "" ? "Current" : dbUser.user.school_1.end.slice(0, 4)}`, { align: 'right' })
+    doc.text(`${dbUser.user.school_2.start === "" && dbUser.user.school_2.end === "" ? "" : dbUser.user.school_2.start === "" ? "Current" : dbUser.user.school_2.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_2.start === "" && dbUser.user.school_2.end === "" ? false : dbUser.user.school_2.end === "" ? "Current" : dbUser.user.school_2.end.slice(0, 4)}`, { align: 'right' })
+    doc.text(`${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? "" : dbUser.user.school_3.start === "" ? "Current" : dbUser.user.school_3.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? false : dbUser.user.school_3.end === "" ? "Current" : dbUser.user.school_3.end.slice(0, 4)}`, { align: 'right' })
 
     doc.end();
-    }
+    res.redirect('/user/profile');
 
-    res.redirect('/user/profile')
+    }
 
   }
 }
