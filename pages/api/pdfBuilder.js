@@ -1,8 +1,9 @@
 import PDFDocument from 'pdfkit';
 import fs from "fs";
 import { connectToDatabase } from "../../util/mongodb";
+import blobStream from 'blob-stream';
 
-const apiBulder = async (req, res) => {
+const pdfBuilder = async (req, res) => {
     if (req.method === 'POST') {
         // DB Connector
         const { db } = await connectToDatabase();
@@ -17,8 +18,11 @@ const apiBulder = async (req, res) => {
         res.redirect('/user/resume-builder');
 
      } else {
-    var doc = new PDFDocument();
-    doc.pipe(fs.createWriteStream(dbUser.user.first_name + '_resume' + '.pdf'))
+    const doc = new PDFDocument();
+    // doc.pipe(fs.createWriteStream('_resume' + '.pdf'))
+
+    // pipe the document to a blob.
+    const stream = doc.pipe(blobStream());
 
     // and some justified text wrapped into columns
     doc
@@ -253,11 +257,14 @@ const apiBulder = async (req, res) => {
     doc.text(`${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? "" : dbUser.user.school_3.start === "" ? "Current" : dbUser.user.school_3.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? false : dbUser.user.school_3.end === "" ? "Current" : dbUser.user.school_3.end.slice(0, 4)}`, { align: 'right' })
 
     doc.end();
-    res.redirect('/user/profile');
+    stream.on('finish', () => {
+      const blob = stream.toBlob('application/pdf')
+      console.log(blob)
+    })
 
+    res.redirect('/user/profile')
     }
-
   }
 }
 
-export default apiBulder;
+export default pdfBuilder;

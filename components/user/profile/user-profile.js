@@ -1,7 +1,7 @@
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
-import ContactMe from './ContactMe'; 
+import ContactMe from './ContactMe';
 import Skills from './Skills';
 import WorkExp from './WorkExp';
 import Intern from './Intern';
@@ -9,15 +9,7 @@ import Education from './Education';
 import Banner from './Banner';
 
 const UserProfile = (props) => {
-    let [ value, setValue ] = useState({value: ''})
-    
-    // let username = props.resume.map((data) => data.username)
 
-
-    const handleChange = (e) => {
-        e.preventDefault();
-        setValue(e.target.value);
-    }
 
     return (
         <>
@@ -35,14 +27,17 @@ const UserProfile = (props) => {
                                 </span>
                                 <div class="pt-3 pl-4">
                                     <form action="/api/pdfBuilder" method="POST">
-                                    <div class="flex flex-col invisible hidden">
-                                        <label for="user"></label>
-                                        <input type="text" name="username" value={props.user.nickname} />
-                                    </div>
+                                        <div class="flex flex-col invisible hidden">
+                                            <label for="user"></label>
+                                            <input type="text" name="username" value={props.user.nickname} />
+                                        </div>
                                         <button type="submit" class="px-2 text-sm h-8 tracking-widest font-medium text-white rounded-md bg-blue-500 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                                             Download Resume
                                         </button>
                                     </form>
+                                    <button onClick={() => download()} type="button" class="px-2 text-sm h-8 tracking-widest font-medium text-white rounded-md bg-blue-500 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                                        Download
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -132,13 +127,13 @@ const UserProfile = (props) => {
                                     <ContactMe user={props.user} resume={props.resume} />
                                 </div>
                                 <div>
-                                   <Skills user={props.user} resume={props.resume} />
+                                    <Skills user={props.user} resume={props.resume} />
                                 </div>
                             </div>
                             <div class="w-full">
-                            <WorkExp user={props.user} resume={props.resume} />
+                                <WorkExp user={props.user} resume={props.resume} />
                                 <Intern user={props.user} resume={props.resume} />
-                                <Education user={props.user} resume={props.resume} /> 
+                                <Education user={props.user} resume={props.resume} />
                             </div>
                         </div>
                         <div class="border-b border-gray-300 flex justify-center w-screen md:w-auto">
@@ -150,6 +145,8 @@ const UserProfile = (props) => {
                 {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
                 <div class="h-28 w-max bg-transparent"></div>
                 {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
+
+                <iframe width="600" height="700"></iframe>
             </div>
         </>
     )
