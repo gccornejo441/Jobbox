@@ -1,6 +1,6 @@
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import ContactMe from './ContactMe'; 
 import Skills from './Skills';
 import WorkExp from './WorkExp';
@@ -9,6 +9,15 @@ import Education from './Education';
 import Banner from './Banner';
 
 const UserProfile = (props) => {
+    let [ value, setValue ] = useState({value: ''})
+    
+    // let username = props.resume.map((data) => data.username)
+
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setValue(e.target.value);
+    }
 
     return (
         <>
@@ -25,7 +34,11 @@ const UserProfile = (props) => {
                                     <input class="border-r border-t border-b border-gray-200 shadow-2xl rounded-r-lg pl-2" type="search" placeholder="Search" />
                                 </span>
                                 <div class="pt-3 pl-4">
-                                    <form action="/api/handler" method="GET">
+                                    <form action="/api/pdfBuilder" method="POST">
+                                    <div class="flex flex-col invisible hidden">
+                                        <label for="user"></label>
+                                        <input type="text" name="username" value={props.user.nickname} />
+                                    </div>
                                         <button type="submit" class="px-2 text-sm h-8 tracking-widest font-medium text-white rounded-md bg-blue-500 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                                             Download Resume
                                         </button>

@@ -3,14 +3,15 @@ import { VscDebugBreakpointLog } from "react-icons/vsc";
 const WorkExp = (props) => {
     return (
         <>
-            <div class="border-b-4 border-regal-blue">
-                <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Work Experience</h1>
-            </div>
             <div>
                 <div>
                     {props.resume.map((data) => {
                         if (data.username === props.user.nickname) {
                             return (
+                                <>
+            <div class="border-b-4 border-regal-blue">
+                <h1 class="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Work Experience</h1>
+            </div>
                                 <ul>
                                     <li class="text-xl text-blue-700 font-bold pl-4 pt-2">
                                         {data.job_1.job_name_1 === "" ? false : data.job_1.job_name_1}
@@ -22,6 +23,7 @@ const WorkExp = (props) => {
                                     {data.job_1.job_start} {data.job_1.job_start === "" && data.job_1.job_end === "" ? false : data.job_1.job_end === "" ? "-" + " " + "Current" : "-" + " " + data.job_1.job_end}
                                     </li>
                                 </ul>
+                                </>
                             );
                         }
                     })}
