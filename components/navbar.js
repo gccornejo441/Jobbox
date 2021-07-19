@@ -1,20 +1,8 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { CloudIcon } from '@heroicons/react/solid'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useUser } from '@auth0/nextjs-auth0'
-import Link from 'next/link'
 import Image from 'next/image'
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Navbar({ isShowing }) {
   const { user } = useUser();

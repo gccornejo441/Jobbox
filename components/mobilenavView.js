@@ -1,4 +1,4 @@
-import { LogoutIcon, DocumentTextIcon } from '@heroicons/react/outline';
+import { LogoutIcon, UserIcon } from '@heroicons/react/outline';
 import { menu } from '../lib/menuset';
 import {
     QuestionMarkCircleIcon,
@@ -39,9 +39,9 @@ const MobileNavView = () => {
                             <div class="mt-1 mb-4 relative">
                                 <p class="text-xl font-thin text-gray-50 mt-3 text-wrap">Welcome, {user.nickname}</p>
                                 <div class="flex justify-evenly">
-                                <a href="/user/resume-builder" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border ">
-                                <span><DocumentTextIcon class="w-5 h-5 mr-1" /></span>Resume Builder</a>
-                                <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 p-2 rounded-lg text-sm my-2 flex border">
+                                <a href="/user/profile" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 m-1 p-2 rounded-lg text-sm my-2 flex border ">
+                                <span><UserIcon class="w-5 h-5 mr-1" /></span>Profile</a>
+                                <a href="/api/auth/logout" data-testid="logout" class="w-max bg-regal-blue hover:bg-green-300 hover:text-regal-blue text-gray-50 m-1 p-2 rounded-lg text-sm my-2 flex border">
                                     <span><LogoutIcon class="w-5 h-5 mr-1" /></span>Log Out</a>
                                 </div>
                             </div>

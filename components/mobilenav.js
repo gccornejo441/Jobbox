@@ -15,11 +15,9 @@ const MobileNav = ({ user }) => {
               <div class="relative flex items-center justify-between h-16">
                 {/* RACKET SPACE LOGO */}
                 <div class="flex bg-gray-50 w-max rounded-md px-2">
-                  <a href="/">
                   <span>
                     <Image src="/images/jobbox.svg" alt="Jobster Logo" height={40} width={120} />
                   </span>
-                  </a>
                 </div>
               {/* RACKET SPACE LOG */}
 

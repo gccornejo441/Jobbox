@@ -1,6 +1,6 @@
 import { SearchIcon, BellIcon } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import ContactMe from './ContactMe';
 import Skills from './Skills';
 import WorkExp from './WorkExp';
@@ -35,9 +35,6 @@ const UserProfile = (props) => {
                                             Download Resume
                                         </button>
                                     </form>
-                                    <button onClick={() => download()} type="button" class="px-2 text-sm h-8 tracking-widest font-medium text-white rounded-md bg-blue-500 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                                        Download
-                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -121,7 +118,7 @@ const UserProfile = (props) => {
                             <Banner user={props.user} resume={props.resume} />
                         </div>
                         {/* CHANGE THIS FOR MOBILE */}
-                        <div class="flex">
+                        <div class="md:flex">
                             <div class="py-4 px-6">
                                 <div class="pt-3">
                                     <ContactMe user={props.user} resume={props.resume} />
@@ -145,8 +142,6 @@ const UserProfile = (props) => {
                 {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
                 <div class="h-28 w-max bg-transparent"></div>
                 {/* THIS DIV IS TEMPORARY UNTIL FURTHER CONTENT IS ADD. */}
-
-                <iframe width="600" height="700"></iframe>
             </div>
         </>
     )

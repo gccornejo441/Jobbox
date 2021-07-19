@@ -1,4 +1,4 @@
-import { ShoppingBagIcon, CalendarIcon, EyeIcon, UserGroupIcon, PresentationChartLineIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/solid'
+import { ShoppingBagIcon, UserGroupIcon, PresentationChartLineIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/solid'
 
 const MainBody = () => {
 
