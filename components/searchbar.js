@@ -88,13 +88,13 @@ const SearchBar = () => {
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
-                                                    href="#"
+                                                    href="/api/auth/logout"
                                                     class={
                                                         active ? 'bg-yellow-100' : '',
                                                         'block px-4 py-2 text-sm text-yellow-700'
                                                     }
                                                 >
-                                                    Sign out
+                                                    Log Out
                                                 </a>
                                             )}
                                         </Menu.Item>

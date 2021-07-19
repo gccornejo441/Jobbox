@@ -7,8 +7,8 @@ const MainBody = () => {
             <div class="bg-salmon rounded-lg shadow-md">
                 <div class="border-b border-gray-300 flex justify-between">
                     <div class="flex flex-col py-3 px-4">
-                        <span class="inline-block align-middle"><h1 class="text-base text-blue-900">Sales Value</h1></span>
-                        <span class="inline-block align-middle text-2xl font-bold text-blue-900">$125,056</span>
+                        <span class="inline-block align-middle"><h1 class="text-base text-blue-900">Job Market</h1></span>
+                        <span class="inline-block align-middle text-2xl font-bold text-blue-900">+ 850,000 New jobs</span>
                         <div>
                             <span class="inline-block align-middle font-light text-xs text-blue-900 mr-2">Yesterday</span>
                             <span class="text-xs text-green-500">10.57%</span>
@@ -16,7 +16,7 @@ const MainBody = () => {
                     </div>
                     <div class="flex mr-5">
                         <div class="mt-9">
-                            <button class="bg-yellow-400 text-blue-900 p-1 px-2 rounded-md text-sm mx-1">June</button>
+                            <button class="bg-yellow-400 text-blue-900 p-1 px-2 rounded-md text-sm mx-1">July</button>
                         </div>
                         <div class="mt-9">
                             <button class="text-blue-900 p-1 px-2 rounded-md text-sm mx-1">Week 2</button>
