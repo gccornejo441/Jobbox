@@ -164,6 +164,7 @@ const handler = async (req, res) => {
     const query = { username: req.body.username };
 
     const resumeUser = await resume.findOne(query);
+    console.log(resumeUser);
 
     resumeUser === null ? (
       console.log(entry),
