@@ -10,7 +10,6 @@ import Banner from './Banner';
 
 const UserProfile = (props) => {
 
-
     return (
         <>
             <div class="flex flex-col w-screen md:w-auto">

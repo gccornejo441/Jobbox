@@ -157,22 +157,20 @@ const handler = async (req, res) => {
     };
 
     await client.connect();
-
     const database = client.db(mongodb);
     const resume = database.collection(collection);
 
     const query = { username: req.body.username };
 
     const resumeUser = await resume.findOne(query);
-    console.log(resumeUser);
 
     resumeUser === null ? (
       console.log(entry),
-      await resume.insertOne(entry),
-      res.redirect('/user/resume-builder')
+      await resume.insertOne(entry)
     ) : (
       res.redirect('/user/profile')
     );
+    return res.redirect('/user/profile');
   }
 }
 
