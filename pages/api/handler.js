@@ -1,6 +1,8 @@
 import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
+const collection = process.env.MONGO_USER_COLLECTION;
+const mongodb = process.env.MONGODB_DB;
 
 // Creates a new MongoClient
 const client = new MongoClient(uri, {
@@ -156,8 +158,8 @@ const handler = async (req, res) => {
 
     await client.connect();
 
-    const database = client.db("moviedb");
-    const resume = database.collection("resume_builder");
+    const database = client.db(mongodb);
+    const resume = database.collection(collection);
 
     const query = { username: req.body.username };
 
