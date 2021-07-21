@@ -1,7 +1,7 @@
 import {
     UserGroupIcon,
     BriefcaseIcon,
-    ChatIcon
+    DocumentTextIcon,
 } from '@heroicons/react/outline'
 import Head from 'next/head'
 
@@ -11,7 +11,7 @@ const MainBody = () => {
             <Head>
                 <title>Jobbox</title>
             </Head>
-            <div class="flex flex-col my-16 relative w-screen h-huge">
+            <div class="flex flex-col my-16 relative h-huge">
                 <div class="bg-hero-pattern h-screen bg-cover bg-center flex justify-center">
                     <div class="bg-gray-50 bg-opacity-30 w-full flex justify-center">
                         <div class="container z-10 flex flex-row-reverse pr-3 sm:pr-0">
@@ -25,23 +25,23 @@ const MainBody = () => {
                 </div>
             </div>
             <div class="h-full">
-                <ul class="md:grid md:grid-cols-3 gap-10 md:place-items-center">
-                    <li class="text-center md:text-left p-10 bg-regal-blue m-12 rounded-lg md:py-40">
-                        <ChatIcon class="w-16 h-16 text-green-300 mx-auto md:mx-0" />
-                        <h2 class="text-2xl text-green-300">Showcase your talents</h2>
-                        <p class="text-md text-green-300">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                <ul class="lg:grid lg:grid-cols-3 gap-10 md:place-items-center">
+                    <li class="text-center p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
+                        <DocumentTextIcon class="w-16 h-16 text-green-300 mx-auto" />
+                        <h2 class="text-2xl text-green-300">Create a  resume</h2>
+                        <p class="text-md text-green-300">Create and print a professional resume in minutes.
                         </p>
                     </li>
-                    <li class="text-center md:text-left  p-10 bg-regal-blue m-12 rounded-lg md:py-40">
-                        <UserGroupIcon class="w-16 h-16 text-green-300 mx-auto md:mx-0" />
+                    <li class="text-center  p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
+                        <UserGroupIcon class="w-16 h-16 text-green-300 mx-auto" />
                         <h2 class="text-2xl text-green-300">Showcase your talents</h2>
-                        <p class="text-md text-green-300">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        <p class="text-md text-green-300">Display your virtual resume for employeers to see.
                         </p>
                     </li>
-                    <li class="text-center md:text-left p-10 bg-regal-blue m-12 rounded-lg md:py-40">
-                        <BriefcaseIcon class="w-16 h-16 text-green-300 mx-auto md:mx-0" />
-                        <h2 class="text-2xl text-green-300">Showcase your talents</h2>
-                        <p class="text-md text-green-300">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    <li class="text-center p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
+                        <BriefcaseIcon class="w-16 h-16 text-green-300 mx-auto" />
+                        <h2 class="text-2xl text-green-300">How's the job market?</h2>
+                        <p class="text-md text-green-300">Get news on the latest job market tends.
                         </p>
                     </li>
                 </ul>
