@@ -1,6 +1,5 @@
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from "react-icons/ai";
 import { MailIcon, PhoneIcon, LocationMarkerIcon } from "@heroicons/react/solid";
-i
 
 const ContactMe = (props) => {
 
