@@ -12,6 +12,7 @@ const client = new MongoClient(uri, {
 
 const handler = async (req, res) => {
   // console.log("requested body: ", req.body)
+  console.log(req.files)
 
   if (req.method === 'POST') {
     let {
@@ -163,6 +164,8 @@ const handler = async (req, res) => {
     const query = { username: req.body.username };
 
     const resumeUser = await resume.findOne(query);
+
+    console.log(entry);
 
     resumeUser === null ? (
       console.log(entry),

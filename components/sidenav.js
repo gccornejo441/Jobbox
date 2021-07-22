@@ -1,21 +1,20 @@
-import { menu } from '../lib/menuset'
-import Head from 'next/head'
-import Image from 'next/image'
+import { menu } from "../lib/menuset";
+import Image from "next/image";
 import {
     QuestionMarkCircleIcon,
     VariableIcon,
-} from '@heroicons/react/outline'
+} from "@heroicons/react/outline";
 
 
 const SideNav = () => {
     let menuItems = menu.map(item => (
-        <li class="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
-            <div class="flex justify-between" key={item.id}>
-                <span class="flex">
-                    <div class="p-2">
+        <li className="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
+            <div className="flex justify-between" key={item.id}>
+                <span className="flex">
+                    <div className="p-2">
                         {item.icon}
                     </div>
-                    <a href={item.href} class="p-2 w-max ">
+                    <a href={item.href} className="p-2 w-max ">
                         {item.label}
                     </a>
                 </span>
@@ -26,16 +25,13 @@ const SideNav = () => {
     ))
     return (
         <>
-        <Head>
-            <title>Jobbox - Dashboard</title>
-        </Head>
-            <div class="pl-3">
+            <div className="pl-3">
                 <div>
                     <div>
                         <div>
                             <ul>
                                 <li>
-                                    <div class="flex bg-gray-50 w-max rounded-md pr-1">
+                                    <div className="flex bg-gray-50 w-max rounded-md pr-1">
                                         <a href="/dashboard">
                                             <span>
                                                 <Image src="/images/jobbox.svg" alt="Jobster Logo" height={60} width={170} />
@@ -49,25 +45,25 @@ const SideNav = () => {
                     <div>
                         <ul>
                             {menuItems}
-                            <li class="py-4">
-                                <hr class="w-full bg-gray-50" />
+                            <li className="py-4">
+                                <hr className="w-full bg-gray-50" />
                             </li>
-                            <li class="border border-transparent hover:border-gray-50  bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
-                                <div class="flex">
-                                    <span class="p-2">
-                                        <QuestionMarkCircleIcon class="h-5 w-5" />
+                            <li className="border border-transparent hover:border-gray-50  bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
+                                <div className="flex">
+                                    <span className="p-2">
+                                        <QuestionMarkCircleIcon className="h-5 w-5" />
                                     </span>
-                                    <span class="p-2">
+                                    <span className="p-2">
                                         Documentation
                                     </span>
                                 </div>
                             </li>
-                            <li class="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
-                                <div class="flex">
-                                    <span class="p-2">
-                                        <VariableIcon class="h-5 w-5" />
+                            <li className="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
+                                <div className="flex">
+                                    <span className="p-2">
+                                        <VariableIcon className="h-5 w-5" />
                                     </span>
-                                    <span class="p-2">
+                                    <span className="p-2">
                                         Conditions
                                     </span>
                                 </div>
@@ -76,7 +72,7 @@ const SideNav = () => {
                     </div>
                 </div>
             </div>
-            <div class="border border-gray-5 hover:bg-green-300 hover:text-gray-600 rounded-lg my-4 text-center py-2 text-sm text-gray-50">
+            <div className="border border-gray-5 hover:bg-green-300 hover:text-gray-600 rounded-lg my-4 text-center py-2 text-sm text-gray-50">
                 Upgrade to Jobboxer
             </div>
         </>
