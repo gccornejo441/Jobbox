@@ -3,10 +3,10 @@ import { MailIcon, PhoneIcon, LocationMarkerIcon } from "@heroicons/react/solid"
 
 const ContactMe = (props) => {
 
-    const userResume = props.resume.map((data) => {
+    const userResume = props.resume.map((data, index) => {
         if (data.username === props.user.nickname) {
             return (
-                <ul>
+                <ul key={index}>
                     <li className="text-regal-blue pb-2">
                         <MailIcon className="h-4 w-4" />
                         <a className="hover:underline" href={"mailto:" + data.email}>{data.email}</a>

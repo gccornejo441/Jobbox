@@ -8,8 +8,8 @@ import {
 
 const SideNav = () => {
     let menuItems = menu.map(item => (
-        <li className="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
-            <div className="flex justify-between" key={item.id}>
+        <li key={item.id} className="border border-transparent hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
+            <div className="flex justify-between">
                 <span className="flex">
                     <div className="p-2">
                         {item.icon}
@@ -18,8 +18,12 @@ const SideNav = () => {
                         {item.label}
                     </a>
                 </span>
-                {item.sublabel}
-                {item.subIcon}
+                <span>
+                    {item.sublabel}
+                </span>
+                <span>
+                    {item.subIcon}
+                </span>
             </div>
         </li>
     ))

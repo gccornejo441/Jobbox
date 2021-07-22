@@ -109,42 +109,42 @@ const Builder = (props) => {
                                     <span className="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                     <span className="xl:grid grid-cols-2 gap-5">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="first_name">First Name</label>
+                                            <label className="py-2" htmlFor="first_name">First Name</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="first_name" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="last_name">Last Name</label>
+                                            <label className="py-2" htmlFor="last_name">Last Name</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="last_name" />
                                         </div>
                                     </span>
 
                                     <span className="xl:grid grid-cols-3 gap-5">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="city">City</label>
+                                            <label className="py-2" htmlFor="city">City</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="city" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="state">State</label>
+                                            <label className="py-2" htmlFor="state">State</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="state" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="zip">Zip Code</label>
+                                            <label className="py-2" htmlFor="zip">Zip Code</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="zip" />
                                         </div>
                                     </span>
                                     <span className="xl:grid grid-cols-2 gap-5">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="email">Email</label>
+                                            <label className="py-2" htmlFor="email">Email</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="email" name="email" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="phone">Phone</label>
+                                            <label className="py-2" htmlFor="phone">Phone</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" name="phone" placeholder="123-456-7890" />
                                         </div>
                                     </span>
                                     <span className="xl:grid grid-cols-1 gap-5">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="about_me">About Me</label>
+                                            <label className="py-2" htmlFor="about_me">About Me</label>
                                             <textarea className="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="about_me" />
                                         </div>
                                     </span>
@@ -153,54 +153,54 @@ const Builder = (props) => {
                                         <span className="inline-block align-middle text-2xl text-regal-blue">Education</span>
                                         <div className="xl:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="school_1">School 1</label>
+                                                <label className="py-2" htmlFor="school_1">School 1</label>
                                                 <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_1" />
-                                                <label className="py-2" for="school_degree_1">Degree</label>
+                                                <label className="py-2" htmlFor="school_degree_1">Degree</label>
                                                 <input placeholder="B.S. in Biological Sciences" className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_1" />
                                             </div>
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
-                                                    <label className="py-2" for="school_1_start">Year Started</label>
+                                                    <label className="py-2" htmlFor="school_1_start">Year Started</label>
                                                     <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_start" />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <label className="py-2" for="school_1_end">Year Ended</label>
+                                                    <label className="py-2" htmlFor="school_1_end">Year Ended</label>
                                                     <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_1_end" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="xl:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="school_2">School 2</label>
+                                                <label className="py-2" htmlFor="school_2">School 2</label>
                                                 <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_2" />
-                                                <label className="py-2" for="school_degree_2">Degree</label>
+                                                <label className="py-2" htmlFor="school_degree_2">Degree</label>
                                                 <input placeholder="M.S. in Biological Sciences" className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_2" />
                                             </div>
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
-                                                    <label className="py-2" for="school_2_start">Year Started</label>
+                                                    <label className="py-2" htmlFor="school_2_start">Year Started</label>
                                                     <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_start" />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <label className="py-2" for="school_2_end">Year Ended</label>
+                                                    <label className="py-2" htmlFor="school_2_end">Year Ended</label>
                                                     <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_2_end" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="xl:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="school_3">School 3</label>
+                                                <label className="py-2" htmlFor="school_3">School 3</label>
                                                 <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" />
-                                                <label className="py-2" for="school_degree_3">Degree</label>
+                                                <label className="py-2" htmlFor="school_degree_3">Degree</label>
                                                 <input placeholder="Ph.D. in Biological Sciences" className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_3" />
                                             </div>
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
-                                                    <label className="py-2" for="school_3_start">Year Started</label>
+                                                    <label className="py-2" htmlFor="school_3_start">Year Started</label>
                                                     <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_start" />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <label className="py-2" for="school_3_end">Year Ended</label>
+                                                    <label className="py-2" htmlFor="school_3_end">Year Ended</label>
                                                     <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="school_3_end" />
                                                 </div>
                                             </div>
@@ -222,15 +222,15 @@ const Builder = (props) => {
                                     <span className="inline-block align-middle text-2xl text-regal-blue">Socials</span>
                                     <span className="xl:grid grid-cols-3 gap-5 pb-12">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="linkedin">LinkedIn</label>
+                                            <label className="py-2" htmlFor="linkedin">LinkedIn</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="linkedin" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="twitter">Twitter</label>
+                                            <label className="py-2" htmlFor="twitter">Twitter</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="twitter" />
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="github">Github</label>
+                                            <label className="py-2" htmlFor="github">Github</label>
                                             <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="github" />
                                         </div>
                                     </span>
@@ -238,62 +238,62 @@ const Builder = (props) => {
                                     <span className="inline-block align-middle text-2xl text-regal-blue">Internships & Volunteer Work</span>
                                     <span className="xl:grid grid-cols-2 gap-5 pb-12">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="internship_1">Internship 1</label>
+                                            <label className="py-2" htmlFor="internship_1">Internship 1</label>
                                             <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_1" />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="internship_1_year">Year</label>
+                                                <label className="py-2" htmlFor="internship_1_year">Year</label>
                                                 <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_1_year" />
                                             </div>
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="internship_2">Internship 2</label>
+                                            <label className="py-2" htmlFor="internship_2">Internship 2</label>
                                             <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_2" />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="internship_2_year">Year</label>
+                                                <label className="py-2" htmlFor="internship_2_year">Year</label>
                                                 <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_2_year" />
                                             </div>
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="internship_3">Internship 3</label>
+                                            <label className="py-2" htmlFor="internship_3">Internship 3</label>
                                             <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="internship_3" />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="internship_3_year">Year</label>
+                                                <label className="py-2" htmlFor="internship_3_year">Year</label>
                                                 <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="internship_3_year" />
                                             </div>
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="volunteer_1">Volunteer 1</label>
+                                            <label className="py-2" htmlFor="volunteer_1">Volunteer 1</label>
                                             <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_1" />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="volunteer_1_year">Year</label>
+                                                <label className="py-2" htmlFor="volunteer_1_year">Year</label>
                                                 <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_1_year" />
                                             </div>
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="volunteer_2">Volunteer 2</label>
+                                            <label className="py-2" htmlFor="volunteer_2">Volunteer 2</label>
                                             <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_2" />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="volunteer_2_year">Year</label>
+                                                <label className="py-2" htmlFor="volunteer_2_year">Year</label>
                                                 <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_2_year" />
                                             </div>
                                         </div>
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="volunteer_3">Volunteer 3</label>
+                                            <label className="py-2" htmlFor="volunteer_3">Volunteer 3</label>
                                             <input className="p-1 inline-block align-middle text-lg font-medium text-blue-900 mr-2 md:bg-gray-100 border border-gray-200 rounded-md pl-2" name="volunteer_3" />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
-                                                <label className="py-2" for="volunteer_3_year">Year</label>
+                                                <label className="py-2" htmlFor="volunteer_3_year">Year</label>
                                                 <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="volunteer_3_year" />
                                             </div>
                                         </div>
@@ -302,15 +302,15 @@ const Builder = (props) => {
                                     <span className="inline-block align-middle text-2xl text-regal-blue">Features</span>
                                     <div className="flex justify-center">
                                         <div className="flex flex-col">
-                                            <label className="py-2" for="img">Resume Image</label>
+                                            <label className="py-2" htmlFor="img">Resume Image</label>
                                             <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900" type="file" id="img" name="img" accept="image/png, image/jpeg" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex justify-center border-t border-gray-200 pt-16 pb-12">
                                     <div className="flex flex-col invisible hidden">
-                                        <label className="py-2" for="user"></label>
-                                        <input type="text" name="username" value={props.user.nickname} />
+                                        <label className="py-2" htmlFor="user"></label>
+                                        <input type="text" name="username" defaultValue={props.user.nickname} />
                                     </div>
                                     <button type="submit" className="w-max flex py-2 px-4 text-md tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><CogIcon className="h-6 pr-3 text-gray-50" />Generate</button>
                                 </div>

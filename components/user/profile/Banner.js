@@ -6,7 +6,7 @@ const Banner = (props) => {
             {props.resume.map((data) => {
                 if (data.username === props.user.nickname) {
                     return (
-                        <div className="m-5 md:flex">
+                        <div key={data._id} className="m-5 md:flex">
                             <div className="flex justify-center">
                                 <Image src="/images/no-picture.jpg" height={200} width={200} className="rounded-full" />
                             </div>

@@ -9,34 +9,31 @@ import Education from "./Education";
 import Banner from "./Banner";
 
 const UserProfile = (props) => {
-
     return (
         <>
             <div className="flex flex-col w-screen md:w-auto">
                 <div className="flex justify-between">
                     {/* SEARCHBAR */}
                     <div>
-                        <form>
-                            <div>
-                                <span className="flex pt-3 pl-4">
-                                    <div className="p-2 rounded-l-lg border-l border-b border-t border-gray-200 shadow-2xl cursor-pointer bg-gray-50 text-gray-500">
-                                        <SearchIcon className="h-5 w-5" />
-                                    </div>
-                                    <input className="border-r border-t border-b border-gray-200 shadow-2xl rounded-r-lg pl-2" type="search" placeholder="Search" />
-                                </span>
-                                <div className="pt-3 pl-4">
-                                    <form action="/api/pdfBuilder" method="POST">
-                                        <div className="flex flex-col invisible hidden">
-                                            <label for="user"></label>
-                                            <input type="text" name="username" value={props.user.nickname} />
-                                        </div>
-                                        <button type="submit" className="px-2 text-sm h-8 flex pt-1 tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                                            <DocumentDownloadIcon className="h-5 w-5" /> Download
-                                        </button>
-                                    </form>
+                        <div>
+                            <span className="flex pt-3 pl-4">
+                                <div className="p-2 rounded-l-lg border-l border-b border-t border-gray-200 shadow-2xl cursor-pointer bg-gray-50 text-gray-500">
+                                    <SearchIcon className="h-5 w-5" />
                                 </div>
+                                <input className="border-r border-t border-b border-gray-200 shadow-2xl rounded-r-lg pl-2" type="search" placeholder="Search" />
+                            </span>
+                            <div className="pt-3 pl-4">
+                                <form action="/api/pdfBuilder" method="POST">
+                                    <div className="flex flex-col invisible hidden">
+                                        <label htmlFor="user"></label>
+                                        <input type="text" name="username" defaultValue={props.user.nickname} />
+                                    </div>
+                                    <button type="submit" className="px-2 text-sm h-8 flex pt-1 tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                                        <DocumentDownloadIcon className="h-5 w-5" /> Download
+                                    </button>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <Menu as="div" className="ml-3 relative">
                         {({ open }) => (
