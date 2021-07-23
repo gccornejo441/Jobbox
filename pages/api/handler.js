@@ -174,6 +174,8 @@ const handler = async (req, res) => {
       res.redirect('/user/profile')
     );
     return res.redirect('/user/profile');
+  } else if (req.method == "GET") {
+    res.redirect('/user/profile');
   }
 }
 
