@@ -1,6 +1,4 @@
 import Head from "next/head";
-import MobileNav from "../../components/mobilenav";
-import SideNav from "../../components/sidenav";
 import { useUser } from "@auth0/nextjs-auth0";
 import UserSettings from "../../components/user/UserSettings";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
@@ -14,13 +12,7 @@ export default withPageAuthRequired(function settings() {
             <Head>
                 <title>Jobbox - Settings</title>
             </Head>
-            <div className="lg:hidden">
-                <MobileNav />
-            </div>
             <div className="flex">
-                <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
-                    <SideNav />
-                </div>
                 <div className="w-screen">
                     <UserSettings user={user}/>
                 </div>

@@ -1,5 +1,5 @@
 import SideNav from "../components/sidenav";
-import SearchBar from "../components/searchbar";
+import Builder from "../components/user/builder";
 import MobileNav from "../components/mobilenav";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -12,17 +12,17 @@ export default withPageAuthRequired(function Dashboard() {
   return (
     <>
       <Head>
-        <title>Jobbox - Dashboard</title>
+        <title>Jobbox - Resume Builder</title>
       </Head>
       <div className="lg:hidden">
         <MobileNav />
       </div>
       <div className="flex">
-        <div className="h-screen px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
-          <SideNav user={user} />
+        <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
+          <SideNav />
         </div>
         <div className="w-screen">
-          <SearchBar />
+          <Builder user={user} />
         </div>
       </div>
     </>
