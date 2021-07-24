@@ -34,8 +34,8 @@ export default function Navbar({ isShowing }) {
                             </a>
                         </li>
                         <li className="md:mx-3">
-                            <a href="/dashboard" className="text-regal-blue rounded-md bg-green-300 text-xl p-2">
-                              Dashboard
+                            <a href="/resume-builder" className="text-regal-blue rounded-md bg-green-300 text-xl p-2">
+                              Resume Builder
                             </a>
                         </li>
                         <li className="md:mx-3">
@@ -89,7 +89,7 @@ export default function Navbar({ isShowing }) {
                           </a>
                       </li>
                       <li className="border-t-2 border-green-400 py-4 text-center">
-                          <a href="/api/auth/logout"  data-testid="logout" className="ml-8 text-gray-50 hover:underline">
+                          <a href="/api/auth/logout" data-testid="logout" className="ml-8 text-gray-50 hover:underline">
                             Logout
                           </a>
                       </li>

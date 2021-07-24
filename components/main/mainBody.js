@@ -11,20 +11,20 @@ const MainBody = () => {
             <Head>
                 <title>Jobbox</title>
             </Head>
-            <div className="flex flex-col my-16 relative h-huge">
+            <div className="flex flex-col mt-16 relative h-huge">
                 <div className="bg-hero-pattern h-screen bg-cover bg-center flex justify-center">
                     <div className="bg-gray-50 bg-opacity-30 w-full flex justify-center">
                         <div className="container z-10 flex flex-row-reverse pr-3 sm:pr-0">
                             <div className="flex flex-col mt-36 md:my-12 sm:mr-12  md:mr-24 xl:mr-24 pr-4 sm:pr-8 text-right">
                                 <h1 className="text-6xl md:text-7xl lg:text-8xl text-regal-blue font-bold my-2">Jobbox</h1>
-                                <p className="text-regal-blue text-md md:text-2xl my-2">Display your skills and talents</p>
+                                <p className="text-regal-blue text-md md:text-2xl my-2">Professional resumes made easy</p>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div className="h-full">
+            {/* <div className="h-full">
                 <ul className="lg:grid lg:grid-cols-3 gap-10 md:place-items-center">
                     <li className="text-center p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
                         <DocumentTextIcon className="w-16 h-16 text-green-300 mx-auto" />
@@ -45,7 +45,7 @@ const MainBody = () => {
                         </p>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </>
     )
 }

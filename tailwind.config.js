@@ -9,7 +9,7 @@ module.exports = {
         'hero-pattern': "url('/images/man-drilling.jpg')",
        }),
        height: {
-        'huge': '30rem'
+        'huge': '50rem'
        },
       colors: {
         'salmon': "#ffeed6",

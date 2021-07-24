@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <main>
             <Head/>
             <div>{children}</div>
-            <div className="relative bottom-0 border-t border-gray-200 w-full flex justify-center mt-96">
+            <div className="relative bottom-0 border-t border-gray-200 w-full flex justify-center">
                 <div className="py-5 text-gray-400">
                 &copy; 2021 Jobbox 
                 </div>
