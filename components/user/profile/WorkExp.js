@@ -125,7 +125,7 @@ const WorkExp = (props) => {
                                                     {duty}
                                                 </span>
                                             </div>
-                                        )
+                                        );
                                     })}
                                 </li>
                             </ul>
