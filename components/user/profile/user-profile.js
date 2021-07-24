@@ -26,7 +26,7 @@ const UserProfile = (props) => {
                                 <form action="/api/pdfBuilder" method="POST">
                                     <div className="flex flex-col invisible hidden">
                                         <label htmlFor="user"></label>
-                                        <input type="text" name="name" defaultValue={props.user.nickname} />
+                                        <input type="text" name="username" defaultValue={props.user.nickname} />
                                     </div>
                                     <button type="submit" className="px-2 text-sm py-3 flex tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                                         <DocumentDownloadIcon className="h-5 w-5" /> Download
