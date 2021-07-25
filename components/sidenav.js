@@ -28,7 +28,7 @@ const SideNav = () => {
                                     <li className="border border-transparent py-3 my-2 list-none hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg">
                                         <div className="flex justify-between">
                                             <span className="flex">
-                                                <div>
+                                                <div className="mx-2">
                                                     {item.icon}
                                                 </div>
                                                 <div>
