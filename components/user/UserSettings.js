@@ -1,12 +1,7 @@
-import { SearchIcon, BellIcon, CogIcon } from "@heroicons/react/solid";
-import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-import ExpBox from "./ExpBox";
-import SkillsModal from "./SkillsModal";
+
 
 
 const UserSettings = (props) => {
-    console.log(props.user);
 
     return (
         <>

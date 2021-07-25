@@ -4,8 +4,9 @@ import MobileNav from "../components/mobilenav";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { useUser } from "@auth0/nextjs-auth0";
 import Head from "next/head";
+import { connectToDatabase } from "../util/mongodb";
 
-export default withPageAuthRequired(function Dashboard() {
+export default withPageAuthRequired(function Dashboard({ resume }) {
   // importing user form auth0
   const { user } = useUser();
 
@@ -22,9 +23,24 @@ export default withPageAuthRequired(function Dashboard() {
           <SideNav />
         </div>
         <div className="w-screen">
-          <Builder user={user} />
+          <Builder user={user} resume={resume} />
         </div>
       </div>
     </>
   )
-})
+});
+
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+
+  const resume = await db
+      .collection(process.env.MONGO_USER_COLLECTION)
+      .find()
+      .toArray();
+
+  return {
+      props: {
+          resume: JSON.parse(JSON.stringify(resume)),
+      },
+  };
+}

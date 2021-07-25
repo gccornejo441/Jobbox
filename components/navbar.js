@@ -1,4 +1,4 @@
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useUser } from "@auth0/nextjs-auth0";
 import Image from "next/image";

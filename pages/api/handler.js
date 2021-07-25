@@ -12,7 +12,6 @@ const client = new MongoClient(uri, {
 
 const handler = async (req, res) => {
   // console.log("requested body: ", req.body)
-  console.log(req.files)
 
   if (req.method === 'POST') {
     let {
@@ -157,28 +156,38 @@ const handler = async (req, res) => {
       image: img,
     };
 
-    await client.connect();
-    const database = client.db(mongodb);
-    const resume = database.collection(collection);
+    try {
 
-    const query = { username: req.body.username };
+      await client.connect();
+      const database = client.db(mongodb);
+      const resume = database.collection(collection);
 
-    const resumeUser = await resume.findOne(query);
+      const query = { username: req.body.username };
 
-    console.log(entry);
+      const resumeUser = await resume.findOne(query);
 
-    resumeUser === null ? (
-      console.log(entry),
-      await resume.insertOne(entry)
-    ) : (
-      res.redirect('/user/profile')
-    );
-    return res.redirect('/user/profile');
+      console.log(entry);
+
+      resumeUser === null ? (
+        console.log(entry),
+        await resume.insertOne(entry)
+      ) : (
+        res.status(200).json(
+          {
+            user: username + " " + "already has an entry.",
+            entry: resumeUser, 
+          }
+        )
+      );
+
+    } catch (error) {
+      console.log(error);
+    }
+
   } else if (req.method == "GET") {
     res.redirect('/user/profile');
   }
 }
-
 
 
 export default handler;

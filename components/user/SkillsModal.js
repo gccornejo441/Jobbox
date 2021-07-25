@@ -6,11 +6,12 @@ import { nanoid } from "nanoid";
 import { PlusIcon, XIcon } from "@heroicons/react/solid";
 
 
-export default function MyModal() {
+export default function MyModal(props) {
     let [isOpen, setIsOpen] = useState(false);
     let [skill, setSkill] = useState(config.DATA);
     let [displayItem, setDisplay] = useState();
     let [toggleSkill, setToggleSkill] = useState(true);
+
 
     function closeModal() {
         setIsOpen(false);

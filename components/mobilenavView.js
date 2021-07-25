@@ -14,9 +14,9 @@ const MobileNavView = () => {
                 <div className="mx-4">
                     <div className="text-blue-200 mr-2 border-b border-gray-50">
                         <div className="flex relative z-10">
-                            <span className="mr-3 mt-6 flex">
+                            {/* <span className="mr-3 mt-6 flex">
                                 <img src="/images/no-picture.jpg" className="h-16 w-16 rounded-full mr-2" />
-                            </span>
+                            </span> */}
                             <div className="mt-1 mb-4 relative">
                                 <p className="text-xl font-thin text-gray-50 mt-3 text-wrap">Welcome, {user.nickname}</p>
                                 <div className="flex justify-evenly">
@@ -31,24 +31,26 @@ const MobileNavView = () => {
                     <div>
                         {menu.map(item => {
                             return (
-                                <li key={item.id} className="border border-transparent list-none hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg my-2">
-                                    <div className="flex justify-between">
-                                        <span className="flex">
-                                            <div className="p-2">
-                                                {item.icon}
-                                            </div>
-                                            <a href={item.href} className="p-2 w-max ">
-                                                {item.label}
-                                            </a>
-                                        </span>
-                                        <span>
-                                            {item.sublabel}
-                                        </span>
-                                        <span>
-                                            {item.subIcon}
-                                        </span>
-                                    </div>
-                                </li>
+                                <a key={item.id} href={item.href}>
+                                    <li className="border border-transparent py-3 my-2 list-none hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg">
+                                        <div className="flex justify-between">
+                                            <span className="flex">
+                                                <div>
+                                                    {item.icon}
+                                                </div>
+                                                <div>
+                                                    {item.label}
+                                                </div>
+                                            </span>
+                                            <span>
+                                                {item.sublabel}
+                                            </span>
+                                            <span>
+                                                {item.subIcon}
+                                            </span>
+                                        </div>
+                                    </li>
+                                </a>
                             );
                         })}
                     </div>
