@@ -1,6 +1,4 @@
 
-
-
 const UserSettings = (props) => {
 
     return (

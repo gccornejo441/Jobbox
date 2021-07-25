@@ -4,64 +4,88 @@ import { Disclosure, Transition } from "@headlessui/react";
 
 const ExpBox = (props) => {
     const dutyBoxOne = (
-        <>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_1_duty"></label>
-                <textarea value={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[0] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_1_duty"></label>
-                <textarea value={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[1] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_1_duty"></label>
-                <textarea value={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[2] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_1_duty"></label>
-                <textarea value={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[3] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-        </>
+        <ul>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_1_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[0] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_1_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[1] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_1_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[2] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_1_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_1.job_1_duty ? props.userInfo.job_1.job_1_duty[3] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+        </ul>
     );
     const dutyBoxTwo = (
-        <>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_2_duty"></label>
-                <textarea value={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[0] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_2_duty"></label>
-                <textarea value={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[1] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_2_duty"></label>
-                <textarea value={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[2] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_2_duty"></label>
-                <textarea value={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[3] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-        </>
+        <ul>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_2_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[0] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_2_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[1] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_2_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[2] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_2_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_2.job_2_duty ? props.userInfo.job_2.job_2_duty[3] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+        </ul>
     );
     const dutyBoxThree = (
-        <>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_3_duty"></label>
-                <textarea value={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[0] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_3_duty"></label>
-                <textarea value={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[1] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_3_duty"></label>
-                <textarea value={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[2] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-            <div className="grid mb-4">
-                <label className="py-2" htmlFor="job_3_duty"></label>
-                <textarea value={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[3] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
-            </div>
-        </>
+        <ul>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_3_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[0] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_3_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[1] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_3_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[2] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+            <li>
+                <div className="grid mb-4">
+                    <label className="py-2" htmlFor="job_3_duty"></label>
+                    <textarea defaultValue={props.userInfo.job_3.job_3_duty ? props.userInfo.job_3.job_3_duty[3] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" rows="2" cols="50" />
+                </div>
+            </li>
+        </ul>
     );
 
     return (
@@ -70,169 +94,77 @@ const ExpBox = (props) => {
                 <div className="md:grid grid-cols-2 gap-5">
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_name_1">Company Name</label>
-                        <input value={props.userInfo.job_1.job_name_1} id="job_name_1" name="job_name_1" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        <input defaultValue={props.userInfo.job_1.job_name_1} id="job_name_1" name="job_name_1" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_title_1">Position title</label>
-                        <input value={props.userInfo.job_1.job_title_1} id="job_title_1" name="job_title_1" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        <input defaultValue={props.userInfo.job_1.job_title_1} id="job_title_1" name="job_title_1" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                 </div>
                 <div className="md:grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_date_start_1">Year Started</label>
-                        <input value={props.userInfo.job_1.job_start} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_start_1" placeholder="" />
+                        <input defaultValue={props.userInfo.job_1.job_start} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_start_1" placeholder="" />
                     </div>
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_date_end_1">Year Ended</label>
-                        <input value={props.userInfo.job_1.job_end} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_end_1" placeholder="" />
+                        <input defaultValue={props.userInfo.job_1.job_end} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_end_1" placeholder="" />
                     </div>
                 </div>
             </div>
             <span>
-                <Disclosure>
-                    {({ open }) => (
-                        <>
-                            <Disclosure.Button className="flex justify-between my-5 px-4 py-2 text-sm font-medium text-left text-regal-blue bg-white rounded-lg hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-regal-blue focus-visible:ring-opacity-75">Duties
-                                <ChevronRightIcon
-                                    className={`${open ? "transform rotate-90" : ""
-                                        } w-5 h-5 text-regal-blue`}
-                                />
-                            </Disclosure.Button>
-                            <Transition
-                                show={open}
-                                enter="transition duration-100 ease-out"
-                                enterFrom="transform scale-95 opacity-0"
-                                enterTo="transform scale-100 opacity-100"
-                                leave="transition duration-75 ease-out"
-                                leaveFrom="transform scale-100 opacity-100"
-                                leaveTo="transform scale-95 opacity-0"
-                            >
-                                <Disclosure.Panel classNameName="text-gray-500 w-full">
-                                    <span>
-                                        <ul>
-                                            <li>
-                                                {dutyBoxOne}
-                                            </li>
-                                            
-                                        </ul>
-                                    </span>
-                                </Disclosure.Panel>
-                            </Transition>
-                        </>
-                    )}
-                </Disclosure>
+                {dutyBoxOne}
             </span>
             <div className="md:grid grid-cols-2 gap-5">
                 <div className="md:grid grid-cols-2 gap-5">
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_name_2">Company Name</label>
-                        <input value={props.userInfo.job_2.job_name_2} id="job_name_2" name="job_name_2" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        <input defaultValue={props.userInfo.job_2.job_name_2} id="job_name_2" name="job_name_2" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_title_2">Position title</label>
-                        <input value={props.userInfo.job_2.job_title_2} id="job_title_2" name="job_title_2" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        <input defaultValue={props.userInfo.job_2.job_title_2} id="job_title_2" name="job_title_2" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                 </div>
                 <div className="md:grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_date_start_2">Year Started</label>
-                        <input value={props.userInfo.job_2.job_start} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_start_2" placeholder="" />
+                        <input defaultValue={props.userInfo.job_2.job_start} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_start_2" placeholder="" />
                     </div>
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_date_end_2">Year Ended</label>
-                        <input value={props.userInfo.job_2.job_end} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_end_2" placeholder="" />
+                        <input defaultValue={props.userInfo.job_2.job_end} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_end_2" placeholder="" />
                     </div>
                 </div>
             </div>
             <span>
-                <Disclosure>
-                    {({ open }) => (
-                        <>
-                            <Disclosure.Button className="flex justify-between my-5 px-4 py-2 text-sm font-medium text-left text-regal-blue bg-white rounded-lg hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-regal-blue focus-visible:ring-opacity-75">Duties
-                                <ChevronRightIcon
-                                    className={`${open ? "transform rotate-90" : ""
-                                        } w-5 h-5 text-regal-blue`}
-                                />
-                            </Disclosure.Button>
-                            <Transition
-                                show={open}
-                                enter="transition duration-100 ease-out"
-                                enterFrom="transform scale-95 opacity-0"
-                                enterTo="transform scale-100 opacity-100"
-                                leave="transition duration-75 ease-out"
-                                leaveFrom="transform scale-100 opacity-100"
-                                leaveTo="transform scale-95 opacity-0"
-                            >
-                                <Disclosure.Panel classNameName="text-gray-500 w-full">
-                                    <span>
-                                        <ul>
-                                            <li>
-                                                {dutyBoxTwo}
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </Disclosure.Panel>
-                            </Transition>
-                        </>
-                    )}
-                </Disclosure>
+                {dutyBoxTwo}
             </span>
             <div className="md:grid grid-cols-2 gap-5">
                 <div className="md:grid grid-cols-2 gap-5">
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_name_3">Company Name</label>
-                        <input value={props.userInfo.job_3.job_name_3} id="job_name_3" name="job_name_3" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        <input defaultValue={props.userInfo.job_3.job_name_3} id="job_name_3" name="job_name_3" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_title_3">Position title</label>
-                        <input value={props.userInfo.job_3.job_title_3} id="job_title_3" name="job_title_3" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
+                        <input defaultValue={props.userInfo.job_3.job_title_3} id="job_title_3" name="job_title_3" className="p-1 text-lg font-bold text-blue-900 bg-gray-50 border border-gray-200 rounded-md" rows="4" cols="70" />
                     </div>
                 </div>
                 <div className="md:grid grid-cols-2 gap-5 mt-4 md:mt-0 md:mb-0  mb-7">
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_date_start_3">Year Started</label>
-                        <input value={props.userInfo.job_3.job_start} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_start_3" placeholder="" />
+                        <input defaultValue={props.userInfo.job_3.job_start} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_start_3" placeholder="" />
                     </div>
                     <div className="flex flex-col">
                         <label className="py-2" htmlFor="job_date_end_3">Year Ended</label>
-                        <input value={props.userInfo.job_3.end} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_end_3" placeholder="" />
+                        <input defaultValue={props.userInfo.job_3.end} className="py-2 inline-block align-middle text-sm font-medium text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2 " type="date" name="job_date_end_3" placeholder="" />
                     </div>
                 </div>
             </div>
             <span>
-                <Disclosure>
-                    {({ open }) => (
-                        <>
-                            <Disclosure.Button className="flex justify-between my-5 px-4 py-2 text-sm font-medium text-left text-regal-blue bg-white rounded-lg hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-regal-blue focus-visible:ring-opacity-75">Duties
-                                <ChevronRightIcon
-                                    className={`${open ? "transform rotate-90" : ""
-                                        } w-5 h-5 text-regal-blue`}
-                                />
-                            </Disclosure.Button>
-                            <Transition
-                                show={open}
-                                enter="transition duration-100 ease-out"
-                                enterFrom="transform scale-95 opacity-0"
-                                enterTo="transform scale-100 opacity-100"
-                                leave="transition duration-75 ease-out"
-                                leaveFrom="transform scale-100 opacity-100"
-                                leaveTo="transform scale-95 opacity-0"
-                            >
-                                <Disclosure.Panel classNameName="text-gray-500 w-full">
-                                    <span>
-                                        <ul>
-                                            <li>
-                                                {dutyBoxThree}
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </Disclosure.Panel>
-                            </Transition>
-                        </>
-                    )}
-                </Disclosure>
+                {dutyBoxThree}
             </span>
-
         </>
     )
 }

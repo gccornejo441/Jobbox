@@ -10,30 +10,29 @@ const Intern = (props) => {
                                 </div>
                                 <div>
                                     <div className="flex flex-col text-base pl-4 pt-2">
-                                        {data.volunteer.map((item, index) => {
-                                            return (
-                                                <ul key={index}>
+                                         
+                                                <ul>
                                                     <li>
                                                         <p className="text-regal-blue">
-                                                            {item.volunteer_1}
+                                                            {data.volunteer[0].volunteer_1}
                                                         </p>
-                                                        <p className="text-blue-700">{item.volunteer_1_year}</p>
+                                                        <p className="text-blue-700">{data.volunteer[0].volunteer_year.slice(0, -3)}</p>
                                                     </li>
                                                     <li>
                                                         <p className="text-regal-blue">
-                                                            {item.volunteer_2}
+                                                            {data.volunteer[1].volunteer_2}
                                                         </p>
-                                                        <p className="text-blue-700">{item.volunteer_2_year}</p>
+                                                        <p className="text-blue-700">{data.volunteer[1].volunteer_year.slice(0, -3)}</p>
                                                     </li>
                                                     <li>
                                                         <p className="text-regal-blue">
-                                                            {item.volunteer_3}
+                                                            {data.volunteer[2].volunteer_3}
                                                         </p>
-                                                        <p className="text-blue-700">{item.volunteer_3_year}</p>
+                                                        <p className="text-blue-700">{data.volunteer[2].volunteer_year.slice(0, -3)}</p>
                                                     </li>
                                                 </ul>
-                                            );
-                                        })}
+                                           
+                                      
                                     </div>
                                 </div>
                             </div>

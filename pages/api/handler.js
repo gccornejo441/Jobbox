@@ -17,7 +17,7 @@ const handler = async (req, res) => {
     let {
       first_name,
       last_name,
-      street,
+      state,
       city,
       zip,
       email,
@@ -75,7 +75,7 @@ const handler = async (req, res) => {
     const entry = {
       first_name: first_name,
       last_name: last_name,
-      street: street,
+      state: state,
       city: city,
       zip: zip,
       email: email,
@@ -162,27 +162,29 @@ const handler = async (req, res) => {
       const database = client.db(mongodb);
       const resume = database.collection(collection);
 
+      // This should only be the field & value found in both collections.
       const query = { username: req.body.username };
 
+      // Searches for query.
       const resumeUser = await resume.findOne(query);
-
       console.log(entry);
 
+      // Replacement document.
+      const replacementDocument = entry;
+      
+      
       resumeUser === null ? (
         console.log(entry),
         await resume.insertOne(entry)
-      ) : (
-        res.status(200).json(
-          {
-            user: username + " " + "already has an entry.",
-            entry: resumeUser, 
-          }
-        )
+        ) : (
+          await resume.replaceOne(query, replacementDocument)
       );
 
     } catch (error) {
       console.log(error);
     }
+
+    return res.redirect('/user/profile')
 
   } else if (req.method == "GET") {
     res.redirect('/user/profile');

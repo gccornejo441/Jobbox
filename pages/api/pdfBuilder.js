@@ -21,11 +21,12 @@ const pdfBuilder = async (req, res) => {
     const doc = new PDFDocument();
 
 
+
     // https://stackoverflow.com/questions/44731255/send-pdf-file-made-with-pdfkit-to-the-client-for-display/67017960#67017960
     res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Disposition", `inline; filename=${dbUser.user.find}_resume.pdf`);
+    res.setHeader("Content-Disposition", `inline; filename=${dbUser.user.first_name}_resume.pdf`);
 
-    doc.pipe(fs.createWriteStream(dbUser.user.find + '_resume' + '.pdf'))
+    doc.pipe(fs.createWriteStream(dbUser.user.first_name + '_resume' + '.pdf'))
     doc.pipe(res)
 
 
