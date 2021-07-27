@@ -7,7 +7,7 @@ const WorkExp = (props) => {
                 <div>
                     {props.resume.map((data, index) => {
                         if (data.username === props.user.nickname) {
-                            if (data.job_2.job_name_2 != "" && data.job_2.job_name_2 != "") {
+                            if (data.job_1.job_name_1 != "" && data.job_1.job_name_1 != "") {
                                 return (
                                     <div key={index}>
                                         <div className="border-b-4 border-regal-blue">
