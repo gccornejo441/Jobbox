@@ -38,7 +38,7 @@ const pdfBuilder = async (req, res) => {
         .text(dbUser.user.first_name + " " + dbUser.user.last_name, {
           width: 412,
           align: 'center',
-          indent: 30,
+          indent: 40,
           columns: 1,
           height: 500,
           ellipsis: true
@@ -53,24 +53,24 @@ const pdfBuilder = async (req, res) => {
         .text(dbUser.user.city + " " + dbUser.user.state + "," + " " + dbUser.user.zip, {
           width: 412,
           align: 'center',
-          indent: 30,
+          indent: 40,
           columns: 1,
           ellipsis: true
         })
         .text("Phone:" + " " + dbUser.user.phone + " " + "Email:" + " " + dbUser.user.email, {
           width: 412,
           align: 'center',
-          indent: 30,
+          indent: 40,
           columns: 1,
           ellipsis: true
         })
-        .text("Portfolio:" + " " + "www." + dbUser.user.github, {
-          width: 412,
-          align: 'center',
-          indent: 30,
-          columns: 1,
-          ellipsis: true
-        })
+      // .text("Portfolio:" + " " + "www." + dbUser.user.github, {
+      //   width: 412,
+      //   align: 'center',
+      //   indent: 30,
+      //   columns: 1,
+      //   ellipsis: true
+      // })
 
       let box = { about: dbUser.user.about_me.replace(/\n/g, ' ') }
       // and some justified text wrapped into columns
@@ -166,12 +166,25 @@ const pdfBuilder = async (req, res) => {
           ellipsis: true
         })
 
-      let jobDutiesOne = dbUser.user.job_1.job_1_duty === null ? false : dbUser.user.job_1.job_1_duty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ""));
+      /**
+    * This function searches & removes unnecessarynun characters,
+    * then filters out duties with empty entries.
+    */
+      const jobDutySearch = () => {
+        try {
+          const jobDuty = dbUser.user.job_1.job_1_duty;
+          let jobDuties = jobDuty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ''));
+          let dutiesToDisplay = jobDuties.filter((item) => item != '');       
+          return dutiesToDisplay;
+        } catch (err) {
+          console.log(err);
+        }
+      }
 
       doc
         .font('Times-Roman', 12)
         .moveDown()
-        .list(jobDutiesOne, {
+        .list(jobDutySearch(), {
           bulletRadius: 2,
           width: 412,
           align: 'left',
@@ -214,11 +227,26 @@ const pdfBuilder = async (req, res) => {
           ellipsis: true
         })
 
-      let jobDutiesTwo = dbUser.user.job_2.job_2_duty === null ? false : dbUser.user.job_2.job_2_duty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ""));
+
+      /**
+       * This function searches & removes unnecessarynun characters,
+       * then filters out duties with empty entries.
+       */
+      const jobDutyTwoSearch = () => {
+        try {
+          const jobDutyTwo = dbUser.user.job_2.job_2_duty;
+          let jobDuties = jobDutyTwo.map((item) => item.replace(/(\r\n|\n|\r)/gm, ''));
+          let dutiesToDisplay = jobDuties.filter((item) => item != '');
+          return dutiesToDisplay;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
       doc
         .font('Times-Roman', 12)
         .moveDown()
-        .list(jobDutiesTwo, {
+        .list(jobDutyTwoSearch(), {
           bulletRadius: 2,
           width: 412,
           align: 'left',
@@ -264,7 +292,6 @@ const pdfBuilder = async (req, res) => {
 
       doc.end();
 
-      // res.redirect('/user/profile')
     }
   }
 }

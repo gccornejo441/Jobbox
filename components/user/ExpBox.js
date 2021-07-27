@@ -8,25 +8,25 @@ const ExpBox = (props) => {
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_1_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[0] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[0] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_1_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[1] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[1] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_1_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[2] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[2] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_1_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[3] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_1.job_1_duty[3] : ""} id="job_1_duty" name="job_1_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
         </ul>
@@ -36,25 +36,25 @@ const ExpBox = (props) => {
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_2_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[0] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[0] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_2_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[1] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[1] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_2_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[2] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[2] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_2_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[3] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_2.job_2_duty[3] : ""} id="job_2_duty" name="job_2_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
         </ul>
@@ -64,19 +64,19 @@ const ExpBox = (props) => {
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_3_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_3.job_3_duty[0] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_3.job_3_duty[0] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_3_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_3.job_3_duty[1] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_3.job_3_duty[1] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
                 <div className="grid mb-4">
                     <label className="py-2" htmlFor="job_3_duty"></label>
-                    <input defaultValue={props.userInfo ? props.userInfo.job_3.job_3_duty[2] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty (max-length: 50 characters)" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
+                    <input defaultValue={props.userInfo ? props.userInfo.job_3.job_3_duty[2] : ""} id="job_3_duty" name="job_3_duty" placeholder=" Duty" type="text" className="p-1 text-lg font-bold text-blue-900 bg-white md:bg-gray-100 border border-gray-200 rounded-md pr-2" maxLength="150" />
                 </div>
             </li>
             <li>
