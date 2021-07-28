@@ -1,5 +1,3 @@
-import { ChevronRightIcon } from "@heroicons/react/solid";
-import { Disclosure, Transition } from "@headlessui/react";
 
 
 const ExpBox = (props) => {
