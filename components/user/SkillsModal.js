@@ -12,7 +12,6 @@ export default function MyModal(props) {
     let [displayItem, setDisplay] = useState();
     let [toggleSkill, setToggleSkill] = useState(true);
 
-
     function closeModal() {
         setIsOpen(false);
     }
@@ -31,7 +30,7 @@ export default function MyModal(props) {
             setToggleSkill(true)
             const newSkill = { id: nanoid(), title: evt.target.value, icon_state: config.plus, };
             // A copy of the previous skill state, & the new state object going in.
-            setSkill([...skill, newSkill]);
+            setSkill([newSkill, ...skill]);
         }
     }
 

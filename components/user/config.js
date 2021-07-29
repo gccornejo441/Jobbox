@@ -37,37 +37,38 @@ module.exports = {
     DATA: [
         {
             id: 1,
-            title: "Marine Corps",
-            subtitle: "Hard charging devil dogs!",
-            icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
-        },
-        {
-            id: 2,
             title: "Management",
             subtitle: "Peers with this skill typically have 29% highter chance of getting a new job",
             icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
         },
         {
-            id: 3,
+            id: 2,
             title: "Knowledge Graphs",
             subtitle: "",
             icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
         },
         {
-            id: 4,
+            id: 3,
             title: "Information Technology Planning",
             subtitle: "",
             icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
         },
         {
-            id: 5,
+            id: 4,
             title: "Business Negotiation",
             subtitle: "",
             icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
         },
         {
-            id: 6,
+            id: 5,
             title: "Military",
+            subtitle: "",
+            icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
+
+        },
+        {
+            id: 6,
+            title: "Bookkeeping",
             subtitle: "",
             icon_state: <PlusIcon className="h-8 w-8 text-gray-300" />,
 

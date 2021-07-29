@@ -15,13 +15,12 @@ const Builder = (props) => {
                         </div>
                         <div className="border-b border-gray-300 md:px-10 w-screen md:w-auto">
                             <form action="/api/handler" method="POST" className="m-5 grid grid-cols-1">
-                                {/* <Image src="/images/no-picture.jpg" height={200} width={200} className="rounded-full shadow-md" /> */}
                                 <div className="py-3 xl:px-4 md:w-auto">
                                     <span className="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                     <span className="xl:grid grid-cols-2 gap-5">
                                         <div className="flex flex-col">
-                                            <label className="py-2" htmlFor="first_name">First Name</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.first_name : ''} type="text" name="first_name" />
+                                            <label className="py-2" htmlFor="first_name">First Name*</label>
+                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.first_name : ''} type="text" name="first_name" required />
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="last_name">Last Name</label>
@@ -36,7 +35,7 @@ const Builder = (props) => {
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="state">State</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.state : ''} type="text" name="state" />
+                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.state : ''} type="text" name="state"  />
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="zip">Zip Code</label>
@@ -46,17 +45,17 @@ const Builder = (props) => {
                                     <span className="xl:grid grid-cols-2 gap-5">
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="email">Email</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.email : ''} type="email" name="email" />
+                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.email : ''} type="email" name="email"  />
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="phone">Phone</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890" />
+                                            <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890"  />
                                         </div>
                                     </span>
                                     <span className="xl:grid grid-cols-1 gap-5">
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="about_me">About Me</label>
-                                            <textarea className="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.about_me : ''} type="text" name="about_me" />
+                                            <textarea className="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.about_me : ''} type="text" name="about_me"  />
                                         </div>
                                     </span>
                                     <div className="border-b border-gray-200 w-full my-5"></div>
@@ -209,14 +208,14 @@ const Builder = (props) => {
                                             </div>
                                         </div>
                                     </span>
-                                    <div className="border-b border-gray-200 w-full my-5"></div>
+                                    {/* <div className="border-b border-gray-200 w-full my-5"></div>
                                     <span className="inline-block align-middle text-2xl text-regal-blue">Features</span>
                                     <div className="flex justify-center">
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="img">Resume Image</label>
                                             <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900" type="file" id="img" name="img" accept="image/png, image/jpeg" />
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="flex justify-center border-t border-gray-200 pt-16 pb-12">
                                     <div className="flex flex-col invisible hidden">

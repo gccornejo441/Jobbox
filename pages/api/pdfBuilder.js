@@ -1,7 +1,6 @@
 import PDFDocument from 'pdfkit';
 import fs from "fs";
 import { connectToDatabase } from "../../util/mongodb";
-import blobStream from 'blob-stream';
 
 const pdfBuilder = async (req, res) => {
   if (req.method === 'POST') {
@@ -47,19 +46,36 @@ const pdfBuilder = async (req, res) => {
           })
 
         // and some justified text wrapped into columns
+
+
+        let { phone, email } = dbUser.user;
+        const contactMe = () => {
+            if ( phone == "" && email == "" ) {
+              return;
+            } else if ( phone == "" && typeof email == "string" ) {
+              return "Email:" + " " + email;
+            } else if ( typeof phone == "string" && email == "" ) {
+              return "Phone:" + " " + phone;
+            } else {
+              return "Phone:" + " " + phone + " " + "Email:" + " " + email;
+            }
+        }
+        let { state } = dbUser.user;
+        const locationState = () => state == "" ? ("") : ( state + "," + " " );
+
         doc
           .fillColor('black')
           .font('Times-Roman', 12)
           .moveDown()
           .moveUp()
-          .text(dbUser.user.city + " " + dbUser.user.state + "," + " " + dbUser.user.zip, {
+          .text(dbUser.user.city + " " + locationState() + dbUser.user.zip, {
             width: 412,
             align: 'center',
             indent: 40,
             columns: 1,
             ellipsis: true
           })
-          .text("Phone:" + " " + dbUser.user.phone + " " + "Email:" + " " + dbUser.user.email, {
+          .text(contactMe(), {
             width: 412,
             align: 'center',
             indent: 40,
