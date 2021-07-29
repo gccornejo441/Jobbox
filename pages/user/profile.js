@@ -19,7 +19,7 @@ export default withPageAuthRequired(function newPersona({ resume }) {
             </div>
             <div className="flex">
                 <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
-                    <SideNav />
+                    <SideNav resume={resume} user={user} />
                 </div>
                 <div className="w-screen">
                     <UserProfile resume={resume} user={user} />

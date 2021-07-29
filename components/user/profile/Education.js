@@ -1,8 +1,7 @@
 const Education = (props) => {
-    const userInDB = props.resume.find((data) => data.username === props.user.nickname);
     return (
         <>
-            {userInDB != undefined ? props.resume.map((data, index) => {
+            {props.resume.map((data, index) => {
                 if (data.username === props.user.nickname) {
                     return (
                         <div key={index} className="pb-8">
@@ -38,23 +37,6 @@ const Education = (props) => {
                     );
                 };
             }
-            ) : (
-                <div className="pb-8">
-                    <div className="border-b-4 border-regal-blue">
-                        <h1 className="text-2xl text-regal-blue uppercase font-bold pl-4 pt-4">Education</h1>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <div className="flex flex-col text-base pl-4 pt-2">
-                                    <p className="text-blue-800 text-lg">B.S. Business Administration and Accounting</p>
-                                    <p className="text-regal-blue font-semibold">Boston University</p>
-                                    <p className="text-blue-700 text-sm">05/1999 - 05/2003</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             )}
         </>
     );

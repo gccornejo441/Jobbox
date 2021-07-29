@@ -1,8 +1,7 @@
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 
 const WorkExp = (props) => {
-    const userInDB = props.resume.find((data) => data.username === props.user.nickname);
-    const workBody = (
+    return (
         <>
             <div>
                 <div>
@@ -117,63 +116,6 @@ const WorkExp = (props) => {
             </div>
         </>
     );
-
-    return (
-        <>
-            {userInDB != undefined ? (
-                <>
-                    {workBody}
-                </>
-            ) : (
-                <div>
-                    <div className="border-b-4 border-regal-blue">
-                        <h1 className="text-2xl text-regal-blue uppercase font-bold px-6 pt-4">Work Experience</h1>
-                    </div>
-                    <ul>
-                        <li className="text-xl text-blue-700 font-bold px-6 pt-2">
-                            Bookkeeper
-                        </li>
-                        <li className="text-xl text-regal-blue px-6 pt-2">
-                            Richman Sachs LLC.
-                        </li>
-                        <li className="text-sm text-regal-blue px-6 pt-2">
-                            2005/05 - Current
-                        </li>
-                        <li className="text-md text-regal-blue px-6 pt-2 max-w-xl flex flex-col">
-                            <div className="flex pt-2">
-                                <div className="mt-1">
-                                    <VscDebugBreakpointLog className="h-4 w-4" />
-                                </div>
-                                <span>
-                                    Supervise a staff of 25 and acted as a liaison among owners, employess, and clients by promoting open communication.
-                                </span>
-                            </div>
-                        </li>
-                        <li className="text-md text-regal-blue px-6 pt-2 max-w-xl flex flex-col">
-                            <div className="flex pt-2">
-                                <div className="mt-1">
-                                    <VscDebugBreakpointLog className="h-4 w-4" />
-                                </div>
-                                <span>
-                                    Handle Accounts Payable/Receivable and expense control procedures, including reconsiliation.
-                                </span>
-                            </div>
-                        </li>
-                        <li className="text-md text-regal-blue px-6 pt-2 max-w-xl flex flex-col">
-                            <div className="flex pt-2">
-                                <div className="mt-1">
-                                    <VscDebugBreakpointLog className="h-4 w-4" />
-                                </div>
-                                <span>
-                                    Maintain human resources files and actions, including W-2 withholdings, benefits, and bi-weekly payroll processing.
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            )}
-        </>
-    )
 }
 
 export default WorkExp;

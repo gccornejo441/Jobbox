@@ -7,7 +7,6 @@ import Education from "./Education";
 import Banner from "./Banner";
 
 const UserProfile = (props) => {
-    
     return (
         <>
             <div className="flex flex-col w-screen md:w-auto">

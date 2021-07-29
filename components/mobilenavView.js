@@ -1,4 +1,3 @@
-import { LogoutIcon, UserIcon } from "@heroicons/react/outline";
 import { menu } from "../lib/menuset";
 import { useUser } from "@auth0/nextjs-auth0"
 
@@ -6,6 +5,8 @@ import { useUser } from "@auth0/nextjs-auth0"
 const MobileNavView = () => {
     // importing user form auth0
     const { user } = useUser();
+    const userInDB = props.resume.find((data) => data.username === props.user.nickname);
+    console.log("Props", props)
 
 
     return (
@@ -26,6 +27,9 @@ const MobileNavView = () => {
                         {menu.map(item => {
                             return (
                                 <a key={item.id} href={item.href}>
+                                {userInDB == undefined && item.id == 2 ? (
+                                    <div></div>
+                                ) : (
                                     <li className="border border-transparent py-3 my-2 list-none hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg">
                                         <div className="flex justify-between">
                                             <span className="flex">
@@ -36,14 +40,9 @@ const MobileNavView = () => {
                                                     {item.label}
                                                 </div>
                                             </span>
-                                            <span>
-                                                {item.sublabel}
-                                            </span>
-                                            <span>
-                                                {item.subIcon}
-                                            </span>
                                         </div>
                                     </li>
+                                )}
                                 </a>
                             );
                         })}
