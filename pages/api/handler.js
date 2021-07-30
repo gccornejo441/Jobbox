@@ -187,7 +187,7 @@ const handler = async (req, res) => {
     return res.redirect('/user/profile')
 
   } else if (req.method == "GET") {
-    res.redirect('/user/profile');
+    res.redirect('/resume-builder');
   }
 }
 

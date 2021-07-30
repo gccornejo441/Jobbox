@@ -50,18 +50,18 @@ const pdfBuilder = async (req, res) => {
 
         let { phone, email } = dbUser.user;
         const contactMe = () => {
-            if ( phone == "" && email == "" ) {
-              return;
-            } else if ( phone == "" && typeof email == "string" ) {
-              return "Email:" + " " + email;
-            } else if ( typeof phone == "string" && email == "" ) {
-              return "Phone:" + " " + phone;
-            } else {
-              return "Phone:" + " " + phone + " " + "Email:" + " " + email;
-            }
+          if (phone == "" && email == "") {
+            return;
+          } else if (phone == "" && typeof email == "string") {
+            return "Email:" + " " + email;
+          } else if (typeof phone == "string" && email == "") {
+            return "Phone:" + " " + phone;
+          } else {
+            return "Phone:" + " " + phone + " " + "Email:" + " " + email;
+          }
         }
         let { state } = dbUser.user;
-        const locationState = () => state == "" ? ("") : ( state + "," + " " );
+        const locationState = () => state == "" ? ("") : (state + "," + " ");
 
         doc
           .fillColor('black')
@@ -151,15 +151,15 @@ const pdfBuilder = async (req, res) => {
           })
 
         // First job entry.
-
+          let { job_1 } = dbUser.user;
         // Checks to if end data is available.
-        let jobEndOne = (dbUser.user.job_1.job_end === "" ? "Current" : dbUser.user.job_1.job_end.slice(0, 4));
+        let jobEndOne = (job_1.job_name_1 == "" ? "" : job_1.job_end === "" ? " " + "-" + " " + "Current" : " " + "-" + " " + job_1.job_end.slice(0, 4));
 
         doc
           .fillColor('black')
           .font('Times-Bold', 12)
           .moveDown(1)
-          .text(dbUser.user.job_1.job_name_1, {
+          .text(job_1.job_name_1, {
             width: 412,
             align: 'left',
             indent: 0,
@@ -169,13 +169,13 @@ const pdfBuilder = async (req, res) => {
           })
           .moveUp(1)
           .font('Times-Italic', 12)
-          .text(dbUser.user.job_1.job_start.slice(0, 4) + " " + "-" + " " + jobEndOne, {
+          .text(job_1.job_start.slice(0, 4) + jobEndOne, {
             align: 'right',
           })
         doc
           .fillColor('black')
           .font('Times-Italic', 12)
-          .text(dbUser.user.job_1.job_title_1, {
+          .text(job_1.job_title_1, {
             width: 412,
             align: 'left',
             indent: 0,
@@ -190,7 +190,7 @@ const pdfBuilder = async (req, res) => {
       */
         const jobDutySearch = () => {
           try {
-            const jobDuty = dbUser.user.job_1.job_1_duty;
+            const jobDuty = job_1.job_1_duty;
             let jobDuties = jobDuty.map((item) => item.replace(/(\r\n|\n|\r)/gm, ''));
             let dutiesToDisplay = jobDuties.filter((item) => item != '');
             return dutiesToDisplay;
@@ -212,14 +212,15 @@ const pdfBuilder = async (req, res) => {
           });
 
         // Second job entry
+        let { job_2 } = dbUser.user;
         // Checks to if end data is available.
-        let jobEndTwo = (dbUser.user.job_2.job_end === "" ? "Current" : dbUser.user.job_2.job_end.slice(0, 4))
+        let jobEndTwo = (job_2.job_name_2 == "" ? "" : job_2.job_end === "" ? " " + "-" + " " + "Current" : " " + "-" + " " + job_2.job_end.slice(0, 4));
 
         doc
           .fillColor('black')
           .font('Times-Bold', 12)
           .moveDown(1)
-          .text(dbUser.user.job_2.job_name_2, {
+          .text(job_2.job_name_2, {
             width: 412,
             align: 'left',
             indent: 0,
@@ -229,14 +230,14 @@ const pdfBuilder = async (req, res) => {
           })
           .moveUp(1)
           .font('Times-Italic', 12)
-          .text(dbUser.user.job_2.job_start.slice(0, 4) + " " + "-" + " " + jobEndTwo, {
+          .text(job_2.job_start.slice(0, 4) + jobEndTwo, {
             align: 'right',
           })
 
         doc
           .fillColor('black')
           .font('Times-Italic', 12)
-          .text(dbUser.user.job_2.job_title_2, {
+          .text(job_2.job_title_2, {
             width: 412,
             align: 'left',
             indent: 0,
@@ -252,7 +253,7 @@ const pdfBuilder = async (req, res) => {
          */
         const jobDutyTwoSearch = () => {
           try {
-            const jobDutyTwo = dbUser.user.job_2.job_2_duty;
+            const jobDutyTwo = job_2.job_2_duty;
             let jobDuties = jobDutyTwo.map((item) => item.replace(/(\r\n|\n|\r)/gm, ''));
             let dutiesToDisplay = jobDuties.filter((item) => item != '');
             return dutiesToDisplay;
@@ -273,6 +274,28 @@ const pdfBuilder = async (req, res) => {
             ellipsis: true
           });
 
+          
+          //school objs: degree and school
+          let { school_1, school_2, school_3 } = dbUser.user;
+          
+          const educComp = [
+            `${school_1.degree}` + ":" + " " + `${school_1.school}`,
+            `${school_2.degree}` + ":" + " " + `${school_2.school}`,
+            `${school_3.degree}` + ":" + " " + `${school_3.school}`
+          ];
+          
+          const education = () => {
+            if (school_1.school == "" && school_2.school == "" && school_3.school == "") {
+              return [];
+            } else if (typeof school_1.school == "string" && school_2.school == "" && school_3.school == "") {
+              return [educComp[0]];
+          } else if (typeof school_1.school == "string" && typeof school_2.school == "string" && school_3.school == "") {
+            return [educComp[0], educComp[1]];
+          } else {
+            return [educComp[0], educComp[1], educComp[2]];
+          }
+        };
+        
         doc
           .fillColor('black')
           .font('Times-Roman', 12)
@@ -284,36 +307,44 @@ const pdfBuilder = async (req, res) => {
             columns: 1,
             height: 500,
             ellipsis: true
-          })
+          });
 
-        let education = [
-          `${dbUser.user.school_1.degree}` + ":" + " " + `${dbUser.user.school_1.school}`,
-          `${dbUser.user.school_2.degree}` + ":" + " " + `${dbUser.user.school_2.school}`,
-          `${dbUser.user.school_3.degree}` + ":" + " " + `${dbUser.user.school_3.school}`
-        ];
 
-        doc
-          .list(education, {
-            width: 412,
-            align: 'left',
-            indent: 15,
-            columns: 1,
-            height: 500,
-            ellipsis: true
-          })
+          const numOfSchools = () => {
+            if ( typeof school_1.start == 'string' && school_2.start == "" && school_3.start == "" ) {
+              return 1;
+            } else if ( typeof school_1.start == 'string' && typeof school_2.start == 'string' && school_3.start == "" ) {
+              return 2;
+            } else if ( typeof school_1.start == 'string' && typeof school_2.start == 'string' && typeof school_3.start == 'string' ) {
+              return 3;
+            } else {
+              return;
+            }
+          };
 
         doc
-          .moveUp(3)
-          .text(`${dbUser.user.school_1.start === "" && dbUser.user.school_1.end === "" ? "" : dbUser.user.school_1.start === "" ? "Current" : dbUser.user.school_1.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_1.start === "" && dbUser.user.school_1.end === "" ? false : dbUser.user.school_1.end === "" ? "Current" : dbUser.user.school_1.end.slice(0, 4)}`, { align: 'right' })
-        doc.text(`${dbUser.user.school_2.start === "" && dbUser.user.school_2.end === "" ? "" : dbUser.user.school_2.start === "" ? "Current" : dbUser.user.school_2.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_2.start === "" && dbUser.user.school_2.end === "" ? false : dbUser.user.school_2.end === "" ? "Current" : dbUser.user.school_2.end.slice(0, 4)}`, { align: 'right' })
-        doc.text(`${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? "" : dbUser.user.school_3.start === "" ? "Current" : dbUser.user.school_3.start.slice(0, 4) + " " + "-" + " "}` + `${dbUser.user.school_3.start === "" && dbUser.user.school_3.end === "" ? false : dbUser.user.school_3.end === "" ? "Current" : dbUser.user.school_3.end.slice(0, 4)}`, { align: 'right' })
-
+        .list(education(), {
+          width: 412,
+          align: 'left',
+          indent: 15,
+          columns: 1,
+          height: 500,
+          ellipsis: true
+        })
+        .moveUp(numOfSchools())
+        .text(`${school_1.start === "" && school_1.end === "" ? "" : school_1.start === "" ? "Current" : school_1.start.slice(0, 4) + " " + "-" + " "}` + `${school_1.start === "" && school_1.end === "" ? "" : school_1.end === "" ? "Current" : school_1.end.slice(0, 4)}`, { 
+          align: 'right' 
+        })
+        .text(`${school_2.start === "" && school_2.end === "" ? "" : school_2.start === "" ? "Current" : school_2.start.slice(0, 4) + " " + "-" + " "}` + `${school_2.start === "" && school_2.end === "" ? "" : school_2.end === "" ? "Current" : school_2.end.slice(0, 4)}`, { 
+          align: 'right' 
+        })
+        .text(`${school_3.start === "" && school_3.end === "" ? "" : school_3.start === "" ? "Current" : school_3.start.slice(0, 4) + " " + "-" + " "}` + `${school_3.start === "" && school_3.end === "" ? "" : school_3.end === "" ? "Current" : school_3.end.slice(0, 4)}`, { 
+          align: 'right' 
+        })
+        
         doc.end();
-
       }
     }
-
-
   }
 }
 
