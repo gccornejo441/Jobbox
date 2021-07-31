@@ -5,7 +5,7 @@ import MobileNavView from './mobilenavView'
 import Image from 'next/image'
 
 
-const MobileNav = ({ user }) => {
+const MobileNav = (props) => {
   return (
     <>
       <Disclosure as="nav" className="bg-regal-blue">
@@ -41,7 +41,7 @@ const MobileNav = ({ user }) => {
 
             <Disclosure.Panel className="lg:hidden">
               <div className="absolute z-20 top-0 bg-regal-blue h-auto pb-96">
-                <MobileNavView />
+                <MobileNavView parentProps={props}/>
               </div>
               <div className="px-4 pt-3 bg-teal-900 grid place-content-between lg:hidden hidden sm:block absolute z-10">
                 <SideNav />

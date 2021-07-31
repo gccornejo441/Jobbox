@@ -16,7 +16,7 @@ export default withPageAuthRequired(function Dashboard({ resume }) {
         <title>Jobbox - Resume Builder</title>
       </Head>
       <div className="lg:hidden">
-        <MobileNav />
+        <MobileNav resume={resume} user={user} />
       </div>
       <div className="flex">
         <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">

@@ -2,12 +2,12 @@ import { menu } from "../lib/menuset";
 import { useUser } from "@auth0/nextjs-auth0"
 
 
-const MobileNavView = () => {
+const MobileNavView = (props) => {
     // importing user form auth0
     const { user } = useUser();
-    const userInDB = props.resume.find((data) => data.username === props.user.nickname);
-    console.log("Props", props)
+    console.log(props.parentProps)
 
+    const userInDB = props.parentProps.resume.find((data) => data.username === props.parentProps.user.nickname);
 
     return (
         <>

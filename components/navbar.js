@@ -22,7 +22,6 @@ export default function Navbar({ isShowing }) {
                   </span>
                   </a>
                 </div>
-
                 {/* RACKET SPACE LOGIN & LOGOUT */}
                 <div className="hidden lg:flex">
                   {user ? (
