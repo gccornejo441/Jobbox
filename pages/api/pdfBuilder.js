@@ -110,7 +110,10 @@ const pdfBuilder = async (req, res) => {
             align: 'left'
           })
 
-        if (dbUser.user.skills !== null) {
+          console.log(dbUser.user.skills)
+
+
+        if (dbUser.user.skills !== null && typeof dbUser.user.skills != 'string') {
           doc
             .moveDown()
             .text(dbUser.user.skills[0] === undefined ? " " : dbUser.user.skills[0], { align: 'left' })
@@ -134,6 +137,10 @@ const pdfBuilder = async (req, res) => {
           doc.text(dbUser.user.skills[5] === undefined ? " " : dbUser.user.skills[5], { align: 'right' })
             .moveDown()
           doc.text(dbUser.user.skills[8] === undefined ? " " : dbUser.user.skills[8], { align: 'right' })
+        } else {
+          doc
+          .moveDown()
+          .text(dbUser.user.skills === undefined ? " " : dbUser.user.skills, { align: 'left' })
         }
 
 

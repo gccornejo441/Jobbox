@@ -3,7 +3,6 @@ const Skills = (props) => {
         <>
             {props.resume.map((data, index) => {
                 if (data.username === props.user.nickname) {
-                    console.log(typeof data.skills)
                     return (
                         <div key={index}>
                             <div className="border-b-4 mb-4 border-regal-blue">
