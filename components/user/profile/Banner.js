@@ -23,7 +23,7 @@ const Banner = (props) => {
                                                 <h1 className="text-lg font-bold text-white">
                                                     {data.job_1.job_title_1}
                                                 </h1>
-                                                <h2 className="text-sm text-gray-400 mt-1 mx-2">
+                                                <h2 className="text-sm text-gray-400 mt-1 mx-2 text-center">
                                                     {data.job_1.job_name_1}
                                                 </h2>
                                             </div>

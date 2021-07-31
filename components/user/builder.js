@@ -60,7 +60,7 @@ const Builder = (props) => {
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="phone">Phone</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}"} onChange={e => changeNum(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890"  />
+                                            <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} onChange={e => changeNum(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890 or 1234567890"  />
                                         </div>
                                     </span>
                                     <span className="xl:grid grid-cols-1 gap-5">
