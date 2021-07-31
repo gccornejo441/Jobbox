@@ -70,6 +70,17 @@ const handler = async (req, res) => {
       img,
     } = req.body
 
+    //formating phone if 1234567890
+    let newPhoneNum;
+    const formatPhone = () => {
+      if(phone.length == 10) {
+        newPhoneNum = phone.slice(0, 3) + "-" + phone.slice(3, 6) + "-" + phone.slice(6, 10);
+        console.log(newPhoneNum);
+        return newPhoneNum; 
+      } else {
+        return phone;
+      }
+    }
 
     // document to be inserted
     const entry = {
@@ -79,7 +90,7 @@ const handler = async (req, res) => {
       city: city,
       zip: zip,
       email: email,
-      phone: phone,
+      phone: formatPhone(),
       about_me: about_me,
       school_1: {
         school: school_1,

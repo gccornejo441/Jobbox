@@ -4,7 +4,18 @@ import SkillsModal from "./SkillsModal";
 
 
 const Builder = (props) => {
-    const userInfo = props.resume.find((data) => data.username === props.user.nickname)
+    const userInfo = props.resume.find((data) => data.username === props.user.nickname);
+
+    const changeNum = (e) => {
+        e.preventDefault();
+        if ( e.target.value == e.target.value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}") ) {
+            e.target.pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
+        } else {
+            return;
+        }
+    };
+
+
     return (
         <>
             <div className="flex flex-col w-screen md:w-auto">
@@ -24,7 +35,7 @@ const Builder = (props) => {
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="last_name">Last Name</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.last_name : ''} type="text" name="last_name" />
+                                            <input className="text-lg p-1 font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2"  defaultValue={userInfo ? userInfo.last_name : ''} type="text" name="last_name" />
                                         </div>
                                     </span>
 
@@ -49,7 +60,7 @@ const Builder = (props) => {
                                         </div>
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="phone">Phone</label>
-                                            <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890"  />
+                                            <input className="text-lg p-1 font-bold text-blue-900 text-regal-blue md:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}"} onChange={e => changeNum(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890"  />
                                         </div>
                                     </span>
                                     <span className="xl:grid grid-cols-1 gap-5">
