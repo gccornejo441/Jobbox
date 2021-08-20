@@ -1,8 +1,3 @@
-import {
-    UserGroupIcon,
-    BriefcaseIcon,
-    DocumentTextIcon,
-} from "@heroicons/react/outline";
 import Head from "next/head";
 
 const MainBody = () => {
@@ -24,28 +19,6 @@ const MainBody = () => {
 
                 </div>
             </div>
-            {/* <div className="h-full">
-                <ul className="lg:grid lg:grid-cols-3 gap-10 md:place-items-center">
-                    <li className="text-center p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
-                        <DocumentTextIcon className="w-16 h-16 text-green-300 mx-auto" />
-                        <h2 className="text-2xl text-green-300">Create a  resume</h2>
-                        <p className="text-md text-green-300">Create and print a professional resume in minutes.
-                        </p>
-                    </li>
-                    <li className="text-center  p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
-                        <UserGroupIcon className="w-16 h-16 text-green-300 mx-auto" />
-                        <h2 className="text-2xl text-green-300">Showcase your talents</h2>
-                        <p className="text-md text-green-300">Display your virtual resume for employeers to see.
-                        </p>
-                    </li>
-                    <li className="text-center p-8 lg:p-12 xl:p-24 bg-regal-blue m-5 xl:h-3/4 rounded-lg ">
-                        <BriefcaseIcon className="w-16 h-16 text-green-300 mx-auto" />
-                        <h2 className="text-2xl text-green-300">How's the job market?</h2>
-                        <p className="text-md text-green-300">Get news on the latest job market tends.
-                        </p>
-                    </li>
-                </ul>
-            </div> */}
         </>
     )
 }

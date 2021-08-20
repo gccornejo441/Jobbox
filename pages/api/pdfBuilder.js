@@ -27,9 +27,7 @@ const pdfBuilder = async (req, res) => {
         res.setHeader("Content-Type", "application/pdf");
         res.setHeader("Content-Disposition", `inline; filename=${dbUser.user.first_name}_resume.pdf`);
 
-        // doc.pipe(fs.createWriteStream(dbUser.user.first_name + '_resume' + '.pdf'))
         doc.pipe(res)
-
 
         // and some justified text wrapped into columns
         doc
