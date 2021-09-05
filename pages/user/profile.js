@@ -2,7 +2,7 @@ import Head from "next/head";
 import MobileNav from "../../components/mobilenav";
 import SideNav from "../../components/sidenav";
 import { useUser } from "@auth0/nextjs-auth0";
-import UserProfile from "../../components/user/profile/user-profile";
+import UserProfile from "../../components/user/profile/userProfile";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { connectToDatabase } from "../../util/mongodb";
 

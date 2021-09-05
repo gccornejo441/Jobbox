@@ -17,7 +17,7 @@ const UserProfile = (props) => {
                             <input type="text" name="username" defaultValue={props.user.nickname} />
                         </div>
                         <button type="submit" className="px-2 text-sm py-3 flex tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                            <DocumentDownloadIcon className="h-5 w-5" /> Download
+                            <DocumentDownloadIcon className="h-5 w-5" />Download Resume
                         </button>
                     </form>
                 </div>
