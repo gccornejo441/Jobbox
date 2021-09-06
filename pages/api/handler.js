@@ -11,7 +11,6 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  // console.log("requested body: ", req.body)
 
   if (req.method === 'POST') {
     let {

@@ -5,6 +5,7 @@ const ContactMe = (props) => {
 
     const userResume = props.resume.map((data, index) => {
         if (data.username == props.user.nickname) {
+            const lookBetter = data.linkedin.substring();
             return (
                 <ul key={index}>
                     {(data.email &&
@@ -26,19 +27,19 @@ const ContactMe = (props) => {
                     {(data.linkedin &&
                         <li className="text-regal-blue pb-2">
                             <AiFillLinkedin />
-                            <a className="hover:underline" href={"https://www." + data.linkedin}>{data.linkedin}</a>
+                            <a className="hover:underline" href={"https://www.linkedin.com/in/" + data.linkedin}>{data.linkedin}</a>
                         </li>
                     ) || false}
                     {(data.github &&
                         <li className="text-regal-blue pb-2">
                             <AiFillGithub />
-                            <a className="hover:underline" href={"https://www." + data.github}>{data.github}</a>
+                            <a className="hover:underline" href={"https://www.github.com/" + data.github}>{data.github}</a>
                         </li>
                     ) || false}
                     {(data.twitter &&
                         <li className="text-regal-blue pb-2">
                             <AiOutlineTwitter />
-                            <a className="hover:underline" href={"https://www." + data.twitter}>{data.twitter}</a>
+                            <a className="hover:underline" href={"https://www.twitter.com/" + data.twitter}>{data.twitter}</a>
                         </li>
                     ) || false}
                 </ul>
