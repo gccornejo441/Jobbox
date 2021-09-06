@@ -16,7 +16,6 @@ const Builder = (props) => {
         }
     };
 
-
     return (
         <>
             <div className="flex flex-col w-screen md:w-auto">

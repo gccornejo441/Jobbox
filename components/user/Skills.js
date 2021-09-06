@@ -48,7 +48,7 @@ const Skills = (props) => {
                                 </div>
                             </label>
                         </li>
-                    )
+                    );
                 })}
             </ul>
         </>
