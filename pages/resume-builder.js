@@ -22,7 +22,7 @@ export default withPageAuthRequired(function Dashboard({ resume }) {
         <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
           <SideNav resume={resume} user={user} />
         </div>
-        <div className="w-screen">
+        <div className="w-screen ">
           <Builder user={user} resume={resume} />
         </div>
       </div>
