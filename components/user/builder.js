@@ -131,10 +131,7 @@ const Builder = (props) => {
                                     <div className="border-b border-gray-200 w-full my-5"></div>
                                     <span className="inline-block align-middle text-2xl text-regal-blue">Experience</span>
 
-                                    {/* EXPERIENCE - START */}
-
                                     <ExpBox userInfo={userInfo} />
-
                                     {/* EXPERIENCE - END */}
 
                                     <div className="border-b border-gray-200 w-full my-5"></div>
