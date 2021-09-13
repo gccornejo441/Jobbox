@@ -1,5 +1,4 @@
 import SideNav from "../components/sidenav";
-import FeedbackTextBox from "../components/feedbackTextBox";
 import MobileNav from "../components/mobilenav";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { useUser } from "@auth0/nextjs-auth0";
