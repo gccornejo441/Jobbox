@@ -163,7 +163,7 @@ const register = async (req, res) => {
 
       await resume.insertOne(entry);
       
-      return res.redirect('/v2/pro-builder');
+      return res.redirect('/user/profile');
 
     } catch (error) {
       console.log(error);

@@ -34,8 +34,8 @@ export default function MyModal(props) {
         }
     }
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
         let filteredSkill = skill.filter(item => item.icon_state.type == config.check.type);
         setDisplay(filteredSkill);
     }
@@ -74,7 +74,7 @@ export default function MyModal(props) {
                                 <div className="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
                                     <span>{item.title}</span>
                                     <label role="checkbox">
-                                        <input name="skills" value={item.title} type="text" className="invisible hidden" />
+                                        <input name="skills" defaultValue={item.title} type="text" className="invisible hidden" />
                                         <button className="focus:outline-none" onClick={() => handleCancel(item.id)} type="button">
                                             <XIcon className="w-3 h-3 mt-1" />
                                         </button>
@@ -123,7 +123,7 @@ export default function MyModal(props) {
                             leaveTo="opacity-0 scale-95"
                         >
                             <div className="inline-block w-full max-w-3xl sm:p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                                <form onSubmit={evt => handleSubmit(evt)}>
+                                <div >
 
                                     <Dialog.Title
                                         as="h3"
@@ -152,7 +152,7 @@ export default function MyModal(props) {
                                                     <>
                                                         <div className="flex justify-between">
                                                             <button type="button" onClick={() => setToggleSkill(false)} className="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
-                                                            <button type="submit" className="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
+                                                            <button type="button" onClick={(e) => handleSubmit(e)} className="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
                                                         </div>
                                                     </>
                                                 ) : (
@@ -169,7 +169,7 @@ export default function MyModal(props) {
                                             }
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </Transition.Child>
                     </div>
