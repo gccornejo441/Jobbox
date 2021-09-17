@@ -176,7 +176,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.last_name : ''}
+                                                    defaultValue={values.last_name}
                                                     label="Last Name"
                                                     name="lastName"
                                                     type="text"
@@ -187,7 +187,7 @@ const Builder = (props) => {
                                         <span className="xl:grid grid-cols-3 gap-5">
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.city : ''}
+                                                    defaultValue={values.city}
                                                     label="City"
                                                     name="city"
                                                     type="text"
@@ -196,7 +196,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.state : ''}
+                                                    defaultValue={values.state}
                                                     label="State"
                                                     name="state"
                                                     type="text"
@@ -205,7 +205,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.zip : ''}
+                                                    defaultValue={values.zip}
                                                     label="Zip Code"
                                                     name="zip"
                                                     type="text"
@@ -216,7 +216,7 @@ const Builder = (props) => {
                                         <span className="xl:grid grid-cols-2 gap-5">
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.email : ''}
+                                                    defaultValue={values.email}
                                                     label="Email"
                                                     name="email"
                                                     type="text"
@@ -225,7 +225,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.zip : ''}
+                                                    defaultValue={values.zip}
                                                     label="zip"
                                                     name="zip"
                                                     type="text"
@@ -236,7 +236,7 @@ const Builder = (props) => {
                                         <span className="xl:grid grid-cols-1 gap-5">
                                             <div className="flex flex-col">
                                                 <label className="py-2" htmlFor="about_me">About Me</label>
-                                                <Field className="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.about_me : ''} as="textarea" name="about_me" placeholder="Last Name" />
+                                                <Field className="text-lg font-bold text-blue-900 md:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={values.about_me} as="textarea" name="about_me" placeholder="Last Name" />
                                             </div>
                                         </span>
                                         <div className="border-b border-gray-200 w-full my-5"></div>
@@ -252,7 +252,7 @@ const Builder = (props) => {
                                                         value={values.school_1.school}
                                                     />
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.school_1.degree : ''}
+                                                        defaultValue={values.school_1.degree}
                                                         label="Degree"
                                                         name="school_degree_1"
                                                         type="text"
@@ -262,7 +262,7 @@ const Builder = (props) => {
                                                 <div className="sm:grid grid-cols-2 gap-2">
                                                     <div className="flex flex-col">
                                                         <MyTextInput
-                                                            defaultValue={userInfo ? userInfo.school_1.start : ''}
+                                                            defaultValue={values.school_1.start}
                                                             label="Year Started"
                                                             name="school_1_start"
                                                             type="date"
@@ -271,7 +271,7 @@ const Builder = (props) => {
                                                     </div>
                                                     <div className="flex flex-col">
                                                         <MyTextInput
-                                                            defaultValue={userInfo ? userInfo.school_1.end : ''}
+                                                            defaultValue={values.school_1.end}
                                                             label="Year Ended"
                                                             name="school_1_end"
                                                             type="date"
@@ -281,14 +281,14 @@ const Builder = (props) => {
                                                 </div>
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.school_2.school : ''}
+                                                        value={values.school_2.school}
                                                         label="School 2"
                                                         name="school_2"
                                                         type="text"
                                                         placeholder=""
                                                     />
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.school_2.degree : ''}
+                                                        defaultValue={values.school_2.degree}
                                                         label="Degree"
                                                         name="school_degree_2"
                                                         type="text"
@@ -298,7 +298,7 @@ const Builder = (props) => {
                                                 <div className="sm:grid grid-cols-2 gap-2">
                                                     <div className="flex flex-col">
                                                         <MyTextInput
-                                                            defaultValue={userInfo ? userInfo.school_2.start : ''}
+                                                            defaultValue={values.school_2.start}
                                                             label="Year Started"
                                                             name="school_2_start"
                                                             type="date"
@@ -307,7 +307,7 @@ const Builder = (props) => {
                                                     </div>
                                                     <div className="flex flex-col">
                                                         <MyTextInput
-                                                            defaultValue={userInfo ? userInfo.school_2.end : ''}
+                                                            defaultValue={values.school_2.end}
                                                             label="Year Ended"
                                                             name="school_2_end"
                                                             type="date"
@@ -317,14 +317,14 @@ const Builder = (props) => {
                                                 </div>
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.school_3.school : ''}
+                                                        value={values.school_3.school}
                                                         label="School 3"
                                                         name="school_3"
                                                         type="text"
                                                         placeholder=""
                                                     />
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.school_3.degree : ''}
+                                                        defaultValue={values.school_3.degree}
                                                         label="Degree"
                                                         name="school_degree_3"
                                                         type="text"
@@ -334,7 +334,7 @@ const Builder = (props) => {
                                                 <div className="sm:grid grid-cols-2 gap-2">
                                                     <div className="flex flex-col">
                                                         <MyTextInput
-                                                            defaultValue={userInfo ? userInfo.school_3.start : ''}
+                                                            defaultValue={values.school_3.start}
                                                             label="Year Started"
                                                             name="school_3_start"
                                                             type="date"
@@ -343,7 +343,7 @@ const Builder = (props) => {
                                                     </div>
                                                     <div className="flex flex-col">
                                                         <MyTextInput
-                                                            defaultValue={userInfo ? userInfo.school_3.end : ''}
+                                                            defaultValue={values.school_3.end}
                                                             label="Year Ended"
                                                             name="school_3_end"
                                                             type="date"
@@ -371,7 +371,7 @@ const Builder = (props) => {
                                         <span className="xl:grid grid-cols-3 gap-5 pb-12">
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.linkedin : ''}
+                                                    defaultValue={values.linkedin}
                                                     label="Linkedin"
                                                     name="linkedin"
                                                     type="text"
@@ -380,7 +380,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.twitter : ''}
+                                                    defaultValue={values.twitter}
                                                     label="Twitter"
                                                     name="twitter"
                                                     type="text"
@@ -389,7 +389,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.github : ''}
+                                                    defaultValue={values.github}
                                                     label="Github"
                                                     name="github"
                                                     type="text"
@@ -403,7 +403,7 @@ const Builder = (props) => {
                                         <span className="xl:grid grid-cols-2 gap-5 pb-12">
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.internship[0].internship_1 : ''}
+                                                    defaultValue={values.internship[0].internship_1}
                                                     label="Internship 1"
                                                     name="internship_1"
                                                     type="text"
@@ -412,7 +412,7 @@ const Builder = (props) => {
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.internship[0].internship_year : ''}
+                                                        defaultValue={values.internship[0].internship_year}
                                                         label="Year"
                                                         name="internship_1_year"
                                                         type="date"
@@ -422,7 +422,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.internship[1].internship_2 : ''}
+                                                    defaultValue={values.internship[1].internship_2}
                                                     label="Internship 2"
                                                     name="internship_2"
                                                     type="text"
@@ -431,7 +431,7 @@ const Builder = (props) => {
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.internship[1].internship_year : ''}
+                                                        defaultValue={values.internship[1].internship_year}
                                                         label="Year"
                                                         name="internship_2_year"
                                                         type="date"
@@ -441,7 +441,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    alue={userInfo ? userInfo.internship[2].internship_3 : ''}
+                                                    defaultValue={values.internship[2].internship_3}
                                                     label="Internship 3"
                                                     name="internship_3"
                                                     type="text"
@@ -450,7 +450,7 @@ const Builder = (props) => {
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        alue={userInfo ? userInfo.internship[2].internship_year : ''}
+                                                        defaultValue={values.internship[2].internship_year}
                                                         label="Year"
                                                         name="internship_3_year"
                                                         type="date"
@@ -460,7 +460,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.volunteer[0].volunteer_1 : ''}
+                                                    defaultValue={values.volunteer[0].volunteer_1}
                                                     label="Volunteer 1"
                                                     name="volunteer_1"
                                                     type="text"
@@ -470,7 +470,7 @@ const Builder = (props) => {
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.volunteer[0].volunteer_year : ''}
+                                                        defaultValue={values.volunteer[0].volunteer_year}
                                                         label="Year"
                                                         name="volunteer_1_year"
                                                         type="date"
@@ -480,7 +480,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.volunteer[1].volunteer_2 : ''}
+                                                    defaultValue={values.volunteer[1].volunteer_2}
                                                     label="Volunteer 2"
                                                     name="volunteer_2"
                                                     type="text"
@@ -490,7 +490,7 @@ const Builder = (props) => {
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.volunteer[1].volunteer_year : ''}
+                                                        defaultValue={values.volunteer[1].volunteer_year}
                                                         label="Year"
                                                         name="volunteer_2_year"
                                                         type="date"
@@ -500,7 +500,7 @@ const Builder = (props) => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
-                                                    defaultValue={userInfo ? userInfo.volunteer[2].volunteer_3 : ''}
+                                                    defaultValue={values.volunteer[2].volunteer_3}
                                                     label="Volunteer 3"
                                                     name="volunteer_3"
                                                     type="text"
@@ -510,7 +510,7 @@ const Builder = (props) => {
                                             <div className="sm:grid grid-cols-2 gap-2">
                                                 <div className="flex flex-col">
                                                     <MyTextInput
-                                                        defaultValue={userInfo ? userInfo.volunteer[2].volunteer_year : ''}
+                                                        defaultValue={values.volunteer[2].volunteer_year}
                                                         label="Year"
                                                         name="volunteer_3_year"
                                                         type="date"

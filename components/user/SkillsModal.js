@@ -9,7 +9,7 @@ import { PlusIcon, XIcon } from "@heroicons/react/solid";
 export default function MyModal(props) {
     let [isOpen, setIsOpen] = useState(false);
     let [skill, setSkill] = useState(config.DATA);
-    let [displayItem, setDisplay] = useState();
+    let [displayItem, setDisplay] = useState(props.userInfo ? props.userInfo.skills : "");
     let [toggleSkill, setToggleSkill] = useState(true);
 
     function closeModal() {
@@ -40,8 +40,8 @@ export default function MyModal(props) {
         setDisplay(filteredSkill);
     }
 
-    const handleCancel = (skillId) => {
-        let setskills = displayItem.filter(item => skillId !== item.id);
+    const handleCancel = (skillName) => {
+        let setskills = displayItem.filter(item => skillName !== item);
         setDisplay(setskills);
     }
 
@@ -72,10 +72,10 @@ export default function MyModal(props) {
                         return (
                             <div className="max-w-full p-4 text-gray-200">
                                 <div className="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
-                                    <span>{item.title}</span>
-                                    <label role="checkbox">
-                                        <input name="skills" defaultValue={item.title} type="text" className="invisible hidden" />
-                                        <button className="focus:outline-none" onClick={() => handleCancel(item.id)} type="button">
+                                    <span>{item}</span>
+                                    <label htmlFor="skills" role="checkbox">
+                                        <input name="skills" defaultValue={props.userInfo ? props.userInfo.skills : ""} type="text" className="invisible hidden" />
+                                        <button className="focus:outline-none" onClick={() => handleCancel(item)} type="button">
                                             <XIcon className="w-3 h-3 mt-1" />
                                         </button>
                                     </label>
