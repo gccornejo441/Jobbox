@@ -23,8 +23,6 @@ const Builder = (props) => {
         );
     };
 
-    console.log("INternship: ", userInfo.internship[0].internship_year)
-
 
     return (
         <>
@@ -36,7 +34,8 @@ const Builder = (props) => {
                         </div>
                         <div className="border-b border-gray-300 md:px-10 w-screen md:w-auto">
                             <Formik
-                                initialValues={{first_name: userInfo ? userInfo.first_name : '',
+                                initialValues={{
+                                first_name: userInfo ? userInfo.first_name : '',
                                 last_name: userInfo ? userInfo.last_name : '',
                                 state: userInfo ? userInfo.state : '',
                                 city: userInfo ? userInfo.city : '',
@@ -130,9 +129,9 @@ const Builder = (props) => {
                                         volunteer_3_year: userInfo ? userInfo.volunteer[2].volunteer_year : ''
                                     },
                                 ],
-                                username: props.user.nickname}}
+                                username: props.user.nickname
+                            }}
                                 validate={values => {
-                                    console.log("VALUES: ", values)
                                     const errors = {};
                                     if (!values.email) {
                                         errors.email = 'Required';
