@@ -3,7 +3,19 @@ import { Formik, Form, Field, useField, ErrorMessage } from 'formik';
 import { dataValue } from "../../lib/schema";
 import ExpBox from "../../components/user/ExpBox";
 import SkillsModal from "../../components/user/SkillsModal";
+import * as Yup from "yup";
 
+const SignupSchema = Yup.object().shape({
+    first_name: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+    last_name: Yup.string()
+        .min(6, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+})
 
 const Builder = (props) => {
     const userInfo = props.resume.find((data) => data.username === props.user.nickname);
@@ -35,113 +47,103 @@ const Builder = (props) => {
                         <div className="border-b border-gray-300 md:px-10 w-screen md:w-auto">
                             <Formik
                                 initialValues={{
-                                first_name: userInfo ? userInfo.first_name : '',
-                                last_name: userInfo ? userInfo.last_name : '',
-                                state: userInfo ? userInfo.state : '',
-                                city: userInfo ? userInfo.city : '',
-                                zip: userInfo ? userInfo.zip : '',
-                                email: userInfo ? userInfo.email : '',
-                                phone: userInfo ? userInfo.phone : '',
-                                about_me: userInfo ? userInfo.about_me : '',
-                                school_1: {
-                                    school: userInfo ? userInfo.school_1.school : '',
-                                    degree: userInfo ? userInfo.school_1.degree : '',
-                                    start: userInfo ? userInfo.school_1.start : '',
-                                    end: userInfo ? userInfo.school_1.end : ''
-                                },
-                                school_2: {
-                                    school: userInfo ? userInfo.school_2.school : '',
-                                    degree: userInfo ? userInfo.school_2.degree : '',
-                                    start: userInfo ? userInfo.school_2.start : '',
-                                    end: userInfo ? userInfo.school_2.end : ''
-                                },
-                                school_3: {
-                                    school: userInfo ? userInfo.school_3.school : '',
-                                    degree: userInfo ? userInfo.school_3.degree : '',
-                                    start: userInfo ? userInfo.school_3.start : '',
-                                    end: userInfo ? userInfo.school_3.end : ''
-                                },
-                                job_1: {
-                                    job_name_1: userInfo ? userInfo.job_1.job_name_1 : "",
-                                    job_title_1: userInfo ? userInfo.job_1.job_title_1 : "",
-                                    job_date_start_1: userInfo ? userInfo.job_1.job_start : "",
-                                    job_date_end_1: userInfo ? userInfo.job_1.job_end : "",
-                                    job_1_duty: [
-                                        userInfo ? userInfo.job_1.job_1_duty[0] : "",
-                                        userInfo ? userInfo.job_1.job_1_duty[1] : "",
-                                        userInfo ? userInfo.job_1.job_1_duty[2] : "",
-                                        userInfo ? userInfo.job_1.job_1_duty[3] : "",
+                                    first_name: userInfo ? userInfo.first_name : '',
+                                    last_name: userInfo ? userInfo.last_name : '',
+                                    state: userInfo ? userInfo.state : '',
+                                    city: userInfo ? userInfo.city : '',
+                                    zip: userInfo ? userInfo.zip : '',
+                                    email: userInfo ? userInfo.email : '',
+                                    phone: userInfo ? userInfo.phone : '',
+                                    about_me: userInfo ? userInfo.about_me : '',
+                                    school_1: {
+                                        school: userInfo ? userInfo.school_1.school : '',
+                                        degree: userInfo ? userInfo.school_1.degree : '',
+                                        start: userInfo ? userInfo.school_1.start : '',
+                                        end: userInfo ? userInfo.school_1.end : ''
+                                    },
+                                    school_2: {
+                                        school: userInfo ? userInfo.school_2.school : '',
+                                        degree: userInfo ? userInfo.school_2.degree : '',
+                                        start: userInfo ? userInfo.school_2.start : '',
+                                        end: userInfo ? userInfo.school_2.end : ''
+                                    },
+                                    school_3: {
+                                        school: userInfo ? userInfo.school_3.school : '',
+                                        degree: userInfo ? userInfo.school_3.degree : '',
+                                        start: userInfo ? userInfo.school_3.start : '',
+                                        end: userInfo ? userInfo.school_3.end : ''
+                                    },
+                                    job_1: {
+                                        job_name_1: userInfo ? userInfo.job_1.job_name_1 : "",
+                                        job_title_1: userInfo ? userInfo.job_1.job_title_1 : "",
+                                        job_date_start_1: userInfo ? userInfo.job_1.job_start : "",
+                                        job_date_end_1: userInfo ? userInfo.job_1.job_end : "",
+                                        job_1_duty: [
+                                            userInfo ? userInfo.job_1.job_1_duty[0] : "",
+                                            userInfo ? userInfo.job_1.job_1_duty[1] : "",
+                                            userInfo ? userInfo.job_1.job_1_duty[2] : "",
+                                            userInfo ? userInfo.job_1.job_1_duty[3] : "",
+                                        ],
+                                    },
+                                    job_2: {
+                                        job_name_2: userInfo ? userInfo.job_2.job_name_2 : "",
+                                        job_title_2: userInfo ? userInfo.job_2.job_title_2 : "",
+                                        job_date_start_2: userInfo ? userInfo.job_2.job_start : "",
+                                        job_date_end_2: userInfo ? userInfo.job_2.job_end : "",
+                                        job_2_duty: [
+                                            userInfo ? userInfo.job_2.job_2_duty[0] : "",
+                                            userInfo ? userInfo.job_2.job_2_duty[1] : "",
+                                            userInfo ? userInfo.job_2.job_2_duty[2] : "",
+                                            userInfo ? userInfo.job_2.job_2_duty[3] : "",
+                                        ],
+                                    },
+                                    job_3: {
+                                        job_name_3: userInfo ? userInfo.job_3.job_name_3 : "",
+                                        job_title_3: userInfo ? userInfo.job_3.job_title_3 : "",
+                                        job_date_start_3: userInfo ? userInfo.job_3.job_start : "",
+                                        job_date_end_3: userInfo ? userInfo.job_3.job_end : "",
+                                        job_3_duty: [
+                                            userInfo ? userInfo.job_3.job_3_duty[0] : "",
+                                            userInfo ? userInfo.job_3.job_3_duty[1] : "",
+                                            userInfo ? userInfo.job_3.job_3_duty[2] : "",
+                                            userInfo ? userInfo.job_3.job_3_duty[3] : "",
+                                        ],
+                                    },
+                                    skills: [],
+                                    linkedin: userInfo ? userInfo.linkedin : '',
+                                    twitter: userInfo ? userInfo.twitter : '',
+                                    github: userInfo ? userInfo.github : '',
+                                    internship: [
+                                        {
+                                            internship_1: userInfo ? userInfo.internship[0].internship_1 : '',
+                                            internship_year: userInfo ? userInfo.internship[0].internship_year : ''
+                                        },
+                                        {
+                                            internship_2: userInfo ? userInfo.internship[1].internship_2 : '',
+                                            internship_year: userInfo ? userInfo.internship[1].internship_year : ''
+                                        },
+                                        {
+                                            internship_3: userInfo ? userInfo.internship[2].internship_3 : '',
+                                            internship_year: userInfo ? userInfo.internship[2].internship_year : ''
+                                        },
                                     ],
-                                },
-                                job_2: {
-                                    job_name_2: userInfo ? userInfo.job_2.job_name_2 : "",
-                                    job_title_2: userInfo ? userInfo.job_2.job_title_2 : "",
-                                    job_date_start_2: userInfo ? userInfo.job_2.job_start : "",
-                                    job_date_end_2: userInfo ? userInfo.job_2.job_end : "",
-                                    job_2_duty: [
-                                        userInfo ? userInfo.job_2.job_2_duty[0] : "",
-                                        userInfo ? userInfo.job_2.job_2_duty[1] : "",
-                                        userInfo ? userInfo.job_2.job_2_duty[2] : "",
-                                        userInfo ? userInfo.job_2.job_2_duty[3] : "",
+                                    volunteer: [
+                                        {
+                                            volunteer_1: userInfo ? userInfo.volunteer[0].volunteer_1 : '',
+                                            volunteer_1_year: userInfo ? userInfo.volunteer[0].volunteer_year : ''
+                                        },
+                                        {
+                                            volunteer_2: userInfo ? userInfo.volunteer[1].volunteer_2 : '',
+                                            volunteer_2_year: userInfo ? userInfo.volunteer[1].volunteer_year : ''
+                                        },
+                                        {
+                                            volunteer_3: userInfo ? userInfo.volunteer[2].volunteer_3 : '',
+                                            volunteer_3_year: userInfo ? userInfo.volunteer[2].volunteer_year : ''
+                                        },
                                     ],
-                                },
-                                job_3: {
-                                    job_name_3: userInfo ? userInfo.job_3.job_name_3 : "",
-                                    job_title_3: userInfo ? userInfo.job_3.job_title_3 : "",
-                                    job_date_start_3: userInfo ? userInfo.job_3.job_start : "",
-                                    job_date_end_3: userInfo ? userInfo.job_3.job_end : "",
-                                    job_3_duty: [
-                                        userInfo ? userInfo.job_3.job_3_duty[0] : "",
-                                        userInfo ? userInfo.job_3.job_3_duty[1] : "",
-                                        userInfo ? userInfo.job_3.job_3_duty[2] : "",
-                                        userInfo ? userInfo.job_3.job_3_duty[3] : "",
-                                    ],
-                                },
-                                skills: [],
-                                linkedin: userInfo ? userInfo.linkedin : '',
-                                twitter: userInfo ? userInfo.twitter : '',
-                                github: userInfo ? userInfo.github : '',
-                                internship: [
-                                    {
-                                        internship_1: userInfo ? userInfo.internship[0].internship_1 : '',
-                                        internship_year: userInfo ? userInfo.internship[0].internship_year : ''
-                                    },
-                                    {
-                                        internship_2: userInfo ? userInfo.internship[1].internship_2 : '',
-                                        internship_year: userInfo ? userInfo.internship[1].internship_year : ''
-                                    },
-                                    {
-                                        internship_3: userInfo ? userInfo.internship[2].internship_3 : '',
-                                        internship_year: userInfo ? userInfo.internship[2].internship_year : ''
-                                    },
-                                ],
-                                volunteer: [
-                                    {
-                                        volunteer_1: userInfo ? userInfo.volunteer[0].volunteer_1 : '',
-                                        volunteer_1_year: userInfo ? userInfo.volunteer[0].volunteer_year : ''
-                                    },
-                                    {
-                                        volunteer_2: userInfo ? userInfo.volunteer[1].volunteer_2 : '',
-                                        volunteer_2_year: userInfo ? userInfo.volunteer[1].volunteer_year : ''
-                                    },
-                                    {
-                                        volunteer_3: userInfo ? userInfo.volunteer[2].volunteer_3 : '',
-                                        volunteer_3_year: userInfo ? userInfo.volunteer[2].volunteer_year : ''
-                                    },
-                                ],
-                                username: props.user.nickname
-                            }}
-                                validate={values => {
-                                    const errors = {};
-                                    if (!values.email) {
-                                        errors.email = 'Required';
-                                    } else if (
-                                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                                    ) {
-                                        errors.email = 'Invalid email address';
-                                    }
-                                    return errors;
+                                    username: props.user.nickname
                                 }}
+
                                 onSubmit={(values, { setSubmitting }) => {
                                     setTimeout(() => {
                                         alert(JSON.stringify(values, null, 2));
@@ -159,25 +161,26 @@ const Builder = (props) => {
                                     );
 
                                 }}
+                                validationSchema={SignupSchema}
                             >
-                                {({ values, isSubmitting }) => (
+                                {({ values, isSubmitting, }) => (
                                     <Form>
                                         <span className="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                         <span className="xl:grid grid-cols-2 gap-5">
                                             <div className="flex flex-col">
                                                 <MyTextInput
                                                     label="First Name"
-                                                    name="firstName"
+                                                    name="first_name"
                                                     type="text"
                                                     placeholder=""
-                                                    value={values.first_name}
+                                                    defaultValue={values.first_name}
                                                 />
                                             </div>
                                             <div className="flex flex-col">
                                                 <MyTextInput
                                                     defaultValue={values.last_name}
                                                     label="Last Name"
-                                                    name="lastName"
+                                                    name="last_name"
                                                     type="text"
                                                     placeholder=""
                                                 />

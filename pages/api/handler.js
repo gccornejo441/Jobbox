@@ -81,6 +81,10 @@ const handler = async (req, res) => {
         return phone;
       }
     }
+    console.log("Skills before: ", skills);
+    const cleanedSkills = [...new Set(skills)];
+    console.log("cleanedSkills after: ", cleanedSkills);
+
 
     // document to be inserted
     const entry = {
@@ -131,7 +135,7 @@ const handler = async (req, res) => {
         job_end: job_date_end_3,
         job_3_duty: job_3_duty,
       },
-      skills: skills,
+      skills: cleanedSkills,
       linkedin: linkedin,
       twitter: twitter,
       github: github,

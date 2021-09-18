@@ -36,15 +36,22 @@ export default function MyModal(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let filteredSkill = skill.filter(item => item.icon_state.type == config.check.type);
-        setDisplay(filteredSkill);
+        const filteredSkill = skill.filter(item => item.icon_state.type == config.check.type);
+        const skills = filteredSkill.map(item => { return item.title });
+        setDisplay([...skills, ...displayItem]);
     }
-
+    
+    
     const handleCancel = (skillName) => {
         let setskills = displayItem.filter(item => skillName !== item);
         setDisplay(setskills);
     }
-
+    
+    // This removes duplicate values
+    // For more info: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+    const newSetSkills = [...new Set(displayItem)];
+    
+    console.log("Beforeddd: ", newSetSkills)
     return (
         <>
             <span className="inline-block align-middle text-2xl text-regal-blue">Skills</span>
@@ -68,13 +75,13 @@ export default function MyModal(props) {
                                 </div>
                             </div>
                         </>
-                    ) : (displayItem.map((item) => {
+                    ) : (newSetSkills.map((item) => {
                         return (
                             <div className="max-w-full p-4 text-gray-200">
                                 <div className="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
                                     <span>{item}</span>
                                     <label htmlFor="skills" role="checkbox">
-                                        <input name="skills" defaultValue={props.userInfo ? props.userInfo.skills : ""} type="text" className="invisible hidden" />
+                                        <input name="skills" value={item} type="text" className="invisible hidden" />
                                         <button className="focus:outline-none" onClick={() => handleCancel(item)} type="button">
                                             <XIcon className="w-3 h-3 mt-1" />
                                         </button>
