@@ -11,7 +11,7 @@ const MobileNavView = (props) => {
 
     return (
         <>
-            <div className="bg-regal-blue h-screen w-screen pb-28">
+            <div className="bg-regal-blue pb-28">
                 <div className="mx-4">
                     <div className="text-blue-200 mr-2 border-b border-gray-50">
                         <div className="flex relative z-10">

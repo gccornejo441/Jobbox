@@ -16,14 +16,14 @@ export default withPageAuthRequired(function Dashboard({ resume }) {
       <Head>
         <title>Jobbox - Resume Builder</title>
       </Head>
-      <div className="lg:hidden">
+      <div className="xl:hidden absolute w-full xl:relative xl:w-auto">
         <MobileNav resume={resume} user={user} />
       </div>
       <div className="flex">
-        <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
+        <div className="px-4 pt-3 bg-regal-blue grid place-content-between hidden xl:block">
           <SideNav resume={resume} user={user} />
         </div>
-        <div className="w-screen ">
+        <div className="w-full">
           <Builder user={user} resume={resume} />
         </div>
       </div>
@@ -35,13 +35,13 @@ export async function getServerSideProps() {
   const { db } = await connectToDatabase();
 
   const resume = await db
-      .collection(process.env.MONGO_USER_COLLECTION)
-      .find()
-      .toArray();
+    .collection(process.env.MONGO_USER_COLLECTION)
+    .find()
+    .toArray();
 
   return {
-      props: {
-          resume: JSON.parse(JSON.stringify(resume)),
-      },
+    props: {
+      resume: JSON.parse(JSON.stringify(resume)),
+    },
   };
 }
