@@ -5,7 +5,6 @@ import { useUser } from "@auth0/nextjs-auth0"
 const MobileNavView = (props) => {
     // importing user form auth0
     const { user } = useUser();
-    console.log(props.parentProps)
 
     const userInDB = props.parentProps.resume.find((data) => data.username === props.parentProps.user.nickname);
 
@@ -15,9 +14,6 @@ const MobileNavView = (props) => {
                 <div className="mx-4">
                     <div className="text-blue-200 mr-2 border-b border-gray-50">
                         <div className="flex relative z-10">
-                            {/* <span className="mr-3 mt-6 flex">
-                                <img src="/images/no-picture.jpg" className="h-16 w-16 rounded-full mr-2" />
-                            </span> */}
                             <div className="mt-1 mb-4 relative">
                                 <p className="text-xl font-thin text-gray-50 mt-3 text-wrap">Welcome, {user.nickname}</p>
                             </div>
