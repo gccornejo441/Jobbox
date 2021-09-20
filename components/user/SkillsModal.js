@@ -76,7 +76,7 @@ export default function MyModal(props) {
                         </>
                     ) : (newSetSkills.map((item) => {
                         return (
-                            <div className="max-w-full p-4 text-gray-200">
+                            <div className="max-w-full p-4 text-gray-200 ">
                                 <div className="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
                                     <span>{item}</span>
                                     <label htmlFor="skills" role="checkbox">

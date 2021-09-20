@@ -33,7 +33,7 @@ export default function Navbar({ isShowing }) {
                             </a>
                         </li>
                         <li className="md:mx-3">
-                            <a href="/resume-builder" className="text-regal-blue rounded-md bg-green-300 text-xl p-2">
+                            <a href="/v2/pro-builder" className="text-regal-blue rounded-md bg-green-300 text-xl p-2">
                               Resume Builder
                             </a>
                         </li>
