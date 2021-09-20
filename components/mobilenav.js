@@ -15,7 +15,7 @@ const MobileNav = (props) => {
               <div className="relative flex items-center justify-between h-16">
                 {/* RACKET SPACE LOGO */}
                 <div className="flex bg-gray-50 w-max rounded-md px-2">
-                  <a href="/resume-builder">
+                  <a href="/v2/pro-builder">
                     <span>
                       <Image src="/images/jobbox.svg" alt="Jobster Logo" height={40} width={120} />
                     </span>
