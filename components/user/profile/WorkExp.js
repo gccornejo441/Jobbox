@@ -7,7 +7,8 @@ const WorkExp = (props) => {
                 <div>
                     {props.resume.map((data, index) => {
                         if (data.username === props.user.nickname) {
-                            if (data.job_1.job_name_1 != "" && data.job_1.job_name_1 != "") {
+                            if (data.job_1.job_name_1 != null && data.job_1.job_start != null) {
+                                console.log("data.job_1.job_start: ", data.job_1.job_name_1)
                                 return (
                                     <div key={index}>
                                         <div className="border-b-4 border-regal-blue">
@@ -46,7 +47,7 @@ const WorkExp = (props) => {
                 </div>
                 <div>{props.resume.map((data, index) => {
                     if (data.username === props.user.nickname) {
-                        if (data.job_2.job_name_2 != "" && data.job_2.job_name_2 != "") {
+                        if (data.job_2.job_name_2 != null && data.job_2.job_start != null) {
                             return (
                                 <ul key={index}>
                                     <li className="text-xl text-blue-700 font-bold px-6 pt-2">
@@ -81,7 +82,7 @@ const WorkExp = (props) => {
                 <div>
                     {props.resume.map((data, index) => {
                         if (data.username === props.user.nickname) {
-                            if (data.job_3.job_name_3 != "" && data.job_3.job_name_3 != "") {
+                            if (data.job_3.job_name_3 != null && data.job_3.job_start != null) {
                                 return (
                                     <ul key={index}>
                                         <li className="text-xl text-blue-700 font-bold px-6 pt-2">

@@ -40,21 +40,19 @@ export default function MyModal(props) {
         const skills = filteredSkill.map(item => { return item.title });
         setDisplay([...skills, ...displayItem]);
     }
-    
-    
+
     const handleCancel = (skillName) => {
         let setskills = displayItem.filter(item => skillName !== item);
         setDisplay(setskills);
     }
-    
+
     // This removes duplicate values
     // For more info: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
     const newSetSkills = [...new Set(displayItem)];
-    
-    console.log("Beforeddd: ", newSetSkills)
+
     return (
         <>
-            <span className="inline-block align-middle text-2xl text-regal-blue">Skills</span>
+            <span className="inline-block align-middle text-xl text-regal-blue pb-4">Skills</span>
             <div>
                 <button
                     type="button"
@@ -64,9 +62,10 @@ export default function MyModal(props) {
                     <PlusIcon className="h-5 w-5" />Skills
                 </button>
             </div>
+
             <div className="md:grid grid-cols-3">
                 <>
-                    {displayItem === undefined ? (
+                    {displayItem === undefined || displayItem.length == 0 ? (
                         <>
                             <div></div>
                             <div className="w-auto flex justify-center p-4 text-gray-200">
@@ -81,7 +80,7 @@ export default function MyModal(props) {
                                 <div className="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
                                     <span>{item}</span>
                                     <label htmlFor="skills" role="checkbox">
-                                        <input name="skills" value={item} type="text" className="invisible hidden" />
+                                        <input name="skills" defaultValue={item} type="text" className="hidden" />
                                         <button className="focus:outline-none" onClick={() => handleCancel(item)} type="button">
                                             <XIcon className="w-3 h-3 mt-1" />
                                         </button>

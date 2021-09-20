@@ -3,6 +3,7 @@ const Intern = (props) => {
         <>
             {props.resume.map((data, index) => {
                 if (data.username === props.user.nickname) {
+                    console.log("data.volunterr: ", data.volunteer.filter(data => {return data != null}))
                     return (
                             <div key={index}>
                                 <div className="border-b-4 border-regal-blue">

@@ -11,7 +11,8 @@ const client = new MongoClient(uri, {
 });
 
 const handler = async (req, res) => {
-  console.log("REQ.BODY: ", req.body);
+
+  console.log("REA.BODY: ", req.body)
 
   if (req.method === 'POST') {
     let {
@@ -67,7 +68,6 @@ const handler = async (req, res) => {
       volunteer_3,
       volunteer_3_year,
       username,
-      img,
     } = req.body
 
     //formating phone if 1234567890
@@ -81,10 +81,10 @@ const handler = async (req, res) => {
         return phone;
       }
     }
+
     console.log("Skills before: ", skills);
     const cleanedSkills = [...new Set(skills)];
     console.log("cleanedSkills after: ", cleanedSkills);
-
 
     // document to be inserted
     const entry = {
@@ -168,7 +168,6 @@ const handler = async (req, res) => {
         },
       ],
       username: username,
-      image: img,
     };
 
     try {
