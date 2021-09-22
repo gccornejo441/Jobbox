@@ -83,7 +83,7 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul className="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li className="border-t-2 border-green-400 py-4 text-center">
-                          <a href="/resume-builder" className="ml-8 text-gray-50 hover:underline">
+                          <a href="/v2/pro-builder" className="ml-8 text-gray-50 hover:underline">
                             Resume Builder
                           </a>
                       </li>
