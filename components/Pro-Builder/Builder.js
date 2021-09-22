@@ -2,9 +2,6 @@ import { CogIcon } from "@heroicons/react/solid";
 import ExpBox from "../../components/user/ExpBox";
 import SkillsModal from "../../components/user/SkillsModal";
 
-const str = "S&G is a pun-bas sustainable bedding empire making cooling eucalyptus lyocell sheets (SheetsGiggles.com)."
-
-console.log("String length: ",str.length);
 
 const Builder = (props) => {
     const userInfo = props.resume.find((data) => data.username === props.user.nickname);

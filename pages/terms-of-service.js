@@ -17,9 +17,22 @@ export default withPageAuthRequired(function Feedback({ resume }) {
             <div className="lg:hidden">
                 <MobileNav resume={resume} user={user} />
             </div>
-            <div className="flex">
-                <div className="h-screen px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
-                    <SideNav resume={resume} user={user} />
+            <div className="flex h-screen">
+                <div className="flex flex-col justify-between bg-regal-blue hidden xl:flex">
+                    <div className="px-4 pt-3 bg-regal-blue grid place-content-between hidden xl:block">
+                        <SideNav resume={resume} user={user} />
+                    </div>
+                    <div className="text-center mb-10 text-gray-100 text-xs">
+                        <div>
+                            <h2>&copy; 2021 Jobbox.me</h2>
+                            <div>
+                                <a href="/privacy-policy" >Privacy Policy</a>
+                            </div>
+                            <div>
+                                <a href="/terms-of-service" >Terms of Service</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="w-screen justify-center m-5">
                     <div className="w-1/2">
@@ -124,7 +137,7 @@ export default withPageAuthRequired(function Feedback({ resume }) {
                             If you have any questions or suggestions about my
                             Terms and Conditions, do not hesitate to contact me
                             at gcornejo441@gmail.com.
-                        </p> 
+                        </p>
                     </div>
                 </div>
             </div >
