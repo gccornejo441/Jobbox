@@ -6,6 +6,16 @@ import SkillsModal from "../../components/user/SkillsModal";
 const Builder = (props) => {
     const userInfo = props.resume.find((data) => data.username === props.user.nickname);
 
+    // This handles user phone format
+    const changeNum = (e) => {
+        e.preventDefault();
+        if (e.target.value == e.target.value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
+            e.target.pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
+        } else {
+            return;
+        }
+    };
+
     return (
         <>
             <div className="h-screen xl:flex xl:justify-center">
