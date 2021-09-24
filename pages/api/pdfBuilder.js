@@ -18,7 +18,7 @@ const pdfBuilder = async (req, res) => {
 
     } else {
       if (dbUser.user.username !== req.body.username) {
-        res.redirect('/user/resume-builder');
+        res.redirect('/user/v2/pro-builder');
 
       } else {
         const doc = new PDFDocument();
@@ -107,8 +107,6 @@ const pdfBuilder = async (req, res) => {
             width: 470,
             align: 'left'
           })
-
-          console.log(dbUser.user.skills)
 
 
         if (dbUser.user.skills !== null && typeof dbUser.user.skills != 'string') {

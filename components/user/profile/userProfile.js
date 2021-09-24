@@ -17,9 +17,18 @@ const UserProfile = (props) => {
                             <input type="text" name="username" defaultValue={props.user.nickname} />
                         </div>
                         <button type="submit" className="px-2 text-sm py-3 flex tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                            <DocumentDownloadIcon className="h-5 w-5" />Download Resume
+                            <DocumentDownloadIcon className="h-5 w-5" />Impact Resume
                         </button>
                     </form>
+                    {/* <form action="/api/SheetsGiggles" method="POST">
+                        <div className="flex flex-col invisible hidden">
+                            <label htmlFor="user"></label>
+                            <input type="text" name="username" defaultValue={props.user.nickname} />
+                        </div>
+                        <button type="submit" className="px-2 text-sm py-3 mt-4 flex tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                            <DocumentDownloadIcon className="h-5 w-5" />Impact Sheets & Giggles
+                        </button>
+                    </form> */}
                 </div>
                 <div className="pt-16 xl:px-4 flex justify-center">
                     <div className="md:bg-white md:rounded-lg md:shadow-md w-full md:w-max">
