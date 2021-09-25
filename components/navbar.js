@@ -18,7 +18,7 @@ export default function Navbar({ isShowing }) {
                 <div className="flex w-max rounded-md px-2">
                   <a href="/v2/pro-builder">
                   <span>
-                    <Image src="/images/jobbox.svg" alt="Jobster Logo" height={40} width={120} />
+                    <Image src="/images/jobbox.svg" alt="Jobster Logo" height={45} width={120} />
                   </span>
                   </a>
                 </div>
@@ -28,17 +28,17 @@ export default function Navbar({ isShowing }) {
                     <>
                       <ul className="flex">
                         <li className="md:mx-3">
-                            <a href="/api/auth/logout" data-testid="logout" className="text-gray-50 border rounded-md bg-regal-blue text-xl p-2">
+                            <a href="/api/auth/logout" data-testid="logout" className="text-gray-50 border rounded-md bg-regal-blue text-md p-2">
                               Logout
                             </a>
                         </li>
                         <li className="md:mx-3">
-                            <a href="/v2/pro-builder" className="text-regal-blue rounded-md bg-green-300 text-xl p-2">
+                            <a href="/v2/pro-builder" className="text-regal-blue rounded-md bg-green-300 text-md p-2">
                               Resume Builder
                             </a>
                         </li>
                         <li className="md:mx-3">
-                          <div className="text-2xl text-regal-blue">
+                          <div className="text-lg text-regal-blue">
                             <h1>Hello, {user.nickname}!</h1>
                           </div>
                         </li>
@@ -47,7 +47,7 @@ export default function Navbar({ isShowing }) {
                   ) : (
                     <>
                       <li className="md:mx-3 list-none">
-                        <a href="/api/auth/login" data-testid="login" className="text-regal-blue rounded-md bg-green-300 text-regal-blue text-xl p-2">
+                        <a href="/api/auth/login" data-testid="login" className="text-regal-blue rounded-md bg-green-300 text-regal-blue text-md p-2">
                           Login
                         </a>
                       </li>
