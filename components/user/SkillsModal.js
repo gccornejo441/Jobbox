@@ -1,186 +1,235 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import Skills from "./Skills";
-import config from "./config";
-import { nanoid } from "nanoid";
-import { PlusIcon, XIcon } from "@heroicons/react/solid";
+import { CogIcon } from "@heroicons/react/solid";
+import ExpBox from "../../components/user/ExpBox";
+import SkillsModal from "../../components/user/SkillsModal";
 
 
-export default function MyModal(props) {
-    let [isOpen, setIsOpen] = useState(false);
-    let [skill, setSkill] = useState(config.DATA);
-    let [displayItem, setDisplay] = useState(props.userInfo ? props.userInfo.skills : "");
-    let [toggleSkill, setToggleSkill] = useState(true);
+const Builder = (props) => {
+    const userInfo = props.resume.find((data) => data.username === props.user.nickname);
 
-    function closeModal() {
-        setIsOpen(false);
-    }
-
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    // This handles input value on "enter".
-    const handleKeyUp = (evt) => {
-        // This prevents unwanted default value on keyup. 
-        evt.preventDefault();
-
-        // This will evaluate the keycode that is pressed.
-        if (evt.keyCode === 13) {
-            setToggleSkill(true)
-            const newSkill = { id: nanoid(), title: evt.target.value, icon_state: config.plus, };
-            // A copy of the previous skill state, & the new state object going in.
-            setSkill([newSkill, ...skill]);
-        }
-    }
-
-    const handleSubmit = (e) => {
+    // This handles user phone format
+    const changeNum = (e) => {
         e.preventDefault();
-        const filteredSkill = skill.filter(item => item.icon_state.type == config.check.type);
-        const skills = filteredSkill.map(item => { return item.title });
-        setDisplay([...skills, ...displayItem]);
-    }
-
-    const handleCancel = (skillName) => {
-        let setskills = displayItem.filter(item => skillName !== item);
-        setDisplay(setskills);
-    }
-
-    // This removes duplicate values
-    // For more info: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-    const newSetSkills = [...new Set(displayItem)];
+        if (e.target.value == e.target.value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
+            e.target.pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
+        } else {
+            return;
+        }
+    };
 
     return (
         <>
-            <span className="inline-block align-middle text-xl text-regal-blue pb-4">Skills</span>
-            <div>
-                <button
-                    type="button"
-                    onClick={openModal}
-                    className="flex pr-4 pl-2 py-2 text-sm tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-                >
-                    <PlusIcon className="h-5 w-5" />Skills
-                </button>
-            </div>
+            <div className="h-screen xl:flex xl:justify-center">
+                <div className="flex flex-col pt-16 xl:pt-8 xl:bg-white rounded-lg xl:shadow-md xl:my-12 overflow-auto h-screen xl:h-auto">
+                    <div className="border-b border-gray-300 px-4 xl:px-10">
+                        <div className="p-5 mt-8 xl:mt-xl:mx-8 xl:p-10 bg-regal-blue rounded-lg">
+                            <h1 className="sm:text-lg xl:text-2xl text-gray-50 tracking-widest">Resume Builder <span className="text-xs">by Jobbox</span></h1>
+                        </div>
+                        <form action="/api/handler" method="POST" className="md:mx-20 grid grid-cols-1">
+                            <div className="py-3 xl:px-4 md:w-auto">
+                                <span className="inline-block align-middle text-2xl text-regal-blue">General Information</span>
+                                <span className="xl:grid grid-cols-2 gap-5">
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="first_name">First Name*</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.first_name : ''} type="text" name="first_name" required />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="last_name">Last Name</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.last_name : ''} type="text" name="last_name" />
+                                    </div>
+                                </span>
 
-            <div className="md:grid grid-cols-3">
-                <>
-                    {displayItem === undefined || displayItem.length == 0 ? (
-                        <>
-                            <div></div>
-                            <div className="w-auto flex justify-center p-4 text-gray-200">
-                                <div className="p-4 text-gray-200">
-                                    No Data
-                                </div>
-                            </div>
-                        </>
-                    ) : (newSetSkills.map((item) => {
-                        return (
-                            <div className="max-w-full p-4 text-gray-200 ">
-                                <div className="text-white text-sm bg-blue-600 rounded-2xl w-max p-2 flex" key={item.id}>
-                                    <span>{item}</span>
-                                    <label htmlFor="skills" role="checkbox">
-                                        <input name="skills" defaultValue={item} type="text" className="hidden" />
-                                        <button className="focus:outline-none" onClick={() => handleCancel(item)} type="button">
-                                            <XIcon className="w-3 h-3 mt-1" />
-                                        </button>
-                                    </label>
-                                </div>
-                            </div>
-                        )
-                    })
-                    )}
-                </>
-            </div>
-
-            <Transition appear show={isOpen} as={Fragment}>
-                <Dialog
-                    as="div"
-                    className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-20 transition-opacity"
-                    onClose={closeModal}
-                >
-                    <div className="min-h-screen px-4 text-center">
-                        <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                        >
-                            <Dialog.Overlay className="fixed inset-0" />
-                        </Transition.Child>
-
-                        {/* This element is to trick the browser into centering the modal contents. */}
-                        <span
-                            className="inline-block h-screen align-middle"
-                            aria-hidden="true"
-                        >
-                            &#8203;
-                        </span>
-                        <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 scale-95"
-                            enterTo="opacity-100 scale-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 scale-100"
-                            leaveTo="opacity-0 scale-95"
-                        >
-                            <div className="inline-block w-full max-w-3xl sm:p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                                <div >
-
-                                    <Dialog.Title
-                                        as="h3"
-                                        className="text-lg font-bold leading-6 text-gray-50 bg-regal-blue p-5 sm:rounded-lg"
-                                    >
-                                        <div className="flex justify-between">
-                                            <div>
-                                                <span>Let’s add your skills</span>
-                                                <p className="text-xs sm:text-sm text-gray-50 font-thin">
-                                                    Here are a few suggestions based on your profile to get you started
-                                                </p>
-                                            </div>
-                                            <button type="button" onClick={closeModal} className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-0">
-                                                <span className="sr-only">Close panel</span>
-                                                <XIcon className="h-6 w-6" />
-                                            </button>
+                                <span className="xl:grid grid-cols-3 gap-5">
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="city">City</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.city : ''} type="text" name="city" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="state">State</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.state : ''} type="text" name="state" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="zip">Zip Code</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.zip : ''} type="text" name="zip" />
+                                    </div>
+                                </span>
+                                <span className="xl:grid grid-cols-2 gap-5">
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="email">Email</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.email : ''} type="email" name="email" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="phone">Phone</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} onChange={e => changeNum(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890 or 1234567890" />
+                                    </div>
+                                </span>
+                                <span className="xl:grid grid-cols-1 gap-5">
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="about_me">About Me</label>
+                                        <textarea className="text-sm font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.about_me : ''} type="text" name="about_me" />
+                                    </div>
+                                </span>
+                                <div className="border-b border-gray-200 w-full my-5"></div>
+                                <div>
+                                    <span className="inline-block align-middle text-2xl text-regal-blue">Education</span>
+                                    <div className="xl:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="school_1">School 1</label>
+                                            <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_1.school : ''} name="school_1" />
+                                            <label className="py-2" htmlFor="school_degree_1">Degree</label>
+                                            <input placeholder="B.S. in Biological Sciences" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_1.degree : ''} name="school_degree_1" />
                                         </div>
-                                    </Dialog.Title>
-                                    <div className="mt-2 px-2 pb-3 sm:px-0 sm:pb-0">
-                                        <legend className="px-5 text-center text-lg text-yellow-600">Select your skills</legend>
-                                        <Skills elements={skill} />
-                                        <div className="mt-4">
-                                            {/* Used to toggle "Add another skill" button. */}
-                                            {
-                                                toggleSkill ? (
-                                                    <>
-                                                        <div className="flex justify-between">
-                                                            <button type="button" onClick={() => setToggleSkill(false)} className="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500">Add Another Skill</button>
-                                                            <button type="button" onClick={(e) => handleSubmit(e)} className="inline-flex justify-center px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-green-900 bg-green-100 border border-transparent rounded-md hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500">Add To Profile</button>
-                                                        </div>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <div className="flex">
-                                                            <div className="flex flex-col w-screen pr-2">
-                                                                <label className=""></label>
-                                                                <input onKeyUp={handleKeyUp} className="text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent focus-within:bg-gray-300 focus-within:bg-opacity-20" name="skill" placeholder="Add Another Skill" />
-                                                            </div>
-                                                            <button type="button" onClick={() => setToggleSkill(true)} className="inline-flex justify-center px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-fuchsia-900 bg-fuchsia-100 border border-transparent rounded-md hover:bg-fuchsia-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-500">Cancel</button>
-                                                        </div>
-                                                    </>
-                                                )
-                                            }
+                                        <div className="sm:grid grid-cols-2 gap-2">
+                                            <div className="flex flex-col">
+                                                <label className="py-2" htmlFor="school_1_start">Year Started</label>
+                                                <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_1.start : ''} type="date" name="school_1_start" />
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <label className="py-2" htmlFor="school_1_end">Year Ended</label>
+                                                <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_1.end : ''} type="date" name="school_1_end" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="xl:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="school_2">School 2</label>
+                                            <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_2.school : ''} name="school_2" />
+                                            <label className="py-2" htmlFor="school_degree_2">Degree</label>
+                                            <input placeholder="M.S. in Biological Sciences" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_2.degree : ''} name="school_degree_2" />
+                                        </div>
+                                        <div className="sm:grid grid-cols-2 gap-2">
+                                            <div className="flex flex-col">
+                                                <label className="py-2" htmlFor="school_2_start">Year Started</label>
+                                                <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_2.start : ''} type="date" name="school_2_start" />
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <label className="py-2" htmlFor="school_2_end">Year Ended</label>
+                                                <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_2.end : ''} type="date" name="school_2_end" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="xl:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="school_3">School 3</label>
+                                            <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_3.school : ''} name="school_3" />
+                                            <label className="py-2" htmlFor="school_degree_3">Degree</label>
+                                            <input placeholder="Ph.D. in Biological Sciences" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_3.degree : ''} name="school_degree_3" />
+                                        </div>
+                                        <div className="sm:grid grid-cols-2 gap-2">
+                                            <div className="flex flex-col">
+                                                <label className="py-2" htmlFor="school_3_start">Year Started</label>
+                                                <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_3.start : ''} type="date" name="school_3_start" />
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <label className="py-2" htmlFor="school_3_end">Year Ended</label>
+                                                <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.school_3.end : ''} type="date" name="school_3_end" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                {/* EXPERIENCE - START */}
+                                <div className="border-b border-gray-200 w-full my-5"></div>
+                                <span className="inline-block align-middle text-2xl text-regal-blue">Experience</span>
+
+                                <ExpBox userInfo={userInfo} />
+                                {/* EXPERIENCE - END */}
+
+                                <div className="border-b border-gray-200 w-full my-5"></div>
+                                <SkillsModal userInfo={userInfo} />
+                                <div className="border-b border-gray-200 w-full my-5"></div>
+                                <span className="inline-block align-middle text-2xl text-regal-blue">Socials</span>
+                                <span className="xl:grid grid-cols-3 gap-5 pb-12">
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="linkedin">LinkedIn</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.linkedin : ''} type="text" name="linkedin" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="twitter">Twitter</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.twitter : ''} type="text" name="twitter" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="github">Github</label>
+                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.github : ''} type="text" name="github" />
+                                    </div>
+                                </span>
+                                <div className="border-b border-gray-200 w-full my-5"></div>
+                                <span className="inline-block align-middle text-2xl text-regal-blue">Internships & Volunteer Work</span>
+                                <span className="xl:grid grid-cols-2 gap-5 pb-12">
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="internship_1">Internship 1</label>
+                                        <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.internship[0].internship_1 : ''} name="internship_1" />
+                                    </div>
+                                    <div className="sm:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="internship_1_year">Year</label>
+                                            <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.internship[0].internship_year : ''} type="date" name="internship_1_year" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="internship_2">Internship 2</label>
+                                        <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.internship[1].internship_2 : ''} name="internship_2" />
+                                    </div>
+                                    <div className="sm:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="internship_2_year">Year</label>
+                                            <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.internship[1].internship_year : ''} type="date" name="internship_2_year" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="internship_3">Internship 3</label>
+                                        <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.internship[2].internship_3 : ''} name="internship_3" />
+                                    </div>
+                                    <div className="sm:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="internship_3_year">Year</label>
+                                            <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.internship[2].internship_year : ''} type="date" name="internship_3_year" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="volunteer_1">Volunteer 1</label>
+                                        <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.volunteer[0].volunteer_1 : ''} name="volunteer_1" />
+                                    </div>
+                                    <div className="sm:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="volunteer_1_year">Year</label>
+                                            <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.volunteer[0].volunteer_year : ''} type="date" name="volunteer_1_year" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="volunteer_2">Volunteer 2</label>
+                                        <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.volunteer[1].volunteer_2 : ''} name="volunteer_2" />
+                                    </div>
+                                    <div className="sm:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="volunteer_2_year">Year</label>
+                                            <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.volunteer[1].volunteer_year : ''} type="date" name="volunteer_2_year" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="py-2" htmlFor="volunteer_3">Volunteer 3</label>
+                                        <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.volunteer[2].volunteer_3 : ''} name="volunteer_3" />
+                                    </div>
+                                    <div className="sm:grid grid-cols-2 gap-2">
+                                        <div className="flex flex-col">
+                                            <label className="py-2" htmlFor="volunteer_3_year">Year</label>
+                                            <input className="p-2 inline-block align-middle text-sm font-medium text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.volunteer[2].volunteer_year : ''} type="date" name="volunteer_3_year" />
+                                        </div>
+                                    </div>
+                                </span>
                             </div>
-                        </Transition.Child>
+                            <div className="flex justify-center border-t border-gray-200 pt-16 pb-12">
+                                <div className="flex flex-col invisible hidden">
+                                    <label className="py-2" htmlFor="user"></label>
+                                    <input type="text" name="username" value={props.user.nickname} />
+                                </div>
+                                <button type="submit" className="w-max flex py-2 px-4 text-md tracking-widest font-medium text-white rounded-md bg-regal-blue hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"><CogIcon className="h-6 pr-3 text-gray-50" />Generate</button>
+                            </div>
+                        </form>
                     </div>
-                </Dialog>
-            </Transition>
+                </div>
+            </div>
         </>
-    )
+    );
 }
+
+
+export default Builder;
