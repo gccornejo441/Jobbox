@@ -1,5 +1,5 @@
 import SideNav from "../../components/sidenav";
-import Builder from "../../components/Pro-Builder/Builder";
+import ProBuilder from "../../components/Pro-Builder/ProBuilder";
 import MobileNav from "../../components/mobilenav";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -7,7 +7,7 @@ import Head from "next/head";
 import { connectToDatabase } from "../../util/mongodb";
 
 
-export default withPageAuthRequired(function Dashboard({ resume }) {
+export default withPageAuthRequired(function resumeBuilder({ resume }) {
   // importing user form auth0
   const { user } = useUser();
 
@@ -37,7 +37,7 @@ export default withPageAuthRequired(function Dashboard({ resume }) {
           </div>
         </div>
         <div className="w-full">
-          <Builder user={user} resume={resume} />
+          <ProBuilder resume={resume} user={user} />
         </div>
       </div>
     </>

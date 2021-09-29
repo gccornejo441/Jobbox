@@ -6,7 +6,7 @@ import UserProfile from "../../components/user/profile/userProfile";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { connectToDatabase } from "../../util/mongodb";
 
-export default withPageAuthRequired(function newPersona({ resume }) {
+export default withPageAuthRequired(function profile({ resume }) {
     // importing user form auth0
     const { user } = useUser();
     return (
