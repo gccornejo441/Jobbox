@@ -325,11 +325,12 @@ const pdfBuilder = async (req, res) => {
             }
           };
 
+
         doc
         .list(education(), {
+          bulletRadius: 2,
           width: 412,
           align: 'left',
-          indent: 15,
           columns: 1,
           height: 500,
           ellipsis: true
