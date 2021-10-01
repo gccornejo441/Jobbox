@@ -51,6 +51,11 @@ export default function Navbar({ isShowing }) {
                           Login
                         </a>
                       </li>
+                      {/* <li className="md:mx-3 list-none">
+                          <a href="/resume-now" data-testid="login" className="text-regal-blue rounded-md bg-green-300 text-regal-blue text-md p-2">
+                            Resume Now
+                          </a>
+                        </li> */}
                     </>
                   )}
                 </div>
