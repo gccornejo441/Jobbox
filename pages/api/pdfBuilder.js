@@ -1,5 +1,4 @@
 import PDFDocument from 'pdfkit';
-import fs from "fs";
 import { connectToDatabase } from "../../util/mongodb";
 
 const pdfBuilder = async (req, res) => {

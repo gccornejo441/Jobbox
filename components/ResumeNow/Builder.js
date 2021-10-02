@@ -39,11 +39,13 @@ const Builder = (props) => {
     const postData = async (data) => {
         const res = await fetch('/api/builderNow', {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         }); 
+        return res.json();
     }
 
     const handleChange = (e) => {
