@@ -91,30 +91,80 @@ const builderNow = async (req, res) => {
             })
 
 
+        // if (req.body.skills !== null && typeof req.body.skills != 'string') {
+        //     doc
+        //         .moveDown()
+        //         .text(req.body.skills === undefined ? " " : req.body.skills[0], { align: 'left' })
+        //         .moveDown()
+        //     doc.text(req.body.skills === undefined ? " " : req.body.skills[3], { align: 'left' })
+        //         .moveDown()
+        //     doc.text(req.body.skills === undefined ? " " : req.body.skills[6], { align: 'left' })
+
+        //     doc
+        //         .moveUp(5)
+        //         .text(req.body.skills === undefined ? " " : req.body.skills[1], { align: 'center' })
+        //         .moveDown()
+        //     doc.text(req.body.skills === undefined ? " " : req.body.skills[4], { align: 'center' })
+        //         .moveDown()
+        //     doc.text(req.body.skills === undefined ? " " : req.body.skills[7], { align: 'center' })
+
+        //     doc
+        //         .moveUp(5)
+        //         .text(req.body.skills === undefined ? " " : req.body.skills[2], { align: 'right' })
+        //         .moveDown()
+        //     doc.text(req.body.skills === undefined ? " " : req.body.skills[5], { align: 'right' })
+        //         .moveDown()
+        //     doc.text(req.body.skills === undefined ? " " : req.body.skills[8], { align: 'right' })
+        // } else {
+        //     doc
+        //         .moveDown()
+        //         .text(req.body.skills === undefined ? " " : req.body.skills, { align: 'left' })
+        // }
+
         if (req.body.skills !== null && typeof req.body.skills != 'string') {
             doc
                 .moveDown()
-                .text(req.body.skills === undefined ? " " : req.body.skills[0], { align: 'left' })
-                .moveDown()
-            doc.text(req.body.skills === undefined ? " " : req.body.skills[3], { align: 'left' })
-                .moveDown()
-            doc.text(req.body.skills === undefined ? " " : req.body.skills[6], { align: 'left' })
-
+                .text(req.body.skills === undefined ? " " : req.body.skills[0], { 
+                    align: 'left',
+                    width: "950"
+                 })
+                .moveUp()
+            doc.text(req.body.skills === undefined ? " " : req.body.skills[1], {
+                 align: 'center', 
+                })
+                .moveUp()
+            doc.text(req.body.skills === undefined ? " " : req.body.skills[2], { 
+                align: 'right' 
+            })
             doc
-                .moveUp(5)
-                .text(req.body.skills === undefined ? " " : req.body.skills[1], { align: 'center' })
                 .moveDown()
-            doc.text(req.body.skills === undefined ? " " : req.body.skills[4], { align: 'center' })
-                .moveDown()
-            doc.text(req.body.skills === undefined ? " " : req.body.skills[7], { align: 'center' })
-
+                .text(req.body.skills === undefined ? " " : req.body.skills[3], { 
+                    align: 'left',
+                 })
             doc
-                .moveUp(5)
-                .text(req.body.skills === undefined ? " " : req.body.skills[2], { align: 'right' })
+            .moveUp(1)
+            .text(req.body.skills === undefined ? " " : req.body.skills[4], {
+                 align: 'center',
+                })
+            doc
+            .moveUp(1)
+            .text(req.body.skills === undefined ? " " : req.body.skills[5], { align: 'right' })
+            doc
                 .moveDown()
-            doc.text(req.body.skills === undefined ? " " : req.body.skills[5], { align: 'right' })
-                .moveDown()
-            doc.text(req.body.skills === undefined ? " " : req.body.skills[8], { align: 'right' })
+                .text(req.body.skills === undefined ? " " : req.body.skills[6], { 
+                    align: 'left',
+                 })
+            doc
+            .moveUp(1)
+            .text(req.body.skills === undefined ? " " : req.body.skills[7], {
+                 align: 'center',
+                })
+               
+            doc
+            .moveUp(1)
+            .text(req.body.skills === undefined ? " " : req.body.skills[8], { 
+                align: 'right', 
+            })
         } else {
             doc
                 .moveDown()
@@ -267,43 +317,44 @@ const builderNow = async (req, res) => {
                 ellipsis: true
             });
 
-
         //school objs: degree and school
         let {
             school_1,
-            school_degree_1,
+            school_degree,
             school_1_start,
             school_1_end,
             school_2,
-            school_degree_2,
             school_2_start,
             school_2_end, school_3,
-            school_degree_3,
             school_3_start,
             school_3_end
         } = req.body;
 
-        const educComp = [
-            `${school_degree_1}` + ":" + " " + `${school_1}`,
-            `${school_degree_2}` + ":" + " " + `${school_2}`,
-            `${school_degree_3}` + ":" + " " + `${school_3}`
-        ];
+        const schoo1_dates =`${school_1_start === "" && school_1_end === "" ? "" : school_1_start === "" ? "Current" : school_1_start.slice(0, 4) + " " + "-" + " "}` + `${school_1_start === "" && school_1_end === "" ? "" : school_1_end === "" ? "Current" : school_1_end.slice(0, 4)}`;
+        const schoo2_dates = `${school_2_start === "" && school_2_end === "" ? "" : school_2_start === "" ? "Current" : school_2_start.slice(0, 4) + " " + "-" + " "}` + `${school_2_start === "" && school_2_end === "" ? "" : school_2_end === "" ? "Current" : school_2_end.slice(0, 4)}`;
+        const schoo3_dates = `${school_3_start === "" && school_3_end === "" ? "" : school_3_start === "" ? "Current" : school_3_start.slice(0, 4) + " " + "-" + " "}` + `${school_3_start === "" && school_3_end === "" ? "" : school_3_end === "" ? "Current" : school_3_end.slice(0, 4)}`;
 
+        const educComp = [
+                `${school_degree[0]}` + " " + `${school_degree[1]}` +  ":" + " " + `${schoo1_dates}`,
+                `${school_degree[2]}` + " " + `${school_degree[3]}` +  ":" + " " + `${schoo2_dates}`,
+                `${school_degree[4]}` + " " + `${school_degree[5]}` +  ":" + " " + `${schoo3_dates}`,
+            ];
+    
         const education = () => {
             if (school_1 == "" && school_2 == "" && school_3 == "") {
                 return [];
             } else if (typeof school_1 == "string" && school_2 == "" && school_3 == "") {
-                return [educComp[0]];
+                return [school_1, educComp[0]];
             } else if (typeof school_1 == "string" && typeof school_2 == "string" && school_3 == "") {
-                return [educComp[0], educComp[1]];
+                return [school_1, educComp[0], school_2, educComp[1]];
             } else {
-                return [educComp[0], educComp[1], educComp[2]];
+                return [school_1, educComp[0], school_2, educComp[1], school_3, educComp[2]];
             }
         };
 
         doc
             .fillColor('black')
-            .font('Times-Roman', 12)
+            .font('Times-Bold', 12)
             .moveDown()
             .text("Education", {
                 width: 412,
@@ -314,38 +365,13 @@ const builderNow = async (req, res) => {
                 ellipsis: true
             });
 
-
-        const numOfSchools = () => {
-            if (typeof school_1_start == 'string' && school_2_start == "" && school_3_start == "") {
-                return 1;
-            } else if (typeof school_1_start == 'string' && typeof school_2_start == 'string' && school_3_start == "") {
-                return 2;
-            } else if (typeof school_1_start == 'string' && typeof school_2_start == 'string' && typeof school_3_start == 'string') {
-                return 3;
-            } else {
-                return;
-            }
-        };
-
         doc
+            .moveDown(1)
             .list(education(), {
-                bulletRadius: 2,
+                bulletRadius: 1,
                 width: 412,
                 align: 'left',
-                columns: 1,
-                height: 500,
-                ellipsis: true
-            })
-            .moveUp(numOfSchools())
-            .text(`${school_1_start === "" && school_1_end === "" ? "" : school_1_start === "" ? "Current" : school_1_start.slice(0, 4) + " " + "-" + " "}` + `${school_1_start === "" && school_1_end === "" ? "" : school_1_end === "" ? "Current" : school_1_end.slice(0, 4)}`, {
-                align: 'right'
-            })
-            .text(`${school_2_start === "" && school_2_end === "" ? "" : school_2_start === "" ? "Current" : school_2_start.slice(0, 4) + " " + "-" + " "}` + `${school_2_start === "" && school_2_end === "" ? "" : school_2_end === "" ? "Current" : school_2_end.slice(0, 4)}`, {
-                align: 'right'
-            })
-            .text(`${school_2_start === "" && school_3_end === "" ? "" : school_2_start === "" ? "Current" : school_2_start.slice(0, 4) + " " + "-" + " "}` + `${school_2_start === "" && school_3_end === "" ? "" : school_3_end === "" ? "Current" : school_3_end.slice(0, 4)}`, {
-                align: 'right'
-            })
+              })
 
         doc.end();
     }

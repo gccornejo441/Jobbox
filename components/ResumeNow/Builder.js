@@ -3,6 +3,7 @@ import ExpBox from "../../components/user/ExpBox";
 import SkillsModal from "../../components/user/SkillsModal";
 import * as yup from "yup";
 import * as React from "react";
+import MajorOpt from "../user/majorOpt";
 
 const Builder = (props) => {
     const [errors, setError] = React.useState([]);
@@ -59,6 +60,8 @@ const Builder = (props) => {
         e.preventDefault();
         postData(value);
     }
+
+    console.log("props: ", props);
 
 
     return (
@@ -130,9 +133,8 @@ const Builder = (props) => {
                                     <div className="xl:grid grid-cols-2 gap-2">
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="school_1">School 1</label>
-                                            <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_1" />
-                                            <label className="py-2" htmlFor="school_degree_1">Degree</label>
-                                            <input placeholder="B.S. in Biological Sciences" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_1" />
+                                            <input maxlength="50" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_1" />
+                                            <MajorOpt />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
@@ -148,9 +150,8 @@ const Builder = (props) => {
                                     <div className="xl:grid grid-cols-2 gap-2">
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="school_2">School 2</label>
-                                            <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_2" />
-                                            <label className="py-2" htmlFor="school_degree_2">Degree</label>
-                                            <input placeholder="M.S. in Biological Sciences" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_2" />
+                                            <input maxlength="50" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_2" />
+                                            <MajorOpt />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
@@ -166,9 +167,8 @@ const Builder = (props) => {
                                     <div className="xl:grid grid-cols-2 gap-2">
                                         <div className="flex flex-col">
                                             <label className="py-2" htmlFor="school_3">School 3</label>
-                                            <input className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" />
-                                            <label className="py-2" htmlFor="school_degree_3">Degree</label>
-                                            <input placeholder="Ph.D. in Biological Sciences" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_degree_3" />
+                                            <input maxlength="50" className="p-1 inline-block align-middle text-sm font-medium text-blue-900 mr-2 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" name="school_3" />
+                                            <MajorOpt />
                                         </div>
                                         <div className="sm:grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
