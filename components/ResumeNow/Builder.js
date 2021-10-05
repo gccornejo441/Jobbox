@@ -1,5 +1,5 @@
 import { CogIcon } from "@heroicons/react/solid";
-import ExpBox from "../../components/user/ExpBox";
+import Experience from "../ResumeNow/Experience";
 import SkillsModal from "../../components/user/SkillsModal";
 import * as yup from "yup";
 import * as React from "react";
@@ -186,7 +186,7 @@ const Builder = (props) => {
                                 <div className="border-b border-gray-200 w-full my-5"></div>
                                 <span className="inline-block align-middle text-2xl text-regal-blue">Experience</span>
 
-                                <ExpBox />
+                                <Experience />
                                 {/* EXPERIENCE - END */}
 
                                 <div className="border-b border-gray-200 w-full my-5"></div>

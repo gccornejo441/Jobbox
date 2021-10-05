@@ -1,5 +1,5 @@
 import { CogIcon } from "@heroicons/react/solid";
-import ExpBox from "../../components/user/ExpBox";
+import Experience from "../../components/user/ExpBox";
 import SkillsModal from "../../components/user/SkillsModal";
 import * as yup from "yup";
 import * as React from "react";

@@ -8,14 +8,14 @@ const Layout = ({ children }) => {
             <Head>
                 <meta name="google-site-verification" content="z4mQ86Y24Bk76FQBB4S1tXFVqefEshTToiFeCe5wg9E" />
             </Head>
-            <main>
+            <main className="bg-regal-blue h-screen">
                 <div>{children}</div>
-                <div className="relative bottom-0 border-t border-gray-200 w-full flex justify-center">
-                    <div className="py-5 text-gray-400">
-                        &copy; 2021 Jobbox.me
-                    </div>
-                </div>
             </main>
+            <footer>
+                <div className="pt-5 text-white relative bottom-0 bg-regal-blue text-center pb-8">
+                    &copy; 2021 Jobbox.me
+                </div>
+            </footer>
         </>
     );
 }
