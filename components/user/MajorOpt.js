@@ -1,4 +1,5 @@
 import { majors } from "../../lib/menuset";
+import { nanoid } from "nanoid";
 
 const MajorOpt = () => {
     return (
@@ -30,105 +31,105 @@ const MajorOpt = () => {
                 <optgroup label="AGRICULTURE">
                     {majors.Agriculture.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="ARCHITECTURE">
                     {majors.Architecture.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="MULTIDISCIPLINARY">
                     {majors.Multidisciplinary.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="ARTS">
                     {majors.Arts.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="COMMUNICATIONS">
                     {majors.Communications.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="BUSINESS">
                     {majors.Business.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="COMMUNITY">
                     {majors.Community.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="COMPUTER">
                     {majors.Computer.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="EDUCATION">
                     {majors.Education.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="ENGINEERING">
                     {majors.Engineering.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="LANGUAGE">
                     {majors.Language.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="HEALTH">
                     {majors.HEALTH.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="PHILOSOPHY">
                     {majors.PHILOSOPHY.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="PHYSICAL">
                     {majors.PHYSICAL.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
                 <optgroup label="LAW">
                     {majors.LAW.map((item, index) => {
                         return (
-                            <option value={item}>{item}</option>
+                            <option key={item + "_" + nanoid(3)} value={item}>{item}</option>
                         );
                     })}
                 </optgroup>
