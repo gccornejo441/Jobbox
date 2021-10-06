@@ -1,10 +1,16 @@
 import Builder from "../components/ResumeNow/Builder";
+import Head from "next/head";
 
 const ResumeNow = () => {
     return (
-        <div>
-            <Builder/>
-        </div>
+        <>
+            <Head>
+                <title>Resume Now</title>
+            </Head>
+            <div>
+                <Builder />
+            </div>
+        </>
     );
 }
 
