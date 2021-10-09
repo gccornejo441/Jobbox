@@ -22,7 +22,7 @@ const SideNav = (props) => {
                                     <div className="flex bg-gray-50 w-max rounded-md pr-1">
                                         <a href="/v2/pro-builder">
                                             <span>
-                                                <Image src="/images/jobbox.me.svg" alt="Jobster Logo" height={60} width={170} />
+                                                <Image src="/images/Jobbox.me.svg" alt="Jobbox Logo" height={60} width={170} />
                                             </span>
                                         </a>
                                     </div>
