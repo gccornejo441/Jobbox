@@ -17,7 +17,7 @@ const MobileNav = (props) => {
                 <div className="flex bg-gray-50 w-max rounded-md px-2">
                   <a href="/v2/pro-builder">
                     <span>
-                      <Image src="/images/jobbox.svg" alt="Jobster Logo" height={40} width={120} />
+                      <Image src="/images/jobbox.me.svg" alt="Jobster Logo" height={50} width={120} />
                     </span>
                   </a>
                 </div>

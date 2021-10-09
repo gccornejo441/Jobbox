@@ -18,7 +18,7 @@ export default function Navbar({ isShowing }) {
                 <div className="flex w-max rounded-md px-2 bg-white h-9">
                   <a href="/v2/pro-builder">
                     <span>
-                      <Image src="/images/jobbox.svg" alt="Jobster Logo" height={37} width={120} />
+                      <Image src="/images/jobbox.me.svg" alt="Jobster Logo" height={36} width={120} />
                     </span>
                   </a>
                 </div>
