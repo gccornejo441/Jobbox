@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
                 <meta name="msapplication-TileColor" content="#2b5797" />
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="google-site-verification" content="z4mQ86Y24Bk76FQBB4S1tXFVqefEshTToiFeCe5wg9E" />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5L4PE13RM"></script>
             </Head>
             <main className="bg-regal-blue h-screen mt-12">
                 <div>{children}</div>
