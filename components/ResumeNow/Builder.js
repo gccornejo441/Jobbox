@@ -64,7 +64,7 @@ const Builder = (props) => {
     return (
         <>
             <div className="h-screen xl:flex xl:justify-center">
-                <div className="flex flex-col pt-16 xl:pt-8 xl:bg-white rounded-lg xl:shadow-md xl:my-12 overflow-auto h-screen xl:h-auto">
+                <div className="scrollbar-thin scrollbar-thumb-regal-blue scrollbar-track-gray-100 flex flex-col pt-16 xl:pt-8 xl:bg-white rounded-lg xl:shadow-md xl:my-12 overflow-auto h-screen xl:h-auto">
                     <div className="border-b border-gray-300 px-4 xl:px-10">
                         <div className="p-5 mt-8 xl:mt-xl:mx-8 xl:p-10 bg-regal-blue rounded-lg">
                             <h1 className="sm:text-lg xl:text-2xl text-gray-50 tracking-widest">Resume Builder <span className="text-xs">by Jobbox</span></h1>

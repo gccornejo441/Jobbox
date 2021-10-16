@@ -16,7 +16,7 @@ export default function Navbar({ isShowing }) {
               <div className="relative flex items-center justify-between h-12">
                 {/* RACKET SPACE LOGO */}
                 <div className="flex w-max rounded-md px-2 bg-white h-9">
-                  <a href="/v2/pro-builder">
+                  <Link href="/v2/pro-builder">
                     <span>
                       <Image
                         src="/images/Jobbox.me.svg"
@@ -25,7 +25,7 @@ export default function Navbar({ isShowing }) {
                         width={120}
                       />
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 {/* RACKET SPACE LOGIN & LOGOUT */}
                 <div className="hidden lg:flex">
@@ -33,11 +33,13 @@ export default function Navbar({ isShowing }) {
                     <>
                       <ul className="flex">
                         <li className="md:mx-8">
-                          <Link href="/api/auth/logout">
-                            <a data-testid="logout" className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue">
-                              Logout
-                            </a>
-                          </Link>
+                          <a 
+                          href="/api/auth/logout" 
+                          data-testid="logout" 
+                          className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue"
+                          >
+                            Logout
+                          </a>
                         </li>
                         <li className="md:mx-8">
                           <Link href="/v2/pro-builder">
@@ -68,18 +70,19 @@ export default function Navbar({ isShowing }) {
                         </a>
                       </li> */}
                       <li className="md:mx-8 list-none">
-                        <Link>
-                          <a href="/resume-now" className="tracking-wider text-white text-sm flex">
+                        <Link  href="/resume-now">
+                          <a className="tracking-wider text-white text-sm flex">
                             Resume
                           </a>
                         </Link>
                       </li>
                       <li className="md:mx-8 list-none">
-                        <Link href="/api/auth/login">
-                          <a data-testid="login" className="tracking-wider text-white text-sm flex">
-                            Login
-                          </a>
-                        </Link>
+                        <a 
+                        href="/api/auth/login" 
+                        data-testid="login" 
+                        className="tracking-wider text-white text-sm flex">
+                          Login
+                        </a>
                       </li>
                       <li className="md:mx-8 list-none">
                         <Link href="/resume-now">
@@ -127,11 +130,12 @@ export default function Navbar({ isShowing }) {
                         </Link>
                       </li>
                       <li className="border-t-2 border-green-400 py-4 text-center">
-                        <Link href="/api/auth/logout">
-                          <a data-testid="logout" className="ml-8 text-white hover:underline">
-                            Logout
-                          </a>
-                        </Link>
+                        <a 
+                        href="/api/auth/logout" 
+                        data-testid="logout" 
+                        className="ml-8 text-white hover:underline">
+                          Logout
+                        </a>
                       </li>
                       <li className="border-b-2 border-t-2 border-green-400 py-4 flex flex-row-reverse">
                         <div className="text-normal text-white mr-8">
@@ -144,14 +148,13 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul className="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li className="border-t-2 border-b-2 border-green-400 py-4 text-center">
-                        <Link href="/api/auth/login" >
-                          <a
-                            data-testid="login"
-                            className="ml-8 text-white hover:underline"
-                          >
-                            Login
-                          </a>
-                        </Link>
+                        <a
+                          href="/api/auth/login"
+                          data-testid="login"
+                          className="ml-8 text-white hover:underline"
+                        >
+                          Login
+                        </a>
                       </li>
                     </ul>
                   </>
