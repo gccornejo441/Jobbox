@@ -1,6 +1,7 @@
-import Head from "next/head";
+import Head from 'next/head'
 import Image from 'next/image'
 import resumePic from '../../public/images/resume-title.svg'
+import Link from 'next/link'
 
 const MainBody = () => {
     return (
@@ -17,10 +18,12 @@ const MainBody = () => {
                                     <h1 className="text-left font-extrabold text-2xl sm:text-4xl lg:text-5xl font-sans leading-normal">Create an expert resume for free</h1>
                                     <h2 className="my-2 text-left font-bold text-md sm:text-lg lg:text-xl">Use our free resume templates to create free professional resumes.</h2>
                                     <div className="flex justify-center sm:justify-start">
-                                        <button
-                                            className="my-3 bg-regal-blue text-white font-semibold px-8 py-3 rounded-lg w-full sm:w-auto"
-                                        >Create A Resume
-                                        </button>
+                                        <Link href="/resume-now">
+                                            <button
+                                                className="my-3 bg-regal-blue text-white font-semibold px-8 py-3 rounded-lg w-full sm:w-auto"
+                                            >Create A Resume
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

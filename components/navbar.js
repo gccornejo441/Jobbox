@@ -1,8 +1,8 @@
 import { Disclosure, Transition } from "@headlessui/react";
-import { ArrowDownIcon, ChevronDownIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useUser } from "@auth0/nextjs-auth0";
 import Image from "next/image";
-
+import Link from 'next/link'
 
 export default function Navbar({ isShowing }) {
   const { user } = useUser();
@@ -28,14 +28,18 @@ export default function Navbar({ isShowing }) {
                     <>
                       <ul className="flex">
                         <li className="md:mx-8">
-                          <a href="/api/auth/logout" data-testid="logout" className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue">
+                          <Link href="/api/auth/logout">
+                          <a data-testid="logout" className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue">
                             Logout
                           </a>
+                          </Link>
                         </li>
                         <li className="md:mx-8">
-                          <a href="/v2/pro-builder" className="text-regal-blue rounded-md bg-green-300 text-md p-2">
+                          <Link href="/v2/pro-builder">
+                          <a className="text-regal-blue rounded-md bg-green-300 text-md p-2">
                             Resume Builder
                           </a>
+                          </Link>
                         </li>
                         <li className="md:mx-8">
                           <div className="text-md tracking-widest text-white">
