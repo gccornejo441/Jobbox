@@ -18,7 +18,12 @@ export default function Navbar({ isShowing }) {
                 <div className="flex w-max rounded-md px-2 bg-white h-9">
                   <a href="/v2/pro-builder">
                     <span>
-                      <Image src="/images/Jobbox.me.svg" alt="Jobbox Logo" height={36} width={120} />
+                      <Image
+                        src="/images/Jobbox.me.svg"
+                        alt="Jobbox Logo"
+                        height={36}
+                        width={120}
+                      />
                     </span>
                   </a>
                 </div>
@@ -29,16 +34,16 @@ export default function Navbar({ isShowing }) {
                       <ul className="flex">
                         <li className="md:mx-8">
                           <Link href="/api/auth/logout">
-                          <a data-testid="logout" className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue">
-                            Logout
-                          </a>
+                            <a data-testid="logout" className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue">
+                              Logout
+                            </a>
                           </Link>
                         </li>
                         <li className="md:mx-8">
                           <Link href="/v2/pro-builder">
-                          <a className="text-regal-blue rounded-md bg-green-300 text-md p-2">
-                            Resume Builder
-                          </a>
+                            <a className="text-regal-blue rounded-md bg-green-300 text-md p-2">
+                              Resume Builder
+                            </a>
                           </Link>
                         </li>
                         <li className="md:mx-8">
@@ -63,19 +68,25 @@ export default function Navbar({ isShowing }) {
                         </a>
                       </li> */}
                       <li className="md:mx-8 list-none">
-                        <a href="/resume-now" className="tracking-wider text-white text-sm flex">
-                          Resume
-                        </a>
+                        <Link>
+                          <a href="/resume-now" className="tracking-wider text-white text-sm flex">
+                            Resume
+                          </a>
+                        </Link>
                       </li>
                       <li className="md:mx-8 list-none">
-                        <a href="/api/auth/login" data-testid="login" className="tracking-wider text-white text-sm flex">
-                          Login
-                        </a>
+                        <Link href="/api/auth/login">
+                          <a data-testid="login" className="tracking-wider text-white text-sm flex">
+                            Login
+                          </a>
+                        </Link>
                       </li>
                       <li className="md:mx-8 list-none">
-                        <a href="/resume-now" className="tracking-wider rounded-md text-white text-sm border border-white hover:bg-green-300 hover:text-regal-blue hover:border-regal-blue p-2">
-                          Get Started
-                        </a>
+                        <Link href="/resume-now">
+                          <a className="tracking-wider rounded-md text-white text-sm border border-white hover:bg-green-300 hover:text-regal-blue hover:border-regal-blue p-2">
+                            Get Started
+                          </a>
+                        </Link>
                       </li>
                     </>
                   )}
@@ -109,14 +120,18 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul className="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li className="border-t-2 border-green-400 py-4 text-center">
-                        <a href="/v2/pro-builder" className="ml-8 text-white hover:underline">
-                          Resume Builder
-                        </a>
+                        <Link href="/v2/pro-builder">
+                          <a className="ml-8 text-white hover:underline">
+                            Resume Builder
+                          </a>
+                        </Link>
                       </li>
                       <li className="border-t-2 border-green-400 py-4 text-center">
-                        <a href="/api/auth/logout" data-testid="logout" className="ml-8 text-white hover:underline">
-                          Logout
-                        </a>
+                        <Link href="/api/auth/logout">
+                          <a data-testid="logout" className="ml-8 text-white hover:underline">
+                            Logout
+                          </a>
+                        </Link>
                       </li>
                       <li className="border-b-2 border-t-2 border-green-400 py-4 flex flex-row-reverse">
                         <div className="text-normal text-white mr-8">
@@ -129,9 +144,14 @@ export default function Navbar({ isShowing }) {
                   <>
                     <ul className="bg-regal-blue absolute z-20 top-0 w-full opacity-95">
                       <li className="border-t-2 border-b-2 border-green-400 py-4 text-center">
-                        <a href="/api/auth/login" data-testid="login" className="ml-8 text-white hover:underline">
-                          Login
-                        </a>
+                        <Link href="/api/auth/login" >
+                          <a
+                            data-testid="login"
+                            className="ml-8 text-white hover:underline"
+                          >
+                            Login
+                          </a>
+                        </Link>
                       </li>
                     </ul>
                   </>

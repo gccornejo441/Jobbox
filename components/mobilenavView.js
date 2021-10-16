@@ -45,9 +45,6 @@ const MobileNavView = (props) => {
                             })}
                         </div>
                     </div>
-                    {/* <div className="bg-gray-50 w-10 h-10">
-                        dd
-                    </div> */}
                 </div>
             </div>
         </>

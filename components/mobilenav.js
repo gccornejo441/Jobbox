@@ -3,7 +3,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import SideNav from './sidenav'
 import MobileNavView from './mobilenavView'
 import Image from 'next/image'
-
+import Link from 'next/link'
 
 const MobileNav = (props) => {
   return (
@@ -15,11 +15,16 @@ const MobileNav = (props) => {
               <div className="relative flex items-center justify-between h-16">
                 {/* RACKET SPACE LOGO */}
                 <div className="flex bg-gray-50 w-max rounded-md px-2">
-                  <a href="/v2/pro-builder">
-                    <span>
-                      <Image src="/images/Jobbox.me.svg" alt="Jobbox Logo" height={50} width={120} />
-                    </span>
-                  </a>
+                  <Link href="/v2/pro-builder">
+                    <a>
+                      <Image
+                        src="/images/Jobbox.me.svg"
+                        alt="Jobbox Logo"
+                        height={50}
+                        width={120}
+                      />
+                    </a>
+                  </Link>
                 </div>
                 {/* RACKET SPACE LOG */}
 
@@ -39,7 +44,7 @@ const MobileNav = (props) => {
 
             <Disclosure.Panel className="xl:hidden">
               <div className="absolute z-20 top-0 bg-regal-blue h-screen w-full">
-                <MobileNavView parentProps={props}/>
+                <MobileNavView parentProps={props} />
               </div>
               <div className="px-4 pt-3 bg-teal-900 grid place-content-between xl:hidden hidden sm:block absolute z-10">
                 <SideNav />
