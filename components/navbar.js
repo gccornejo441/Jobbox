@@ -156,6 +156,13 @@ export default function Navbar({ isShowing }) {
                           Login
                         </a>
                       </li>
+                      <li className="border-b-2 border-green-400 py-4 text-center">
+                        <Link href="/resume-now">
+                          <a className="ml-8 text-white hover:underline">
+                            Get Started
+                          </a>
+                        </Link>
+                      </li>
                     </ul>
                   </>
                 )}
