@@ -38,12 +38,68 @@ const MainBody = () => {
                         </div>
                     </div>
                 </div>
-                <footer>
-                    <div className="pt-5 text-white relative bottom-0 bg-regal-blue text-center pb-8">
-                        &copy; 2021 Jobbox.me
-                    </div>
-                </footer>
             </div>
+            <footer>
+                {/* <div className="grid grid-cols-4 p-10 container mx-auto">
+                    <div className=" border-2 border-red-500">
+                        <Image
+                            src="/images/Jobbox.me_white.svg"
+                            alt="Jobbox Logo"
+                            width={280}
+                            height={80}
+                        />
+                        <p className="text-white pl-7">Use our free resume templates to create free professional resumes.</p>
+                    </div>
+                    <div className="text-white border-2 border-red-500">
+                        <h1 className="font-bold uppercase pb-5">Education</h1>
+                        <ul>
+                            <li>Credit Education</li>
+                            <li>Homeownership</li>
+                            <li>Resume Building</li>
+                        </ul>
+                    </div>
+                    <div className="text-white border-2 border-red-500">
+                        <h1 className="font-bold uppercase pb-5">Recent Blog Post</h1>
+                        <ul className="flex">
+                            <li>
+                                <Image
+                                    src="/images/homePost.jpg"
+                                    alt="Home Post"
+                                    width={90}
+                                    height={90}
+                                />
+                            </li>
+                            <li className="flex flex-col w-3/4 px-2 hover:underline text-blue-200">
+                                <Link href="/">
+                                    <a
+                                        title="Zillo slams the breaks on home buying as it struggles to manage its backlog of inventory"
+                                        className="text-sm"
+                                    >
+                                        Zillo slams the breaks on home buying...
+                                    </a>
+                                </Link>
+                                <a
+                                    title="May 18th, 2021"
+                                    className="text-xs"
+                                >
+                                    May 18th, 2021
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="text-white border-2 border-red-500">
+                        <h1 className="font-bold uppercase pb-5">Stay Updated</h1>
+                        <ul>
+                            <li>Credit Education</li>
+                            <li>Homeownership</li>
+                            <li>Resume Building</li>
+                        </ul>
+                    </div>
+                </div> */}
+                <div className="pt-5 text-white relative bottom-0 bg-regal-blue text-center pb-8">
+                    &copy; 2021 Jobbox.me
+                </div>
+            </footer>
         </>
     );
 }

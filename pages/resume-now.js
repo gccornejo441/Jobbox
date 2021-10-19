@@ -10,7 +10,7 @@ const ResumeNow = () => {
             </Head>
             <div>
                 <Navbar />
-                <div className="mt-10">
+                <div>
                     <Builder />
                 </div>
             </div>
