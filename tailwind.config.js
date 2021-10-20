@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: theme => ({
         'hero-pattern': "url('/images/man-drilling.jpg')",
+        'tess-pattern': "url('/images/tessWallpaper.svg')",
        }),
        height: {
         'huge': '98vh'

@@ -8,7 +8,7 @@ const ResumeNow = () => {
             <Head>
                 <title>Resume Now</title>
             </Head>
-            <div>
+            <div className="bg-tess-pattern bg-cover bg-center ">
                 <Navbar />
                 <div>
                     <Builder />
