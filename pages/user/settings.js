@@ -12,7 +12,7 @@ export default withPageAuthRequired(function settings() {
             <Head>
                 <title>Jobbox - Settings</title>
             </Head>
-            <div className="flex">
+            <div className="flex bg-tess-pattern bg-cover bg-center h-screen">
                 <div className="w-screen">
                     <UserSettings user={user}/>
                 </div>

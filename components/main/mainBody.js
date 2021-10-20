@@ -38,27 +38,38 @@ const MainBody = () => {
                         </div>
                     </div>
                 </div>
+                {/* <div>
+                    <div className="text-center text-5xl font-bold text-regal-blue my-10">
+                        <h2 className="flex flex-col">
+                            <span>Land your dream job with the</span>
+                            <span>help of our resume builder</span>
+                        </h2>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div> */}
             </div>
-            <footer>
-                {/* <div className="grid grid-cols-4 p-10 container mx-auto">
-                    <div className=" border-2 border-red-500">
+            <footer className="bg-regal-blue">
+                {/* <div className="grid md:grid-cols-4 p-10 container mx-auto">
+                    <div className="mb-4">
                         <Image
                             src="/images/Jobbox.me_white.svg"
                             alt="Jobbox Logo"
-                            width={280}
+                            width={200}
                             height={80}
                         />
-                        <p className="text-white pl-7">Use our free resume templates to create free professional resumes.</p>
+                        <p className="text-white">Use our free resume templates to create free professional resumes.</p>
                     </div>
-                    <div className="text-white border-2 border-red-500">
+                    <div className="text-white mb-4">
                         <h1 className="font-bold uppercase pb-5">Education</h1>
                         <ul>
-                            <li>Credit Education</li>
-                            <li>Homeownership</li>
-                            <li>Resume Building</li>
+                            <li className="mb-2">Credit Education</li>
+                            <li className="mb-2">Homeownership</li>
+                            <li className="mb-2">Resume Building</li>
                         </ul>
                     </div>
-                    <div className="text-white border-2 border-red-500">
+                    <div className="text-white mb-4">
                         <h1 className="font-bold uppercase pb-5">Recent Blog Post</h1>
                         <ul className="flex">
                             <li>
@@ -87,7 +98,7 @@ const MainBody = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="text-white border-2 border-red-500">
+                    <div className="text-white ">
                         <h1 className="font-bold uppercase pb-5">Stay Updated</h1>
                         <ul>
                             <li>Credit Education</li>

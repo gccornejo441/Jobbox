@@ -17,8 +17,8 @@ export default withPageAuthRequired(function profile({ resume }) {
             <div className="lg:hidden">
                 <MobileNav resume={resume} user={user} />
             </div>
-            <div className="flex">
-                <div className="h-auto px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
+            <div className="flex bg-tess-pattern bg-cover bg-center">
+                <div className="h-screen px-4 pt-3 bg-regal-blue grid place-content-between hidden lg:block">
                     <SideNav resume={resume} user={user} />
                 </div>
                 <div className="w-screen">
