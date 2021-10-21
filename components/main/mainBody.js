@@ -16,8 +16,8 @@ const MainBody = () => {
                         <div className="flex self-center mb-16 sm:mb-18 flex-col lg:flex-row px-5 sm:pr-0 w-full">
                             <div className="text-regal-blue lg:w-1/2">
                                 <div className="lg:px-16 xl:w-3/4 mx-auto sm:mb-8 md:mb-0 md:mt-36">
-                                    <h1 className="text-left font-extrabold text-2xl sm:text-4xl lg:text-5xl font-sans leading-normal">Create an expert resume for free</h1>
-                                    <h2 className="my-2 text-left font-bold text-md sm:text-lg lg:text-xl">Use our free resume templates to create free professional resumes.</h2>
+                                    <h1 className="text-left font-extrabold text-2xl sm:text-4xl lg:text-5xl font-sans leading-normal">Build a professional resume for free</h1>
+                                    <h2 className="my-2 text-left font-bold text-md sm:text-lg lg:text-xl">Use our free resume designs to build free professional resumes.</h2>
                                     <div className="flex justify-center sm:justify-start">
                                         <Link href="/resume-now">
                                             <button
@@ -28,7 +28,7 @@ const MainBody = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex lg:w-1/2 xl:pb-36">
+                            <div className="flex lg:w-1/2">
                                 <Image
                                     src={resumePic}
                                     alt="Picture of a sample resume"
