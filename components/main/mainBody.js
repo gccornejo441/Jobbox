@@ -13,7 +13,7 @@ const MainBody = () => {
             <div className="flex flex-col relative">
                 <div className="bg-hero-pattern bg-cover bg-center h-screen flex justify-center">
                     <div className="bg-gray-50 bg-opacity-60 w-full flex justify-center">
-                        <div className="flex self-center flex-col lg:flex-row px-5 sm:pr-0 w-full">
+                        <div className="flex self-center mb-16 sm:mb-18 flex-col lg:flex-row px-5 sm:pr-0 w-full">
                             <div className="text-regal-blue lg:w-1/2">
                                 <div className="lg:px-16 xl:w-3/4 mx-auto sm:mb-8 md:mb-0 md:mt-36">
                                     <h1 className="text-left font-extrabold text-2xl sm:text-4xl lg:text-5xl font-sans leading-normal">Create an expert resume for free</h1>
