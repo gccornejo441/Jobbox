@@ -3,6 +3,9 @@ import Image from 'next/image'
 import resumePic from '../../public/images/resume-title.svg'
 import Link from 'next/link'
 import resBuilderChar from '../../public/images/resBuilderChar.svg'
+import linkedinlogo from '../../public/images/linkedin.svg'
+import twitterlogo from '../../public/images/twitter.svg'
+import facebooklogo from '../../public/images/facebook.svg'
 
 const MainBody = () => {
     return (
@@ -57,7 +60,7 @@ const MainBody = () => {
                 </div>
             </div>
             <footer className="bg-regal-blue">
-                {/* <div className="grid md:grid-cols-4 px-10 py-24 container mx-auto">
+                <div className="grid md:grid-cols-4 px-10 py-24 container mx-auto">
                     <div className="mb-4">
                         <Image
                             src="/images/Jobbox.me_white.svg"
@@ -65,17 +68,24 @@ const MainBody = () => {
                             width={200}
                             height={80}
                         />
-                        <p className="text-white">Use our free resume templates to create free professional resumes.</p>
+                        <p className="text-white">Use our free resume designs to build free professional resumes.</p>
                     </div>
                     <div className="text-white mb-4">
-                        <h1 className="font-bold uppercase pb-5">Education</h1>
+                        <h1 className="font-bold uppercase pb-5">Features</h1>
                         <ul>
-                            <li className="mb-2">Credit Education</li>
-                            <li className="mb-2">Homeownership</li>
-                            <li className="mb-2">Resume Building</li>
+                            <li className="mb-2">
+                                <Link href="/resume-now">
+                                    <a>Resume Builder</a>
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/">
+                                    <a>Resume Education</a>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
-                    <div className="text-white mb-4 flex justify-center">
+                    {/* <div className="text-white mb-4 flex justify-center">
                         <div>
                             <h1 className="font-bold uppercase pb-5">Recent Blog Post</h1>
                             <ul className="flex">
@@ -110,13 +120,43 @@ const MainBody = () => {
                         <div>
                             <h1 className="font-bold uppercase pb-5">Stay Updated</h1>
                             <ul>
-                                <li>Credit Education</li>
-                                <li>Homeownership</li>
-                                <li>Resume Building</li>
+                                <li>
+                                    <Link href="https://www.linkedin.com/in/gabriel-cornejo-3a913a184/">
+                                        <Image
+                                            src={linkedinlogo}
+                                            className="w-full h-full text-white cursor-pointer"
+                                            alt="Linkedin Logo"
+                                            height={30}
+                                            width={30}
+                                        />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="https://www.linkedin.com/in/gabriel-cornejo-3a913a184/">
+                                        <Image
+                                            src={twitterlogo}
+                                            className="w-full h-full text-white cursor-pointer"
+                                            alt="Linkedin Logo"
+                                            height={30}
+                                            width={30}
+                                        />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="https://www.linkedin.com/in/gabriel-cornejo-3a913a184/">
+                                        <Image
+                                            src={facebooklogo}
+                                            className="w-full h-full text-white cursor-pointer"
+                                            alt="Linkedin Logo"
+                                            height={30}
+                                            width={30}
+                                        />
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
-                    </div>
-                </div> */}
+                    </div> */}
+                </div>
                 <div className="pt-5 text-white relative bottom-0 bg-regal-blue text-center pb-8">
                     &copy; 2021 Jobbox.me
                 </div>
