@@ -9,18 +9,6 @@ const Builder = (props) => {
 
     const userInfo = props.resume.find((data) => data.username === props.user.nickname);
 
-
-
-    // This handles user phone format
-    const changeNum = (e) => {
-        e.preventDefault();
-        if (e.target.value == e.target.value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
-            e.target.pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
-        } else {
-            return;
-        }
-    };
-
     const phoneRegExp = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
     
     let schema = yup.object().shape({
@@ -83,7 +71,7 @@ const Builder = (props) => {
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} onChange={e => valueValidation(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890 or 1234567890" />
+                                        <input className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} onChange={e => valueValidation(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890" />
                                         <span className="text-xs text-red-500">{errors.map((err) => { return err })}</span>
                                     </div>
                                 </span>
