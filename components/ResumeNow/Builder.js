@@ -7,17 +7,7 @@ import MajorOpt from "../user/MajorOpt";
 
 const Builder = (props) => {
     const [errors, setError] = React.useState([]);
-    const [ value, setValue ] = React.useState({ first_name: ""})
 
-    // This handles user phone format
-    const changeNum = (e) => {
-        e.preventDefault();
-        if (e.target.value == e.target.value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
-            e.target.pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}";
-        } else {
-            return;
-        }
-    };
 
     const phoneRegExp = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
 
@@ -37,30 +27,6 @@ const Builder = (props) => {
         }
     }
 
-    const postData = async (data) => {
-        const res = await fetch('/api/builderNow', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Content-Disposition": "inline; filename=_resume.pdf",
-            },
-            body: JSON.stringify(data)
-        }); 
-    }
-
-    const handleChange = (e) => {
-        setValue({
-            ...value,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        postData(value);
-    }
-
     return (
         <>
             <div className="h-screen xl:flex xl:justify-center">
@@ -76,7 +42,6 @@ const Builder = (props) => {
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="first_name">First Name*</label>
                                         <input
-                                        onChange={(e) => handleChange(e)} 
                                         className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
                                         type="text" 
                                         name="first_name" 
@@ -86,42 +51,69 @@ const Builder = (props) => {
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="last_name">Last Name</label>
                                         <input 
-                                        onChange={(e) => handleChange(e)}
                                         className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
                                         type="text" 
-                                        name="last_name" />
+                                        name="last_name"
+                                        />
                                     </div>
                                 </span>
 
                                 <span className="xl:grid grid-cols-3 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="city">City</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="city" />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        type="text" 
+                                        name="city"
+                                        />
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="state">State</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="state" />
+                                        <input
+                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        type="text" 
+                                        name="state"
+                                        />
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="zip">Zip Code</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="zip" />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        type="text" 
+                                        name="zip" 
+                                        />
                                     </div>
                                 </span>
                                 <span className="xl:grid grid-cols-2 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="email">Email</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" type="email" name="email" />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        type="email" 
+                                        name="email"
+                                        />
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} onChange={e => valueValidation(e)} type="tel" name="phone" placeholder="123-456-7890 or 1234567890" />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} 
+                                        onChange={e => valueValidation(e)} 
+                                        type="tel" 
+                                        name="phone" 
+                                        placeholder="123-456-7890 or 1234567890"
+                                        />
                                         <span className="text-xs text-red-500">{errors.map((err) => { return err })}</span>
                                     </div>
                                 </span>
                                 <span className="xl:grid grid-cols-1 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="about_me">About Me</label>
-                                        <textarea className="text-sm font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" type="text" name="about_me" />
+                                        <textarea 
+                                        className="text-sm font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        type="text" 
+                                        name="about_me" 
+                                        />
                                     </div>
                                 </span>
                                 <div className="border-b border-gray-200 w-full my-5"></div>

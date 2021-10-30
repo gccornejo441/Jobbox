@@ -42,11 +42,22 @@ const Builder = (props) => {
                                 <span className="xl:grid grid-cols-2 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="first_name">First Name*</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.first_name : ''} type="text" name="first_name" required />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        defaultValue={userInfo ? userInfo.first_name : ''} 
+                                        type="text" 
+                                        name="first_name" 
+                                        required 
+                                        />
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="last_name">Last Name</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" defaultValue={userInfo ? userInfo.last_name : ''} type="text" name="last_name" />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        defaultValue={userInfo ? userInfo.last_name : ''}
+                                        type="text" 
+                                        name="last_name" 
+                                        />
                                     </div>
                                 </span>
 
