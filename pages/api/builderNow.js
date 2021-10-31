@@ -13,18 +13,16 @@ const builderNow = async (req, res) => {
 
         doc.pipe(res)
 
+        // Capitalization Function
+        const capitalizeFunction = (string) => { return string.charAt(0).toUpperCase() + string.slice(1); }
+
         // and some justified text wrapped into columns
         doc
             .fillColor('black')
             .font('Times-Bold', 16)
             .moveUp(1.6)
-            .text(req.body.first_name + " " + req.body.last_name, {
-                width: 412,
+            .text(capitalizeFunction(req.body.first_name) + " " + capitalizeFunction(req.body.last_name), {
                 align: 'center',
-                indent: 40,
-                columns: 1,
-                height: 500,
-                ellipsis: true
             })
 
         // and some justified text wrapped into columns
@@ -49,18 +47,10 @@ const builderNow = async (req, res) => {
             .moveDown()
             .moveUp()
             .text(req.body.city + " " + locationState() + req.body.zip, {
-                width: 412,
                 align: 'center',
-                indent: 40,
-                columns: 1,
-                ellipsis: true
             })
             .text(contactMe(), {
-                width: 412,
                 align: 'center',
-                indent: 40,
-                columns: 1,
-                ellipsis: true
             })
         // .text("Portfolio:" + " " + "www." + req.body.github, {
         //   width: 412,

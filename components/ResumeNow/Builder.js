@@ -12,20 +12,22 @@ const Builder = (props) => {
     const phoneRegExp = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
 
     let schema = yup.object().shape({
-        phoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid')
+        phone: yup.string().matches(phoneRegExp, 'Phone number is not valid'),
+        email: yup.string().email('Invalid email').required('Required')
     });
-
+    
     const valueValidation = async (e) => {
-        let err = await schema.validate({ phoneNumber: e.target.value }).catch((err) => {
+        let err = await schema.validate({ email: e.target.value }).catch((err) => {
             return err;
         });
-
+        
         if (err.errors != undefined) {
             setError(err.errors);
         } else {
             setError([])
         }
     }
+
 
     return (
         <>
@@ -89,9 +91,11 @@ const Builder = (props) => {
                                         <label className="py-2" htmlFor="email">Email</label>
                                         <input 
                                         className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        onChange={e => valueValidation(e)} 
                                         type="email" 
                                         name="email"
                                         />
+                                        <span className="text-xs text-red-500">{errors.map((err) => { return err })}</span>
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>

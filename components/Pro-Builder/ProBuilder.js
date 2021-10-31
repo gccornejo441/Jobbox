@@ -27,7 +27,6 @@ const Builder = (props) => {
         }
     }
 
-
     return (
         <>
             <div className="h-screen xl:flex xl:justify-center">
@@ -82,7 +81,15 @@ const Builder = (props) => {
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>
-                                        <input className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} onChange={e => valueValidation(e)} defaultValue={userInfo ? userInfo.phone : ''} type="tel" name="phone" placeholder="123-456-7890" />
+                                        <input 
+                                        className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} 
+                                        onChange={e => valueValidation(e)}
+                                        defaultValue={userInfo ? userInfo.phone : ''} 
+                                        type="tel" 
+                                        name="phone" 
+                                        placeholder="123-456-7890" 
+                                        />
                                         <span className="text-xs text-red-500">{errors.map((err) => { return err })}</span>
                                     </div>
                                 </span>
