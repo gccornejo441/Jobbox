@@ -12,7 +12,7 @@ const Builder = (props) => {
     const phoneRegExp = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
 
     let schema = yup.object().shape({
-        first_name: yup.string().required('First number is not valid'),
+        first_name: yup.string().required('Required'),
         phone: yup.string().matches(phoneRegExp, 'Phone number is not valid'),
         email: yup.string().email('Invalid email').required('Required')
     });
@@ -23,7 +23,6 @@ const Builder = (props) => {
     const onSubmit = (data) => {
         console.log(data)
       };
-
 
     return (
         <>
