@@ -2,31 +2,27 @@ import { CogIcon } from "@heroicons/react/solid";
 import Experience from "../ResumeNow/Experience";
 import SkillsModal from "../../components/user/SkillsModal";
 import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as React from "react";
 import MajorOpt from "../user/MajorOpt";
 
+
 const Builder = (props) => {
-    const [errors, setError] = React.useState([]);
-
-
-    const phoneRegExp = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/
+    const phoneRegExp = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
 
     let schema = yup.object().shape({
+        first_name: yup.string().required('First number is not valid'),
         phone: yup.string().matches(phoneRegExp, 'Phone number is not valid'),
         email: yup.string().email('Invalid email').required('Required')
     });
-    
-    const valueValidation = async (e) => {
-        let err = await schema.validate({ email: e.target.value }).catch((err) => {
-            return err;
-        });
-        
-        if (err.errors != undefined) {
-            setError(err.errors);
-        } else {
-            setError([])
-        }
-    }
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    })
+
+    const onSubmit = (data) => {
+        console.log(data)
+      };
 
 
     return (
@@ -37,25 +33,27 @@ const Builder = (props) => {
                         <div className="p-5 mt-8 xl:mt-0 xl:mb-5 xl:mx-8 xl:p-10 bg-regal-blue rounded-lg">
                             <h1 className="sm:text-lg xl:text-2xl text-gray-50 tracking-widest">Resume Builder <span className="text-xs">by Jobbox</span></h1>
                         </div>
-                        <form action="/api/builderNow" method="POST" className="md:mx-20 grid grid-cols-1">
+                        <form action="/api/builderNow" onSubmit={handleSubmit(onSubmit)} method="POST" className="md:mx-20 grid grid-cols-1">
                             <div className="py-3 xl:px-4 md:w-auto">
                                 <span className="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                 <span className="xl:grid grid-cols-2 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="first_name">First Name*</label>
                                         <input
-                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        type="text" 
-                                        name="first_name" 
-                                        required 
+                                            className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            type="text"
+                                            name="first_name"
+                                            {...register("first_name")}
                                         />
+                                        <span className="text-xs text-red-500">{errors.first_name && <>{errors.first_name.message}</>}</span>
+
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="last_name">Last Name</label>
-                                        <input 
-                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        type="text" 
-                                        name="last_name"
+                                        <input
+                                            className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            type="text"
+                                            name="last_name"
                                         />
                                     </div>
                                 </span>
@@ -63,60 +61,57 @@ const Builder = (props) => {
                                 <span className="xl:grid grid-cols-3 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="city">City</label>
-                                        <input 
-                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        type="text" 
-                                        name="city"
+                                        <input
+                                            className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            type="text"
+                                            name="city"
                                         />
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="state">State</label>
                                         <input
-                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        type="text" 
-                                        name="state"
+                                            className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            type="text"
+                                            name="state"
                                         />
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="zip">Zip Code</label>
-                                        <input 
-                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        type="text" 
-                                        name="zip" 
+                                        <input
+                                            className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            type="text"
+                                            name="zip"
                                         />
                                     </div>
                                 </span>
                                 <span className="xl:grid grid-cols-2 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="email">Email</label>
-                                        <input 
-                                        className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        onChange={e => valueValidation(e)} 
-                                        type="email" 
-                                        name="email"
+                                        <input
+                                            className="text-sm p-1 font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            name="email"
+                                            {...register("email")}
                                         />
-                                        <span className="text-xs text-red-500">{errors.map((err) => { return err })}</span>
+                                        <span className="text-xs text-red-500">{errors.email && <>{errors.email.message}</>}</span>
                                     </div>
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>
-                                        <input 
-                                        className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} 
-                                        onChange={e => valueValidation(e)} 
-                                        type="tel" 
-                                        name="phone" 
-                                        placeholder="123-456-7890 or 1234567890"
+                                        <input
+                                            className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            name="phone"
+                                            placeholder="123-456-7890 or 1234567890"
+                                            {...register("phone")}
                                         />
-                                        <span className="text-xs text-red-500">{errors.map((err) => { return err })}</span>
+                                        <span className="text-xs text-red-500">{errors.phone && <>{errors.phone.message}</>}</span>
                                     </div>
                                 </span>
                                 <span className="xl:grid grid-cols-1 gap-5">
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="about_me">About Me</label>
-                                        <textarea 
-                                        className="text-sm font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
-                                        type="text" 
-                                        name="about_me" 
+                                        <textarea
+                                            className="text-sm font-normal text-blue-900 xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            type="text"
+                                            name="about_me"
                                         />
                                     </div>
                                 </span>
