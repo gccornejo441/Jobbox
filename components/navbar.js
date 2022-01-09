@@ -57,12 +57,6 @@ export default function Navbar({ isShowing }) {
                     </>
                   ) : (
                     <>
-                      <li className="md:mx-8 list-none">
-                        <a href="/Home/Mortgage" className="tracking-wider text-white text-sm flex">
-                          Mortgage
-                          {/* <ChevronDownIcon className="text-white ml-1" height={20} width={13} /> */}
-                        </a>
-                      </li>
                       {/*   <li className="md:mx-8 list-none">
                         <a href="#" className="tracking-wider text-white text-sm flex">
                           Credit Education
