@@ -82,7 +82,7 @@ const Builder = (props) => {
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>
                                         <input 
-                                        className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
+                                        className="text-sm p-1 font-normal text-blue-900  xl:bg-gray-100 border border-gray-200 rounded-md pl-2" 
                                         pattern={"[0-9]{10}|[0-9]{3}-[0-9]{3}-[0-9]{4}"} 
                                         onChange={e => valueValidation(e)}
                                         defaultValue={userInfo ? userInfo.phone : ''} 
@@ -248,7 +248,7 @@ const Builder = (props) => {
                                 </span>
                             </div>
                             <div className="flex justify-center border-t border-gray-200 pt-16 pb-12">
-                                <div className="flex flex-col invisible hidden">
+                                <div className="invisible hidden">
                                     <label className="py-2" htmlFor="user"></label>
                                     <input type="text" name="username" value={props.user.nickname} />
                                 </div>

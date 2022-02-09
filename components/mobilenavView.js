@@ -23,24 +23,24 @@ const MobileNavView = (props) => {
                         <div>
                             {menu.map(item => {
                                 return (
-                                    <a key={item.id} href={item.href}>
-                                    {userInDB == undefined && item.id == 2 ? (
+                                  <Link key={item.id} href={item.href}>
+                                    <a>
+                                      {userInDB == undefined && item.id == 2 ? (
                                         <div></div>
-                                    ) : (
+                                      ) : (
                                         <li className="border border-transparent py-3 my-2 list-none hover:border-gray-50 bg-regal-blue text-gray-50 hover:bg-green-300 hover:text-regal-blue rounded-lg">
-                                            <div className="flex justify-between">
-                                                <span className="flex">
-                                                    <div className="mx-2">
-                                                        {item.icon}
-                                                    </div>
-                                                    <div>
-                                                        {item.label}
-                                                    </div>
-                                                </span>
-                                            </div>
+                                          <div className="flex justify-between">
+                                            <span className="flex">
+                                              <div className="mx-2">
+                                                {item.icon}
+                                              </div>
+                                              <div>{item.label}</div>
+                                            </span>
+                                          </div>
                                         </li>
-                                    )}
+                                      )}
                                     </a>
+                                  </Link>
                                 );
                             })}
                         </div>

@@ -46,7 +46,7 @@ const MobileNav = (props) => {
               <div className="absolute z-20 top-0 bg-regal-blue h-screen w-full">
                 <MobileNavView parentProps={props} />
               </div>
-              <div className="px-4 pt-3 bg-teal-900 grid place-content-between xl:hidden hidden sm:block absolute z-10">
+              <div className="px-4 pt-3 bg-teal-900 place-content-between xl:hidden hidden sm:block absolute z-10">
                 <SideNav />
               </div>
             </Disclosure.Panel>

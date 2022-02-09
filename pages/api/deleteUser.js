@@ -11,8 +11,7 @@ const client = new MongoClient(uri, {
 });
 
 const deleteUser = async (req, res) => {
-  // console.log("requested body: ", req.body)
-  console.log(req.body)
+  console.log("requested body: ", req.body);
 
   if (req.method === 'POST') {
     let { username } = req.body;

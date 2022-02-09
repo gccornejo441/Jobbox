@@ -85,80 +85,19 @@ const MainBody = () => {
                             </li>
                         </ul>
                     </div>
-                    {/* <div className="text-white mb-4 flex justify-center">
-                        <div>
-                            <h1 className="font-bold uppercase pb-5">Recent Blog Post</h1>
-                            <ul className="flex">
-                                <li>
-                                    <Image
-                                        src="/images/homePost.jpg"
-                                        alt="Home Post"
-                                        width={90}
-                                        height={90}
-                                    />
-                                </li>
-                                <li className="flex flex-col w-3/4 px-2 hover:underline text-blue-200">
-                                    <Link href="/">
-                                        <a
-                                            title="Zillo slams the breaks on home buying as it struggles to manage its backlog of inventory"
-                                            className="text-sm"
-                                        >
-                                            Zillo slams the breaks on home buying...
-                                        </a>
-                                    </Link>
-                                    <a
-                                        title="May 18th, 2021"
-                                        className="text-xs"
-                                    >
-                                        May 18th, 2021
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div className="text-white mb-4">
+                        <h1 className="font-bold uppercase pb-5">Tools</h1>
+                        <ul>
+                            <li className="mb-2">
+                                <Link href="/calculators/ami">
+                                    <a>AMI Calculator</a>
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="text-white flex flex-row-reverse">
-                        <div>
-                            <h1 className="font-bold uppercase pb-5">Stay Updated</h1>
-                            <ul>
-                                <li>
-                                    <Link href="https://www.linkedin.com/in/gabriel-cornejo-3a913a184/">
-                                        <Image
-                                            src={linkedinlogo}
-                                            className="w-full h-full text-white cursor-pointer"
-                                            alt="Linkedin Logo"
-                                            height={30}
-                                            width={30}
-                                        />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="https://www.linkedin.com/in/gabriel-cornejo-3a913a184/">
-                                        <Image
-                                            src={twitterlogo}
-                                            className="w-full h-full text-white cursor-pointer"
-                                            alt="Linkedin Logo"
-                                            height={30}
-                                            width={30}
-                                        />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="https://www.linkedin.com/in/gabriel-cornejo-3a913a184/">
-                                        <Image
-                                            src={facebooklogo}
-                                            className="w-full h-full text-white cursor-pointer"
-                                            alt="Linkedin Logo"
-                                            height={30}
-                                            width={30}
-                                        />
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> */}
                 </div>
                 <div className="pt-5 text-white relative bottom-0 bg-regal-blue text-center pb-8">
-                    &copy; 2021 Jobbox.me
+                    &copy; 2022 Jobbox.me
                 </div>
             </footer>
         </>

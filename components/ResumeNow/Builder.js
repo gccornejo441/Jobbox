@@ -96,7 +96,7 @@ const Builder = (props) => {
                                     <div className="flex flex-col">
                                         <label className="py-2" htmlFor="phone">Phone</label>
                                         <input
-                                            className="text-sm p-1 font-normal text-blue-900 text-regal-blue xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
+                                            className="text-sm p-1 font-normal text-blue-900  xl:bg-gray-100 border border-gray-200 rounded-md pl-2"
                                             name="phone"
                                             placeholder="123-456-7890 or 1234567890"
                                             {...register("phone")}
