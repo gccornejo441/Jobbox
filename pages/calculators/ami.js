@@ -1,7 +1,67 @@
+import * as React from 'react';
 import Navbar from "../../components/ResumeNow/NavBar";
 import Head from "next/head";
 
+const calculate = (med, size, per) => {
+    const value = ''
+    const newMed = med * per;
+
+    switch (size){
+        case '1':
+            value = newMed * 0.70;
+            break;
+        case '2':
+            value = newMed * 0.80;
+            break;
+        case '3':
+            value = newMed * 0.90;
+            break;
+        case '4':
+            value = newMed * 1;
+            break;
+        case '5':
+            value = newMed * 1.08;
+            break;
+        case '6':
+            value = newMed * 1.16;
+            break;
+        case '7':
+            value = newMed * 1.24;
+            break;
+        case '8':
+            value = newMed * 1.32;
+            break;
+        case '9':
+            value = newMed * 1.40;
+            break;
+        default:
+            console.log("size too large");
+    }
+    return value
+}
+
 const ami = () => {
+    const [value, setValue] = React.useState({});
+    const [median, setMedian] = React.useState("");
+    const [size, setSize] = React.useState("");
+    const [percent, setPercent] = React.useState("");
+
+    const handleChange = (evt) => {
+        evt.preventDefault();
+        const input = evt.target.value;
+
+        if (evt.target.name == "median") {
+            setMedian(input);
+        } else if (evt.target.name == "percent") {
+            setPercent(input);
+        } else {
+            setSize(input);
+        }
+    }
+
+    console.log("goood: ", calculate(median, size, percent))
+    
+ 
     return (
         <>
             <Head>
@@ -21,15 +81,16 @@ const ami = () => {
                                             </div>
                                             <div className="grid grid-cols-1 gap-6">
                                                 <div className="col-span-6 sm:col-span-3">
-                                                    <label htmlFor="medium" className="block text-lg md:text-2xl font-medium text-gray-700">
+                                                    <label htmlFor="median" className="block text-lg md:text-2xl font-medium text-gray-700">
                                                         Median Income
                                                     </label>
                                                     <input
-                                                        type="text"
-                                                        name="medium"
-                                                        id="medium"
-                                                        autoComplete="given-name"
+                                                        type="number"
+                                                        name="median"
+                                                        id="median"
+                                                        autoComplete="median-name"
                                                         className="border-2 border-gray-900"
+                                                        onChange={e => handleChange(e)}
                                                     />
                                                 </div>
                                                 <div>
@@ -45,10 +106,11 @@ const ami = () => {
                                                         id="percent"
                                                         autoComplete="percent-name"
                                                         className="border-2 border-gray-900"
+                                                        onChange={e => handleChange(e)}
                                                     >
-                                                        <option>80%</option>
-                                                        <option>100%</option>
-                                                        <option>120%</option>
+                                                        <option value="0.80">80%</option>
+                                                        <option value="1">100%</option>
+                                                        <option value="1.20">120%</option>
                                                     </select>
                                                 </div>
 
@@ -66,6 +128,7 @@ const ami = () => {
                                                         id="household"
                                                         autoComplete="household-name"
                                                         className="border-2 border-gray-900"
+                                                        onChange={e => handleChange(e)}
                                                     >
                                                         <option>1</option>
                                                         <option>2</option>

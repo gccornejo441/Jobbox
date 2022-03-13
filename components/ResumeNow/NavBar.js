@@ -19,15 +19,14 @@ export default function Navbar({ isShowing }) {
                 <div className="relative flex items-center justify-between h-12">
                   {/* RACKET SPACE LOGO */}
                   <div className="flex w-max rounded-md px-2 bg-white h-9">
-                    <Link href="/v2/pro-builder">
-                      <span>
+                    <Link  href="/">
                         <Image
                           src="/images/Jobbox.me.svg"
                           alt="Jobbox Logo"
+                        className="cursor-pointer"
                           height={36}
                           width={120}
                         />
-                      </span>
                     </Link>
                   </div>
                   {/* RACKET SPACE LOGIN & LOGOUT */}

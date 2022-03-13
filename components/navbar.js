@@ -15,16 +15,15 @@ export default function Navbar({ isShowing }) {
             <div className="mx-auto px-2 sm:px-6 lg:px-8">
               <div className="relative flex items-center justify-between h-12">
                 {/* RACKET SPACE LOGO */}
-                <div className="flex w-max rounded-md px-2 bg-white h-9">
-                  <Link href="/v2/pro-builder">
-                    <span>
-                      <Image
-                        src="/images/Jobbox.me.svg"
-                        alt="Jobbox Logo"
-                        height={36}
-                        width={120}
-                      />
-                    </span>
+                <div className="flex w-max rounded-md px-2 bg-white h-9 cursor-pointer">
+                  <Link href="/">
+                    <Image
+                      src="/images/Jobbox.me.svg"
+                      alt="Jobbox Logo"
+                      className="cursor-pointer"
+                      height={36}
+                      width={120}
+                    />
                   </Link>
                 </div>
                 {/* RACKET SPACE LOGIN & LOGOUT */}
@@ -33,10 +32,10 @@ export default function Navbar({ isShowing }) {
                     <>
                       <ul className="flex">
                         <li className="md:mx-8">
-                          <a 
-                          href="/api/auth/logout" 
-                          data-testid="logout" 
-                          className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue"
+                          <a
+                            href="/api/auth/logout"
+                            data-testid="logout"
+                            className="text-white border rounded-md bg-regal-blue text-md p-2 hover:bg-fuchsia-300 hover:text-regal-blue hover:border-regal-blue"
                           >
                             Logout
                           </a>
@@ -58,17 +57,17 @@ export default function Navbar({ isShowing }) {
                   ) : (
                     <>
                       <li className="md:mx-8 list-none">
-                        <Link  href="/resume-now">
+                        <Link href="/resume-now">
                           <a className="tracking-wider text-white text-sm flex">
                             Resume
                           </a>
                         </Link>
                       </li>
                       <li className="md:mx-8 list-none">
-                        <a 
-                        href="/api/auth/login" 
-                        data-testid="login" 
-                        className="tracking-wider text-white text-sm flex">
+                        <a
+                          href="/api/auth/login"
+                          data-testid="login"
+                          className="tracking-wider text-white text-sm flex">
                           Login
                         </a>
                       </li>
@@ -118,10 +117,10 @@ export default function Navbar({ isShowing }) {
                         </Link>
                       </li>
                       <li className="border-t-2 border-green-400 py-4 text-center">
-                        <a 
-                        href="/api/auth/logout" 
-                        data-testid="logout" 
-                        className="ml-8 text-white hover:underline">
+                        <a
+                          href="/api/auth/logout"
+                          data-testid="logout"
+                          className="ml-8 text-white hover:underline">
                           Logout
                         </a>
                       </li>
