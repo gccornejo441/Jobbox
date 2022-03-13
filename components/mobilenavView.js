@@ -1,6 +1,6 @@
 import { menu } from "../lib/menuset";
 import { useUser } from "@auth0/nextjs-auth0"
-
+import Link from "next/link";
 
 const MobileNavView = (props) => {
     // importing user form auth0
