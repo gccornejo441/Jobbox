@@ -32,7 +32,7 @@ const Builder = (props) => {
                         <div className="p-5 mt-8 xl:mt-0 xl:mb-5 xl:mx-8 xl:p-10 bg-regal-blue rounded-lg">
                             <h1 className="sm:text-lg xl:text-2xl text-gray-50 tracking-widest">Resume Builder <span className="text-xs">by Jobbox</span></h1>
                         </div>
-                        <form action="/api/builderNow" onSubmit={handleSubmit(onSubmit)} method="POST" className="md:mx-20 grid grid-cols-1">
+                        <form action="/api/resumeNow" method="POST" className="md:mx-20 grid grid-cols-1">
                             <div className="py-3 xl:px-4 md:w-auto">
                                 <span className="inline-block align-middle text-2xl text-regal-blue">General Information</span>
                                 <span className="xl:grid grid-cols-2 gap-5">

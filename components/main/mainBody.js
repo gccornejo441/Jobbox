@@ -78,21 +78,6 @@ const MainBody = () => {
                                     <a>Resume Builder</a>
                                 </Link>
                             </li>
-                            <li className="mb-2">
-                                <Link href="/">
-                                    <a>Resume Education</a>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="text-white mb-4">
-                        <h1 className="font-bold uppercase pb-5">Tools</h1>
-                        <ul>
-                            <li className="mb-2">
-                                <Link href="/calculators/ami">
-                                    <a>AMI Calculator</a>
-                                </Link>
-                            </li>
                         </ul>
                     </div>
                 </div>
